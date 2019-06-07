@@ -1,0 +1,21 @@
+--- 
+title: "Agile Machine Learning with R"
+subtitle: "A workflow"
+author: "Edwin Thoen"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+description: A workflow for doing machine learning in the R language, using Agile principles.
+documentclass: book
+link-citations: yes
+bibliography:
+- book.bib
+- packages.bib
+site: bookdown::bookdown_site
+biblio-style: apalike
+---
+
+# Introduction
+
+Vivid memories sometimes surface, especially at night, of times not too long ago when I was starting my career as a data scientist. Freshly graduated from an applied statistics master I entered the arena of Dutch business employed by a small consulting firm. Neither the company I was working for, nor the clients I was working, nor myself had an understanding of what it meant to implement a statistical model or a machine learning method in the real world. When we finally came to something that looked like a project, I plunged into it. Eager to deliver results quickly I loaded data extracts into R and started to apply all kinds of different models on it. Findings ended up in the code comments of the R scripts, of which many ended up to be hundreds of lines long. To remain somekind of overview I numbered the scripts serially, but this about all the system I had. 
