@@ -1,0 +1,56 @@
+# Agile in a Nutshell
+
+## The Origins of Agile
+
+*Agile* software development is not a specific methodogy, a process, or a prescription how to do your job. Rather it is a set of believes, a philosophy, that should guideline a team developing software in making the best possible decisions. Agile was not created out of thin air, of course, it was very much a reaction of the then ubiquitous approach called *Waterfall*. In *Waterfall* large software projects are divided into specific stages, each stage should be completed before the next stage can start. Subsequentially these are *problem analysis*, *designing the project*, *writing the software*, *testing it* and finally *implementation and maintenance*. [Here](https://www.youtube.com/watch?v=LxEmGNgqYJA) you can find a clear and neutral introducion into the *Waterfall* approach. What stands out at *Waterfall* is delivering complete and faultless software. In order to do so, the centre of gravity of a Waterfall project is the documentation, in which every requirement and aspect of the software is written down meticulously. The underlying conviction is that the software is written faster and is of higher quality when all aspects of it is decided upon upfront.
+
+Projects done with the Waterfall method have a major pitfall, however. They can take a long period of time to be completed. The combination of sequentiality and completeness might cause projects to last many years before they get delivered. Each time an error or incompleteness is found in one of the lower stages, the project moves back to the previous stage to fix it. Because of the long duration of the entire process of *Waterfall* it occured often that the end result was no longer a good fit for the market. This  that once the product is finally completed, it is no longer a good fit for the market. The problem analysis might be done years ago and the problem has changed in the meantime. *Agile* has a radical different appoach to software design. Rather than doing an elaborate research and 
+
+## The Manifesto
+
+During the nineties several reactions to the cumbersome Waterfall came to being. A number of influential thinkers in the world of software development started thinking what an alternative to the malfunctioning practises could be. Alternative processes were suggested, such as scrum and Xtreme programming. Eventually, in 2001 a group of seventeen came together in Utah and drew up the *Manifesto for Agile Software Development*. Their just 68-word-long statement is:
+
+We are uncovering better ways of developing software by doing it and helping others do it. Through this work we have come to value:
+
+Individuals and interactions over processes and tools
+Working software over comprehensive documentation
+Customer collaboration over contract negotiation
+Responding to change over following a plan
+
+That is, while there is value in the items on the right, we value the items on the left more.
+
+You might think "well that is rather vague", yes it is on purpose. It is not a process you should follow or a methodology that prescribes how you should approach software development. Rather, they are core values that guide the development team with the many choices it makes along the way. At every crossroads the option that is most in line with these values should be selected. 
+
+## The Twelve Principles
+
+The Manifesto was accompanied by a set of twelve principles that flow from the values. They are a little bit more concrete than the four values and are thereby the principle guidelines when making choices. They are (numbering added by me):
+
+1) Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.
+
+2) Welcome changing requirements, even late in development. Agile processes harness change for the customer's competitive advantage.
+
+3) Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.
+
+4) Business people and developers must work together daily throughout the project.
+
+5) Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done.
+
+6) The most efficient and effective method of conveying information to and within a development team is face-to-face conversation.
+
+7) Working software is the primary measure of progress.
+
+8) Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely.
+
+9) Continuous attention to technical excellence and good design enhances agility.
+
+10) Simplicity--the art of maximizing the amount of work not done--is essential.
+
+11) The best architectures, requirements, and designs emerge from self-organizing teams.
+
+12) At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.
+
+## How does Agile relate to Scrum?
+
+Scrum is often mentioned in the context of Agile development and you sometimes hear the two used interchangeability. Whereas Agile is a set of principles and values and is not prescriptive in how you should do your job, Scrum is a hands-on methodology on how to develop software. Scrum did not result from Agile, as the first public presentation of the methodology predates the Manifesto by six years. It has a close relation with it though, as its godfathers, Ken Schwaber and Jeff Sutherland, are alos part of the seventeen founders of Agile. The methodology Scrum can be a practical way to put the Agile principles into practise, with the emphasis on *may*. Following Agile requires that you always look critically to the workflow you are currently following, to make sure the choices you make are in line with the Agile principles. The Scrum methodology might be the most effictive, but it does not have to be. There others, such as Kanban and XP, that might be more suitable, or you might figure out your own best workflow alltogether. Note also that following Scrum does not make you Agile. It is all the hype nowadays to apply the Scrum methodology in other departments as well, in which entire departments are sent to expensive courses after which they start doing standups and write their to-dos on stickies. This might be a fine team-building activity, but without having the Agile principles in mind it does not seem to have more value than any other workflow.  
+
+Now we have a grasp of what Agile is and where it is coming from, lets have a go at it in the context of Machine Learning. 

@@ -1,0 +1,10 @@
+---
+title: "agile-ml"
+author: "Edwin Thoen"
+date: "7/9/2019"
+output: html_document
+---
+
+## Agile Machine Learning
+
+The Agile methodolgy was created for software development. Although machine learning certainly has software development elements in it, it has some fundamental differences from pure software development. The core of the values and principles of Agile can make machine learning 

@@ -1,5 +1,11 @@
-book_filename: "AMLwR"
-delete_merged_file: true
+rmd_files: [
+  "index.rmd",
+  "agile-ml.rmd",
+  "code-organisation.rmd",
+  "automation.rmd",
+  "collaboration.rmd"
+]
+
 language:
   ui:
     chapter_name: ""
