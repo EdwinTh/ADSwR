@@ -23,7 +23,7 @@ You might think "well that is rather vague", yes it is on purpose. It is not a p
 
 ## The Twelve Principles
 
-The Manifesto was accompanied by a set of twelve principles that flow from the values. They are a little bit more concrete than the four values and are thereby the principle guidelines when making choices. They are (numbering added by me):
+The Manifesto was accompanied by a set of twelve principles that flow from the values. They are more applicable than the four values and are thereby the principle guidelines when making choices. They are (numbering added by me):
 
 1) Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.
 
@@ -49,8 +49,4 @@ The Manifesto was accompanied by a set of twelve principles that flow from the v
 
 12) At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.
 
-## How does Agile relate to Scrum?
 
-Scrum is often mentioned in the context of Agile development and you sometimes hear the two used interchangeability. Whereas Agile is a set of principles and values and is not prescriptive in how you should do your job, Scrum is a hands-on methodology on how to develop software. Scrum did not result from Agile, as the first public presentation of the methodology predates the Manifesto by six years. It has a close relation with it though, as its godfathers, Ken Schwaber and Jeff Sutherland, are alos part of the seventeen founders of Agile. The methodology Scrum can be a practical way to put the Agile principles into practise, with the emphasis on *may*. Following Agile requires that you always look critically to the workflow you are currently following, to make sure the choices you make are in line with the Agile principles. The Scrum methodology might be the most effictive, but it does not have to be. There others, such as Kanban and XP, that might be more suitable, or you might figure out your own best workflow alltogether. Note also that following Scrum does not make you Agile. It is all the hype nowadays to apply the Scrum methodology in other departments as well, in which entire departments are sent to expensive courses after which they start doing standups and write their to-dos on stickies. This might be a fine team-building activity, but without having the Agile principles in mind it does not seem to have more value than any other workflow.  
-
-Now we have a grasp of what Agile is and where it is coming from, lets have a go at it in the context of Machine Learning. 

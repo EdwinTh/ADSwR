@@ -1,0 +1,3 @@
+# A Methodology for Agile Machine Learning
+
+Here we are going to look at what from Scrum and Kanban does and does not work for machine learning.
