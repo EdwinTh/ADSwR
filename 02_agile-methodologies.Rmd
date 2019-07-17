@@ -2,4 +2,21 @@
 
 We learned that Agile is not so much a workflow or a method, but rather a philosophy that should guide us whenever a choice has to be made during the completion of the project. In fact, Agile promotes being critical to strictly following a workflow, we should continously questioning if the way we work makes us optimally follow the Agile values and principles. If this is not the case we should adjust our workflow. This does not mean there are no workflows related to Agile. In fact, a number of workflows are developed by the men (yes, no women were there) who drew up the Agile Manifesto. Following these workflows should make it more likely the team follows the Agile values and principles. Here we look into the two best known; Scrum and Kanban.
 
+## Scrum
+
+The most well-known and most-applied workflow is Scrum. Developed in the late eighties and early nineties it is tried and tested methodology. It is no longer just applied in software development, but in the development of many other products as well. Scrum works with sprints, set time units after which a shipeable product should be ready. Most teams use two-week sprints, but it can also be shorter or longer. Teams are completely self-organising, they decide what it will do the next sprint and how they will do it. Tasks to do are gathered on the productlog, they are all formulated such that it is clear how they will add value to the product. These **user stories** take the form "As <role user> I would like to <action/functionality> such that I <benefit>". Say that you run a website that sends out newsletter to all its customer, but there is no option for opting out yet. The user story for creating such a functionality could then be "As a subscribed user I would like to be able to opt out for the newsletter such that I only receive information when I want to". 
+
+Scrum comes with a set of roles and ceremonies that I will describe below.
+
+### Roles within Scrum
+
+A Scrum team has three different roles. First there is the **Scrum Master**, its 
+
+
 In this chapters we are exploring the methods that promote working according to the Agile principles, at least Scrum and Kanban.
+
+
+Sources: 
+
+Scrum
+https://www.youtube.com/watch?v=2Vt7Ik8Ublw
