@@ -10,10 +10,12 @@ Scrum comes with a set of roles and ceremonies that I will describe below.
 
 ### Roles within Scrum
 
-A Scrum team has three different roles. First there is the **Scrum Master**, its 
+A Scrum team has three different roles. First there is the **Scrum Master**, its core responsibility is making sure the team will make the sprint goals. To do so, she must have a watchful eye. If the sales manager wants something done and tries to persuade one of the devs at the coffee machine, he is kindly redirected to the product owner to get it on the back log. If some of the team members lack some necessary skills, she will make a plan with them how to acquire them. Also, she will be the organiser and facilitater of the different Scrum meetings.
 
+The **Product Owner** is responsible for what the product should be. He monitors the needs and desires of the customer, so one of its key responsibilities is stakeholder management. He should know the market and notice when it changes. He decides what the product should look like, by translating feature changes in user stories. 
 
-In this chapters we are exploring the methods that promote working according to the Agile principles, at least Scrum and Kanban.
+Then there is the **Team**, the professionals that create the product. 
+
 
 
 Sources: 
