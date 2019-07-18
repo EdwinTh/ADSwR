@@ -8,17 +8,23 @@ The most well-known and most-applied workflow is Scrum. Developed in the late ei
 
 Scrum comes with a set of roles and ceremonies that I will describe below.
 
-### Roles within Scrum
+### Roles
 
-A Scrum team has three different roles. First there is the **Scrum Master**, its core responsibility is making sure the team will make the sprint goals. To do so, she must have a watchful eye. If the sales manager wants something done and tries to persuade one of the devs at the coffee machine, he is kindly redirected to the product owner to get it on the back log. If some of the team members lack some necessary skills, she will make a plan with them how to acquire them. Also, she will be the organiser and facilitater of the different Scrum meetings.
+A Scrum team has three different roles. The **scrum master**, its core responsibility is making sure the team will make the sprint goals. To do so, she must have a watchful eye. If the sales manager wants something done and tries to persuade one of the devs at the coffee machine, he is kindly redirected to the product owner to get it on the back log. If some of the team members lack some necessary skills, she will make a plan with them how to acquire them. Also, she will be the organiser and facilitater of the different Scrum meetings.
 
-The **Product Owner** is responsible for what the product should be. He monitors the needs and desires of the customer, so one of its key responsibilities is stakeholder management. He should know the market and notice when it changes. He decides what the product should look like, by translating feature changes in user stories. 
+The **product owner** is responsible for what the product should be. He monitors the needs and desires of the customer, so one of its key responsibilities is stakeholder management. He should know the market and notice when it changes. He decides what the product should look like, by translating feature changes in user stories. Thereby he maintains the product log, ordering the stories in how important they are.
 
-Then there is the **Team**, the professionals that create the product. 
+Where the product owner decides what should be doen, the **team** of developers decides how to do it. It is completely self-organising. At the beginning of each sprint it makes an assessment how which stories can be done in the upcoming sprint. Team members usually have different expertises, but the completion of the stories is the responsibility of the entire team. 
+
+### Ceremonies
+
+Four ceremonies (meetings) are part of Scrum cycle. At the beginning of the sprint there is the **sprint planning**, in which the stories are scoped and the definition of done is determined. During the sprint there is at least one **stand-up** per day, in which team members quickly share what they are working on and what help they need from each other. When the sprint is done the team organises a **sprint review** in which it presents what work was completed. Finally, there is the **retrospective**, in which the team discusses what went well during the last sprint and what can be improved. 
 
 
+## Kanban
 
 Sources: 
 
 Scrum
 https://www.youtube.com/watch?v=2Vt7Ik8Ublw
+https://agilescrumgroup.nl/product-owner-rol-taken/
