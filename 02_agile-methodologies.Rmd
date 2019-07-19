@@ -23,8 +23,19 @@ Four ceremonies (meetings) are part of Scrum cycle. At the beginning of the spri
 
 ## Kanban
 
+Kanban is much lighter and less process heavy than Scrum. It does not work with fixed time units, such as the Scrum sprints, but it aims achievin a continuous flow. Just as with Scrum the tasks to do are formulated in user stories, but the commitment is just to one story at a time. Scrum has a rigid commitment to the stories in the sprint, only under very special cirumstances does a team deviate from the sprint. In Kanban stories are gathered on a back log and are continuously ordered in importance. Each time a story is completed the most relevant new story is started. 
+
+Central is the Kanban board, which can be physical or virtual, that has at least the columns *to do*, *doing*, and *done*, but can be tailored to the wishes of the team. Unlike Scrum there is not official role of Product Owner, still it can be useful to have someone handling the incoming requests. This can be a designated person or a team member who is also doing developing work. The team should not focus on too many tasks at once, everything that is pulled from *to do* should be worked on and only new stories should be pulled as soon as others have reached *done*. This assures that the focus is always at the most important task ahead and there is not too much multitasking. A team can even choose to set a cap on the number of stories that can be in each column.
+
+The central metric is the amount of time it typically takes to complete a task, the *cycle time*. Effective Kanban teams have short cycle times, they are able to complete the tasks quickly. They can give estimates when work is done with confidence. Just as with Scrum the entire team is responsible for completing a story, not just the "designated" person for the job. In order to have the tasks completed as quickly as possible team members might fulfill tasks now and then that are a little bit out of their comfort zone.
+
+## Scrum vs Kanban
+
+The higlhly structured Scrum and the lightweight Kanban are two workflows that 
+
 Sources: 
 
-Scrum
 https://www.youtube.com/watch?v=2Vt7Ik8Ublw
 https://agilescrumgroup.nl/product-owner-rol-taken/
+https://www.atlassian.com/agile/kanban/
+https://agileknowhow.com/2018/03/01/do-we-need-a-product-owner-with-kanban/
