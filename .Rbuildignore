@@ -1,3 +1,5 @@
 tic.R
 appveyor.yml
 .travis.tml
+^\.travis\.yml$
+^tic\.R$
