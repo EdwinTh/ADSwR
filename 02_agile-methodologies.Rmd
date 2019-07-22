@@ -31,7 +31,10 @@ The central metric is the amount of time it typically takes to complete a task, 
 
 ## Scrum vs Kanban
 
-The higlhly structured Scrum and the lightweight Kanban are two workflows that 
+The higlhly structured Scrum and the lightweight Kanban are two workflows that could make a team work more according to the Agile principles. They both aim for continuous shipping of working software instead of working towards one major release. They also both give focus on the part you are working on right now, Scrum by fixing the stories that are done in the sprint, while Kanban limits the number of stories that the team is working on. But there are also some remarkable differences. Scrum the team commits to the stories it selected to do this sprint and the building have to be on fire before it will take on work that is not in the sprint. Kanban only prescribes to limit the number of stories that are in work in progress, finish what you start first than start something new. However, for the story to do next everything can change at any moment. Scrum is quite heavy on the ceremonies, shile Kanban does not prescribe recurrent meetings.
+
+Both methodologies are applied with great success and its important to keep in mind that they are means to an end, no religions. The Agile values and principles should be the primary guideline and when selecting one of the workflows you do so because it is the best way to work in a Agile way in the team's situation. The team should decide for itself what is the best way of working and should be monitor if the choice is still the best as the situation changes. In general, however, it makes more sense to use Scrum when a team is working on the completion of a project, whereas the flexibility of Kanban is best suited for a service team that is dealing with a lot of incoming requests.
+
 
 Sources: 
 
