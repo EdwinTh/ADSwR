@@ -1,0 +1,12 @@
+Package: AMLwR
+Title: Text on agile machine learning and how to do it with R.
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Edwin",
+           family = "Thoen",
+           role = c("aut", "cre"),
+           email = "edwinthoen@gmail.com")
+Description: Text on agile machine learning and how to do it with R.
+License: What license it uses
+Encoding: UTF-8
+LazyData: true
