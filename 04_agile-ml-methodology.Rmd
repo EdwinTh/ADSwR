@@ -1,3 +1,8 @@
 # A Methodology for Agile Machine Learning
 
-Here we are going to look at what from Scrum and Kanban does and does not work for machine learning.
+Now we have interpreted the Twelve Agile Principles in the Agile setting we can explore what an Agile machine learning workflow might look like. Let us remind ourselves that the workflow is always a means to an end. The Agile values and principles are the guidelines and the workflow should serve following the principles the best you can. If at any moment in a project the team feels the workflow is no longer the optimal way to make decisions in an Agile way, it should change it. Therefore, this chapter should be considered as nothing more than an exploration, a bunch of thoughts. If it does not work for you due to whatever reason, by all means find a better way.
+
+
+
+## Why Scrum is unfit
+

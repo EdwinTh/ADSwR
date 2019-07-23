@@ -3,3 +3,5 @@ appveyor.yml
 .travis.tml
 ^\.travis\.yml$
 ^tic\.R$
+^.*\.Rproj$
+^\.Rproj\.user$
