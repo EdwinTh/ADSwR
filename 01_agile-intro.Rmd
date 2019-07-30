@@ -6,7 +6,7 @@ Agile software development is not a specific methodogy, a process, or a prescrip
 
 Projects done with the Waterfall method have a major pitfall, however. They can take very long to be completed. The combination of sequentiality and completeness might cause projects to last many years before they get delivered. Each time an error or incompleteness is found in one of the lower stages, the project moves back to the previous stage to fix it. Because of the long duration of the entire process of Waterfall it occured often that the end result was no longer a good fit for the ever changiin market. This  that once the product is finally completed, it is no longer a good fit for the market. The problem analysis might be done years ago and the problem has changed in the meantime. 
 
-Agile has a radical different appoach to software design, by recognising a number of flaws in Waterfall thinking. First, it is impossible to think through all the aspects of a complex design and architecture before write a letter of code. Software has to grow organically instead of being designed upfront. Secondly, customers typically don't really know what they want from the product, until they start interacting with it. Legally it might be a good idea to have all the aspects checked off before getting to work, but it will not keep the customer satisfied. Finally, customers and stakeholders will loose interest and faith if it takes a long time before the works results any tangible results.
+Agile has a radical different appoach to software design, by recognising a number of flaws in Waterfall thinking. First, it is impossible to think through all the aspects of a complex design and architecture before writing a line of code. Software has to grow organically instead of being completely designed upfront. Secondly, customers typically don't really know what they want from the product, until they start interacting with it. Legally it might be a good idea to have all the aspects checked off before getting to work, but it will not keep the customer satisfied. Finally, customers and stakeholders will loose interest and faith if it takes a long time before the works results any tangible results.
 
 ## The Manifesto
 
@@ -24,7 +24,7 @@ During the nineties several reactions to the cumbersome Waterfall came to being.
 >
 > That is, while there is value in the items on the right, we value the items on the left more.
 
-You might think "well that is rather vague", yes it is on purpose. It is not a process you should follow or a methodology that prescribes how you should approach software development. Rather, they are core values that guide the development team with the many choices it makes along the way. At every crossroads the option that is most in line with these values should be selected. 
+If you think "well, that is rather vague", it is on purpose. It is not a process you should follow or a methodology that prescribes how you should approach software development. Rather, they are core values that guide the development team with the many choices it makes along the way. At every crossroads the option that is most in line with these values should be selected. 
 
 ## The Twelve Principles
 
