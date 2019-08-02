@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/EdwinTh/AMLwR.png?branch=master)](https://travis-ci.org/EdwinTh/AMLwR)
+[![Build Status](https://travis-ci.org/EdwinTh/ADSwR.png?branch=master)](https://travis-ci.org/EdwinTh/ADSwR)
 
 This is a *Writing out Loud* of a text on *Agile machince learning with R*, in which I explore how the concepts of Agile software development can be applied to machine learning (and data science in general) with R. 
 
