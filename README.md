@@ -4,4 +4,4 @@ This is a *Writing out Loud* of a text on *Agile machince learning with R*, in w
 
 Readers are encouraged to share their own workflows and best practises by filing an issue. I might incorporate these ideas in the main text or in an appendix. Please file pull requests to fix typos and style errors.
 
-This project uses continuous integration with Ropensci's tic.bookdown. The latest version is available here https://edwinth.github.io/AMLwR/
+This project uses continuous integration with Ropensci's tic.bookdown. The latest version is available here https://edwinth.github.io/ADSwR/
