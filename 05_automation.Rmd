@@ -1,0 +1,5 @@
+# (PART) ...with R {-}
+
+# Code Organsation
+
+The essence of Agile Data Science, continuously delivering an uptaded product, can only be done when the code written is of high quality. Many data scientists, especially those who are drawn to R, have a background other than software development. Writing software is something we do to solve problems in our professional field, such as statistics, ecology, actuary or one of the many other fields R is used. We write code to solve a problem and as soon as that problem is fixed right here, right now, we are content and move on. 
