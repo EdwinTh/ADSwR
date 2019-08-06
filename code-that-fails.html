@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Agile Methods | Agile Data Science with R</title>
+  <title>7 Code that Fails | Agile Data Science with R</title>
   <meta name="description" content="A workflow for doing data science in the R language, using Agile principles." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Agile Methods | Agile Data Science with R" />
+  <meta property="og:title" content="7 Code that Fails | Agile Data Science with R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Agile Methods | Agile Data Science with R" />
+  <meta name="twitter:title" content="7 Code that Fails | Agile Data Science with R" />
   
   <meta name="twitter:description" content="A workflow for doing data science in the R language, using Agile principles." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="agile-in-a-nutshell.html">
-<link rel="next" href="agile-data-science.html">
+<link rel="prev" href="code-organsation.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -125,49 +125,19 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="agile-methods" class="section level1">
-<h1><span class="header-section-number">3</span> Agile Methods</h1>
-<p>We learned that Agile is not so much a workflow or a method, but rather a philosophy that should guide us whenever a choice has to be made during the completion of the project. In fact, Agile promotes being critical to strictly following a workflow, we should continously questioning if the way we work makes us optimally follow the Agile values and principles. If this is not the case we should adjust our workflow. This does not mean there are no workflows related to Agile. In fact, a number of workflows are developed by the men (yes, no women were there) who drew up the Agile Manifesto. Following these workflows should make it more likely the team follows the Agile values and principles. Here we look into the two best known; Scrum and Kanban.</p>
-<div id="scrum" class="section level2">
-<h2><span class="header-section-number">3.1</span> Scrum</h2>
-<p>The most well-known and most-applied workflow is Scrum. Developed in the late eighties and early nineties it is tried and tested methodology. It is no longer just applied in software development, but in the development of many other products as well. Scrum works with sprints, set time units after which a shipeable product should be ready. Most teams use two-week sprints, but it can also be shorter or longer. Teams are completely self-organising, they decide what it will do the next sprint and how they will do it. Tasks to do are gathered on the productlog, they are all formulated such that it is clear how they will add value to the product. These <strong>user stories</strong> take the form “As <role user> I would like to <action/functionality> such that I <benefit>”. Say that you run a website that sends out newsletter to all its customer, but there is no option for opting out yet. The user story for creating such a functionality could then be “As a subscribed user I would like to be able to opt out for the newsletter such that I only receive information when I want to”.</p>
-<p>Scrum comes with a set of roles and ceremonies that I will describe below.</p>
-<div id="roles" class="section level3">
-<h3><span class="header-section-number">3.1.1</span> Roles</h3>
-<p>A Scrum team has three different roles. The <strong>scrum master</strong>, its core responsibility is making sure the team will make the sprint goals. To do so, she must have a watchful eye. If the sales manager wants something done and tries to persuade one of the devs at the coffee machine, he is kindly redirected to the product owner to get it on the back log. If some of the team members lack some necessary skills, she will make a plan with them how to acquire them. Also, she will be the organiser and facilitater of the different Scrum meetings.</p>
-<p>The <strong>product owner</strong> is responsible for what the product should be. He monitors the needs and desires of the customer, so one of its key responsibilities is stakeholder management. He should know the market and notice when it changes. He decides what the product should look like, by translating feature changes in user stories. Thereby he maintains the product log, ordering the stories in how important they are.</p>
-<p>Where the product owner decides what should be doen, the <strong>team</strong> of developers decides how to do it. It is completely self-organising. At the beginning of each sprint it makes an assessment how which stories can be done in the upcoming sprint. Team members usually have different expertises, but the completion of the stories is the responsibility of the entire team.</p>
-</div>
-<div id="ceremonies" class="section level3">
-<h3><span class="header-section-number">3.1.2</span> Ceremonies</h3>
-<p>Four ceremonies (meetings) are part of Scrum cycle. At the beginning of the sprint there is the <strong>sprint planning</strong>, in which the stories are scoped and the definition of done is determined. During the sprint there is at least one <strong>stand-up</strong> per day, in which team members quickly share what they are working on and what help they need from each other. When the sprint is done the team organises a <strong>sprint review</strong> in which it presents what work was completed. Finally, there is the <strong>retrospective</strong>, in which the team discusses what went well during the last sprint and what can be improved.</p>
-</div>
-</div>
-<div id="kanban" class="section level2">
-<h2><span class="header-section-number">3.2</span> Kanban</h2>
-<p>Kanban is much lighter and less process heavy than Scrum. It does not work with fixed time units, such as the Scrum sprints, but it aims achievin a continuous flow. Just as with Scrum the tasks to do are formulated in user stories, but the commitment is just to one story at a time. Scrum has a rigid commitment to the stories in the sprint, only under very special cirumstances does a team deviate from the sprint. In Kanban stories are gathered on a back log and are continuously ordered in importance. Each time a story is completed the most relevant new story is started.</p>
-<p>Central is the Kanban board, which can be physical or virtual, that has at least the columns <em>to do</em>, <em>doing</em>, and <em>done</em>, but can be tailored to the wishes of the team. Unlike Scrum there is not official role of Product Owner, still it can be useful to have someone handling the incoming requests. This can be a designated person or a team member who is also doing developing work. The team should not focus on too many tasks at once, everything that is pulled from <em>to do</em> should be worked on and only new stories should be pulled as soon as others have reached <em>done</em>. This assures that the focus is always at the most important task ahead and there is not too much multitasking. A team can even choose to set a cap on the number of stories that can be in each column.</p>
-<p>The central metric is the amount of time it typically takes to complete a task, the <em>cycle time</em>. Effective Kanban teams have short cycle times, they are able to complete the tasks quickly. They can give estimates when work is done with confidence. Just as with Scrum the entire team is responsible for completing a story, not just the “designated” person for the job. In order to have the tasks completed as quickly as possible team members might fulfill tasks now and then that are a little bit out of their comfort zone.</p>
-</div>
-<div id="scrum-vs-kanban" class="section level2">
-<h2><span class="header-section-number">3.3</span> Scrum vs Kanban</h2>
-<p>The higlhly structured Scrum and the lightweight Kanban are two workflows that could make a team work more according to the Agile principles. They both aim for continuous shipping of working software instead of working towards one major release. They also both give focus on the part you are working on right now, Scrum by fixing the stories that are done in the sprint, while Kanban limits the number of stories that the team is working on. But there are also some remarkable differences. Scrum the team commits to the stories it selected to do this sprint and the building have to be on fire before it will take on work that is not in the sprint. Kanban only prescribes to limit the number of stories that are in work in progress, finish what you start first than start something new. However, for the story to do next everything can change at any moment. Scrum is quite heavy on the ceremonies, shile Kanban does not prescribe recurrent meetings.</p>
-<p>Both methodologies are applied with great success and its important to keep in mind that they are means to an end, no religions. The Agile values and principles should be the primary guideline and when selecting one of the workflows you do so because it is the best way to work in a Agile way in the team’s situation. The team should decide for itself what is the best way of working and should be monitor if the choice is still the best as the situation changes. In general, however, it makes more sense to use Scrum when a team is working on the completion of a project, whereas the flexibility of Kanban is best suited for a service team that is dealing with a lot of incoming requests.</p>
-<p>Sources:</p>
-<p><a href="https://www.youtube.com/watch?v=2Vt7Ik8Ublw" class="uri">https://www.youtube.com/watch?v=2Vt7Ik8Ublw</a>
-<a href="https://agilescrumgroup.nl/product-owner-rol-taken/" class="uri">https://agilescrumgroup.nl/product-owner-rol-taken/</a>
-<a href="https://www.atlassian.com/agile/kanban/" class="uri">https://www.atlassian.com/agile/kanban/</a>
-<a href="https://agileknowhow.com/2018/03/01/do-we-need-a-product-owner-with-kanban/" class="uri">https://agileknowhow.com/2018/03/01/do-we-need-a-product-owner-with-kanban/</a></p>
+<div id="code-that-fails" class="section level1">
+<h1><span class="header-section-number">7</span> Code that Fails</h1>
+<p>Your code will fail. Not once, not twice, but hundreds, thousands of times in the course of a large data science project. Everybody’s code fails many times. Your code, my code, Hadley Wickham’s code. Not because we are bad at what we do, but because it is not humanly possible to foresee all the possible ways the code will be used or all the possible data inputs that will go into the code at the moment we write it. Getting better at programming does not mean you will write fault-free code (although you will make fewer errors as you grow more experienced), but writing code that fails fast and informatively.</p>
+<p>Writing such code means that you will spent more time developing than with the <em>random walk</em> method described in the previous chapter. This is an investment that will pay off big time as your project grows in complexity.</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="agile-in-a-nutshell.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="agile-data-science.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="code-organsation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
