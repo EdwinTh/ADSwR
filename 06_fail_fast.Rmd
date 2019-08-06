@@ -1,5 +1,9 @@
 # Code that Fails
 
-Your code will fail. Not once, not twice, but hundreds, thousands of times in the course of a large data science project. Everybody's code fails many times. Your code, my code, Hadley Wickham's code. Not because we are bad at what we do, but because it is not humanly possible to foresee all the possible ways the code will be used or all the possible data inputs that will go into the code at the moment we write it. Getting better at programming does not mean you will write fault-free code (although you will make fewer errors as you grow more experienced), but writing code that fails fast and informatively. 
+Your code will fail. Not once, not twice, but hundreds, thousands of times in the course of a large data science project. Everybody's code fails, many times. Your code, my code, Hadley Wickham's code. Not because we are bad at what we do, but because it is not possible to foresee all the possible ways the code will be used or all the possible data inputs that the code will run against at the moment we write it. Getting better at programming does not mean you will write fault-free code (although you will make fewer errors as you grow more experienced), but writing code that fails fast and informatively. 
 
 Writing such code means that you will spent more time developing than with the *random walk* method described in the previous chapter. This is an investment that will pay off big time as your project grows in complexity. 
+
+## Unit Testing
+
+* slow down - think through scenarios
