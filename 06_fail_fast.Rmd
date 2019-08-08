@@ -4,6 +4,19 @@ Your code will fail. Not once, not twice, but hundreds, thousands of times in th
 
 Writing such code means that you will spent more time developing than with the *random walk* method described in the previous chapter. This is an investment that will pay off big time as your project grows in complexity. 
 
+TODO: connect this to the Agile story -- does not show relevance to the theory yet.
+
+## Assumptions to your Data
+
+Automation means not calling the functions yourself anymore. You just flip the switch and the whole thing is set in motion. This means that you are no longer get the inmediate feedback you are used to when calling the functions yourself. When something goes wrong the whole thing just breaks with an error message. When you are lucky the error message is informative and you are quick to find the bug. When you are not, you may be confronted with `object of type 'closure' is not subsettable`, you may have grumpy afternoon ahead. Best to not depend on luck, but make sure you will always get a proper indication what went wrong. 
+
+### Input Checking
+
+Most languages using functional programming are strongly typed. This means that for every argument that a function takes, its type is specified at function creation. Throw 
+
+### Data Validation
+
 ## Unit Testing
 
 * slow down - think through scenarios
+* externalise your memory
