@@ -105,7 +105,11 @@
 <li class="chapter" data-level="6.2" data-path="code-organsation.html"><a href="code-organsation.html#further-reading"><i class="fa fa-check"></i><b>6.2</b> Further Reading</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="code-that-fails.html"><a href="code-that-fails.html"><i class="fa fa-check"></i><b>7</b> Code that Fails</a><ul>
-<li class="chapter" data-level="7.1" data-path="code-that-fails.html"><a href="code-that-fails.html#unit-testing"><i class="fa fa-check"></i><b>7.1</b> Unit Testing</a></li>
+<li class="chapter" data-level="7.1" data-path="code-that-fails.html"><a href="code-that-fails.html#assumptions-to-your-data"><i class="fa fa-check"></i><b>7.1</b> Assumptions to your Data</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="code-that-fails.html"><a href="code-that-fails.html#input-checking"><i class="fa fa-check"></i><b>7.1.1</b> Input Checking</a></li>
+<li class="chapter" data-level="7.1.2" data-path="code-that-fails.html"><a href="code-that-fails.html#data-validation"><i class="fa fa-check"></i><b>7.1.2</b> Data Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="code-that-fails.html"><a href="code-that-fails.html#unit-testing"><i class="fa fa-check"></i><b>7.2</b> Unit Testing</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -131,10 +135,23 @@
 <h1><span class="header-section-number">7</span> Code that Fails</h1>
 <p>Your code will fail. Not once, not twice, but hundreds, thousands of times in the course of a large data science project. Everybody’s code fails, many times. Your code, my code, Hadley Wickham’s code. Not because we are bad at what we do, but because it is not possible to foresee all the possible ways the code will be used or all the possible data inputs that the code will run against at the moment we write it. Getting better at programming does not mean you will write fault-free code (although you will make fewer errors as you grow more experienced), but writing code that fails fast and informatively.</p>
 <p>Writing such code means that you will spent more time developing than with the <em>random walk</em> method described in the previous chapter. This is an investment that will pay off big time as your project grows in complexity.</p>
+<p>TODO: connect this to the Agile story – does not show relevance to the theory yet.</p>
+<div id="assumptions-to-your-data" class="section level2">
+<h2><span class="header-section-number">7.1</span> Assumptions to your Data</h2>
+<p>Automation means not calling the functions yourself anymore. You just flip the switch and the whole thing is set in motion. This means that you are no longer get the inmediate feedback you are used to when calling the functions yourself. When something goes wrong the whole thing just breaks with an error message. When you are lucky the error message is informative and you are quick to find the bug. When you are not, you may be confronted with <code>object of type 'closure' is not subsettable</code>, you may have grumpy afternoon ahead. Best to not depend on luck, but make sure you will always get a proper indication what went wrong.</p>
+<div id="input-checking" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> Input Checking</h3>
+<p>Most languages using functional programming are strongly typed. This means that for every argument that a function takes, its type is specified at function creation. Throw</p>
+</div>
+<div id="data-validation" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> Data Validation</h3>
+</div>
+</div>
 <div id="unit-testing" class="section level2">
-<h2><span class="header-section-number">7.1</span> Unit Testing</h2>
+<h2><span class="header-section-number">7.2</span> Unit Testing</h2>
 <ul>
 <li>slow down - think through scenarios</li>
+<li>externalise your memory</li>
 </ul>
 
 </div>
