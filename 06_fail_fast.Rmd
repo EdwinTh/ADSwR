@@ -1,10 +1,9 @@
 # Code that Fails
 
 Your code will fail. Not once, not twice, but hundreds, thousands of times in the course of a large data science project. Everybody's code fails, many times. Your code, my code, Hadley Wickham's code. Not because we are bad at what we do, but because it is not possible to foresee all the possible ways the code will be used or all the possible data inputs that the code will run against at the moment we write it. Getting better at programming does not mean you will write fault-free code (although you will make fewer errors as you grow more experienced), but writing code that fails fast and informatively. 
-
 Writing such code means that you will spent more time developing than with the *random walk* method described in the previous chapter. This is an investment that will pay off big time as your project grows in complexity. 
 
-TODO: connect this to the Agile story -- does not show relevance to the theory yet.
+But before we look into how to write code that fails fast and informative, why is this important for Agile Data Science? High quality code is part of the twelve principles, but this is a means to an end. The essence of Agile is continuous delivery. Updating and shipping your product everytime you made progress can only be done when your code is adjustable. As the project advances, the end-to-end product will grow in complexity. Sooner rather than later it will reach a point in which you cannot have a full overview of all the aspects of the product anymore. When introducing a new feature you want to make sure all the other elements in the code base keep doing what they were designed for. If not, you want to be instructed clearly what is going wrong so you can either adjust the newly introduced feature or modify the existing elements so it works with the new feature. If everytime you want to make a change the whole thing comes tumbling done without informing you what goes wrong, you cannot achieve the objective of fast, continuous delivery.
 
 ## Assumptions to your Data
 
