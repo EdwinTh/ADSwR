@@ -48,6 +48,70 @@
 
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -107,7 +171,8 @@
 <li class="chapter" data-level="7" data-path="code-that-fails.html"><a href="code-that-fails.html"><i class="fa fa-check"></i><b>7</b> Code that Fails</a><ul>
 <li class="chapter" data-level="7.1" data-path="code-that-fails.html"><a href="code-that-fails.html#assumptions-to-your-data"><i class="fa fa-check"></i><b>7.1</b> Assumptions to your Data</a><ul>
 <li class="chapter" data-level="7.1.1" data-path="code-that-fails.html"><a href="code-that-fails.html#input-checking"><i class="fa fa-check"></i><b>7.1.1</b> Input Checking</a></li>
-<li class="chapter" data-level="7.1.2" data-path="code-that-fails.html"><a href="code-that-fails.html#data-validation"><i class="fa fa-check"></i><b>7.1.2</b> Data Validation</a></li>
+<li class="chapter" data-level="7.1.2" data-path="code-that-fails.html"><a href="code-that-fails.html#column-validation"><i class="fa fa-check"></i><b>7.1.2</b> Column Validation</a></li>
+<li class="chapter" data-level="7.1.3" data-path="code-that-fails.html"><a href="code-that-fails.html#data-validation"><i class="fa fa-check"></i><b>7.1.3</b> Data Validation</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="code-that-fails.html"><a href="code-that-fails.html#unit-testing"><i class="fa fa-check"></i><b>7.2</b> Unit Testing</a></li>
 </ul></li>
@@ -141,10 +206,38 @@ Writing such code means that you will spent more time developing than with the <
 <p>Automation means not calling the functions yourself anymore. You just flip the switch and the whole thing is set in motion. This means that you are no longer get the inmediate feedback you are used to when calling the functions yourself. When something goes wrong the whole thing just breaks with an error message. When you are lucky the error message is informative and you are quick to find the bug. When you are not, you may be confronted with <code>object of type 'closure' is not subsettable</code>, you may have grumpy afternoon ahead. Best to not depend on luck, but make sure you will always get a proper indication what went wrong.</p>
 <div id="input-checking" class="section level3">
 <h3><span class="header-section-number">7.1.1</span> Input Checking</h3>
-<p>Most languages using functional programming are strongly typed. This means that for every argument that a function takes, its type is specified at function creation. Throw</p>
+<p>Most languages using functional programming are strongly typed. This means that for every argument that a function takes, its datatype is specified at function creation, as well as the datatype that the output takes. When the function is than called it is first checked if the data on which it is called is of the correct type, or at least can be forced to the specified type. If not, it will break inmediately and will tell the user why. R is weakly typed, the data type of the function arguments are not specified. When a function is called it just has a go on the objects that are fed to it. The function only breaks when somewhere in the body another function gets called with an invalid data type. Take the following for instance:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">add_two_numbers &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="kw">print</span>(<span class="st">&quot;Reaching this&quot;</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="kw">print</span>(<span class="st">&quot;and this&quot;</span>)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="kw">print</span>(<span class="st">&quot;Doing some random other stuff&quot;</span>)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  x <span class="op">+</span><span class="st"> </span>y</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">}</a></code></pre></div>
+<p>Now, what will happen if we accidently call it on a string? It will only break when we hit the <code>+</code> operator, all the code before it runs. The error message it gives us, is not so informative that we inmediately figure out what goes wrong.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">add_two_numbers</span>(<span class="dv">42</span>, <span class="st">&quot;MacGyver&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;Reaching this&quot;
+## [1] &quot;and this&quot;
+## [1] &quot;Doing some random other stuff&quot;</code></pre>
+<pre><code>## Error in x + y: non-numeric argument to binary operator</code></pre>
+<p>Pfff, what is a binary operator again? When this functions is part of a framework in which higher order functions call lower order functions you may be up for an hour or two of sifting through your code to locate the bug. Fortunately type checking is very easily add to a function by asserting all argument data types in <code>stopifnot</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">add_two_numbers &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="kw">stopifnot</span>(<span class="kw">is.numeric</span>(x), <span class="kw">is.numeric</span>(y))</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">  <span class="kw">print</span>(<span class="st">&quot;Reaching this&quot;</span>)</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="kw">print</span>(<span class="st">&quot;and this&quot;</span>)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">  <span class="kw">print</span>(<span class="st">&quot;Doing some random other stuff&quot;</span>)</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">  x <span class="op">+</span><span class="st"> </span>y</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="kw">add_two_numbers</span>(<span class="dv">42</span>, <span class="st">&quot;MacGyver&quot;</span>)</a></code></pre></div>
+<pre><code>## Error in add_two_numbers(42, &quot;MacGyver&quot;): is.numeric(y) is not TRUE</code></pre>
+<p>We are now specifically informed, which argument does not meet the assumptions and in what the name of the subfunction is.</p>
+</div>
+<div id="column-validation" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> Column Validation</h3>
+<p>Most data pipelines</p>
 </div>
 <div id="data-validation" class="section level3">
-<h3><span class="header-section-number">7.1.2</span> Data Validation</h3>
+<h3><span class="header-section-number">7.1.3</span> Data Validation</h3>
 </div>
 </div>
 <div id="unit-testing" class="section level2">
