@@ -49,7 +49,7 @@ Central to most data products will be the modification of data frames. Probably 
 ```{r}
 add_log_target <- function(x) {
   stopifnot(is.data.frame(x))
-  x$target_log <- log(x$target))
+  x$target_log <- log(x$target)
   x
 }
 ```
@@ -73,7 +73,7 @@ which is added to each function that uses a data frame
 ```{r, error = TRUE}
 add_log_target <- function(x) {
   df_has_cols(x, "target", match.call())
-  x$target_log <- log(x$target))
+  x$target_log <- log(x$target)
   x
 }
 add_log_target(mtcars)
