@@ -249,23 +249,27 @@ Writing such code means that you will spent more time developing than with the <
 <a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="cf">if</span>(<span class="op">!</span><span class="kw">all</span>(cols <span class="op">%in%</span><span class="st"> </span><span class="kw">colnames</span>(x))) {</a>
 <a class="sourceLine" id="cb10-4" data-line-number="4">    not_present &lt;-<span class="st"> </span><span class="kw">setdiff</span>(cols, <span class="kw">colnames</span>(x))</a>
 <a class="sourceLine" id="cb10-5" data-line-number="5">    <span class="kw">stop</span>(<span class="kw">paste</span>(not_present, <span class="dt">collapse =</span> <span class="st">&quot;, &quot;</span>), <span class="st">&quot; missing from the data frame in function &quot;</span>, func[[<span class="dv">1</span>]])</a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"> } </a></code></pre></div>
-<pre><code>## Error: &lt;text&gt;:7:0: unexpected end of input
-## 5:     stop(paste(not_present, collapse = &quot;, &quot;), &quot; missing from the data frame in function &quot;, func[[1]])
-## 6:  } 
-##   ^</code></pre>
+<a class="sourceLine" id="cb10-6" data-line-number="6"> }</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">}</a></code></pre></div>
 <p>which is added to each function that uses a data frame</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="kw">df_has_cols</span>(x, <span class="st">&quot;target&quot;</span>, <span class="kw">match.call</span>())</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">  x<span class="op">$</span>target_log &lt;-<span class="st"> </span><span class="kw">log</span>(x<span class="op">$</span>target)</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">  x</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">}</a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="kw">add_log_target</span>(mtcars)</a></code></pre></div>
-<pre><code>## Error in df_has_cols(x, &quot;target&quot;, match.call()): could not find function &quot;df_has_cols&quot;</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="kw">df_has_cols</span>(x, <span class="st">&quot;target&quot;</span>, <span class="kw">match.call</span>())</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  x<span class="op">$</span>target_log &lt;-<span class="st"> </span><span class="kw">log</span>(x<span class="op">$</span>target)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">  x</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="kw">add_log_target</span>(mtcars)</a></code></pre></div>
+<pre><code>## Error in df_has_cols(x, &quot;target&quot;, match.call()): target missing from the data frame in function add_log_target</code></pre>
 <p>(<code>match.call()</code> has to be added so it will return the name of the function that breaks for easy debugging).</p>
 </div>
 <div id="data-validation" class="section level3">
 <h3><span class="header-section-number">7.1.3</span> Data Validation</h3>
+<p>Where the first two checks are about the structure of the inputs, data validation tests the assumptions to the data itself. Variables that cannot contain missing values, variables that must be strictly positive, or characters that can only take a limited number of values. If you have any such assumptions to your data, you do best to check them before you unleash your functions on it. You could use external packages such as <code>validate</code> or <code>recipes</code>, or you can write them yourself. The <code>stopifnot</code> function can be used to check any assumption you have, as long as you can create a single logical for it. In the above example, since we are taking the log of <code>target</code> and it is the target variable it must be strictly positive and nonmissing.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">  <span class="kw">df_has_cols</span>(x, <span class="st">&quot;target&quot;</span>, <span class="kw">match.call</span>())</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="kw">stopifnot</span>(<span class="kw">all</span>(<span class="op">!</span><span class="kw">is.na</span>(x<span class="op">$</span>target)), <span class="kw">all</span>(x<span class="op">$</span>target <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>))</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">  x<span class="op">$</span>target_log &lt;-<span class="st"> </span><span class="kw">log</span>(x<span class="op">$</span>target)</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">  x</a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">}</a></code></pre></div>
 </div>
 </div>
 <div id="unit-testing" class="section level2">
