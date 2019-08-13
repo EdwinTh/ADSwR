@@ -70,7 +70,7 @@ df_has_cols <- function(x, cols, func) {
 ```
 which is added to each function that uses a data frame
 
-```{r}
+```{r, error = TRUE}
 add_log_target <- function(x) {
   df_has_cols(x, "target", match.call())
   x$target_log <- log(x$target))
