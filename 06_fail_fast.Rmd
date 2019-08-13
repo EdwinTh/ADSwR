@@ -11,7 +11,41 @@ Automation means not calling the functions yourself anymore. You just flip the s
 
 ### Input Checking
 
-Most languages using functional programming are strongly typed. This means that for every argument that a function takes, its type is specified at function creation. Throw 
+Most languages using functional programming are strongly typed. This means that for every argument that a function takes, its datatype is specified at function creation, as well as the datatype that the output takes. When the function is than called it is first checked if the data on which it is called is of the correct type, or at least can be forced to the specified type. If not, it will break inmediately and will tell the user why. R is weakly typed, the data type of the function arguments are not specified. When a function is called it just has a go on the objects that are fed to it. The function only breaks when somewhere in the body another function gets called with an invalid data type. Take the following for instance:
+
+```{r}
+add_two_numbers <- function(x, y) {
+  print("Reaching this")
+  print("and this")
+  print("Doing some random other stuff")
+  x + y
+}
+```
+
+Now, what will happen if we accidently call it on a string? It will only break when we hit the `+` operator, all the code before it runs. The error message it gives us, is not so informative that we inmediately figure out what goes wrong.
+
+```{r, error = TRUE}
+add_two_numbers(42, "MacGyver")
+```
+
+Pfff, what is a binary operator again? When this functions is part of a framework in which higher order functions call lower order functions you may be up for an hour or two of sifting through your code to locate the bug. Fortunately type checking is very easily add to a function by asserting all argument data types in `stopifnot`. 
+
+```{r, error = TRUE}
+add_two_numbers <- function(x, y) {
+  stopifnot(is.numeric(x), is.numeric(y))
+  print("Reaching this")
+  print("and this")
+  print("Doing some random other stuff")
+  x + y
+}
+
+add_two_numbers(42, "MacGyver")
+```
+We are now specifically informed, which argument does not meet the assumptions and in what the name of the subfunction is. 
+
+### Column Validation
+
+Most data pipelines
 
 ### Data Validation
 
