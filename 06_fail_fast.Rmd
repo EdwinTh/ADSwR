@@ -66,7 +66,8 @@ df_has_cols <- function(x, cols, func) {
   if(!all(cols %in% colnames(x))) {
     not_present <- setdiff(cols, colnames(x))
     stop(paste(not_present, collapse = ", "), " missing from the data frame in function ", func[[1]])
- } 
+ }
+}
 ```
 which is added to each function that uses a data frame
 
@@ -81,6 +82,18 @@ add_log_target(mtcars)
 (`match.call()` has to be added so it will return the name of the function that breaks for easy debugging).
 
 ### Data Validation
+
+Where the first two checks are about the structure of the inputs, data validation tests the assumptions to the data itself. Variables that cannot contain missing values, variables that must be strictly positive, or characters that can only take a limited number of values. If you have any such assumptions to your data, you do best to check them before you unleash your functions on it. You could use external packages such as `validate` or `recipes`, or you can write them yourself. The `stopifnot` function can be used to check any assumption you have, as long as you can create a single logical for it. In the above example, since we are taking the log of `target` and it is the target variable it must be strictly positive and nonmissing.
+
+```{r}
+add_log_target <- function(x) {
+  df_has_cols(x, "target", match.call())
+  stopifnot(all(!is.na(x$target)), all(x$target > 0))
+  x$target_log <- log(x$target)
+  x
+}
+```
+
 
 ## Unit Testing
 
