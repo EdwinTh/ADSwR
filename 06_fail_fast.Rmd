@@ -9,7 +9,7 @@ But before we look into how to write code that fails fast and informative, why i
 
 Automation means not calling the functions yourself anymore. You just flip the switch and the whole thing is set in motion. This means that you are no longer get the inmediate feedback you are used to when calling the functions yourself. When something goes wrong the whole thing just breaks with an error message. When you are lucky the error message is informative and you are quick to find the bug. When you are not, you may be confronted with `object of type 'closure' is not subsettable`, you may have grumpy afternoon ahead. Best to not depend on luck, but make sure you will always get a proper indication what went wrong. 
 
-### Input Checking
+### Type Checking
 
 Most languages using functional programming are strongly typed. This means that for every argument that a function takes, its datatype is specified at function creation, as well as the datatype that the output takes. When the function is than called it is first checked if the data on which it is called is of the correct type, or at least can be forced to the specified type. If not, it will break inmediately and will tell the user why. R is weakly typed, the data type of the function arguments are not specified. When a function is called it just has a go on the objects that are fed to it. The function only breaks when somewhere in the body another function gets called with an invalid data type. Take the following for instance:
 
@@ -45,7 +45,40 @@ We are now specifically informed, which argument does not meet the assumptions a
 
 ### Column Validation
 
-Most data pipelines
+Central to most data products will be the modification of data frames. Probably most functions you'll create are very specific to your project and will be called only once. For these cases you want to save yourself the overhead of making each function completely generic by parametrising the column names that are used. Say you want to add the log of the target to the data frame and you create the following function.
+```{r}
+add_log_target <- function(x) {
+  stopifnot(is.data.frame(x))
+  x$target_log <- log(x$target))
+  x
+}
+```
+Now what if `target` was mistakingly removed from `x` in the step preceding this one in the product. Will it throw an informativer error?
+
+```{r, error = TRUE}
+add_log_target(mtcars)
+```
+Uhh, no not exactly. Another of those R error beauties that will leave you clueless for a time. It is a good idea to check if all the columns that are required for the operations in the function are present before starting them. I use this little function,
+
+```{r, error = TRUE}
+df_has_cols <- function(x, cols, func) { 
+  stopifnot(is.data.frame(x))
+  if(!all(cols %in% colnames(x))) {
+    not_present <- setdiff(cols, colnames(x))
+    stop(paste(not_present, collapse = ", "), " missing from the data frame in function ", func[[1]])
+ } 
+```
+which is added to each function that uses a data frame
+
+```{r}
+add_log_target <- function(x) {
+  df_has_cols(x, "target", match.call())
+  x$target_log <- log(x$target))
+  x
+}
+add_log_target(mtcars)
+```
+(`match.call()` has to be added so it will return the name of the function that breaks for easy debugging).
 
 ### Data Validation
 
