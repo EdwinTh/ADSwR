@@ -170,7 +170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="code-that-fails.html"><a href="code-that-fails.html"><i class="fa fa-check"></i><b>7</b> Code that Fails</a><ul>
 <li class="chapter" data-level="7.1" data-path="code-that-fails.html"><a href="code-that-fails.html#assumptions-to-your-data"><i class="fa fa-check"></i><b>7.1</b> Assumptions to your Data</a><ul>
-<li class="chapter" data-level="7.1.1" data-path="code-that-fails.html"><a href="code-that-fails.html#input-checking"><i class="fa fa-check"></i><b>7.1.1</b> Input Checking</a></li>
+<li class="chapter" data-level="7.1.1" data-path="code-that-fails.html"><a href="code-that-fails.html#type-checking"><i class="fa fa-check"></i><b>7.1.1</b> Type Checking</a></li>
 <li class="chapter" data-level="7.1.2" data-path="code-that-fails.html"><a href="code-that-fails.html#column-validation"><i class="fa fa-check"></i><b>7.1.2</b> Column Validation</a></li>
 <li class="chapter" data-level="7.1.3" data-path="code-that-fails.html"><a href="code-that-fails.html#data-validation"><i class="fa fa-check"></i><b>7.1.3</b> Data Validation</a></li>
 </ul></li>
@@ -204,8 +204,8 @@ Writing such code means that you will spent more time developing than with the <
 <div id="assumptions-to-your-data" class="section level2">
 <h2><span class="header-section-number">7.1</span> Assumptions to your Data</h2>
 <p>Automation means not calling the functions yourself anymore. You just flip the switch and the whole thing is set in motion. This means that you are no longer get the inmediate feedback you are used to when calling the functions yourself. When something goes wrong the whole thing just breaks with an error message. When you are lucky the error message is informative and you are quick to find the bug. When you are not, you may be confronted with <code>object of type 'closure' is not subsettable</code>, you may have grumpy afternoon ahead. Best to not depend on luck, but make sure you will always get a proper indication what went wrong.</p>
-<div id="input-checking" class="section level3">
-<h3><span class="header-section-number">7.1.1</span> Input Checking</h3>
+<div id="type-checking" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> Type Checking</h3>
 <p>Most languages using functional programming are strongly typed. This means that for every argument that a function takes, its datatype is specified at function creation, as well as the datatype that the output takes. When the function is than called it is first checked if the data on which it is called is of the correct type, or at least can be forced to the specified type. If not, it will break inmediately and will tell the user why. R is weakly typed, the data type of the function arguments are not specified. When a function is called it just has a go on the objects that are fed to it. The function only breaks when somewhere in the body another function gets called with an invalid data type. Take the following for instance:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">add_two_numbers &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="kw">print</span>(<span class="st">&quot;Reaching this&quot;</span>)</a>
@@ -234,7 +234,35 @@ Writing such code means that you will spent more time developing than with the <
 </div>
 <div id="column-validation" class="section level3">
 <h3><span class="header-section-number">7.1.2</span> Column Validation</h3>
-<p>Most data pipelines</p>
+<p>Central to most data products will be the modification of data frames. Probably most functions you’ll create are very specific to your project and will be called only once. For these cases you want to save yourself the overhead of making each function completely generic by parametrising the column names that are used. Say you want to add the log of the target to the data frame and you create the following function.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="kw">stopifnot</span>(<span class="kw">is.data.frame</span>(x))</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">  x<span class="op">$</span>target_log &lt;-<span class="st"> </span><span class="kw">log</span>(x<span class="op">$</span>target)</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">  x</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">}</a></code></pre></div>
+<p>Now what if <code>target</code> was mistakingly removed from <code>x</code> in the step preceding this one in the product. Will it throw an informativer error?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">add_log_target</span>(mtcars)</a></code></pre></div>
+<pre><code>## Error in log(x$target): non-numeric argument to mathematical function</code></pre>
+<p>Uhh, no not exactly. Another of those R error beauties that will leave you clueless for a time. It is a good idea to check if all the columns that are required for the operations in the function are present before starting them. I use this little function,</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">df_has_cols &lt;-<span class="st"> </span><span class="cf">function</span>(x, cols, func) { </a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="kw">stopifnot</span>(<span class="kw">is.data.frame</span>(x))</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="cf">if</span>(<span class="op">!</span><span class="kw">all</span>(cols <span class="op">%in%</span><span class="st"> </span><span class="kw">colnames</span>(x))) {</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">    not_present &lt;-<span class="st"> </span><span class="kw">setdiff</span>(cols, <span class="kw">colnames</span>(x))</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">    <span class="kw">stop</span>(<span class="kw">paste</span>(not_present, <span class="dt">collapse =</span> <span class="st">&quot;, &quot;</span>), <span class="st">&quot; missing from the data frame in function &quot;</span>, func[[<span class="dv">1</span>]])</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"> } </a></code></pre></div>
+<pre><code>## Error: &lt;text&gt;:7:0: unexpected end of input
+## 5:     stop(paste(not_present, collapse = &quot;, &quot;), &quot; missing from the data frame in function &quot;, func[[1]])
+## 6:  } 
+##   ^</code></pre>
+<p>which is added to each function that uses a data frame</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="kw">df_has_cols</span>(x, <span class="st">&quot;target&quot;</span>, <span class="kw">match.call</span>())</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">  x<span class="op">$</span>target_log &lt;-<span class="st"> </span><span class="kw">log</span>(x<span class="op">$</span>target)</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">  x</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="kw">add_log_target</span>(mtcars)</a></code></pre></div>
+<pre><code>## Error in df_has_cols(x, &quot;target&quot;, match.call()): could not find function &quot;df_has_cols&quot;</code></pre>
+<p>(<code>match.call()</code> has to be added so it will return the name of the function that breaks for easy debugging).</p>
 </div>
 <div id="data-validation" class="section level3">
 <h3><span class="header-section-number">7.1.3</span> Data Validation</h3>
