@@ -98,11 +98,11 @@ add_log_target <- function(x) {
 
 The above, type checking, column validation, and data validation, test assumptions to the data going into the functions. To data scientists learning about these usually makes a lot of sense, because most who worked on a larger product without these has been bitten quite a bit. Moreover, these measures are quick to implement by just inserting one or two lines of code at the beginning of a function. Unit testing your code does not come so natural to data scientists, unless they have a background in software development. Writing tests might seem as a pointless, time consuming exercise at first sight. This is because its benefits are not inmediately obvious to someone who never applied used them. Still, you should make it part of your software development routine, even when you are the only one using the software you write.
 
-If you are unsure what unit tests are or how to do them in R, please read [the chapter in *R packages*](http://r-pkgs.had.co.nz/tests.html) carefully. 
+If you are unsure what unit tests are or how to do them in R, please read [the chapter in *R packages*](http://r-pkgs.had.co.nz/tests.html) carefully. Hadley Wickham 
 
-### Externalise your Assumptions
+### Externalising Assumptions
 
-Reading someone else's code is demanding.
+Reading someone else's code is demanding, even when written by an excellent programmer. At the moment of writing the programmer is fully submerged in the problem, accommodating for all the inputs she foresees the code can be confronted with. Reading her code is tough because you have to recover from it what the problems are it tried to solve. After you wrap up a part of the project and move on to work on something else, the wrapped up code quickly becomes as if written by someone else. Unit tests capture all the cases the programmer envisioned the unit of code should handle. It is a service to the future collaborator, who very well could be the same person, so she doesn't have to mentally fight her way into the code. As soon something is changed to the function such that it no longer does everything it was designed to do, the unit test informs us. When there are no
 
 * slow down - think through scenarios
-* externalise your memory
+
