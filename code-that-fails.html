@@ -174,7 +174,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1.2" data-path="code-that-fails.html"><a href="code-that-fails.html#column-validation"><i class="fa fa-check"></i><b>7.1.2</b> Column Validation</a></li>
 <li class="chapter" data-level="7.1.3" data-path="code-that-fails.html"><a href="code-that-fails.html#data-validation"><i class="fa fa-check"></i><b>7.1.3</b> Data Validation</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="code-that-fails.html"><a href="code-that-fails.html#unit-testing"><i class="fa fa-check"></i><b>7.2</b> Unit Testing</a></li>
+<li class="chapter" data-level="7.2" data-path="code-that-fails.html"><a href="code-that-fails.html#unit-testing"><i class="fa fa-check"></i><b>7.2</b> Unit Testing</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="code-that-fails.html"><a href="code-that-fails.html#externalise-your-assumptions"><i class="fa fa-check"></i><b>7.2.1</b> Externalise your Assumptions</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -274,11 +276,17 @@ Writing such code means that you will spent more time developing than with the <
 </div>
 <div id="unit-testing" class="section level2">
 <h2><span class="header-section-number">7.2</span> Unit Testing</h2>
+<p>The above, type checking, column validation, and data validation, test assumptions to the data going into the functions. To data scientists learning about these usually makes a lot of sense, because most who worked on a larger product without these has been bitten quite a bit. Moreover, these measures are quick to implement by just inserting one or two lines of code at the beginning of a function. Unit testing your code does not come so natural to data scientists, unless they have a background in software development. Writing tests might seem as a pointless, time consuming exercise at first sight. This is because its benefits are not inmediately obvious to someone who never applied used them. Still, you should make it part of your software development routine, even when you are the only one using the software you write.</p>
+<p>If you are unsure what unit tests are or how to do them in R, please read <a href="http://r-pkgs.had.co.nz/tests.html">the chapter in <em>R packages</em></a> carefully.</p>
+<div id="externalise-your-assumptions" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Externalise your Assumptions</h3>
+<p>Reading someone else’s code is demanding.</p>
 <ul>
 <li>slow down - think through scenarios</li>
 <li>externalise your memory</li>
 </ul>
 
+</div>
 </div>
 </div>
             </section>
