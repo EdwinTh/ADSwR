@@ -108,7 +108,7 @@ From the above it should be clear that to work in an Agile way automated code te
 
 In the visual representation of building a data science prodcut below each feature to be added is represented by a color. On top the data scientist who does unit test, below the one who doesn't. The unit tester takes quite some time to implement the frist two features, the non-unit tester delivers them much quicker. After implementing the third feature, however, some code that was written for the first feature keeps failing and he doesn't know why. When the fourth is implemented, these problems arise again, in a slightly different form. When he finally manages to control it the code of the fourth feature gets unstable, asking for his attention. Meanwhile, the unit tester soldiers on. Sometimes she needs to make small adjustments to the old features, to make them click with new ones. In general however, she can uphold Agile's promise of continuous, equally paced, delivery.
 
-```{r, echo=FALSE, fig.cap="Linear flow in software development"}
+```{r, echo=FALSE, fig.cap="Time line for developing a product with (top) and without (below) unit tests"}
 knitr::include_graphics("images/unit_testing.png")
 ```
 
