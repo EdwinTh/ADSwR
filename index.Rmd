@@ -15,7 +15,13 @@ biblio-style: apalike
 
 # Working without a Workflow
 
-When I was starting my career as a data scientist, I did not really have a workflow. Freshly out of statistics grad school I entered the arena of Dutch business, employed by a small consulting firm. Between the company, the clients and myself, not one person knew what it meant to implement a statistical model or a machine learning method in the real world. Bu everybody was interested in this "Big Data" thing, so quickly we started to do consulting work without a clear idea what I was going to do. When we finally came to something that looked like a project, I plunged into it. Eager to deliver results quickly, I loaded data extracts into R and started to apply all kinds of different models and algorithms on it. Findings ended up in the code comments of the R scripts, scripts that often grew to hundreds or even thousands of lines. 
+When I was starting my career as a data scientist, I did not really have a workflow. 
+Freshly out of statistics grad school I entered the arena of Dutch business, employed by a small consulting firm. 
+Between the company, the clients and myself, not one person knew what it meant to implement a statistical model or a machine learning method in the real world. 
+But everybody was interested in this "Big Data" thing, so quickly we started to do consulting work without a clear idea what I was going to do. 
+When we finally came to something that looked like a project, I plunged into it. 
+Eager to deliver results quickly, I loaded data extracts into R and started to apply all kinds of different models and algorithms on it. 
+Findings ended up in the code comments of the R scripts, scripts that often grew to hundreds or even thousands of lines. 
 
 The only system I had was numbering the scripts sequentially. Soon I found myself amidst dozens of scripts and data exports of intermediate results that were no longer reproducible. The R session I was running *ad infinitum* was sometimes mistakenly closed, or it crashed (which was bound to happen as the memory used grew). I spent hours or even days to recreate the results when this happened. Deadlines were a nightmare; everything I had done up to that point had to be loaded, joined and compared at the last moment. More often than not, the model results were different from the than noted earlier, with no indication if I was mistaken earlier, I was using the wrong data now, or some other source of error I was introduced. Looking back, I had no clue about the importance of a good workflow for doing larger data science projects. Several times I was saeved when plug was pulled from the project for other reasons, saving me from embarrassment.
 
