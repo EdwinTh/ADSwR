@@ -1,0 +1,7 @@
+# Automation
+
+R users tend to run code by hand. 
+Press a button, see results, press some more buttons, see some more results.
+R is designed with interactivity in mind, it enables the user to have a direct Q&A with the data. 
+This is a great feature of the language, making it uniquely suitable to draw quick insights and conclusions from data.
+However, reproducibility is not served by code that is manually ran, but by completely automating data preparation, model training, model scoring and everything else that is part of the data science product.
