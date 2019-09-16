@@ -163,7 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>II …with R</b></span></li>
 <li class="chapter" data-level="6" data-path="code-organsation.html"><a href="code-organsation.html"><i class="fa fa-check"></i><b>6</b> Code Organsation</a><ul>
-<li class="chapter" data-level="6.1" data-path="code-organsation.html"><a href="code-organsation.html#using-r-packages"><i class="fa fa-check"></i><b>6.1</b> Using R Packages</a><ul>
+<li class="chapter" data-level="6.1" data-path="code-organsation.html"><a href="code-organsation.html#using-the-r-package-structure"><i class="fa fa-check"></i><b>6.1</b> Using the R Package Structure</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="code-organsation.html"><a href="code-organsation.html#explorative-research"><i class="fa fa-check"></i><b>6.1.1</b> Explorative Research</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="code-organsation.html"><a href="code-organsation.html#further-reading"><i class="fa fa-check"></i><b>6.2</b> Further Reading</a></li>
@@ -215,14 +215,14 @@ The larger the project becomes the less likely this condtion is met.
 You can say that we are <em>code overfitting</em> on the data.
 The code only works on a particular situation, as soon as there is a small change the code breaks.
 Oftentimes this way of developing is combined with saving intermediate results, to prevent having to run all the code time and time again, especially when some heavy calculations are involved. Together they can be a reproducibility recipe for disaster.
-The code never runs end-to-end, but it quickly is unclear which intermediate results are out of sync.
+The code never runs end-to-end, it can get quickly unclear which intermediate results are out of sync.
 It gets unclear which reported results are obtained on which data set and if this was before or after a modification to the code.
 Working in this way will create uncertainty, stress and an unreliable product.
 We cannot build an Agile workflow on such basis.</p>
-<div id="using-r-packages" class="section level2">
-<h2><span class="header-section-number">6.1</span> Using R Packages</h2>
+<div id="using-the-r-package-structure" class="section level2">
+<h2><span class="header-section-number">6.1</span> Using the R Package Structure</h2>
 <p>To remedy this high stress, low reproducibility workflow we should turn to the best practises of software development.
-Luckily, software development is not foreign to R, it provides the package structure that enables users to store their own function and share them with others.
+Luckily, software development is not foreign to R, it is provided in the package structure that enables users to store their own function and share them with others.
 Although R has ample opportunities for doing object oriented programming, the most used and suitable structure for building complex data products is the function.
 The <em>ADSwR</em> approach to code organisation is to build a data product that solely consists of functions.
 Lower level functions are combined to form more complex operations.
