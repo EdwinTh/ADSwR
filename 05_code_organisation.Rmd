@@ -2,17 +2,44 @@
 
 # Code Organsation
 
-The essence of Agile Data Science, continuously delivering an uptaded product, can only be achieved when the code is of high quality. Many data scientists, especially those who are drawn to R, have a background other than software development. Writing software is something we do to solve problems in our professional field, such as statistics, ecology, actuary or one of the many other fields R is used. The code is typically written interactively with the data. Write a a few lines of code, run the data set at hand, check if the results match your expectations, if it does go on and write a few more lines of code. This approach might be fine for a quick explorative data analysis in which you write code to answer a few ad hoc questions. It is not fine for large scale projects in which the data prodcut should be reliable and stable, because this way of working results in low reproducibility and flexibility towards new situations. 
+The essence of Agile Data Science, continuously delivering an uptaded product, can only be achieved when the code is of high quality. 
+Many data scientists, especially those who are drawn to R, have a background other than software development. 
+Writing software is something we do to solve problems in our professional field, such as statistics, ecology, actuary or one of the many other fields R is used. 
+The code is typically written interactively with the data. 
+Write a a few lines of code, run the data set at hand, check if the results match your expectations, if it does go on and write a few more lines of code. 
+This approach might be fine for a quick explorative data analysis in which you write code to answer a few ad hoc questions. 
+It is not fine for large scale projects in which the data prodcut should be reliable and stable, because this way of working results in low reproducibility and flexibility towards new situations. 
 
-Reproducibility is low because code is not developed as part of an end-to-end product, but incrementally in which each time a bit of code is added. We could call this the *random walk programming*, the next step is determined only by the current state of the code and data. Code developed this way only keeps working when downstream code and data are staying exactly the same. The larger the project becomes the less likely this condtion is met. You can say that we are *code overfitting* on the data. The code only works on a particular situation, as soon as there is a small change the code breaks. Oftentimes this way of developing is combined with saving intermediate results, to prevent having to run all the code time and time again, especially when some heavy calculations are involved. Together they can be a reproducibility recipe for disaster. The code never runs end-to-end, but it quickly is unclear which intermediate results are out of sync. It gets unclear which reported results are obtained on which data set and if this was before or after a modification to the code. Working in this way will create uncertainty, stress and an unreliable product. We cannot build an Agile workflow on such basis.
+Reproducibility is low because code is not developed as part of an end-to-end product, but incrementally in which each time a bit of code is added. 
+We could call this the *random walk programming*, the next step is determined only by the current state of the code and data. 
+Code developed this way only keeps working when downstream code and data are staying exactly the same. 
+The larger the project becomes the less likely this condtion is met. 
+You can say that we are *code overfitting* on the data. 
+The code only works on a particular situation, as soon as there is a small change the code breaks. 
+Oftentimes this way of developing is combined with saving intermediate results, to prevent having to run all the code time and time again, especially when some heavy calculations are involved. Together they can be a reproducibility recipe for disaster. 
+The code never runs end-to-end, but it quickly is unclear which intermediate results are out of sync. 
+It gets unclear which reported results are obtained on which data set and if this was before or after a modification to the code. 
+Working in this way will create uncertainty, stress and an unreliable product. 
+We cannot build an Agile workflow on such basis.
 
 ## Using R Packages
 
-To remedy this high stress, low reproducibility workflow we should turn to the best practises of software development. Luckily, software development is not foreign to R, it provides the package structure that enables users to store their own function and share them with others. Although R has ample opportunities for doing object oriented programming, the most used and suitable structure for building complex data products is the function. The *ADSwR* approach to code organisation is to build a data product that solely consists of functions. Lower level functions are combined to form more complex operations. These operations are then chained together to create the entire product, a pipeline through which the data flows from the source to the final predictions, reports or dashboards. In the subsequent chapters we will explore several aspects of building a high quality pipeline, that gives reproducible and reliable results. 
+To remedy this high stress, low reproducibility workflow we should turn to the best practises of software development. 
+Luckily, software development is not foreign to R, it provides the package structure that enables users to store their own function and share them with others. 
+Although R has ample opportunities for doing object oriented programming, the most used and suitable structure for building complex data products is the function. 
+The *ADSwR* approach to code organisation is to build a data product that solely consists of functions. 
+Lower level functions are combined to form more complex operations. 
+These operations are then chained together to create the entire product, a pipeline through which the data flows from the source to the final predictions, reports or dashboards. 
+In the subsequent chapters we will explore several aspects of building a high quality pipeline, that gives reproducible and reliable results. 
 
 ### Explorative Research
-In the previous chapters it was concluded that the circular nature of explorative data analysis makes data science projects fundamentally different from 'regular' software design. Whereas the data product should be of high quality, exploration should be done quickly to indicate if we can advance the project by incorporating the results of the analysis. R packages have Vignettes, documents in which the package authors show how to use the package, such as [this one](https://cran.r-project.org/web/packages/padr/vignettes/padr.html). One of the ways of creating such a Vignette is by using Rmarkdown documents. These happen to be ideal for data exploration, combining code in the code blocks with comments and observations in the text around it. The functions from the package are readily available here.
+In the previous chapters it was concluded that the circular nature of explorative data analysis makes data science projects fundamentally different from 'regular' software design. 
+Whereas the data product should be of high quality, exploration should be done quickly to indicate if we can advance the project by incorporating the results of the analysis. 
+R packages have Vignettes, documents in which the package authors show how to use the package, such as [this one](https://cran.r-project.org/web/packages/padr/vignettes/padr.html). 
+One of the ways of creating such a Vignette is by using Rmarkdown documents. 
+These happen to be ideal for data exploration, combining code in the code blocks with comments and observations in the text around it. 
+The functions from the package are readily available here.
 
 ## Further Reading
 
-Hadley Wickham wrote a comprehensive book on developing software in R packages. It is freely available online, [here](http://r-pkgs.had.co.nz/).
+Hadley Wickham wrote a comprehensive book on developing software in R packages. It is freely available online, [here](http://r-pkgs.had.co.nz/). You should read it!
