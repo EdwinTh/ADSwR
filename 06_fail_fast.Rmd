@@ -1,17 +1,44 @@
 # Code that Fails
 
-Your code will fail. Not once, not twice, but hundreds, thousands of times in the course of a large data science project. Everybody's code fails, many times. Your code, my code, Hadley Wickham's code. Not because we are bad at what we do, but because it is not possible to foresee all the possible ways the code will be used or all the possible data inputs that the code will run against at the moment we write it. Getting better at programming does not mean you will write fault-free code (although you will make fewer errors as you grow more experienced), but writing code that fails fast and informatively. 
-Writing such code means that you will spent more time developing than with the *random walk* method described in the previous chapter. This is an investment that will pay off big time as your project grows in complexity. 
+Your code will fail. 
+Not once, not twice, but hundreds, thousands of times in the course of a large data science project. 
+Everybody's code fails, many times. 
+Your code, my code, Hadley Wickham's code. 
+Not because we are bad at what we do, but because it is not possible to foresee all the possible ways the code will be used or all the possible data inputs that the code will confronted with at the moment we write it. 
+Getting better at programming does not mean you will write fault-free code (although you will make fewer errors as you grow more experienced), but writing code that fails fast and informatively. 
+Writing such code means that you will spent more time developing than with the *random walk* method described in the previous chapter. 
+This is an investment that will pay off big time as your project grows in complexity. 
 
-But before we look into how to write code that fails fast and informative, why is this important for Agile Data Science? High quality code is part of the twelve principles, but this is a means to an end. The essence of Agile is continuous delivery. Updating and shipping your product everytime you made progress can only be done when your code is adjustable. As the project advances, the end-to-end product will grow in complexity. Sooner rather than later it will reach a point in which you cannot have a full overview of all the aspects of the product anymore. When introducing a new feature you want to make sure all the other elements in the code base keep doing what they were designed for. If not, you want to be instructed clearly what is going wrong so you can either adjust the newly introduced feature or modify the existing elements so it works with the new feature. If everytime you want to make a change the whole thing comes tumbling done without informing you what goes wrong, you cannot achieve the objective of fast, continuous delivery.
+But before we look into how to write code that fails fast and informative, why is this important for Agile Data Science? 
+High quality code is part of the twelve principles, but this is a means to an end. 
+The essence of Agile is continuous delivery. 
+Updating and shipping your product everytime you made progress can only be done when your code is adjustable. 
+As the project advances, the end-to-end product will grow in complexity. 
+Sooner rather than later it will reach a point in which you cannot have a full overview of all the aspects of the product anymore. 
+When introducing a new feature you want to make sure all the other elements in the code base keep doing what they were designed for. 
+If not, you want to be instructed clearly what is going wrong so you can either adjust the newly introduced feature or modify the existing elements so it works with the new feature. 
+If everytime you want to make a change the whole thing comes tumbling done without informing you what goes wrong, you cannot achieve the objective of fast, continuous delivery.
 
 ## Assumptions to your Data
 
-Automation means not calling the functions yourself anymore. You just flip the switch and the whole thing is set in motion. This means that you are no longer get the inmediate feedback you are used to when calling the functions yourself. When something goes wrong the whole thing just breaks with an error message. When you are lucky the error message is informative and you are quick to find the bug. When you are not, you may be confronted with `object of type 'closure' is not subsettable`, you may have grumpy afternoon ahead. Best to not depend on luck, but make sure you will always get a proper indication what went wrong. 
+Automation means not calling the functions yourself anymore. 
+You just flip the switch and the whole thing is set in motion. 
+This means that you are no longer get the inmediate feedback you are used to when calling the functions yourself. 
+When something goes wrong the whole thing just breaks with an error message. 
+When you are lucky the error message is informative and you are quick to find the bug. 
+When you are not, you may be confronted with `object of type 'closure' is not subsettable`, you may have a grumpy afternoon ahead. 
+Best to not depend on luck, but make sure you will always get a proper indication what went wrong. 
 
 ### Type Checking
 
-Most languages using functional programming are strongly typed. This means that for every argument that a function takes, its datatype is specified at function creation, as well as the datatype that the output takes. When the function is than called it is first checked if the data on which it is called is of the correct type, or at least can be forced to the specified type. If not, it will break inmediately and will tell the user why. R is weakly typed, the data type of the function arguments are not specified. When a function is called it just has a go on the objects that are fed to it. The function only breaks when somewhere in the body another function gets called with an invalid data type. Take the following for instance:
+Most languages using functional programming are strongly typed. 
+This means that for every argument that a function takes, its datatype is specified at function creation, as well as the datatype that the output takes. 
+When the function is than called it is first checked if the data on which it is called is of the correct type, or at least can be forced to the specified type. 
+If not, it will break inmediately and will tell the user why. 
+R is weakly typed, the data type of the function arguments are not specified. 
+When a function is called it just has a go on the objects that are fed to it. 
+The function only breaks when somewhere in the body another function gets called with an invalid data type. 
+Take the following for instance:
 
 ```{r}
 add_two_numbers <- function(x, y) {
@@ -22,13 +49,17 @@ add_two_numbers <- function(x, y) {
 }
 ```
 
-Now, what will happen if we accidently call it on a string? It will only break when we hit the `+` operator, all the code before it runs. The error message it gives us, is not so informative that we inmediately figure out what goes wrong.
+Now, what will happen if we accidently call it on a string? 
+It will only break when we hit the `+` operator, all the code before it runs. 
+The error message it gives us, is not so informative that we inmediately figure out what goes wrong.
 
 ```{r, error = TRUE}
 add_two_numbers(42, "MacGyver")
 ```
 
-Pfff, what is a binary operator again? When this functions is part of a framework in which higher order functions call lower order functions you may be up for an hour or two of sifting through your code to locate the bug. Fortunately type checking is very easily add to a function by asserting all argument data types in `stopifnot`. 
+Pfff, what is a binary operator again? 
+When this functions is part of a framework in which higher order functions call lower order functions you may be up for an hour or two of sifting through your code to locate the bug. 
+Fortunately type checking is very easily add to a function by asserting all argument data types in `stopifnot`. 
 
 ```{r, error = TRUE}
 add_two_numbers <- function(x, y) {
@@ -45,7 +76,11 @@ We are now specifically informed, which argument does not meet the assumptions a
 
 ### Column Validation
 
-Central to most data products will be the modification of data frames. Probably most functions you'll create are very specific to your project and will be called only once. For these cases you want to save yourself the overhead of making each function completely generic by parametrising the column names that are used. Say you want to add the log of the target to the data frame and you create the following function.
+Central to most data products will be the modification of data frames. 
+Probably most functions you'll create are very specific to your project and will be called only once. 
+For these cases you want to save yourself the overhead of making each function completely generic by parametrising the column names that are used. 
+Say you want to add the log of the target to the data frame and you create the following function.
+
 ```{r}
 add_log_target <- function(x) {
   stopifnot(is.data.frame(x))
@@ -53,12 +88,15 @@ add_log_target <- function(x) {
   x
 }
 ```
-Now what if `target` was mistakingly removed from `x` in the step preceding this one in the product. Will it throw an informativer error?
+Now what if `target` was mistakingly removed from `x` in the step preceding this one in the product. 
+Will it throw an informativer error?
 
 ```{r, error = TRUE}
 add_log_target(mtcars)
 ```
-Uhh, no not exactly. Another of those R error beauties that will leave you clueless for a time. It is a good idea to check if all the columns that are required for the operations in the function are present before starting them. I use this little function,
+Uhh, no not exactly. 
+Another of those R error beauties that will leave you clueless for a time. 
+It is a good idea to check if all the columns that are required for the operations in the function are present before starting them. I use this little function,
 
 ```{r, error = TRUE}
 df_has_cols <- function(x, cols, func) { 
@@ -83,7 +121,12 @@ add_log_target(mtcars)
 
 ### Data Validation
 
-Where the first two checks are about the structure of the inputs, data validation tests the assumptions to the data itself. Variables that cannot contain missing values, variables that must be strictly positive, or characters that can only take a limited number of values. If you have any such assumptions to your data, you do best to check them before you unleash your functions on it. You could use external packages such as `validate` or `recipes`, or you can write them yourself. The `stopifnot` function can be used to check any assumption you have, as long as you can create a single logical for it. In the above example, since we are taking the log of `target` and it is the target variable it must be strictly positive and nonmissing.
+Where the first two checks are about the structure of the inputs, data validation tests the assumptions to the data itself. 
+Variables that cannot contain missing values, variables that must be strictly positive, or characters that can only take a limited number of values. 
+If you have any such assumptions to your data, you do best to check them before you unleash your functions on it. 
+You could use external packages such as `validate` or `recipes`, or you can write them yourself. 
+The `stopifnot` function can be used to check any assumption you have, as long as you can create a single logical for it. 
+In the above example, since we are taking the log of `target` and it is the target variable it must be strictly positive and nonmissing.
 
 ```{r}
 add_log_target <- function(x) {
@@ -96,26 +139,66 @@ add_log_target <- function(x) {
 
 ## Unit Testing
 
-The above, type checking, column validation, and data validation, test assumptions to the data going into the functions. To data scientists learning about these usually makes a lot of sense, because most who worked on a larger product without these has been bitten quite a bit. Moreover, these measures are quick to implement by just inserting one or two lines of code at the beginning of a function. Unit testing your code does not come so natural to data scientists, unless they have a background in software development. Writing tests might seem as a pointless, time consuming exercise at first sight. This is because its benefits are not inmediately obvious to someone who never applied used them. Still, you should make it part of your software development routine, even when you are the only one using the software you write.
+The above, type checking, column validation, and data validation, test assumptions to the data going into the functions. 
+To data scientists learning about these usually makes a lot of sense, because most who worked on a larger product without these has been bitten quite a bit. 
+Moreover, these measures are quick to implement by just inserting one or two lines of code at the beginning of a function. 
+Unit testing your code does not come so natural to data scientists, unless they have a background in software development. 
+Writing tests might seem as a pointless, time consuming exercise at first sight. 
+This is because its benefits are not inmediately obvious to someone who never applied used them. 
+Still, you should make it part of your software development routine, even when you are the only one using the software you write.
 
 If you are unsure what unit tests are or how to do them in R, please read [the chapter in *R packages*](http://r-pkgs.had.co.nz/tests.html) carefully. 
 
 ### Externalising Assumptions
 
-Reading someone else's code is demanding, even when written by an excellent programmer. At the moment of writing the programmer is fully submerged in the problem, accommodating for all the inputs she foresees the code can be confronted with. Reading her code is tough because you have to recover from it what the problems are it tried to solve. After you wrap up a part of the project and move on to work on something else, the wrapped up code quickly becomes as if written by someone else. Unit tests capture all the cases the programmer envisioned the unit of code should handle. It is a service to the future collaborator, who very well could be the same person, so she doesn't have to mentally fight her way into the code. As soon something is changed to the function such that it no longer does everything it was designed to do, the unit test informs us. A workflow without unit tests means that changes to code needs to be interactively checked against again, as was done when the code was written. The code fails, but it might be unclear why it fails, leaving the programmer with quite a puzzle. An even worse scenario would be if the code does not fail, for now. The exception that should be handled happens not to be in the data that is used to interactively check the modification. All seems fine and the code is adjusted. Then when the edge case does appear again in the data the product breaks mysteriously.
+Reading someone else's code is demanding, even when written by an excellent programmer. 
+At the moment of writing the programmer is fully submerged in the problem, accommodating for all the inputs she foresees the code can be confronted with. 
+Reading her code is tough because you have to recover from it what the problems are it tried to solve. 
+After you wrap up a part of the project and move on to work on something else, the wrapped up code quickly becomes as if written by someone else. 
+Unit tests capture all the cases the programmer envisioned the unit of code should handle. 
+It is a service to the future collaborator, who very well could be the same person, so she doesn't have to mentally fight her way into the code. 
+As soon something is changed to the function such that it no longer does everything it was designed to do, the unit test informs us. 
+A workflow without unit tests means that changes to code needs to be interactively checked against again, as was done when the code was written. 
+The code fails, but it might be unclear why it fails, leaving the programmer with quite a puzzle. 
+An even worse scenario would be if the code does not fail, for now. 
+The exception that should be handled happens not to be in the data that is used to interactively check the modification. 
+All seems fine and the code is adjusted. 
+Then when the edge case does appear again in the data the product breaks mysteriously.
 
-From the above it should be clear that to work in an Agile way automated code testing should be in place. Agile's core objective, continuous delivery, can only be obtained if modifications to the product can be made quickly. Omit testing will result in *fingers crossed programming*, which is neither effective nor fun. At first it might seem that skipping unit tests will get you to deliver faster. However, as time progresses and the product grows in complexity, a unit tester will be able to keep the same steady pace in delivering new features, where the system of those who cut corners will start to be grinding to a halt because they have to keep digging in old code that no longer works because of the newly introduced features. 
+From the above it should be clear that to work in an Agile way automated code testing should be in place. 
+Agile's core objective, continuous delivery, can only be obtained if modifications to the product can be made quickly. 
+Omit testing will result in *fingers crossed programming*, which is neither effective nor fun. 
+At first it might seem that skipping unit tests will get you to deliver faster. 
+However, as time progresses and the product grows in complexity, a unit tester will be able to keep the same steady pace in delivering new features, where the system of those who cut corners will start to be grinding to a halt because they have to keep digging in old code that no longer works because of the newly introduced features. 
 
-In the visual representation of building a data science prodcut below each feature to be added is represented by a color. On top the data scientist who does unit test, below the one who doesn't. The unit tester takes quite some time to implement the frist two features, the non-unit tester delivers them much quicker. After implementing the third feature, however, some code that was written for the first feature keeps failing and he doesn't know why. When the fourth is implemented, these problems arise again, in a slightly different form. When he finally manages to control it the code of the fourth feature gets unstable, asking for his attention. Meanwhile, the unit tester soldiers on. Sometimes she needs to make small adjustments to the old features, to make them click with new ones. In general however, she can uphold Agile's promise of continuous, equally paced, delivery.
+In the visual representation of building a data science prodcut below each feature to be added is represented by a color. 
+On top the data scientist who does unit test, below the one who doesn't. 
+The unit tester takes quite some time to implement the frist two features, the non-unit tester delivers them much quicker. 
+After implementing the third feature, however, some code that was written for the first feature keeps failing and he doesn't know why. 
+When the fourth is implemented, these problems arise again, in a slightly different form. 
+When he finally manages to control it the code of the fourth feature gets unstable, asking for his attention. 
+Meanwhile, the unit tester soldiers on. 
+Sometimes she needs to make small adjustments to the old features, to make them click with new ones. 
+In general however, she can uphold Agile's promise of continuous, equally paced, delivery.
 
 ```{r, echo=FALSE, fig.cap="Time line for developing a product with (top) and without (below) unit tests"}
 knitr::include_graphics("images/unit_testing.png")
 ```
 
-Of course this example is contrived. After adding a new feature it gradually blends into the code base of the product. You will probably not say "I am going to revisit feature 2 now", but rather "I will look into this error that keeps showing up now and then when we run it on new data". Still, I think it is a good idea to keep this picture in your head as a reference, use unit tests and you won't be solving the same problems over and over again.
+Of course this example is contrived. 
+After adding a new feature it gradually blends into the code base of the product. 
+You will probably not say "I am going to revisit feature 2 now", but rather "I will look into this error that keeps showing up now and then when we run it on new data". 
+Still, I think it is a good idea to keep this picture in your head as a reference, use unit tests and you won't be solving the same problems over and over again.
 
 ### Writing Better Code
 
-An additional benefit of unit testing is that it will improve the code quality directly. A point also made by Hadley Wickham in the first section of [the chapter on unit testing](http://r-pkgs.had.co.nz/tests.html). In order to be unit testeable the code should comprised of many small parts, instead of big chunks. Like a broken machine that is easier to fix when components can be replaced separately, code comprised of many small components is easier to debug, optimise and maintain. 
+An additional benefit of unit testing is that it will improve the code quality directly. 
+A point also made by Hadley Wickham in the first section of [the chapter on unit testing](http://r-pkgs.had.co.nz/tests.html). 
+In order to be unit testeable the code should comprised of many small parts, instead of big chunks. 
+Like a broken machine that is easier to fix when components can be replaced separately, code comprised of many small components is easier to debug, optimise and maintain. 
 
-The main reason people are not eager to write unit tests, because at first site it seems redundant and time consuming work. I hope by now you are convinced it is certainly not redundant. As you get the hang of it, you will notice that being slowed down does actually make you stop and think. What are the edge cases that this function can mee and how do you want to behave it when it does? By thinking through the scenarios before you put the function to work you can circumvent many problems up front.
+The main reason people are not eager to write unit tests, because at first site it seems redundant and time consuming work. 
+I hope by now you are convinced it is certainly not redundant. 
+As you get the hang of it, you will notice that being slowed down does actually make you stop and think. 
+What are the edge cases that this function can mee and how do you want to behave it when it does? 
+By thinking through the scenarios before you put the function to work you can circumvent many problems up front.
