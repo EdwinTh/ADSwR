@@ -214,20 +214,50 @@ When we finally came to something that looked like a project, I plunged into it.
 Eager to deliver results quickly, I loaded data extracts into R and started to apply all kinds of different models and algorithms on it.
 Findings ended up in the code comments of the R scripts, scripts that often grew to hundreds or even thousands of lines.</p>
 <p>The only system I had was numbering the scripts sequentially. Soon I found myself amidst dozens of scripts and data exports of intermediate results that were no longer reproducible. The R session I was running <em>ad infinitum</em> was sometimes mistakenly closed, or it crashed (which was bound to happen as the memory used grew). I spent hours or even days to recreate the results when this happened. Deadlines were a nightmare; everything I had done up to that point had to be loaded, joined and compared at the last moment. More often than not, the model results were different from the than noted earlier, with no indication if I was mistaken earlier, I was using the wrong data now, or some other source of error I was introduced. Looking back, I had no clue about the importance of a good workflow for doing larger data science projects. Several times I was saeved when plug was pulled from the project for other reasons, saving me from embarrassment.</p>
-<p>I learned a great deal since these day, both from other’s insights and from my own experiences. Writing an R package that to be shipped to CRAN enforced me to understand the basics of software engineering. Not being able to reproduce crucial results forced me to start thinking about end-to-end research and model building, controlling all the steps along the way. Last year, for the first time, I joined a Scrum team (frontend, backend, ux designer, product owner, second data scientis) to create a machine learning model that we brought to production using the Agile principles. It was an inspiring experience from which I learned a great deal. My colleagues patiently explained the principles of Agile software development and together we discovered what did and did not work for data science.</p>
+<p>I learned a great deal since these day, both from other’s insights and from my own experiences.
+Writing an R package that to be shipped to CRAN enforced me to understand the basics of software engineering.
+Not being able to reproduce crucial results forced me to start thinking about end-to-end research and model building, controlling all the steps along the way.
+Last year, for the first time, I joined a Scrum team (frontend, backend, ux designer, product owner, second data scientis) to create a machine learning model that we brought to production using the Agile principles.
+It was an inspiring experience from which I learned a great deal.
+My colleagues patiently explained the principles of Agile software development and together we discovered what did and did not work for data science.</p>
 <div id="what-this-text-is-about" class="section level2">
 <h2><span class="header-section-number">1.1</span> What this Text is About</h2>
-<p>All these experiences culminated in the workflow that we now adhere to at work and I think it is worthwhile to share it. It is heavily based on the principles of Agile software production, hence the title. We have explored which of the concepts from Agile did and did not work for data science and we got hands-on experience in working from these principles in an R project that actually got to production. This text is split into two parts. In the first we will look into the Agile philosophy and some of the methodologies that are closely related to it (chapters 2 and 3). Both will be related to the data science context, seeing what we can get from the philosophy (chapter 4) and what an Agile machine learning workflow might look like (chapter 5). The second part is hands on. We will explore how we can leverage the possibilities in the R software system to implement Agile data science.</p>
+<p>All these experiences culminated in the workflow that we now adhere to at work and I think it is worthwhile to share it.
+It is heavily based on the principles of Agile software production, hence the title.
+We have explored which of the concepts from Agile did and did not work for data science and we got hands-on experience in working from these principles in an R project that actually got to production.
+This text is split into two parts.
+In the first we will look into the Agile philosophy and some of the methodologies that are closely related to it (chapters 2 and 3).
+Both will be related to the data science context, seeing what we can get from the philosophy (chapter 4) and what an Agile machine learning workflow might look like (chapter 5).
+The second part is hands on. We will explore how we can leverage the possibilities in the R software system to implement Agile data science.</p>
 </div>
 <div id="writing-out-loud" class="section level2">
 <h2><span class="header-section-number">1.2</span> Writing out Loud</h2>
-<p>Data science projects can greatly differ from each other. There are so many variables that make each project unique, there are many situations I have not experienced and there are necessarily many possible aspects of data science projects I am not aware of. In this document I am relating my own experiences to the theory and best practises of Agile software development to come up with a general workflow. This means that if I were to write this text in isolation I would be “overfitting” the workflow on about the dozen large data science projects I have done. That is why I need your help. I hope many of you will read the first drafts of this book very critically and relate the content to their own experiences. If you find that parts are incomplete or plainly incorrect, please file an <a href="https://github.com/EdwinTh/ADSwR">issue</a>.</p>
-<p>Also, anyone who succesfully completes data science projects must have developed an effective workflow for themselves, even when it is not grounded in a widespread theory such as Agile. I I am very interested in the best practises you have developed; file an issue with what you would like to add, and if we can’t fit it in the text we can always add it as an appendix or a discussion. This text is meant to be a living thing with the objective of documenting a workflow that yields optimal reproducibility, quick shipping of results and high quality code. The more people share their best practises, the closer we get to this objective. Please follow along on this journey and get involved! Finally, I am not a native English speaker so fixed typos and style improvements are greatly appreciated.</p>
+<p>Data science projects can greatly differ from each other.
+There are so many variables that make each project unique, there are many situations I have not experienced and there are necessarily many possible aspects of data science projects I am not aware of.
+In this document I am relating my own experiences to the theory and best practises of Agile software development to come up with a general workflow.
+This means that if I were to write this text in isolation I would be “overfitting” the workflow on about the dozen large data science projects I have done.
+That is why I need your help.
+I hope many of you will read the first drafts of this book very critically and relate the content to their own experiences. If you find that parts are incomplete or plainly incorrect, please file an <a href="https://github.com/EdwinTh/ADSwR">issue</a>.</p>
+<p>Also, anyone who succesfully completes data science projects must have developed an effective workflow for themselves, even when it is not grounded in a widespread theory such as Agile.
+I am very interested in the best practises you have developed; file an issue with what you would like to add, and if we can’t fit it in the text we can always add it as an appendix or a discussion.
+This text is meant to be a living thing with the objective of documenting a workflow that yields optimal reproducibility, quick shipping of results and high quality code.
+The more people share their best practises, the closer we get to this objective.
+Please follow along on this journey and get involved!
+Finally, I am not a native English speaker so fixed typos and style improvements are greatly appreciated.</p>
 </div>
 <div id="intended-audience" class="section level2">
 <h2><span class="header-section-number">1.3</span> Intended Audience</h2>
-<p>The title of this text has four components: <em>Agile</em>, <em>Data Science</em>, <em>R</em>, and <em>Workflow</em>. If you are interested in all four, you’re obviously in the right place. This text is not for you if you hope to learn about different algorithms and statistical techniques to do data science; more knowledgeable people have written many books and articles on those topics. Also you will not learn anything about R programming. The workflow I present is completely separate from the algorithms you choose and the data preparation tools of your preference, as it focuses on code organisation and delivery. If you use python rather than R, you will still find this text valuable. Especially the first part, which focuses on workflow only and is tool agnostic.</p>
-<p>The larger data science projects I was involved with all had the objective of delivering predictions in some way, so you can file them under machine learning. I intend to present a generic workflow that is also applicable to data science projects that have a different type of delivery, such as automated reports and Shiny applications. You might find machine learning a bit overrepresented in the examples and applications. If you think there is still a misfit between your daily data science practice, please let me know.</p>
+<p>The title of this text has four components: <em>Agile</em>, <em>Data Science</em>, <em>R</em>, and <em>Workflow</em>.
+If you are interested in all four, you’re obviously in the right place.
+This text is not for you if you hope to learn about different algorithms and statistical techniques to do data science; more knowledgeable people have written many books and articles on those topics.
+Also you will not learn anything about R programming.
+The workflow I present is completely separate from the algorithms you choose and the data preparation tools of your preference, as it focuses on code organisation and delivery.
+If you use python rather than R, you will still find this text valuable.
+Especially the first part, which focuses on workflow only and is tool agnostic.</p>
+<p>The larger data science projects I was involved with all had the objective of delivering predictions in some way, so you can file them under machine learning.
+I intend to present a generic workflow that is also applicable to data science projects that have a different type of delivery, such as automated reports and Shiny applications.
+You might find machine learning a bit overrepresented in the examples and applications.
+If you think there is still a misfit between your daily data science practice, please let me know.</p>
 
 </div>
 </div>
