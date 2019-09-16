@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Code that Fails | Agile Data Science with R</title>
+  <title>8 Code that Fails | Agile Data Science with R</title>
   <meta name="description" content="A workflow for doing data science in the R language, using Agile principles." />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Code that Fails | Agile Data Science with R" />
+  <meta property="og:title" content="8 Code that Fails | Agile Data Science with R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Code that Fails | Agile Data Science with R" />
+  <meta name="twitter:title" content="8 Code that Fails | Agile Data Science with R" />
   
   <meta name="twitter:description" content="A workflow for doing data science in the R language, using Agile principles." />
   
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="code-organsation.html"/>
+<link rel="prev" href="automation.html"/>
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -168,15 +168,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="code-organsation.html"><a href="code-organsation.html#further-reading"><i class="fa fa-check"></i><b>6.2</b> Further Reading</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="code-that-fails.html"><a href="code-that-fails.html"><i class="fa fa-check"></i><b>7</b> Code that Fails</a><ul>
-<li class="chapter" data-level="7.1" data-path="code-that-fails.html"><a href="code-that-fails.html#assumptions-to-your-data"><i class="fa fa-check"></i><b>7.1</b> Assumptions to your Data</a><ul>
-<li class="chapter" data-level="7.1.1" data-path="code-that-fails.html"><a href="code-that-fails.html#type-checking"><i class="fa fa-check"></i><b>7.1.1</b> Type Checking</a></li>
-<li class="chapter" data-level="7.1.2" data-path="code-that-fails.html"><a href="code-that-fails.html#column-validation"><i class="fa fa-check"></i><b>7.1.2</b> Column Validation</a></li>
-<li class="chapter" data-level="7.1.3" data-path="code-that-fails.html"><a href="code-that-fails.html#data-validation"><i class="fa fa-check"></i><b>7.1.3</b> Data Validation</a></li>
+<li class="chapter" data-level="7" data-path="automation.html"><a href="automation.html"><i class="fa fa-check"></i><b>7</b> Automation</a></li>
+<li class="chapter" data-level="8" data-path="code-that-fails.html"><a href="code-that-fails.html"><i class="fa fa-check"></i><b>8</b> Code that Fails</a><ul>
+<li class="chapter" data-level="8.1" data-path="code-that-fails.html"><a href="code-that-fails.html#assumptions-to-your-data"><i class="fa fa-check"></i><b>8.1</b> Assumptions to your Data</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="code-that-fails.html"><a href="code-that-fails.html#type-checking"><i class="fa fa-check"></i><b>8.1.1</b> Type Checking</a></li>
+<li class="chapter" data-level="8.1.2" data-path="code-that-fails.html"><a href="code-that-fails.html#column-validation"><i class="fa fa-check"></i><b>8.1.2</b> Column Validation</a></li>
+<li class="chapter" data-level="8.1.3" data-path="code-that-fails.html"><a href="code-that-fails.html#data-validation"><i class="fa fa-check"></i><b>8.1.3</b> Data Validation</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="code-that-fails.html"><a href="code-that-fails.html#unit-testing"><i class="fa fa-check"></i><b>7.2</b> Unit Testing</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="code-that-fails.html"><a href="code-that-fails.html#externalising-assumptions"><i class="fa fa-check"></i><b>7.2.1</b> Externalising Assumptions</a></li>
-<li class="chapter" data-level="7.2.2" data-path="code-that-fails.html"><a href="code-that-fails.html#writing-better-code"><i class="fa fa-check"></i><b>7.2.2</b> Writing Better Code</a></li>
+<li class="chapter" data-level="8.2" data-path="code-that-fails.html"><a href="code-that-fails.html#unit-testing"><i class="fa fa-check"></i><b>8.2</b> Unit Testing</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="code-that-fails.html"><a href="code-that-fails.html#externalising-assumptions"><i class="fa fa-check"></i><b>8.2.1</b> Externalising Assumptions</a></li>
+<li class="chapter" data-level="8.2.2" data-path="code-that-fails.html"><a href="code-that-fails.html#writing-better-code"><i class="fa fa-check"></i><b>8.2.2</b> Writing Better Code</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -200,7 +201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="code-that-fails" class="section level1">
-<h1><span class="header-section-number">7</span> Code that Fails</h1>
+<h1><span class="header-section-number">8</span> Code that Fails</h1>
 <p>Your code will fail.
 Not once, not twice, but hundreds, thousands of times in the course of a large data science project.
 Everybody’s code fails, many times.
@@ -219,7 +220,7 @@ When introducing a new feature you want to make sure all the other elements in t
 If not, you want to be instructed clearly what is going wrong so you can either adjust the newly introduced feature or modify the existing elements so it works with the new feature.
 If everytime you want to make a change the whole thing comes tumbling done without informing you what goes wrong, you cannot achieve the objective of fast, continuous delivery.</p>
 <div id="assumptions-to-your-data" class="section level2">
-<h2><span class="header-section-number">7.1</span> Assumptions to your Data</h2>
+<h2><span class="header-section-number">8.1</span> Assumptions to your Data</h2>
 <p>Automation means not calling the functions yourself anymore.
 You just flip the switch and the whole thing is set in motion.
 This means that you are no longer get the inmediate feedback you are used to when calling the functions yourself.
@@ -228,7 +229,7 @@ When you are lucky the error message is informative and you are quick to find th
 When you are not, you may be confronted with <code>object of type 'closure' is not subsettable</code>, you may have a grumpy afternoon ahead.
 Best to not depend on luck, but make sure you will always get a proper indication what went wrong.</p>
 <div id="type-checking" class="section level3">
-<h3><span class="header-section-number">7.1.1</span> Type Checking</h3>
+<h3><span class="header-section-number">8.1.1</span> Type Checking</h3>
 <p>Most languages using functional programming are strongly typed.
 This means that for every argument that a function takes, its datatype is specified at function creation, as well as the datatype that the output takes.
 When the function is than called it is first checked if the data on which it is called is of the correct type, or at least can be forced to the specified type.
@@ -267,7 +268,7 @@ Fortunately type checking is very easily add to a function by asserting all argu
 <p>We are now specifically informed, which argument does not meet the assumptions and in what the name of the subfunction is.</p>
 </div>
 <div id="column-validation" class="section level3">
-<h3><span class="header-section-number">7.1.2</span> Column Validation</h3>
+<h3><span class="header-section-number">8.1.2</span> Column Validation</h3>
 <p>Central to most data products will be the modification of data frames.
 Probably most functions you’ll create are very specific to your project and will be called only once.
 For these cases you want to save yourself the overhead of making each function completely generic by parametrising the column names that are used.
@@ -302,7 +303,7 @@ It is a good idea to check if all the columns that are required for the operatio
 <p>(<code>match.call()</code> has to be added so it will return the name of the function that breaks for easy debugging).</p>
 </div>
 <div id="data-validation" class="section level3">
-<h3><span class="header-section-number">7.1.3</span> Data Validation</h3>
+<h3><span class="header-section-number">8.1.3</span> Data Validation</h3>
 <p>Where the first two checks are about the structure of the inputs, data validation tests the assumptions to the data itself.
 Variables that cannot contain missing values, variables that must be strictly positive, or characters that can only take a limited number of values.
 If you have any such assumptions to your data, you do best to check them before you unleash your functions on it.
@@ -318,7 +319,7 @@ In the above example, since we are taking the log of <code>target</code> and it 
 </div>
 </div>
 <div id="unit-testing" class="section level2">
-<h2><span class="header-section-number">7.2</span> Unit Testing</h2>
+<h2><span class="header-section-number">8.2</span> Unit Testing</h2>
 <p>The above, type checking, column validation, and data validation, test assumptions to the data going into the functions.
 To data scientists learning about these usually makes a lot of sense, because most who worked on a larger product without these has been bitten quite a bit.
 Moreover, these measures are quick to implement by just inserting one or two lines of code at the beginning of a function.
@@ -328,7 +329,7 @@ This is because its benefits are not inmediately obvious to someone who never ap
 Still, you should make it part of your software development routine, even when you are the only one using the software you write.</p>
 <p>If you are unsure what unit tests are or how to do them in R, please read <a href="http://r-pkgs.had.co.nz/tests.html">the chapter in <em>R packages</em></a> carefully.</p>
 <div id="externalising-assumptions" class="section level3">
-<h3><span class="header-section-number">7.2.1</span> Externalising Assumptions</h3>
+<h3><span class="header-section-number">8.2.1</span> Externalising Assumptions</h3>
 <p>Reading someone else’s code is demanding, even when written by an excellent programmer.
 At the moment of writing the programmer is fully submerged in the problem, accommodating for all the inputs she foresees the code can be confronted with.
 Reading her code is tough because you have to recover from it what the problems are it tried to solve.
@@ -359,7 +360,7 @@ In general however, she can uphold Agile’s promise of continuous, equally pace
 <div class="figure"><span id="fig:unnamed-chunk-11"></span>
 <img src="images/unit_testing.png" alt="Time line for developing a product with (top) and without (below) unit tests"  />
 <p class="caption">
-Figure 7.1: Time line for developing a product with (top) and without (below) unit tests
+Figure 8.1: Time line for developing a product with (top) and without (below) unit tests
 </p>
 </div>
 <p>Of course this example is contrived.
@@ -368,7 +369,7 @@ You will probably not say “I am going to revisit feature 2 now”, but rather 
 Still, I think it is a good idea to keep this picture in your head as a reference, use unit tests and you won’t be solving the same problems over and over again.</p>
 </div>
 <div id="writing-better-code" class="section level3">
-<h3><span class="header-section-number">7.2.2</span> Writing Better Code</h3>
+<h3><span class="header-section-number">8.2.2</span> Writing Better Code</h3>
 <p>An additional benefit of unit testing is that it will improve the code quality directly.
 A point also made by Hadley Wickham in the first section of <a href="http://r-pkgs.had.co.nz/tests.html">the chapter on unit testing</a>.
 In order to be unit testeable the code should comprised of many small parts, instead of big chunks.
@@ -387,7 +388,7 @@ By thinking through the scenarios before you put the function to work you can ci
           </div>
         </div>
       </div>
-<a href="code-organsation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="automation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
