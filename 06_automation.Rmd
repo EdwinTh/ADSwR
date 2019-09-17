@@ -3,5 +3,12 @@
 R users tend to run code by hand. 
 Press a button, see results, press some more buttons, see some more results.
 R is designed with interactivity in mind, it enables the user to have a direct Q&A with the data. 
-This is a great feature of the language, making it uniquely suitable to draw quick insights and conclusions from data.
-However, reproducibility is not served by code that is manually ran, but by completely automating data preparation, model training, model scoring and everything else that is part of the data science product.
+This is a great feature of the R language, making it uniquely suitable for drawing quick insights and conclusions from your data.
+A data product, however, should not be run by hand, it should be running automatically.
+From start to end no human should be needed to obtain and expose results. 
+
+## Efficiency
+
+The obvious reason data science products should be automated is that it will save a lot of time.
+It might take a little more effort to set up an automated pipeline, but once it is in place only monitoring and maintenance are needed.
+If instead, each report or each model update should be created by manually running the code. 
