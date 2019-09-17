@@ -256,7 +256,7 @@ Automation is a great way to enforce yourself to be completely reproducible, res
 You can build one meta function that comprises all the intermediate steps of the product.
 Calling the function will set everything in motion, capturing intermediate results and sending these to the next pipeline step.
 But as usual in R, someone else has already done the hard work for you.
-I suggest using Will Landau’s fantastic <code>drake</code> (package)[<a href="https://ropenscilabs.github.io/drake-manual/packages.html" class="uri">https://ropenscilabs.github.io/drake-manual/packages.html</a>], instead of figuring out how to set-up the pipeline yourself.
+I suggest using Will Landau’s fantastic <code>drake</code> <a href="https://ropenscilabs.github.io/drake-manual/packages.html">package</a>, instead of figuring out how to set-up the pipeline yourself.
 It caches data after the completion of each step, so when you make changes to the product you only have to rerun the parts that are affected by the change.
 Having all the intermediate data automatically stored has the additional benefit that you have them readily available when doing research for model improvements.</p>
 
