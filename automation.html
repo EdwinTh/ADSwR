@@ -171,6 +171,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="automation.html"><a href="automation.html"><i class="fa fa-check"></i><b>7</b> Automation</a><ul>
 <li class="chapter" data-level="7.1" data-path="automation.html"><a href="automation.html#efficiency"><i class="fa fa-check"></i><b>7.1</b> Efficiency</a></li>
 <li class="chapter" data-level="7.2" data-path="automation.html"><a href="automation.html#automation-is-documentation"><i class="fa fa-check"></i><b>7.2</b> Automation is Documentation</a></li>
+<li class="chapter" data-level="7.3" data-path="automation.html"><a href="automation.html#section"><i class="fa fa-check"></i><b>7.3</b> </a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="code-that-fails.html"><a href="code-that-fails.html"><i class="fa fa-check"></i><b>8</b> Code that Fails</a><ul>
 <li class="chapter" data-level="8.1" data-path="code-that-fails.html"><a href="code-that-fails.html#assumptions-to-your-data"><i class="fa fa-check"></i><b>8.1</b> Assumptions to your Data</a><ul>
@@ -227,6 +228,17 @@ If the project has to be continued by a different person, it will be a lot easie
 </div>
 <div id="automation-is-documentation" class="section level2">
 <h2><span class="header-section-number">7.2</span> Automation is Documentation</h2>
+<p>A data science product is software, not random walk code.
+This means it is built bottom-up, small, unit-testeable functions are used together to create more complex actions.
+The higher-level functions can than be used together in even higher order functions to create specific parts of the pipeline, such as data cleaning, preparing features or training a model.
+It does not, and should not, matter where each of the lower and higher level functions are created.
+As soon as you load the R package into memory all the functions are available.
+The functions are created to be applied in a certain order, of course.
+For instance first you load the data, then you clean it, prepare it and apply an algorithm on it.
+By completely automating the product, it is inmediately clear how everything should play together.</p>
+</div>
+<div id="section" class="section level2">
+<h2><span class="header-section-number">7.3</span> </h2>
 
 </div>
 </div>
