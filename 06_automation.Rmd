@@ -24,3 +24,13 @@ If the project has to be continued by a different person, it will be a lot easie
 
 ## Automation is Documentation
 
+A data science product is software, not random walk code.
+This means it is built bottom-up, small, unit-testeable functions are used together to create more complex actions.
+The higher-level functions can than be used together in even higher order functions to create specific parts of the pipeline, such as data cleaning, preparing features or training a model.
+It does not, and should not, matter where each of the lower and higher level functions are created. 
+As soon as you load the R package into memory all the functions are available.
+The functions are created to be applied in a certain order, of course. 
+For instance first you load the data, then you clean it, prepare it and apply an algorithm on it.
+By completely automating the product, it is inmediately clear how everything should play together.
+
+## 
