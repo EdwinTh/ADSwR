@@ -171,7 +171,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="automation.html"><a href="automation.html"><i class="fa fa-check"></i><b>7</b> Automation</a><ul>
 <li class="chapter" data-level="7.1" data-path="automation.html"><a href="automation.html#efficiency"><i class="fa fa-check"></i><b>7.1</b> Efficiency</a></li>
 <li class="chapter" data-level="7.2" data-path="automation.html"><a href="automation.html#automation-is-documentation"><i class="fa fa-check"></i><b>7.2</b> Automation is Documentation</a></li>
-<li class="chapter" data-level="7.3" data-path="automation.html"><a href="automation.html#section"><i class="fa fa-check"></i><b>7.3</b> </a></li>
+<li class="chapter" data-level="7.3" data-path="automation.html"><a href="automation.html#reproducibility"><i class="fa fa-check"></i><b>7.3</b> Reproducibility</a></li>
+<li class="chapter" data-level="7.4" data-path="automation.html"><a href="automation.html#how-to-automate"><i class="fa fa-check"></i><b>7.4</b> How to Automate</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="code-that-fails.html"><a href="code-that-fails.html"><i class="fa fa-check"></i><b>8</b> Code that Fails</a><ul>
 <li class="chapter" data-level="8.1" data-path="code-that-fails.html"><a href="code-that-fails.html#assumptions-to-your-data"><i class="fa fa-check"></i><b>8.1</b> Assumptions to your Data</a><ul>
@@ -237,8 +238,27 @@ The functions are created to be applied in a certain order, of course.
 For instance first you load the data, then you clean it, prepare it and apply an algorithm on it.
 By completely automating the product, it is inmediately clear how everything should play together.</p>
 </div>
-<div id="section" class="section level2">
-<h2><span class="header-section-number">7.3</span> </h2>
+<div id="reproducibility" class="section level2">
+<h2><span class="header-section-number">7.3</span> Reproducibility</h2>
+<p>You can’t be Agile without being completely reproducible.
+Results on the same input data should be the same each time the product is run, independent of when and by whom it is done.
+Small bugs in the code or unexpected values in the data can be compensated for when the code is ran manually.
+This is undesirable because this implies that the same problems will keep popping up in future times.
+Even if you are the sole data scientist on the project, you might forget how you resolved it the last time.
+Rather, bugs and unexpected values should always be systematically resolved.
+This means that as soon as you hit something, for instance the same column appearing twice in a data frame, you have to invest time in finding the source of this error, rather than quickly fix it and move on.
+As with the good practises discussed in the next chapter, not cutting corners will cost more time and effort in the short run but will pay of in both time and confidence in the product quality.
+Automation is a great way to enforce yourself to be completely reproducible, results will only be produced when the product is fault free.</p>
+</div>
+<div id="how-to-automate" class="section level2">
+<h2><span class="header-section-number">7.4</span> How to Automate</h2>
+<p>We have discussed why should automate, but not how to do it.
+You can build one meta function that comprises all the intermediate steps of the product.
+Calling the function will set everything in motion, capturing intermediate results and sending these to the next pipeline step.
+But as usual in R, someone else has already done the hard work for you.
+I suggest using Will Landau’s fantastic (<code>drake</code> package)[<a href="https://ropenscilabs.github.io/drake-manual/packages.html" class="uri">https://ropenscilabs.github.io/drake-manual/packages.html</a>], instead of figuring out how to set-up the pipeline yourself.
+It caches data after the completion of each step, so when you make changes to the product you only have to rerun the parts that are affected by the change.
+Having all the intermediate data automatically stored has the additional benefit that you have them readily available when doing research for model improvements.</p>
 
 </div>
 </div>
