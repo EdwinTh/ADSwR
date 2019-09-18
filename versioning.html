@@ -224,13 +224,20 @@ I would advise against this.
 As the project progresses the amount of unused legacy code grows, as well as the amount of used product code, because the product tends to become more sophistecated as you move on.
 It will become harder to figure out what part of the code is actually used, making it more difficult to reason about the product.
 Also, the package namespace starts to become clogged.
-It happened more than once to me that I had an ol</p>
+It happened more than once to me that I had created two functions with the same name when there was some old version lingering.
+Happy debugging!</p>
+<p>I think the product should only contain code that is used in the current version.
+This also implies that we should not do versioning within the code.
+Wether versioned or not, you might be inclined to leave old versions of a product, such as a function to call a model or to create a report, in place.
+Rather than versioning in your code, use a version control system.
+Keep your codebase clean and as small as possible.
+If you really want to keep your code around, and don’t want to rely on version control rollbacks to retrieve old results, keep an archive folder outside the <code>/R</code> folder so it is not part of the namespace.</p>
 </div>
 <div id="version-control" class="section level2">
 <h2><span class="header-section-number">9.2</span> Version Control</h2>
 <p>More than software engineers data scientists tend to work in solitude.
 Fully using version control systems, such as <em>git</em> and <em>svn</em>, can then be considered as overkill.
-In practice, they are just used as an external backup of the code.
+In practice, they might just be used as an external backup of the code.
 Write some code, push it to master, write some more code, push it to master.</p>
 
 </div>
