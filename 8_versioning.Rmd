@@ -1,0 +1,26 @@
+# Versioning
+
+The approach in this text makes a hard cut between the data product and doing research to improve the product.
+The former should be treated as software, all best practises of software engineering apply to it.
+We have looked at automation and testing in the previous chapters, now we turn to versioning and version control.
+A version is a distinct snapshot of the working data product, to which a version number is assigned.
+
+TODO explain further.
+
+## Old Code
+
+As you move from one version to the next, a part of the code written earlier becomes obsolete.
+You might be tempted to keep this code around because it might be neede in future times.
+I would advise against this.
+As the project progresses the amount of unused legacy code grows, as well as the amount of used product code, because the product tends to become more sophistecated as you move on.
+It will become harder to figure out what part of the code is actually used, making it more difficult to reason about the product.
+Also, the package namespace starts to become clogged.
+It happened more than once to me that I had an ol
+
+
+## Version Control
+
+More than software engineers data scientists tend to work in solitude.
+Fully using version control systems, such as *git* and *svn*, can then be considered as overkill.
+In practice, they are just used as an external backup of the code.
+Write some code, push it to master, write some more code, push it to master.
