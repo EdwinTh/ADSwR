@@ -189,6 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.1" data-path="versioning.html"><a href="versioning.html#old-code"><i class="fa fa-check"></i><b>9.1</b> Old Code</a></li>
 <li class="chapter" data-level="9.2" data-path="versioning.html"><a href="versioning.html#version-control"><i class="fa fa-check"></i><b>9.2</b> Version Control</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="versioning.html"><a href="versioning.html#master-is-production"><i class="fa fa-check"></i><b>9.2.1</b> Master is Production</a></li>
+<li class="chapter" data-level="9.2.2" data-path="versioning.html"><a href="versioning.html#working-together"><i class="fa fa-check"></i><b>9.2.2</b> Working Together</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -217,7 +218,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 The former should be treated as software, all best practises of software engineering apply to it.
 We have looked at automation and testing in the previous chapters, now we turn to versioning and version control.
 A version is a distinct snapshot of the working data product, to which a version number is assigned.</p>
-<p>TODO explain further.</p>
 <div id="old-code" class="section level2">
 <h2><span class="header-section-number">9.1</span> Old Code</h2>
 <p>As you move from one version to the next, a part of the code written earlier becomes obsolete.
@@ -311,6 +311,22 @@ develop4.merge(master);
 
 master.commit({message : "releasing updated model", tag : "v2"})
 </script>
+</div>
+<div id="working-together" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Working Together</h3>
+<p>Because branching is used, several data scientists can work on different aspects of the model simultaneously.
+Creating separate branches to explore different hypotheses.
+It is adviseable, however, to work on separate parts of the project in parallel.
+However, working on two or more software tasks at the same time is not adviseable.
+This might give you headaches when both try to merge to <code>master</code>, because the same files are modified.
+Also from a versioning perspective it is cleaner to make sequantial changes.
+You can keep better track of the evolution of your product.</p>
+<p>Software engineers rarely work alone.
+They check eachother’s work by doing code reviews.
+The version control system even be configured such that a branch can only be merged to master when the changes are approved by at least one or two colleagues.
+Working together with multiple data scientists on the same project can greatly enhance the quality of the product.
+You can challenge each other’s ideas and you can look critically at each other’s work.
+Using version control properly will greatly improve your cooperation.</p>
 
 </div>
 </div>
