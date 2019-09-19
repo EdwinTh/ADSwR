@@ -31,3 +31,45 @@ More than software engineers data scientists tend to work in solitude.
 Fully using version control systems, such as *git* and *svn*, can then be considered as overkill.
 In practice, they might just be used as an external backup of the code.
 Write some code, push it to master, write some more code, push it to master.
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.11.4/gitgraph.min.js"></script>
+<canvas id="gitGraph"></canvas>
+```{js}
+var gitgraph = new GitGraph({
+  template: "metro", // or blackarrow
+  author: "",
+  offsetX: 50,
+  mode: "extended" // or compact if you don't want the messages
+});
+
+var master = gitgraph.branch("master");
+gitgraph.commit("Initial commit"); // 1 commit upon HEAD
+
+var develop = gitgraph.branch({name :"setup", offsetX : 200}); // New branch from HEAD
+develop.commit("first queries to db");
+develop.commit("splitting train and test");
+develop.commit("use base rates as model");
+
+develop.merge(master);
+
+master.commit({message : "releasing base rate model", tag : "v1"})
+
+var develop2 = gitgraph.branch("RS-algo1"); // New branch from HEAD
+
+develop2.commit("data prep");
+develop2.commit("trying fancy algo1");
+develop2.merge(master);
+
+
+var develop3 = gitgraph.branch("RS-algo2"); // New branch from HEAD
+develop3.commit("data prep");
+develop3.commit("trying fancy algo2");
+develop3.merge(master);
+
+
+var develop4 = gitgraph.branch({name :"SW-algo2", spacingX : 100}) // New branch from HEAD
+develop4.commit("implementing algo2 in software");
+develop4.merge(master);
+
+master.commit({message : "releasing updated model", tag : "v2"})
+```
