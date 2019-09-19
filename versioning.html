@@ -256,9 +256,20 @@ Wether the tested hypothesis in the task proved to improve the product or not, y
 This is fine, as long as you indeed did not touch the <code>/R</code> folder.
 This is where the product is defined and where the versioning happens.
 As soon as the research task did indicate the product can be improved, start a software task to adjust the product.
-Merging the feature branch to master is to create a new version of the product.</p>
+Merging the software task branch to <code>master</code> is to create a new version of the product, but a merging a research task branch is not.</p>
 <p>As an example, the gitgraph below is a simple example of the start of a new machine learning project.
-After initiation</p>
+(The graph is read top to bottom)
+After initiation there is the first setup of the project.
+A first query to the source database is created and we split into train and test.
+We the create a simple base rate model, this is <code>v1</code> of the product.
+We then start a research story to check if some algorithm can improve our current product.
+We do data prep and training and analyse the results.
+Alas, the algorithm did not improve the simple model too much, and we decide it is not worth the trouble.
+Still the branch of the research task is merged to <code>master</code> so we have and overview of what we did in the past in the vignettes folder.
+Next, we try another algorithm.
+This one does a lot better and we decide to use it in the product insterad of the simple model.
+First, the research task branch is merged to <code>master</code>, then we create a new branch for the software task.
+As soon as this work is finished and the branch is merged to <code>master</code> we release a new version.</p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.11.4/gitgraph.min.js"></script>
 <canvas id="gitGraph">
 </canvas>
