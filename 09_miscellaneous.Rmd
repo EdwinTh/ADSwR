@@ -1,4 +1,4 @@
- # (PART) Miscellaneous {-}
+# (PART) Miscellaneous {-}
 
 # Miscellaneous Topics
 
