@@ -1,0 +1,26 @@
+ # (PART) Miscellaneous {-}
+
+# Miscellaneous Topics
+
+The following topics are too short to be treated in a separate chapter.
+
+## (Un)Reproducible Research
+
+In the chapter on versioning it was advocated that you should not keep old code lingering as you move on.
+Rather use version control systems to keep track of the changes you are making to the product.
+Research tasks are investigated in vignettes, these are kept around as the project goes along.
+It is likely that research reports make use of the code in the software product, of data in the pipeline.
+These are readily available, enabling to do quick exploration of hypotheses.
+However, as you move along, the software product and the data are likely to change.
+This means that the reproducibility of almost all research reports will be lost at some point.
+
+It is up to the data scientist and the characteristics of the project if this is considered a problem or not.
+If you want to keep all reports to be reproducible at any time, there is a considerable amount of extra work to the research tasks.
+Data has to be stored separately and the source code used should be made and frozen somewhere outside the `\R` folder.
+I have a personal preference for accepting that the reports will get out of sync with the data and the source code.
+The conclusions are what matter most, and the code is always around to check if they were derived properly.
+If for some reason you really have to rerun the research report, you can always checkout the commit of the report and rerun the pipeline.
+The source code and state of the data at that "timepoint" are then available.
+
+I tend to number my research scripts to the version of the data product of that moment. 
+Together with the changelog and checked in code, this will make it easy to understand the context in which the research was done at a point later in time.
