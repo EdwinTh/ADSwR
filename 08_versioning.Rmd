@@ -5,8 +5,6 @@ The former should be treated as software, all best practises of software enginee
 We have looked at automation and testing in the previous chapters, now we turn to versioning and version control.
 A version is a distinct snapshot of the working data product, to which a version number is assigned.
 
-TODO explain further.
-
 ## Old Code
 
 As you move from one version to the next, a part of the code written earlier becomes obsolete.
@@ -104,3 +102,20 @@ develop4.merge(master);
 
 master.commit({message : "releasing updated model", tag : "v2"})
 ```
+
+### Working Together
+
+Because branching is used, several data scientists can work on different aspects of the model simultaneously.
+Creating separate branches to explore different hypotheses. 
+It is adviseable, however, to work on separate parts of the project in parallel.
+However, working on two or more software tasks at the same time is not adviseable.
+This might give you headaches when both try to merge to `master`, because the same files are modified.
+Also from a versioning perspective it is cleaner to make sequantial changes.
+You can keep better track of the evolution of your product.
+
+Software engineers rarely work alone. 
+They check eachother's work by doing code reviews.
+The version control system even be configured such that a branch can only be merged to master when the changes are approved by at least one or two colleagues.
+Working together with multiple data scientists on the same project can greatly enhance the quality of the product.
+You can challenge each other's ideas and you can look critically at each other's work.
+Using version control properly will greatly improve your cooperation.
