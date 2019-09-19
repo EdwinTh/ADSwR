@@ -1,3 +1,10 @@
 # TL;DR
 
 A bullet point overview of this text:
+
+Chapter 2
+
+* Agile is a reaction to Waterfall, the standard of doing software development up until the nineties.
+* Waterfall is heavy, projects can take years to finish.
+* Agile wants to deliver software continuously, improving constantly, instead of one big delivery.
+* The *Agile Manifesto* is a set of four values and twelve principles.
