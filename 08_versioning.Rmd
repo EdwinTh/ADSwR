@@ -4,6 +4,9 @@ The approach in this text makes a hard cut between the data product and doing re
 The former should be treated as software, all best practises of software engineering apply to it.
 We have looked at automation and testing in the previous chapters, now we turn to versioning and version control.
 A version is a distinct snapshot of the working data product, to which a version number is assigned.
+Versioning makes it easier to trace the evolution of the product.
+In a machine learning model for instance, you can trace a performance measuer as you go along. 
+It is more than just assigning numbers, it is a clear indication that the product has been improved and that you close of a line of research.
 
 ## Old Code
 
