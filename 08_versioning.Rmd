@@ -28,24 +28,44 @@ If you really want to keep your code around, and don't want to rely on version c
 ## Version Control
 
 More than software engineers data scientists tend to work in solitude.
-Fully using version control systems, such as *git* and *svn*, can then be considered as overkill.
+Fully using version control systems, can then be considered as overkill.
 In practice, they might just be used as an external backup of the code.
 Write some code, push it to master, write some more code, push it to master.
+Wether working alone or together, it is a good idea to use version control for, well, version control.
+(If you are not yet comfortable with using `git`, Jenny Bryan has your back with [this extensive resource](https://happygitwithr.com/)).
+
+### Master is Production
+
+To move away from the *external backup* use of `git`, you should use branches instead of only using `master`.
+It is good practise to reserve `master` for finished versions of the product only.
+In 'normal' software engineering a new feature is developed in a fresh branch.
+Once the feature is finished, tested and approved in a code review, the feature branch is merged to `master`.
+When there is continuous integration in place the merge to `master` *is* deployment, the product is automatically updated when `master` is.
+
+Remember that the workflow in this text makes a distinction between research tasks and software tasks.
+Research tasks are performed completely outside the `/R` folder, they do not alter the product.
+Wether the tested hypothesis in the task proved to improve the product or not, you probably want to merge the vignette that explores the hypothesis to master to keep an overview of the work you did.
+This is fine, as long as you indeed did not touch the `/R` folder. 
+This is where the product is defined and where the versioning happens.
+As soon as the research task did indicate the product can be improved, start a software task to adjust the product.
+Merging the feature branch to master is to create a new version of the product. 
+
+As an example, the gitgraph below is a simple example of the start of a new machine learning project.
+After initiation 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.11.4/gitgraph.min.js"></script>
 <canvas id="gitGraph"></canvas>
-```{js}
+```{js, echo = FALSE}
 var gitgraph = new GitGraph({
   template: "metro", // or blackarrow
   author: "",
-  offsetX: 50,
-  mode: "extended" // or compact if you don't want the messages
+  mode: "extended" 
 });
 
 var master = gitgraph.branch("master");
-gitgraph.commit("Initial commit"); // 1 commit upon HEAD
+gitgraph.commit("Initial commit"); 
 
-var develop = gitgraph.branch({name :"setup", offsetX : 200}); // New branch from HEAD
+var develop = gitgraph.branch({name :"setup"});
 develop.commit("first queries to db");
 develop.commit("splitting train and test");
 develop.commit("use base rates as model");
@@ -54,20 +74,20 @@ develop.merge(master);
 
 master.commit({message : "releasing base rate model", tag : "v1"})
 
-var develop2 = gitgraph.branch("RS-algo1"); // New branch from HEAD
+var develop2 = gitgraph.branch("RS-algo1");
 
 develop2.commit("data prep");
 develop2.commit("trying fancy algo1");
 develop2.merge(master);
 
 
-var develop3 = gitgraph.branch("RS-algo2"); // New branch from HEAD
+var develop3 = gitgraph.branch("RS-algo2"); 
 develop3.commit("data prep");
 develop3.commit("trying fancy algo2");
 develop3.merge(master);
 
 
-var develop4 = gitgraph.branch({name :"SW-algo2", spacingX : 100}) // New branch from HEAD
+var develop4 = gitgraph.branch({name :"SW-algo2"})
 develop4.commit("implementing algo2 in software");
 develop4.merge(master);
 
