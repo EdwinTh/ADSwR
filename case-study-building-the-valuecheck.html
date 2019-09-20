@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Automation | Agile Data Science with R</title>
+  <title>12 Case Study: Building the Valuecheck | Agile Data Science with R</title>
   <meta name="description" content="A workflow for doing data science in the R language, using Agile principles." />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Automation | Agile Data Science with R" />
+  <meta property="og:title" content="12 Case Study: Building the Valuecheck | Agile Data Science with R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Automation | Agile Data Science with R" />
+  <meta name="twitter:title" content="12 Case Study: Building the Valuecheck | Agile Data Science with R" />
   
   <meta name="twitter:description" content="A workflow for doing data science in the R language, using Agile principles." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="code-organsation.html"/>
-<link rel="next" href="code-that-fails.html"/>
+<link rel="prev" href="tldr.html"/>
+<link rel="next" href="casestudy-building-the-valuecheck.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -219,70 +219,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="automation" class="section level1">
-<h1><span class="header-section-number">7</span> Automation</h1>
-<p>R users tend to run code by hand.
-Press a button, see results, press some more buttons, see some more results.
-R is designed with interactivity in mind, it enables the user to have a direct Q&amp;A with the data.
-This is a great feature of the R language, making it uniquely suitable for drawing quick insights and conclusions from your data.
-A data product, however, should not be run by hand, it should be running automatically.
-From start to end no human should be needed to obtain and expose results.</p>
-<div id="efficiency" class="section level2">
-<h2><span class="header-section-number">7.1</span> Efficiency</h2>
-<p>The obvious reason data science products should be automated is that it will save a lot of time.
-It might take a little more effort to set up an automated pipeline, but once it is in place only monitoring and maintenance are needed.
-If instead each report or each model update should be created by manually running the code, the data scientist should always schedule time to do so.
-This is not only a waste of time, but also a waste of focus.
-Once you have reached a stage that the product is of satisfactory quality and can run without interference for at time, you should be able to move on to a new project without thinking too much about it.
-However, if the product is run manually you have to keep spending a part of your attention to the earlier product.
-Continuously switching between projects is strenuous and not satisfying.</p>
-<p>Not automating also creates a risk for the continuity of the product.
-It is not healthy to be completely dependent on the knowledge and actions of a single data scientist, because it is not guaranteed he will continue to work at the organisation for the duration of the product.
-A well automated product can be maintained by anybody with the right skills.
-If the project has to be continued by a different person, it will be a lot easier to maintain the product when automation is in place.</p>
-</div>
-<div id="automation-is-documentation" class="section level2">
-<h2><span class="header-section-number">7.2</span> Automation is Documentation</h2>
-<p>A data science product is software, not random walk code.
-This means it is built bottom-up, small, unit-testeable functions are used together to create more complex actions.
-The higher-level functions can than be used together in even higher order functions to create specific parts of the pipeline, such as data cleaning, preparing features or training a model.
-It does not, and should not, matter where each of the lower and higher level functions are created.
-As soon as you load the R package into memory all the functions are available.
-The functions are created to be applied in a certain order, of course.
-For instance first you load the data, then you clean it, prepare it and apply an algorithm on it.
-By completely automating the product, it is inmediately clear how everything should play together.</p>
-</div>
-<div id="reproducibility" class="section level2">
-<h2><span class="header-section-number">7.3</span> Reproducibility</h2>
-<p>You can’t be Agile without being completely reproducible.
-Results on the same input data should be the same each time the product is run, independent of when and by whom it is done.
-Small bugs in the code or unexpected values in the data can be compensated for when the code is ran manually.
-This is undesirable because this implies that the same problems will keep popping up in future times.
-Even if you are the sole data scientist on the project, you might forget how you resolved it the last time.
-Rather, bugs and unexpected values should always be systematically resolved.
-This means that as soon as you hit something, for instance the same column appearing twice in a data frame, you have to invest time in finding the source of this error, rather than quickly fix it and move on.
-As with the good practises discussed in the next chapter, not cutting corners will cost more time and effort in the short run but will pay of in both time and confidence in the product quality.
-Automation is a great way to enforce yourself to be completely reproducible, results will only be produced when the product is fault free.</p>
-</div>
-<div id="how-to-automate" class="section level2">
-<h2><span class="header-section-number">7.4</span> How to Automate</h2>
-<p>We have discussed why should automate, but not how to do it.
-You can build one meta function that comprises all the intermediate steps of the product.
-Calling the function will set everything in motion, capturing intermediate results and sending these to the next pipeline step.
-But as usual in R, someone else has already done the hard work for you.
-I suggest using Will Landau’s fantastic <code>drake</code> <a href="https://ropenscilabs.github.io/drake-manual/packages.html">package</a>, instead of figuring out how to set-up the pipeline yourself.
-It caches data after the completion of each step, so when you make changes to the product you only have to rerun the parts that are affected by the change.
-Having all the intermediate data automatically stored has the additional benefit that you have them readily available when doing research for model improvements.</p>
+<div id="case-study-building-the-valuecheck" class="section level1">
+<h1><span class="header-section-number">12</span> Case Study: Building the <em>Valuecheck</em></h1>
+<p>My current employer (funda)[<a href="https://www.funda.nl/" class="uri">https://www.funda.nl/</a>] is the market place for selling and buying homes in the Netherlands.
+A long standing company wish was to use the data of recent house sales for predicting the current value of all houses in the Netherlands.
+We knew that home owners used the asking prices of neighboring houses published on <em>funda</em> to keep track of local market trends.
+We wanted to facilitate them to translate the recent sale prices in an official estimate of their specific house.
+They no longer had to look at the houses that are offered, out statistical model had already done that.
+Moreover, they did not make the translation of offered houses to their own house informally, the model determined which characteristics of a house matters and which not.
+A final advantage was that we could use of the selling prices instead of the asking prices, these are not shown on the website.
+So the product reflected what their house could be sold for, instead of what the typical asking price of their home was.</p>
+<p>To create what eventually would become the <em>Valuecheck</em>, a colleague data scientist and me joined an existing Scrum team.
+This team comprised two backend developer, a frontend developer, a UX designer, and a product owner.
+We had never worked with an Agile method before and were only vaguely aware of its underpinnings.
+In the beginning we experimented with fitting in the data science work into the existing workflow of the team.</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="code-organsation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="code-that-fails.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tldr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="casestudy-building-the-valuecheck.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
