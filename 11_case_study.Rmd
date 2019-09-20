@@ -1,0 +1,15 @@
+# Case Study: Building the *Valuecheck*
+
+My current employer (funda)[https://www.funda.nl/] is the market place for selling and buying homes in the Netherlands.
+A long standing company wish was to use the data of recent house sales for predicting the current value of all houses in the Netherlands.
+We knew that home owners used the asking prices of neighboring houses published on *funda* to keep track of local market trends.
+We wanted to facilitate them to translate the recent sale prices in an official estimate of their specific house.
+They no longer had to look at the houses that are offered, out statistical model had already done that.
+Moreover, they did not make the translation of offered houses to their own house informally, the model determined which characteristics of a house matters and which not.
+A final advantage was that we could use of the selling prices instead of the asking prices, these are not shown on the website.
+So the product reflected what their house could be sold for, instead of what the typical asking price of their home was.
+
+To create what eventually would become the *Valuecheck*, a colleague data scientist and me joined an existing Scrum team.
+This team comprised two backend developer, a frontend developer, a UX designer, and a product owner. 
+We had never worked with an Agile method before and were only vaguely aware of its underpinnings.
+In the beginning we experimented with fitting in the data science work into the existing workflow of the team.
