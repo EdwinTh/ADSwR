@@ -201,7 +201,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#trying-scrum"><i class="fa fa-check"></i><b>12.1</b> Trying Scrum</a></li>
 <li class="chapter" data-level="12.2" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#moving-to-kanban"><i class="fa fa-check"></i><b>12.2</b> Moving to Kanban</a></li>
 <li class="chapter" data-level="12.3" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#building-an-mvm-for-the-mvp"><i class="fa fa-check"></i><b>12.3</b> Building an MVM for the MVP</a></li>
-<li class="chapter" data-level="12.4" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#improving-the-product"><i class="fa fa-check"></i><b>12.4</b> Improving the Product</a></li>
+<li class="chapter" data-level="12.4" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#improving-the-product"><i class="fa fa-check"></i><b>12.4</b> Improving the Product</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#interactivety"><i class="fa fa-check"></i><b>12.4.1</b> Interactivety</a></li>
+<li class="chapter" data-level="12.4.2" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#changing-the-model"><i class="fa fa-check"></i><b>12.4.2</b> Changing the Model</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="casestudy-building-the-valuecheck.html"><a href="casestudy-building-the-valuecheck.html"><i class="fa fa-check"></i><b>13</b> Casestudy: Building the <em>Valuecheck</em></a></li>
 <li class="divider"></li>
@@ -278,6 +281,7 @@ We have a strong preference for statistical models over machine learning algorit
 However, we needed some decent predictions fast, and it was clear we needed to exploit some nonlinear relationships.
 We therefore used some ensemble models that gave far superior predictions to regular regression.</p>
 <p>Already it was decided, we would only release the MVP in geographical areas in which the MVM performed well enough.
+This is called a <em>soft launch</em>, release the product without giving it too much noise for a selected group.
 Even then we not quite made the minimal performance goals we set ourselves.
 However, we could include a categorical feature and simply export the predictions for every level of the feature for every house, as long as there were not too many levels.
 The type of the house (appartment, on of several Duthch types of houses) appeared another crucial predictor.
@@ -288,7 +292,32 @@ Doing a prediction on the website was just a simple lookup.</p>
 </div>
 <div id="improving-the-product" class="section level2">
 <h2><span class="header-section-number">12.4</span> Improving the Product</h2>
+<p>From the start users could provide us with feedback, using a simple <em>thumbs up, thumbs down</em> and if they wished subsequent comments.
+Of course you want your work to be liked, but as I quickly learned, in this stage the best feedback is negative feedback.
+You know the product is barely good enough at this point in time, both from a software and a data science perspective.
+Negative feedback indicates people care about the product and it bothers them it does not fully meet their expectations.
+Moreover the feedback can point to directions that gives the biggest improvements in user satisfaction when improved.
+If it appeared that the users did not care about the product in the first place, the project could be killed and little resources were wasted on it.
+Fortunately, users did care, so we went ahead and started improving.</p>
+<div id="interactivety" class="section level3">
+<h3><span class="header-section-number">12.4.1</span> Interactivety</h3>
+<p>Using an interactive model instead of the static MVM would improve the product in several ways.
+It enabled us to use features in the model that were not publicly avaible, the user could enter them.
+Also, we knew that the data on house surface area was not of consistent quality.
+Comparing them to the “real” data in our data bases for houses that were placed on our website indicated that they could be off in both directions.
+In fact, for the MVM we used a model to predict the “real” surface area based on the public data.
+When the product changed to interactive, the user could correct the prefilled information if necessarry.
+Finally, it improved transparancy and user experience.
+Having an interactive product meant we had to bring the model to the product, not just the predictions.</p>
+</div>
+<div id="changing-the-model" class="section level3">
+<h3><span class="header-section-number">12.4.2</span> Changing the Model</h3>
+<p>From the start we saw the problem we were trying to solve would have a natural fit with Bayesian regression models.
+Price trends are hugely important in the housing market.
+With the <em>prior - posterior</em> structure of the Bayesian framework, we could easily update each month.
+Making time an implicit variable, rather than a feature we use for modelling.</p>
 
+</div>
 </div>
 </div>
             </section>
