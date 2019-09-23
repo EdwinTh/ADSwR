@@ -200,6 +200,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html"><i class="fa fa-check"></i><b>12</b> Case Study: Building the <em>Valuecheck</em></a><ul>
 <li class="chapter" data-level="12.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#trying-scrum"><i class="fa fa-check"></i><b>12.1</b> Trying Scrum</a></li>
 <li class="chapter" data-level="12.2" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#moving-to-kanban"><i class="fa fa-check"></i><b>12.2</b> Moving to Kanban</a></li>
+<li class="chapter" data-level="12.3" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#building-an-mvm-for-the-mvp"><i class="fa fa-check"></i><b>12.3</b> Building an MVM for the MVP</a></li>
+<li class="chapter" data-level="12.4" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#improving-the-product"><i class="fa fa-check"></i><b>12.4</b> Improving the Product</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="casestudy-building-the-valuecheck.html"><a href="casestudy-building-the-valuecheck.html"><i class="fa fa-check"></i><b>13</b> Casestudy: Building the <em>Valuecheck</em></a></li>
 <li class="divider"></li>
@@ -250,7 +252,42 @@ We certainly could not give estimates what the model quality would be then (meas
 As a team you have to commit to what you are going to complete in the upcoming two weeks.
 No longer being able to do that, we could not be part of the Scrum rythm anymore.
 We found the alternative in moving the data science tasks to a separate Kanban board, stepping out of the Scrum cycles.
-We started with</p>
+The circular nature of data science, as discussed in Chapter 5, does not lend itself well for tight planning.
+We started with a Kanban board with six lanes <em>to do</em> - <em>test hypothesis</em> - <em>code review hypothesis</em> - <em>update model</em> - <em>code review update model</em> - <em>done</em>.
+This reflected a full cycle of researching a hypothesis and updating the software.
+It worked quite well, however, a part of the tasks did not reach the finish line, because the hypothesis tested appeared not to improve the model.
+This problem does not exist if the research part and the software part are split in separate tasks, the software task is only created if the research indicated the model could be improved.
+We never did this during this project, but this insight improved our workflow in subsequent projects.</p>
+</div>
+<div id="building-an-mvm-for-the-mvp" class="section level2">
+<h2><span class="header-section-number">12.3</span> Building an MVM for the MVP</h2>
+<p>Building a predictive model that is part of a dedicated product is both challenging and rewarding.
+Too often data science projects are initiated as a proof of concept, without a clear vision on how to implement if the prediction can be succesfully done.
+Knowing from the start that the model is going to be used, is very motivating.
+On the other hand, this means that you need constant allignment with the team that develops the product around the predictions.
+The houses offered for sale on <em>funda</em> have many charecteristics filed, giving us a rich feature set to work with.
+However, as an MVP we wanted to present the users with an estimation, without them having to fill in all kinds of characteristics of theirs house.
+Developing a product from static house predictions is far less complex and time consuming than from a dynamic model with adjustable inputs.
+Both from modelling and a software perspective.
+This implied that we could only use features that are freely available for every house in the Netherlands.
+Luckily, this was true for the two most important features, location and time.
+Also the surface area of the houses was available in a public database.
+From this we started to build our initial prediction models.
+First using simple regression model to create a baseline.
+We have a strong preference for statistical models over machine learning algorithms, because they not only give us predictions, but also insight.
+However, we needed some decent predictions fast, and it was clear we needed to exploit some nonlinear relationships.
+We therefore used some ensemble models that gave far superior predictions to regular regression.</p>
+<p>Already it was decided, we would only release the MVP in geographical areas in which the MVM performed well enough.
+Even then we not quite made the minimal performance goals we set ourselves.
+However, we could include a categorical feature and simply export the predictions for every level of the feature for every house, as long as there were not too many levels.
+The type of the house (appartment, on of several Duthch types of houses) appeared another crucial predictor.
+Finally, we wanted to show lower and upper bounds to a prediction, not only giving a point estimate.
+After some research we were able to this with random forests, that were trained on the desired quantiles.
+Predictions were exported in csv files, a frontend and backend were built around these.
+Doing a prediction on the website was just a simple lookup.</p>
+</div>
+<div id="improving-the-product" class="section level2">
+<h2><span class="header-section-number">12.4</span> Improving the Product</h2>
 
 </div>
 </div>
