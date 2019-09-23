@@ -197,7 +197,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1" data-path="miscellaneous-topics.html"><a href="miscellaneous-topics.html#unreproducible-research"><i class="fa fa-check"></i><b>10.1</b> (Un)Reproducible Research</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="tldr.html"><a href="tldr.html"><i class="fa fa-check"></i><b>11</b> TL;DR</a></li>
-<li class="chapter" data-level="12" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html"><i class="fa fa-check"></i><b>12</b> Case Study: Building the <em>Valuecheck</em></a></li>
+<li class="chapter" data-level="12" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html"><i class="fa fa-check"></i><b>12</b> Case Study: Building the <em>Valuecheck</em></a><ul>
+<li class="chapter" data-level="12.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#trying-scrum"><i class="fa fa-check"></i><b>12.1</b> Trying Scrum</a></li>
+</ul></li>
 <li class="chapter" data-level="13" data-path="casestudy-building-the-valuecheck.html"><a href="casestudy-building-the-valuecheck.html"><i class="fa fa-check"></i><b>13</b> Casestudy: Building the <em>Valuecheck</em></a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -230,10 +232,18 @@ Moreover, they did not make the translation of offered houses to their own house
 A final advantage was that we could use of the selling prices instead of the asking prices, these are not shown on the website.
 So the product reflected what their house could be sold for, instead of what the typical asking price of their home was.</p>
 <p>To create what eventually would become the <em>Valuecheck</em>, a colleague data scientist and me joined an existing Scrum team.
-This team comprised two backend developer, a frontend developer, a UX designer, and a product owner.
-We had never worked with an Agile method before and were only vaguely aware of its underpinnings.
-In the beginning we experimented with fitting in the data science work into the existing workflow of the team.</p>
+This team comprised of two backend developer, a frontend developer, a UX designer, and a product owner.</p>
+<div id="trying-scrum" class="section level2">
+<h2><span class="header-section-number">12.1</span> Trying Scrum</h2>
+<p>The teams was very experienced with using Scrum and had all the workflows in place, so it made sense to try to fit in our tasks into this framework.
+At first this worked out quite well, because the first set of tasks we had to complete were essentially software tasks.
+Setting up a server, build a first query so we had a modelling set, splitting into train and test, and doing some data cleaning.
+These tasks were scopeable, we could estimate the time we needed to complete them quite accurately and they had a clear definition of done.
+Then the model building started and we got more and more trouble fitting the tasks into the tight Scrum methodology.
+We could not tell what the model would like in two weeks time, it depended on the relationships we would find in the data.
+We certainly could not give estimates what the model quality would be then (measured in a an agreed-upon statistic).</p>
 
+</div>
 </div>
             </section>
 
