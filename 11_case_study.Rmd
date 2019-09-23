@@ -55,6 +55,7 @@ However, we needed some decent predictions fast, and it was clear we needed to e
 We therefore used some ensemble models that gave far superior predictions to regular regression.
 
 Already it was decided, we would only release the MVP in geographical areas in which the MVM performed well enough.
+This is called a *soft launch*, release the product without giving it too much noise for a selected group.
 Even then we not quite made the minimal performance goals we set ourselves. 
 However, we could include a categorical feature and simply export the predictions for every level of the feature for every house, as long as there were not too many levels.
 The type of the house (appartment, on of several Duthch types of houses) appeared another crucial predictor.
@@ -65,6 +66,28 @@ Doing a prediction on the website was just a simple lookup.
 
 ## Improving the Product
 
+From the start users could provide us with feedback, using a simple *thumbs up, thumbs down* and if they wished subsequent comments.
+Of course you want your work to be liked, but as I quickly learned, in this stage the best feedback is negative feedback.
+You know the product is barely good enough at this point in time, both from a software and a data science perspective.
+Negative feedback indicates people care about the product and it bothers them it does not fully meet their expectations.
+Moreover the feedback can point to directions that gives the biggest improvements in user satisfaction when improved.
+If it appeared that the users did not care about the product in the first place, the project could be killed and little resources were wasted on it.
+Fortunately, users did care, so we went ahead and started improving.
 
+###  Interactivety
 
+Using an interactive model instead of the static MVM would improve the product in several ways.
+It enabled us to use features in the model that were not publicly avaible, the user could enter them.
+Also, we knew that the data on house surface area was not of consistent quality.
+Comparing them to the "real" data in our data bases for houses that were placed on our website indicated that they could be off in both directions.
+In fact, for the MVM we used a model to predict the "real" surface area based on the public data.
+When the product changed to interactive, the user could correct the prefilled information if necessarry. 
+Finally, it improved transparancy and user experience. 
+Having an interactive product meant we had to bring the model to the product, not just the predictions.
 
+### Changing the Model
+
+From the start we saw the problem we were trying to solve would have a natural fit with Bayesian regression models.
+Price trends are hugely important in the housing market.
+With the *prior - posterior* structure of the Bayesian framework, we could easily update each month.
+Making time an implicit variable, rather than a feature we use for modelling.
