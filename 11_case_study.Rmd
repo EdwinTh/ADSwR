@@ -22,3 +22,10 @@ Then the model building started and we got more and more trouble fitting the tas
 We could not tell what the model would like in two weeks time, it depended on the relationships we would find in the data.
 We certainly could not give estimates what the model quality would be then (measured in a an agreed-upon statistic).
 
+## Moving to Kanban
+
+Having scopeable tasks is essential for building proper Scrum sprints.
+As a team you have to commit to what you are going to complete in the upcoming two weeks.
+No longer being able to do that, we could not be part of the Scrum rythm anymore.
+We found the alternative in moving the data science tasks to a separate Kanban board, stepping out of the Scrum cycles.
+We started with 
