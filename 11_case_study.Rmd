@@ -26,7 +26,11 @@ We certainly could not give estimates what the model quality would be then (meas
 
 Our product owner informed management about the progress of both the product and the model.
 In consultation with them he decided how we would roll out the product.
-
+We had to provide him with the information required to make such decision.
+A *Shiny* dashboard appeared to be the way to go.
+In this dashboard who could see the basic model performence, reflected in an agreed upon statistic.
+Moreover, the regional performance was shown on a map, making it clear where the model was performing well and where it was doing poorly.
+After a model update, the data frame with cross-validated scores underlying the dashboard was replaced to show the new situation.
 
 ## Moving to Kanban
 
