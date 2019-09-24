@@ -22,6 +22,12 @@ Then the model building started and we got more and more trouble fitting the tas
 We could not tell what the model would like in two weeks time, it depended on the relationships we would find in the data.
 We certainly could not give estimates what the model quality would be then (measured in a an agreed-upon statistic).
 
+## Informing the Business
+
+Our product owner informed management about the progress of both the product and the model.
+In consultation with them he decided how we would roll out the product.
+
+
 ## Moving to Kanban
 
 Having scopeable tasks is essential for building proper Scrum sprints.
@@ -103,6 +109,23 @@ This improved both the accuracy of the predictions, the confidence bounds around
 
 ## Productionising the Interactive Model
 
+Up to this moment in my career, productionising data science products meant building a shiny dashboard to interact with results or exporting plain text files.
+My background is in statistics, not software engineering, I could not tell what it requires to expose a model to the millions of visitors of our website.
+Luckily our data engineer could help.
+I (my data science colleague was working on a new project) exported the posteriors of the parameters in csv files.
+He built a python API that took the feature values as inputs and returned the lower and upper bounds and the point estimate for the requested house.
+Instead of me telling him how the model scoring should be done, I built the same functionality in R.
+He then copied that functionality to python and added his caching, load balancing and garbage collecting magic.
 
+Up until this point I am not sure if it is possible to create an R API that is up to task.
+Sometimes it argued by python evangelicals that you should only use python because you can do everything in one language.
+Doing it in R first and then in python causes double work, which is a waste.
+I beg to differ.
+First of all, the majority of the work did not have to be reimplemented, data prepping, model training and model updating are done on train data only. 
+It is only the scoring module we implemented both in R and python.
+This what not a waste whatsoever, rather it served as double bookkeeping.
+A number of small bugs were caught because the API did not return the exact same results as the R module.
 
+## Thank You!
 
+Building the *Valuecheck* was an amazing experience in which I learned so much. Abouth working Agile, about productionising software and about cooperating closely with a software engineering team. It has substantially changed my views on what it means to do data science. A major thanks for goes to Daniar, Oriol, Stephan, Rick, Sander, Riccardo, and Marco. You are awesome!
