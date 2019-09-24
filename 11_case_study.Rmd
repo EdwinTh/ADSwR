@@ -91,3 +91,18 @@ From the start we saw the problem we were trying to solve would have a natural f
 Price trends are hugely important in the housing market.
 With the *prior - posterior* structure of the Bayesian framework, we could easily update each month.
 Making time an implicit variable, rather than a feature we use for modelling.
+Secondly, we always wanted to give a lower and upper bound to the predictions, theser are part of the posterior of Bayesian predictions.
+The only problem was, we did not have hands-on experience with Bayesian modelling, we just knew the theory behind it.
+After extensive discussion if we did not see another way of significantly improving the model, we decided to go for it.
+This was a gamble, because we needed a few weeks to refresh our knowledgen and to get our feet wet with *Stan*.
+The modelling was basically placed on hold then.
+Fortunately, it paid off.
+After some experimenting we found a good model structure for our problem, improving the model especially at locations we did not so well before.
+Moreover, we could now start to add more features to the model.
+This improved both the accuracy of the predictions, the confidence bounds around our estimates shrunk, and improved user experience significantly.
+
+## Productionising the Interactive Model
+
+
+
+
