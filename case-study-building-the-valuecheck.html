@@ -205,6 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.4.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#interactivety"><i class="fa fa-check"></i><b>12.4.1</b> Interactivety</a></li>
 <li class="chapter" data-level="12.4.2" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#changing-the-model"><i class="fa fa-check"></i><b>12.4.2</b> Changing the Model</a></li>
 </ul></li>
+<li class="chapter" data-level="12.5" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#productionising-the-interactive-model"><i class="fa fa-check"></i><b>12.5</b> Productionising the Interactive Model</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="casestudy-building-the-valuecheck.html"><a href="casestudy-building-the-valuecheck.html"><i class="fa fa-check"></i><b>13</b> Casestudy: Building the <em>Valuecheck</em></a></li>
 <li class="divider"></li>
@@ -315,9 +316,21 @@ Having an interactive product meant we had to bring the model to the product, no
 <p>From the start we saw the problem we were trying to solve would have a natural fit with Bayesian regression models.
 Price trends are hugely important in the housing market.
 With the <em>prior - posterior</em> structure of the Bayesian framework, we could easily update each month.
-Making time an implicit variable, rather than a feature we use for modelling.</p>
-
+Making time an implicit variable, rather than a feature we use for modelling.
+Secondly, we always wanted to give a lower and upper bound to the predictions, theser are part of the posterior of Bayesian predictions.
+The only problem was, we did not have hands-on experience with Bayesian modelling, we just knew the theory behind it.
+After extensive discussion if we did not see another way of significantly improving the model, we decided to go for it.
+This was a gamble, because we needed a few weeks to refresh our knowledgen and to get our feet wet with <em>Stan</em>.
+The modelling was basically placed on hold then.
+Fortunately, it paid off.
+After some experimenting we found a good model structure for our problem, improving the model especially at locations we did not so well before.
+Moreover, we could now start to add more features to the model.
+This improved both the accuracy of the predictions, the confidence bounds around our estimates shrunk, and improved user experience significantly.</p>
 </div>
+</div>
+<div id="productionising-the-interactive-model" class="section level2">
+<h2><span class="header-section-number">12.5</span> Productionising the Interactive Model</h2>
+
 </div>
 </div>
             </section>
