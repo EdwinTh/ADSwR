@@ -1,11 +1,12 @@
 # Agile Methods
 
-We learned that Agile is not so much a workflow or a method, but rather a philosophy that should guide us whenever a choice has to be made during the completion of the project. 
-In fact, Agile promotes being critical to strictly following a workflow, we should continously questioning if the way we work makes us optimally follow the Agile values and principles. 
-If this is not the case we should adjust our workflow. 
+We learned that Agile is not so much a workflow or a method, but a philosophy guides us when choices have to be made. 
+Agile promotes being critical to strictly following a workflow, we should continously monitor if the way we work is optimal for following the Agile values and principles. 
+If this is not the case, the workflow should be adjusted. 
 This does not mean there are no workflows related to Agile. 
-In fact, a number of workflows are developed by the men (yes, no women were there) who drew up the Agile Manifesto. Following these workflows should make it more likely the team follows the Agile values and principles. 
-Here we look into the two best known; Scrum and Kanban.
+In fact, a number of workflows are developed by the men (yes, no women were there) who drew up the Agile Manifesto. 
+Following these workflows should make it more likely the team works in an Agile way.
+Here we look into the two best known workflows; Scrum and Kanban.
 
 ## Scrum
 
