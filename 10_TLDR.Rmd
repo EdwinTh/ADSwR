@@ -8,3 +8,14 @@ Chapter 2
 * Waterfall is heavy, projects can take years to finish.
 * Agile wants to deliver software continuously, improving constantly, instead of one big delivery.
 * The *Agile Manifesto* is a set of four values and twelve principles.
+
+Chapter 3
+
+* Workflows are serving the Agile philosophy and are not holy, change them if they don't serve you.
+* Scrum works with *sprints*, in which the team commits to a set of tasks to complete in that time.
+* Scrum tasks are formulated in *user stories*, that make clear how the completion of it adds value.
+* The Scrum roles are: *scrum master*, *product owner*, and *the team*.
+* The Scrum ceremonies are: *sprint planning*, *stand-up*, *sprint review*, and *retrospective*.
+* In Kanban tasks are gathered on a backlog, the most important task is done next.
+* Central metric is the *cycle time*, how long does it last on average to complete a task.
+* Scrum is rigid in its commitments and ceremonies, Kanban is flexible.
