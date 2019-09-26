@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="agile-methods.html"><a href="agile-methods.html#scrum-vs-kanban"><i class="fa fa-check"></i><b>3.3</b> Scrum vs Kanban</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="agile-data-science.html"><a href="agile-data-science.html"><i class="fa fa-check"></i><b>4</b> Agile Data Science</a><ul>
-<li class="chapter" data-level="4.1" data-path="agile-data-science.html"><a href="agile-data-science.html#data-science-waterfall"><i class="fa fa-check"></i><b>4.1</b> Data Science Waterfall</a></li>
+<li class="chapter" data-level="4.1" data-path="agile-data-science.html"><a href="agile-data-science.html#data-science-waterfall"><i class="fa fa-check"></i><b>4.1</b> Data Science <em>Waterfall</em></a></li>
 <li class="chapter" data-level="4.2" data-path="agile-data-science.html"><a href="agile-data-science.html#the-twelve-principle-in-the-data-science-context"><i class="fa fa-check"></i><b>4.2</b> The Twelve Principle in the Data Science Context</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="a-methodology-for-agile-machine-learning.html"><a href="a-methodology-for-agile-machine-learning.html"><i class="fa fa-check"></i><b>5</b> A Methodology for Agile Machine Learning</a><ul>
@@ -232,14 +232,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="agile-data-science" class="section level1">
 <h1><span class="header-section-number">4</span> Agile Data Science</h1>
 <div id="data-science-waterfall" class="section level2">
-<h2><span class="header-section-number">4.1</span> Data Science Waterfall</h2>
+<h2><span class="header-section-number">4.1</span> Data Science <em>Waterfall</em></h2>
 <p>As discussed in the previous chapter, Agile is a response to Waterfall methodology that was widely adopted in the eighties and nineties.
-Many projects following this methodology failed because the long duration of these projects.
-The world had moved on while the process-heavy steps were completed and either the plug was pulled before the product was finished or the finished product had limited value because it was a misfit to the changed world.
-In data science, as far as I am aware of, there are no such formal methodologies that are followed by many practioners. However, there are ample testimonies of projects that never reached production and I think this is partially due to suboptimal workflow.
-Just like Waterfall, data science projects can take many months or even years before the results are productionised or the plug is pulled.
-The data scientist might want to optimise many asprects of the project to give the best predictions possible or have all the envisioned dashboard functionalities in place, before sharing the results with stakeholders.
-The code might be poorly organised, leading to a lot of time lost merging differenct scripts.
+Many projects using Waterfall did not deliver, because of their long duration.
+In data science, as far as I am aware of, there are no such formal methodologies that are followed by many practioners. However, there are <a href="https://venturebeat.com/2019/07/19/why-do-87-of-data-science-projects-never-make-it-into-production/">many data science projects failing</a>.
+Ineffective workflow is by no means the only cause of this, but I am convinced it is on of the culprits.
+Just like softwafre development in Waterfall, data science projects can take many months or even years before the results are productionised or the plug is pulled.
+The data scientist might want to optimise many aspects of the project to give the best predictions possible or have all the envisioned dashboard functionalities in place, before sharing the results with stakeholders.
+The code might be poorly organised, leading to a lot of time lost merging different scripts.
 Or there might be unclarities on what to predict or which data sources are in scope, due to lack of communication between stakeholders, business people and data scientists.
 Whatever the reason, adhering to the principles of Agile can get you more productive and efficient.
 Here we take the time to interpret the twelve principles in the data science context.</p>
@@ -250,10 +250,11 @@ Here we take the time to interpret the twelve principles in the data science con
 <li>Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.</li>
 </ol>
 <p>Just as Waterfall prescribes a complete and fault-free product delivered at once, data scientists might be inclined to only release a machine learning model to production once they are confident its predictions are spot on.
-This principle is a revolutionary break from Waterfall, you should not wait with releasing software until its perfect, instead get it out in the open when it is just good enough.
-A common term used for this is the MVP (<em>Minimal Viable Product</em>).
-After the MVP is released it is closely monitored how users are interacting with it and where the biggest room for improvement is.
-The biggest possible improvement is then tackled first and a new version is released.
+This principle was a revolutionary break from Waterfall, you should not wait with releasing software until its perfect.
+Instead get it out in the open when it is just good enough.
+It is called the MVP (<em>Minimal Viable Product</em>).
+After the MVP is released it is closely monitored how users interact with it and where the biggest room for improvement is.
+The team tackles the biggest problem in the MVP to create a slightly better version of the product, which is again released right away.
 This cycle of release, monitor, improve, release is repeated many times, such that the product gets better and better.
 There is no clear definition of done, instead there is debate if the software can be further improved and if the required investments are worth the effort.</p>
 <p>The machine learning equivalent to this would be a <em>Minimal Viable Model</em>, a model that is just good enough to put into action.
@@ -263,19 +264,23 @@ Releasing something that is barely good enough might be scary and counterintuiti
 <ul>
 <li><em>It will keep stakeholders excited</em>.
 Managers and users of the model who commisioned the data science project are impatient to see results.
-As the projects drags on without any output they are likely to loose interest and confidence the project will end well. Eventually they might pull the plug or put it on hold before anything reached production.
-If they can interact with the results soon, even if it is imperfect, will give a totally different dynamic.</li>
+As the projects drags on without any output they are likely to loose interest and confidence the project will end well.
+Eventually they might pull the plug or put it on hold before anything meaningful has come out.
+If they can interact with the results soon, even if they are from perfect, their enthusiasm and confidence will remain high.</li>
 <li><em>You will fail fast</em>.
-There is a wide array of reasons a data science project might fail, such as; the problem appears not be translateable into a model in the first place, the data is not of the quality needed, there appears not be enough historical data, or the necassary relationships simply don’t exist.
-The sooner you implement the product the sooner lurking problems suface.</li>
-<li><em>You will get feedback sooner.</em> This is the main reason Agile wants to implement quickly and then iterate.
+There is a wide array of reasons a data science project might fail; the problem appears not be translateable into a model in the first place, the data is not of the quality needed, there appears not be enough historical data, or the necassary relationships simply don’t exist.
+If there are such problems, you will not be able to easily create an MVM.
+This is a clear sign the project is probably not going to end well, and you can consider stopping it early.</li>
+<li><em>You will get feedback sooner.</em>
+This is the main reason Agile wants to implement quickly and then iterate.
 Lets say you build a churn model which the sales department uses for customer retention.
-As soon as they start acting on your MVM they find out that the interval in which you predict is too short, many customers already have a subscription with a competing party.
-Instead of further optimising this model, you focus on predicting a longer time ahead.
+You agree with stakeholders what the model should look like and start to build an MVM.
+As soon as they start using the MVM they find out that the interval in which you predict is too short, many customers already have a subscription with a competing party.
+Instead of further optimising this model, you first change the model structure so it predicts a longer time ahead.
 Or the user of Shiny app realises that the ratio you agreed on is not what she wanted as soon as se she sees the app with the first variable implemented.
 Before including the twelve other variables you first fix the ratio such it is as she wants it.</li>
 </ul>
-<p>What an MVM looks like is project-dependent of course, but in many cases it would probably make sense to define it a regular statistical measure.
+<p>What an MVM looks like is project-dependent of course, but in many cases it might make sense to define it in terms of regular statistics, such as recall or mean absolute error.
 A machine learning model might be replacing a business rule that has been in place for many years, the MVM is then ready as soon as the model outperforms the business rule.
 Data science products that are not model based might be captured with an MVP, instead of an MVM.
 For both an MVM and an MVP a possibility is only releasing the product for a subset of your target audience, such as a geographical area or users of a certain age.</p>
