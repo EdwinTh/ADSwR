@@ -18,17 +18,17 @@ biblio-style: apalike
 When I was starting my career as a data scientist, I did not really have a workflow. 
 Freshly out of statistics grad school I entered the arena of Dutch business, employed by a small consulting firm. 
 Between the company, the clients and myself, not one person knew what it meant to implement a statistical model or a machine learning method in the real world. 
-But everybody was interested in this "Big Data" thing, so quickly we started to do consulting work without a clear idea what I was going to do. 
+But everybody was interested in this "Big Data" thing, so we quickly started to do consulting work without a clear idea what I was going to do. 
 When we finally came to something that looked like a project, I plunged into it. 
 Eager to deliver results quickly, I loaded data extracts into R and started to apply all kinds of different models and algorithms on it. 
 Findings ended up in the code comments of the R scripts, scripts that often grew to hundreds or even thousands of lines. 
 
-The only system I had was numbering the scripts sequentially. Soon I found myself amidst dozens of scripts and data exports of intermediate results that were no longer reproducible. The R session I was running *ad infinitum* was sometimes mistakenly closed, or it crashed (which was bound to happen as the memory used grew). I spent hours or even days to recreate the results when this happened. Deadlines were a nightmare; everything I had done up to that point had to be loaded, joined and compared at the last moment. More often than not, the model results were different from the than noted earlier, with no indication if I was mistaken earlier, I was using the wrong data now, or some other source of error I was introduced. Looking back, I had no clue about the importance of a good workflow for doing larger data science projects. Several times I was saeved when plug was pulled from the project for other reasons, saving me from embarrassment.
+The only system I had was numbering the scripts sequentially. Soon I found myself amidst dozens of scripts and data exports of intermediate results that were no longer reproducible. The R session I was running *ad infinitum* was sometimes mistakenly closed, or it crashed (which was bound to happen as the memory used grew). I spent hours or even days to recreate the results when this happened. Deadlines were a nightmare; everything I had done up to that point had to be loaded, joined and compared at the last moment. More often than not, the model results were different from that noted earlier, with no indication if I was mistaken earlier, I was using the wrong data now, or some other source of error was introduced. Looking back, I had no clue about the importance of a good workflow for doing larger data science projects. Several times I was saved when the plug was pulled from the project for other reasons, saving me from embarrassment.
 
-I learned a great deal since these day, both from other's insights and from my own experiences. 
-Writing an R package that to be shipped to CRAN enforced me to understand the basics of software engineering. 
+I have learned a great deal since those days, both from other's insights and from my own experiences. 
+Writing an R package to be shipped to CRAN enforced me to understand the basics of software engineering. 
 Not being able to reproduce crucial results forced me to start thinking about end-to-end research and model building, controlling all the steps along the way. 
-Last year, for the first time, I joined a Scrum team (frontend, backend, ux designer, product owner, second data scientis) to create a machine learning model that we brought to production using the Agile principles. 
+Last year, for the first time, I joined a Scrum team (frontend, backend, ux designer, product owner, second data scientist) to create a machine learning model that we brought to production using the Agile principles. 
 It was an inspiring experience from which I learned a great deal. 
 My colleagues patiently explained the principles of Agile software development and together we discovered what did and did not work for data science.
 
@@ -47,7 +47,7 @@ The second part is hands on. We will explore how we can leverage the possibiliti
 Data science projects can greatly differ from each other. 
 There are so many variables that make each project unique, there are many situations I have not experienced and there are necessarily many possible aspects of data science projects I am not aware of. 
 In this document I am relating my own experiences to the theory and best practises of Agile software development to come up with a general workflow. 
-This means that if I were to write this text in isolation I would be "overfitting" the workflow on about the dozen large data science projects I have done. 
+This means that if I were to write this text in isolation I would be "overfitting" the workflow on the dozen or so large data science projects I have done. 
 That is why I need your help. 
 I hope many of you will read the first drafts of this book very critically and relate the content to their own experiences. If you find that parts are incomplete or plainly incorrect, please file an [issue](https://github.com/EdwinTh/ADSwR). 
 
@@ -65,8 +65,7 @@ If you are interested in all four, you're obviously in the right place.
 This text is not for you if you hope to learn about different algorithms and statistical techniques to do data science; more knowledgeable people have written many books and articles on those topics. 
 Also you will not learn anything about R programming. 
 The workflow I present is completely separate from the algorithms you choose and the data preparation tools of your preference, as it focuses on code organisation and delivery.
-If you use python rather than R, you will still find this text valuable. 
-Especially the first part, which focuses on workflow only and is tool agnostic. 
+If you use python rather than R, you will still find this text valuable, especially the first part, which focuses on workflow only and is tool agnostic. 
 
 The larger data science projects I was involved with all had the objective of delivering predictions in some way, so you can file them under machine learning. 
 I intend to present a generic workflow that is also applicable to data science projects that have a different type of delivery, such as automated reports and Shiny applications. 
