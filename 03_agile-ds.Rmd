@@ -1,14 +1,14 @@
 # Agile Data Science
 
-## Data Science Waterfall
+## Data Science *Waterfall*
 
 As discussed in the previous chapter, Agile is a response to Waterfall methodology that was widely adopted in the eighties and nineties. 
-Many projects following this methodology failed because the long duration of these projects. 
-The world had moved on while the process-heavy steps were completed and either the plug was pulled before the product was finished or the finished product had limited value because it was a misfit to the changed world. 
-In data science, as far as I am aware of, there are no such formal methodologies that are followed by many practioners. However, there are ample testimonies of projects that never reached production and I think this is partially due to suboptimal workflow. 
-Just like Waterfall, data science projects can take many months or even years before the results are productionised or the plug is pulled. 
-The data scientist might want to optimise many asprects of the project to give the best predictions possible or have all the envisioned dashboard functionalities in place, before sharing the results with stakeholders. 
-The code might be poorly organised, leading to a lot of time lost merging differenct scripts. 
+Many projects using Waterfall did not deliver, because of their long duration.
+In data science, as far as I am aware of, there are no such formal methodologies that are followed by many practioners. However, there are [many data science projects failing](https://venturebeat.com/2019/07/19/why-do-87-of-data-science-projects-never-make-it-into-production/).
+Ineffective workflow is by no means the only cause of this, but I am convinced it is on of the culprits.
+Just like softwafre development in Waterfall, data science projects can take many months or even years before the results are productionised or the plug is pulled. 
+The data scientist might want to optimise many aspects of the project to give the best predictions possible or have all the envisioned dashboard functionalities in place, before sharing the results with stakeholders. 
+The code might be poorly organised, leading to a lot of time lost merging different scripts. 
 Or there might be unclarities on what to predict or which data sources are in scope, due to lack of communication between stakeholders, business people and data scientists. 
 Whatever the reason, adhering to the principles of Agile can get you more productive and efficient. 
 Here we take the time to interpret the twelve principles in the data science context.
@@ -18,10 +18,11 @@ Here we take the time to interpret the twelve principles in the data science con
 1) Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.
 
 Just as Waterfall prescribes a complete and fault-free product delivered at once, data scientists might be inclined to only release a machine learning model to production once they are confident its predictions are spot on. 
-This principle is a revolutionary break from Waterfall, you should not wait with releasing software until its perfect, instead get it out in the open when it is just good enough. 
-A common term used for this is the MVP (*Minimal Viable Product*). 
-After the MVP is released it is closely monitored how users are interacting with it and where the biggest room for improvement is. 
-The biggest possible improvement is then tackled first and a new version is released. 
+This principle was a revolutionary break from Waterfall, you should not wait with releasing software until its perfect.
+Instead get it out in the open when it is just good enough. 
+It is called the MVP (*Minimal Viable Product*). 
+After the MVP is released it is closely monitored how users interact with it and where the biggest room for improvement is. 
+The team tackles the biggest problem in the MVP to create a slightly better version of the product, which is again released right away.
 This cycle of release, monitor, improve, release is repeated many times, such that the product gets better and better. 
 There is no clear definition of done, instead there is debate if the software can be further improved and if the required investments are worth the effort.
 
@@ -32,19 +33,23 @@ Releasing something that is barely good enough might be scary and counterintuiti
 
 * *It will keep stakeholders excited*. 
 Managers and users of the model who commisioned the data science project are impatient to see results. 
-As the projects drags on without any output they are likely to loose interest and confidence the project will end well. Eventually they might pull the plug or put it on hold before anything reached production. 
-If they can interact with the results soon, even if it is imperfect, will give a totally different dynamic.
+As the projects drags on without any output they are likely to loose interest and confidence the project will end well.
+Eventually they might pull the plug or put it on hold before anything meaningful has come out. 
+If they can interact with the results soon, even if they are from perfect, their enthusiasm and confidence will remain high.
 * *You will fail fast*. 
-There is a wide array of reasons a data science project might fail, such as; the problem appears not be translateable into a model in the first place, the data is not of the quality needed, there appears not be enough historical data, or the necassary relationships simply don't exist. 
-The sooner you implement the product the sooner lurking problems suface. 
-* *You will get feedback sooner.* This is the main reason Agile wants to implement quickly and then iterate. 
+There is a wide array of reasons a data science project might fail; the problem appears not be translateable into a model in the first place, the data is not of the quality needed, there appears not be enough historical data, or the necassary relationships simply don't exist. 
+If there are such problems, you will not be able to easily create an MVM.
+This is a clear sign the project is probably not going to end well, and you can consider stopping it early.
+* *You will get feedback sooner.* 
+This is the main reason Agile wants to implement quickly and then iterate. 
 Lets say you build a churn model which the sales department uses for customer retention. 
-As soon as they start acting on your MVM they find out that the interval in which you predict is too short, many customers already have a subscription with a competing party. 
-Instead of further optimising this model, you focus on predicting a longer time ahead. 
+You agree with stakeholders what the model should look like and start to build an MVM.
+As soon as they start using the MVM they find out that the interval in which you predict is too short, many customers already have a subscription with a competing party. 
+Instead of further optimising this model, you first change the model structure so it predicts a longer time ahead.
 Or the user of Shiny app realises that the ratio you agreed on is not what she wanted as soon as se she sees the app with the first variable implemented. 
 Before including the twelve other variables you first fix the ratio such it is as she wants it.
 
-What an MVM looks like is project-dependent of course, but in many cases it would probably make sense to define it a regular statistical measure. 
+What an MVM looks like is project-dependent of course, but in many cases it might make sense to define it in terms of regular statistics, such as recall or mean absolute error. 
 A machine learning model might be replacing a business rule that has been in place for many years, the MVM is then ready as soon as the model outperforms the business rule. 
 Data science products that are not model based might be captured with an MVP, instead of an MVM. 
 For both an MVM and an MVP a possibility is only releasing the product for a subset of your target audience, such as a geographical area or users of a certain age. 
