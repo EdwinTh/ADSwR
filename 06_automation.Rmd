@@ -13,12 +13,12 @@ The obvious reason data science products should be automated is that it will sav
 It might take a little more effort to set up an automated pipeline, but once it is in place only monitoring and maintenance are needed.
 If instead each report or each model update should be created by manually running the code, the data scientist should always schedule time to do so.
 This is not only a waste of time, but also a waste of focus.
-Once you have reached a stage that the product is of satisfactory quality and can run without interference for at time, you should be able to move on to a new project without thinking too much about it.
+Once you have reached a stage that the product is of satisfactory quality and can run without interference for a time, you should be able to move on to a new project without thinking too much about it.
 However, if the product is run manually you have to keep spending a part of your attention to the earlier product.
 Continuously switching between projects is strenuous and not satisfying.
 
 Not automating also creates a risk for the continuity of the product.
-It is not healthy to be completely dependent on the knowledge and actions of a single data scientist, because it is not guaranteed he will continue to work at the organisation for the duration of the product.
+It is not healthy to be completely dependent on the knowledge and actions of a single data scientist, because it is not guaranteed they will continue to work at the organisation for the duration of the product.
 A well automated product can be maintained by anybody with the right skills.
 If the project has to be continued by a different person, it will be a lot easier to maintain the product when automation is in place.
 
@@ -26,28 +26,28 @@ If the project has to be continued by a different person, it will be a lot easie
 
 A data science product is software, not random walk code.
 This means it is built bottom-up, small, unit-testeable functions are used together to create more complex actions.
-The higher-level functions can than be used together in even higher order functions to create specific parts of the pipeline, such as data cleaning, preparing features or training a model.
+The higher-level functions can then be used together in even higher order functions to create specific parts of the pipeline, such as data cleaning, preparing features or training a model.
 It does not, and should not, matter where each of the lower and higher level functions are created. 
 As soon as you load the R package into memory all the functions are available.
 The functions are created to be applied in a certain order, of course. 
 For instance first you load the data, then you clean it, prepare it and apply an algorithm on it.
-By completely automating the product, it is inmediately clear how everything should play together.
+By completely automating the product, it is immediately clear how everything should play together.
 
 ## Reproducibility
 
 You can't be Agile without being completely reproducible. 
 Results on the same input data should be the same each time the product is run, independent of when and by whom it is done.
 Small bugs in the code or unexpected values in the data can be compensated for when the code is ran manually.
-This is undesirable because this implies that the same problems will keep popping up in future times.
+This is undesirable because this implies that the same problems will keep popping up in future runs.
 Even if you are the sole data scientist on the project, you might forget how you resolved it the last time.
 Rather, bugs and unexpected values should always be systematically resolved.
-This means that as soon as you hit something, for instance the same column appearing twice in a data frame, you have to invest time in finding the source of this error, rather than quickly fix it and move on.
-As with the good practises discussed in the next chapter, not cutting corners will cost more time and effort in the short run but will pay of in both time and confidence in the product quality.
+This means that as soon as you hit something, for instance the same column appearing twice in a data frame, you have to invest time in finding the source of this error, rather than quickly fixing it and moving on.
+As with the good practises discussed in the next chapter, not cutting corners will cost more time and effort in the short run but will pay off in both time and confidence in the product quality.
 Automation is a great way to enforce yourself to be completely reproducible, results will only be produced when the product is fault free.
 
 ## How to Automate
 
-We have discussed why should automate, but not how to do it.
+We have discussed why we should automate, but not how to do it.
 You can build one meta function that comprises all the intermediate steps of the product.
 Calling the function will set everything in motion, capturing intermediate results and sending these to the next pipeline step.
 But as usual in R, someone else has already done the hard work for you.

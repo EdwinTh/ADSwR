@@ -10,7 +10,7 @@ In the chapter on versioning it was advocated that you should not keep old code 
 Rather use version control systems to keep track of the changes you are making to the product.
 Research tasks are investigated in vignettes, these are kept around as the project goes along.
 It is likely that research reports make use of the code in the software product, of data in the pipeline.
-These are readily available, enabling to do quick exploration of hypotheses.
+These are readily available, enabling quick exploration of hypotheses.
 However, as you move along, the software product and the data are likely to change.
 This means that the reproducibility of almost all research reports will be lost at some point.
 

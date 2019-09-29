@@ -5,17 +5,17 @@
 ## The Origins of Agile
 
 Agile software development is not a specific methodogy, a process, or a prescription how to do your job.
-Rather it is a set of beliefs, a philosophy, that should guideline a team developing software in making the best possible decisions. 
+Rather it is a set of beliefs, a philosophy, that should guide a team developing software in making the best possible decisions. 
 Agile was not created out of thin air, of course, it was very much a reaction of the then ubiquitous approach called Waterfall. 
 In Waterfall large software projects are divided into specific stages, each stage should be completed before the next stage can start. 
 Subsequentially these stages are *problem analysis*, *designing the project*, *writing the software*, *testing it* and finally *implementation and maintenance*. 
 [Here](https://www.youtube.com/watch?v=LxEmGNgqYJA) you can find a clear and neutral introducion into the Waterfall approach. 
-What stands out at Waterfall is delivering complete and faultless software. 
+What stands out for Waterfall is delivering complete and faultless software. 
 In order to do so, the centre of gravity of a Waterfall project is the documentation, in which every requirement and aspect of the software is written down meticulously. 
 The underlying conviction is that the software is written faster and is of higher quality when all aspects of it are decided upon upfront.
 
 Projects done with the Waterfall method have a major pitfall, however. 
-They can take very long to be completed. 
+They can take a very long to be completed. 
 The combination of sequentiality and completeness might cause projects to last many years before software is delivered. 
 Each time an error or incompleteness is found in one of the later stages, the project moves back to the previous stage to fix it.
 Because of the long duration of the entire process of Waterfall it occured often that the end result was no longer a good fit for the ever changing market. 
@@ -27,7 +27,7 @@ During the nineties several reactions to the cumbersome Waterfall came to being.
 A number of influential thinkers in the world of software development started to explore different ways of writing software..
 Alternative processes were suggested, such as scrum and Xtreme programming. 
 Eventually, in 2001 a group of seventeen came together in Utah and drew up the *Manifesto for Agile Software Development*. 
-Their just 68-word-long statement is:
+Their short 68 word statement is:
 
 > We are uncovering better ways of developing software by doing it and helping others do it. Through this work we have come to value:
 >
@@ -51,7 +51,7 @@ First, it is impossible to think through all the aspects of a complex design and
 Software has to grow organically instead.
 Secondly, customers typically don't really know what they want from the product, until they start interacting with it. 
 Legally it might be a good idea to have all the aspects checked off before getting to work, but it will not keep the customer satisfied. 
-Finally, customers and stakeholders will loose interest and faith if it takes a long time before the works results any tangible results.
+Finally, customers and stakeholders will loose interest and faith if it takes a long time before the work results any tangible results.
 
 ## The Twelve Principles
 
