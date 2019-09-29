@@ -1,15 +1,15 @@
 # Agile Data Science
 
-## Data Science Waterfall
+## Data Science *Waterfall*
 
 As discussed in the previous chapter, Agile is a response to Waterfall methodology that was widely adopted in the eighties and nineties. 
-Many projects following this methodology failed because of the long duration of these projects. 
-The world had moved on while the process-heavy steps were completed and either the plug was pulled before the product was finished or the finished product had limited value because it was a misfit to the changed world. 
-In data science, as far as I am aware of, there are no such formal methodologies that are followed by many practioners. However, there are ample testimonies of projects that never reached production and I think this is partially due to suboptimal workflow. 
-Just like Waterfall, data science projects can take many months or even years before the results are productionised or the plug is pulled. 
+Many projects using Waterfall did not deliver, because of their long duration.
+In data science, as far as I am aware of, there are no such formal methodologies that are followed by many practioners. However, there are [many data science projects failing](https://venturebeat.com/2019/07/19/why-do-87-of-data-science-projects-never-make-it-into-production/).
+Ineffective workflow is by no means the only cause of this, but I am convinced it is on of the culprits.
+Just like softwafre development in Waterfall, data science projects can take many months or even years before the results are productionised or the plug is pulled. 
 The data scientist might want to optimise many aspects of the project to give the best predictions possible or have all the envisioned dashboard functionalities in place, before sharing the results with stakeholders. 
 The code might be poorly organised, leading to a lot of time lost merging different scripts. 
-There might be unclarities on what to predict or which data sources are in scope, due to lack of communication between stakeholders, business people and data scientists. 
+Or there might be unclarities on what to predict or which data sources are in scope, due to lack of communication between stakeholders, business people and data scientists. 
 Whatever the reason, adhering to the principles of Agile can get you more productive and efficient. 
 Here we take the time to interpret the twelve principles in the data science context.
 
@@ -18,12 +18,13 @@ Here we take the time to interpret the twelve principles in the data science con
 1) Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.
 
 Just as Waterfall prescribes a complete and fault-free product delivered at once, data scientists might be inclined to only release a machine learning model to production once they are confident its predictions are spot on. 
-This principle is a revolutionary break from Waterfall, you should not wait with releasing software until it's perfect, instead get it out in the open when it is just good enough. 
-A common term used for this is the MVP (*Minimal Viable Product*). 
-After the MVP is released it is closely monitored for how users are interacting with it and where the biggest room for improvement is. 
-The biggest possible improvement is then tackled first and a new version is released. 
+This principle was a revolutionary break from Waterfall, you should not wait with releasing software until its perfect.
+Instead get it out in the open when it is just good enough. 
+It is called the MVP (*Minimal Viable Product*). 
+After the MVP is released it is closely monitored how users interact with it and where the biggest room for improvement is. 
+The team tackles the biggest problem in the MVP to create a slightly better version of the product, which is again released right away.
 This cycle of release, monitor, improve, release is repeated many times, such that the product gets better and better. 
-There is no clear definition of done, instead there is debate on if the software can be further improved and if the required investments are worth the effort.
+There is no clear definition of done, instead there is debate if the software can be further improved and if the required investments are worth the effort.
 
 The machine learning equivalent to this would be a *Minimal Viable Model*, a model that is just good enough to put into action. 
 Other data science projects, such as reporting, ETL and apps, might have more software elements in them and less data uncertainty. 
@@ -32,31 +33,34 @@ Releasing something that is barely good enough might be scary and counterintuiti
 
 * *It will keep stakeholders excited*. 
 Managers and users of the model who commisioned the data science project are impatient to see results. 
-As the projects drags on without any output they are likely to loose interest and confidence the project will end well. Eventually they might pull the plug or put it on hold before anything reaches production. 
-If they can interact with the results soon, even if it is imperfect, it will give a totally different dynamic.
+As the projects drags on without any output they are likely to loose interest and confidence the project will end well.
+Eventually they might pull the plug or put it on hold before anything meaningful has come out. 
+If they can interact with the results soon, even if they are from perfect, their enthusiasm and confidence will remain high.
 * *You will fail fast*. 
-There is a wide array of reasons a data science project might fail, such as: the problem appears not be translatable into a model in the first place, the data is not of the quality needed, there appears not be enough historical data, or the necassary relationships simply don't exist. 
-The sooner you implement the product the sooner lurking problems suface. 
-* *You will get feedback sooner.* This is the main reason Agile wants to implement quickly and then iterate. 
+There is a wide array of reasons a data science project might fail; the problem appears not be translateable into a model in the first place, the data is not of the quality needed, there appears not be enough historical data, or the necassary relationships simply don't exist. 
+If there are such problems, you will not be able to easily create an MVM.
+This is a clear sign the project is probably not going to end well, and you can consider stopping it early.
+* *You will get feedback sooner.* 
+This is the main reason Agile wants to implement quickly and then iterate. 
 Lets say you build a churn model which the sales department uses for customer retention. 
-As soon as they start acting on your MVM they find out that the interval in which you predict is too short, many customers already have a subscription with a competing party. 
-Instead of further optimising this model, you focus on predicting a longer time ahead. 
+You agree with stakeholders what the model should look like and start to build an MVM.
+As soon as they start using the MVM they find out that the interval in which you predict is too short, many customers already have a subscription with a competing party. 
+Instead of further optimising this model, you first change the model structure so it predicts a longer time ahead.
 Or the user of Shiny app realises that the ratio you agreed on is not what she wanted as soon as se she sees the app with the first variable implemented. 
-Before including the twelve other variables you first fix the ratio such that it is as she wants it.
+Before including the twelve other variables you first fix the ratio such it is as she wants it.
 
-What an MVM looks like is project-dependent of course, but in many cases it would probably make sense to define it as a regular statistical measure. 
+What an MVM looks like is project-dependent of course, but in many cases it might make sense to define it in terms of regular statistics, such as recall or mean absolute error. 
 A machine learning model might be replacing a business rule that has been in place for many years, the MVM is then ready as soon as the model outperforms the business rule. 
 Data science products that are not model based might be captured with an MVP, instead of an MVM. 
 For both an MVM and an MVP a possibility is only releasing the product for a subset of your target audience, such as a geographical area or users of a certain age. 
 
 2) Welcome changing requirements, even late in development. Agile processes harness change for the customer's competitive advantage.
 
-This principle comes naturally to data science, since the outcome of a project typically depends on the relationships discovered in data. 
-The Waterfall approach in which every step of the project is planned would appear hideous to even the biggest lover of process in the data science context. 
+This principle comes natural to data science, since the success of a project typically dependent on the relationships discovered in data. 
+The Waterfall approach in which every step of the project is planned would be appear hideous to even the biggest lover of process in the data science context. 
 Keep in mind that flexibility should not only be exercised towards assumptions of your data or the models and algorithms you use. 
 Requirements can also be in the framing of the business problem or the way the results are exposed. 
 The very reason we are releasing early is that customers can put it to the test and through interaction they discover what they really want. 
-Whatever it is, don't be lazy or rigid and be prepared to steer in a different direction as soon as the situation requires.
 
 3) Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.
 
@@ -65,110 +69,118 @@ The Scrum framework is really strict in the amount of time that can be spent unt
 The team commits itself to making certain changes to the product in typically a two-week period. 
 At the end of this period the improvements, small as they might be, are deployed. 
 The Scrum mindset is not totally applicable for data science, especially when there is a lot of data uncertainty, as we will explore in the next chapter. 
-It is for instance not feasible to commit to a time interval for model improvement because it is dependent on yet-to-be discovered relationships in the data. 
+It is for instance not feasible to commit to a time interval for model improvent because it is dependent on yet-to-be discovered relationships in the data. 
 However, it is good to keep in mind that every improvement to the model should be deployed as soon as it is ready. 
-This creates momentum and excitement for customers, stakeholders, your teammates and yourself. 
+This creates momentum and excitement by customers, stakeholders, your teammates and yourself. 
 
 4) Business people and developers must work together daily throughout the project.
 
 Too often data scientists are operating in isolation. 
 Certainly when projects are of a more explorative nature. 
 Having no connection to the business makes it unlikely your work will ever affect anything outside your computer. 
-If you want your work to mean something it should be aligned with the customers desires. 
+If you want your work to mean something it should be alligned with the customers desires. 
 Stakeholder management can be done by a representative of the technical team, such as a product owner. 
-If there is no such role on the team, the stakeholder management is the responsibility of the data scientist. 
+If there is no such role on the team, the stakeholder management is the rsponsibility of the data scientist. 
 A second way the business should be involved is for getting information about underlying processes. 
-Unless the data scientist has extensive knowledge of the business, she needs somebody to validate the found results and answer questions about strange finds. 
-Finally, you might need to involve a person with technical knowledge of the data, typically a DBA, who can explain the structure and peculiarities of the data you work with. 
+Unless the data scientist has extensive knowledge of the business, she needs somebody to validate the found results and answer questions about surprising finds. 
+Finally, you might need involve a person with technical knowledge of the data, typically a DBA, who can explain the structure and peculiarities of the data you work with. 
 
 5) Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done.
 
 This principle is the antithesis of Waterfall in optima forma. 
-Instead of meticuously describing how the job should be done, just set the goals of the projects and leave it up to the team how these goals should be attained. 
-Data scientists typically already enjoy this type of freedom for the sheer reason that stakeholders often don't really understand how the products are built. 
+Instead of meticuously describing how the job should be done, just set the goals of the projects and leave it up to the team how these goals should be attainted. 
+Data scientis typically already enjoy this type of freedom for the sheer reason that stakeholders don't really understand how the products are built. 
 It can happen that business people get overly involved in the process, they can have a strong opinion on which predictors should be used or how the target should be defined or what the best way is to visualise something in a dashboard. 
 Take their advice at heart but also trust your instincts. 
-If you feel a different approach will yield better results then rely on your expertise. 
+If you feel a different approach will yield better results than rely on your expertise. 
 You know about overfitting, multicollinearity, non-converging algorithms, theory behind data visualisation and many other topics the business cannot grasp. 
-If you think your approach is better, take the time to explain why you think a different approach is better (in layman terms of course). 
+If you think you approach is better, take the time to explain why you think a different approach is better (in lay men terms of course). 
 
 6) The most efficient and effective method of conveying information to and within a development team is face-to-face conversation.
 
-A data science project is rarely done end-to-end by one single person. Data might be made available by a DBA, a backender might expose the product at the website, the frontender builds the interface for interacting with predictions, etc. If possible working with these people directly will speed up decision making and improve alignment. Communication by email or chat programs are often slow. Make an effort to be in the same room with your direct colleagues, for at least a part of the project time.
+A data science project is rarely done end-to-end by one single person. 
+Data might be made available by a DBA, a backender might expose the product at the website, the frontender builds the interface for interacting with predictions, etc. 
+If possible working with these people directly will speed up decision making and improve allignment. 
+Communication by email or chat programs are often slow. 
+Make an effort to be in the same room with your direct colleagues, for at least a part of the project time.
 
 7) Working software is the primary measure of progress.
 
 As long as it is not part of the modelling pipeline you have not attained any results yet. 
-As long as your Shiny app only runs on your laptop, it means nothing. 
+As long as your Shiny app only runs on your laptop, it does not exist. 
 You have not added any value as long as your product is not "out there". 
-Only when the update to the predictions is fully implemented and the predictions are ready to be consumed by the business, has there been true improvement. 
-And only when you have shipped your MVM app to the company server and Sales is basing decisions on it, have you delivered something. 
+Only when the update to the predictions is fully implemented and the predictions are ready to be consumed by the business, there has been true improvement. 
+And only when you have shipped your MVM app to the company server and Sales is basing decision on it, you have delivered something. 
 All too often the reported improvement in accuracy in research scripts does not hold when it is implemented in the full model pipeline. 
 Sometimes it has been done on just a subset of the data that was conveniently available. 
 Or the new feature was tested in isolation and there is not yet a sense of multicollinearity. 
 There is only one true measure of how well we are currently doing, and it is what we currently have exposed. 
-This implies that as long as there is no end-to-end pipeline in place, we cannot tell how well the model is doing.
+This implies that as long as there is not end-to-end pipeline in place, we cannot tell how well the model is doing.
 
 8) Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely.
 
-The deadline way of doing data science; the stakeholders and the developers meet, they agree to have a first version of the project ready at a set moment in the future. 
+The deadline way of doing data science; the stakeholders and the data scientist meet, they agree to have a first version of the project ready at some future moment. 
 The sponsors forget about the project until right before the deadline, busy with attending meetings and writing memos. 
-The developer goes to work, and having ample time before the deadline there are many things that can be explored. 
+The data scientist goes to work, having ample time before the deadline there are many things that can be explored. 
 The result is an array of research scripts and intermediate results. 
-Suddenly, as the deadline comes near, all this separate research has to come together. 
-Pulling an all nighter he is able to deliver a result, which is presented to the sponsors. 
+Suddenly, as the deadline comes near, all this separate research has somehow come together. 
+Pulling an all nigther he is able to deliver a result, which is presented to the sponsors. 
 The project is then continued, a new deadline is set, and the cycle starts over.
 
 Don't - do - deadlines. 
+
 They are a recipe for hastily created, nonreproducible results. 
-They promote a workflow of taking it easy at first, stressing out when the deadline comes near and exhaustion after it. Instead set small goals that are attainable in a short timespan, update project if the results are favorable and set a new small goal. 
-This will result in better quality code, a better grip on the model results and a happier team.
+They promote a workflow of taking it easy at first, stressing out when the dealine comes near and exhaustion after it. 
+Instead set small goals that are quickly attainable, update the product if the results are favorable and set a new small goal. 
+This will result in better quality code, reproducibility and a happier team.
 Moreover, it will result in a product that is constantly improved, which excites sponsors and users.
 
 9) Continuous attention to technical excellence and good design enhances agility.
 
 Most data scientists have much to learn from software engineers as it comes to standards and rigor. 
 What makes data science unique is that a part of the code is written for personal use. 
-It is not meant to ship in the final product, it will never leave the personal computer. 
-Still it is very much of the project. 
-Cleaning of the training data, splitting into train and validation sets, running algorithms that produce the models, doing research on relationships in the data and many more steps are for the data scientist's eyes only. 
+It is not meant to ship in the final product, it will never leave the data scientist's system. 
+Still it is very much part of the project. 
+Data cleaning, splitting in train and validation sets, running algorithms that produce the models, doing research on relationships in the data and many more steps are for the data scientist's eyes only. 
 It is tempting to cut corners when you are the sole user of your own code. 
-Why go to the trouble of writing unit tests and documentation for your functions? As soon it does not do what it is supposed to do you are right there to fix it.
+Why go to the trouble of writing unit tests and documentation for your functions, as soon it does not do what it is supposed to do you are right there to fix it.
 
-At the moment of writing it is obvious what your code is supposed to do and as you run the code against the data you are then working with it is straightforward to see if the program indeed does what it supposed to do. However, three months later you completely forgot the reason you wrote that part and you have no clue why it failed against the refreshed data. 
+At the moment of writing it is obvious what your code is supposed to do and as you run the code against the data it is straightforward to see if the code indeed does what it supposed to do. 
+However, three months later you completely forgot the reason you wrote that part and you have no clue why it failed against the refreshed data. 
 You never work alone on a project, even if you are the only person working on it. 
-Always consider future you as a separate person who you respect very much and you want to help to do their job as well as possible. 
+Always consider future you as a separate person who you respect very much and you want to help to do its job as good as possible. 
 The result of poor qualitiy code is often that separately written parts don't click easily to create a bigger, more complex system. 
-Cutting corners when solving a problem quickly now will backfire later, with code that is unreliable and that fails without having a sense of why it fails. 
+Cutting corners when solving a problem quickly now will backfire later, with code that is unreliable and that fails without having a sense why it fails. 
 
 10) Simplicity--the art of maximizing the amount of work not done--is essential.
 
-A machine learning project's goal is often straightforward, predict *y* as best you can such that some business goal can be achieved. 
-Other than software development there is not much to choose for which features should and should not be included in the final product (features as in characteristics, not as in predictors). 
-The options of how to arrive at predicting *y*, however, are abundant. 
+A machine learning project's goal is often straightforward, predict *y* as best you can such that some business goals can be achieved. 
+Other than software development there is not much to choose in which features should and should not be included in the final product (features as in characteristics, not as in predictors). 
+The options how to arrive at predicting *y*, however, are abundant. 
 The biggest challenge is often "what should I explore next?". 
 Should we explore another database in which we might find new predictors or should we try a different model on the current predictors which involves some additional preprocessing of the data? 
 
-We can roughly estimate what the amount of work would be to explore both options. It is, however, very hard to predict what the amount of value is that the new part will add. 
+We can roughly estimate what the amount of work would be to explore both options, it is, however, very hard to predict what the amount of value is the new part will add. 
 A good rule of thumb is that when in doubt choose the option with the least unknown components. 
 Choose an algorithm you know well over one you have never used in practise. 
-Only tap into a new data source if you are convinced that the options on the current data base are exhausted. 
-Machine learning is a field with rapid developments, it is often tempting to seize the opportunity to dive into a new technique or algorithm. 
+Only tap into an unknown data source if you are convinced that the options on the well-known database are exhausted. 
+Data science is a field with rapid developments, it is often tempting to seize the opportunity to dive into a new technique or algorithm. 
 Be critical before doing so, is there really no way to obtain similar results with something already familiar to you? 
 
 11) The best architectures, requirements, and designs emerge from self-organizing teams.
 
 This is another principle that is a clear antidote to Waterfall. 
-Instead of meticulously planning every aspect of the project upfront, let the developers come up with the most important project designs as they go. 
-It is impossible to foresee all the aspects of the software project before implementing it, so trying to come up with them before writing code is a guarantee for going back and forth between the planning and implementation stages. 
+Instead of meticulously plan every aspect of the project upfront, let the developers come up with the most important project designs as they go. 
+It is impossible to foresee all the aspects of the software project before implementing it, so trying to come up with before writing code is a guarantee for going back and forth between the planning and implementation stages. 
 Due to the iterative nature of building data science products and the insecurity we have on the relationships in the data, this principle seems quite natural in our context. 
 
 12) At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.
 
-Every development process has its inefficiencies, whether they are unclear goals, poor communication or not having the right priorities. Having to reflect on the process forces you to look critically at all aspects of the project. 
+Every development process has its inefficiencies, wether they are unclear goals, poor communication or not having the right priorities. 
+Having to reflect on the process forces you to look critically at all aspects of the project. 
 Inefficiencies can quickly become project features when they exist for a while, the sooner they are tackled the better.
 
 Even when you are not in a team following an official methodology such as Scrum or Kanban, you do best in planning regular reflection meetings. 
-Even when you are the only data scientist or even the only developer of the team, you should also address your technical issues here. 
+Even when you are the only data scientist or even the only development of the team, you should also address your technical issues here. 
 Maybe you are wanting to refactor a certain part of the project for a while but are unsure if it is worth the time. 
 Even though your business colleagues don't understand the technical aspect of the problem, they can still challenge you on the pros and cons of both sides.

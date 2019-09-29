@@ -4,13 +4,13 @@ Now we have interpreted the Twelve Agile Principles in the data science setting 
 Let us remind ourselves that the workflow is always a means to an end. 
 The Agile values and principles are the guidelines and the workflow should serve following the values and principles the best you can. 
 If at any moment in a project the team feels the workflow is no longer the optimal way to make decisions in an Agile way, it should change it.
-Therefore, this chapter should be considered as nothing more than an exploration, a bunch of thoughts. 
+This chapter should be considered as nothing more than an exploration, a bunch of thoughts. 
 If some of it does not work for you for whatever reason, by all means find a better way.
 
 ## Linear and Circular Tasks
 
-The tasks (or stories) in Agile software development are what I call linear tasks. 
-They come from prodcut feature requets by stakeholders, collected by the product owner. 
+The tasks in Agile software development are what I call linear tasks. 
+They come from product feature requets by stakeholders or ideas within the team itself, collected by the product owner. 
 The envisioned outcome is captured in a user story. 
 The team translates it into the technical tasks and starts working on it. 
 Both Scrum and Kanban do not prescribe the steps a task should go through, but it typically looks like the following.
@@ -19,78 +19,76 @@ Both Scrum and Kanban do not prescribe the steps a task should go through, but i
 knitr::include_graphics("images/software_flow.png")
 ```
 These type of tasks lend themselves well for scoping and committing oneself to what the product will look like in a few weeks time, as is done in Scrum. 
-Building a product upon relationships in data results in what I call circular tasks. 
+Building a product upon yet unkown relationships in data results in what I call circular tasks. 
 The starting position is the latest version of the product. 
-If one does not yet have a good idea how to further improve it we would typically do an explorative analysis. 
-From this a hypothesis can be generated of how the product might be improved, which is subsequently tested. 
-Next we can evaluate if we want to update the product based on the hypothesis tested. 
-Both when updated and when not updated we start a new cycle after the task is completed.
+If one has not yet a good idea how to further improve it we would typically do an explorative analysis to test a hypothesis. 
+We evaluate if we can improve the product based on the hypothesis tested. 
+If not we go on with the next hypothesis right away, if so we improve it and then go on with the next hypothesis.
 
 ```{r, echo=FALSE,  fig.cap="Circular flow in machine learning"}
 knitr::include_graphics("images/ml_flow.png")
 ```
 Data science projects also encompass linear tasks, such as setting up a pipeline to import the data and do basic data wrangling, creating apps or exposing the model results in an API. 
 However, the circular nature of leveraging relationships between variable makes the highly structured Scrum method unfit for most data science projects. 
-We simply cannot guarantee that a statistical model or a machine learning algorithm will be improved in two weeks time, because we don't know if the hypotheses we are going to test will give us anything. 
-Moreover, during the completion of a task we can generate new hypotheses that seem more relevant than the one we originally had scheduled to do after this task. 
-If we had committed to a set of tasks for a fixed time period from which we cannot deviate, we are slowed down because we cannot directly act on newly gained insights. 
+We simply cannot guarantee that a statistical model or a machine learning algorithm will be improved in two weeks time, because we don't know if the hypotheses we are going to test will lead to anything. 
+If we had commited to a set of tasks for a fixed time period from which we cannot deviate, we are slowed down because we cannot directly act on newly gained insights. 
+
 Data science encompasses a broad array of different project types. 
 Maybe some don't have circular tasks at all and are basically pure software development projects. 
 Examples might be building an app on a known data source or automating reports to be sent every month. 
 For these type of projects it might make sense to follow a Scrum like methodology, cutting up work into user stories that are implemented in fixed time intervals. 
 Most data science projects, however, will have a mixture of linear and circular tasks. 
 For any project with circular tasks the flexibility of Kanban is preferred over the highly organised Scrum. 
-In the remainder of this text we assume projects to at least partially build on relationships that are unknown at the start of the project, and thus containing circular tasks. 
+In the remainder of this text we assume projects to be at least partially developed using relationships that are unknow at the start of the project, and thus containing circular tasks. 
 If this does not apply to your projects, you might find literature on regular Agile software development more appropriate.
 
 ## A Two-Way Workflow for Development
 
 The subdivision of tasks into linear and circular ones connects with a two-way workflow for data science product development. 
 This workflow makes a hard cut between the *data product* and *exploratory research*. 
-The data product is the software that gets productionised. 
+The data product is software. 
 It is standalone, which means that it contains all the steps to go from source data to the end result. 
 It can be a pipeline that contains loading, wrangling, preprocessing, modelling, and exposing steps. 
-Or it can be the querying of different databases, joining the different data, calculating statistics and building plots, wrapping everything in a Markdown report that gets sent to different stakeholders. 
+Or it can be the querying of different databases, joining the different data, calculating statistics and building plots, wrapping everything in a Markdown report.
 No matter what the product looks like, it should be high quality software so we can rely on it. 
 This will make results completely reproducible and automatable, the two requirements for continuous delivery of improved products. 
-Exploratory research will greatly benefit from having a data product, because intermediate results on which to further explore quickly are immediately available. 
-In order to test hypotheses quickly, exploration scripts can be interactive analyses without software requirements or maybe not even reproducible in later stages. 
-They should quickly give an indication if the tested hypothesis could improve the current product.
+Exploratory research on the other hand can be quick and dirty.
+In order to test hypotheses quickly, exploration scripts can be interactive analyses without software requirements or even being reproducible in later stages. 
+They should quickly give an indication if the tested hypothesis could improve the product.
+Subsequently the product is updated, using the rigor of software design.
 
 ## User Stories
 
-In both Scrum and Kanban the tasks ahead are formulated in user stories, clearly stating what the benefit for the customer will be once the user story is completed. 
+In both Scrum and Kanban the tasks ahead are formulated in user stories, clearly stating what the benefit of the customer will be once the user story is completed. 
 This will retain focus on delivering customer value with everything you do. 
 Also the work in a large data science project should be chunked up, but it is often difficult and even futile to formulate the task ahead in the shape of user stories. 
 In software development there is an abundance of ways to change the product as it currently is. 
 We could leave everything the way it is, but change this one little thing that will improve user experience. 
-Say, giving one extra option at a dropdown or signing up for a newsletter. 
-In data science, especially machine learning or statistical modelling, the final product is static, such as a model or a bunch of predictions. 
+Say, giving one extra option at a dropdown or siging up for a newsletter. 
+In data science, especially machine learning or statistical modelling, the final product is always the same.
 If you try to define a user story it will always go "As the <user of the model> I want to have the best possible model, such that <application of the model>". 
-On a task level, as a rule of thumb, user stories make sense for linear tasks, but not for circular ones. 
+On a task level user stories typically do not make sense for testing hypotheses. 
 It does make sense, though, to create an overarching user story for the entire project. 
-This will force the team and the stakeholders to envision the final product and exactly how it is going to be used. 
+This will enforce the team and the stakeholders to envision the final product and exactly how it is going to be used. 
 All too often data science projects are initiated with an explorative nature, to "see if there is anything in the data". 
 If the group does not manage to formulate a proper user story for the project, there is probably no good application for the model and you should not start exploring in the first place.
 
 ## Using Kanban for Data Science
 
 We have concluded that Scrum is too rigid for a data science project with circular tasks, because the explorative nature of data analysis is not suitable for the tight planning of deliverables. 
-Kanban on the other hand gives us the flexibility to change the next task we take upon ourselves. 
+Kanban on the other hand gives us the flexibility to change the next task we are going to complete. 
 Within a two-way model for doing data science there is the data product that has to be good quality software and there is the explorative research in which you can do whatever to come to quick conclusions. 
-It appears that the linear tasks of software design are a match with building the data product, whereas the circular tasks are applicable to the exploratory research. 
+You could formulate tasks for the Kanban workflow out of both these tasks.
 Weaving these two types of work together results in a Kanban workflow with at least the columns *to do*, *doing*, and *done*. 
-Both hypotheses to be tested and planned work on the data product are gathered in the *to do* column. 
+Both hypotheses to be tested and planned work on the data productare gathered in the *to do* column. 
 This is the backlog and it is always ordered from most to least urgent, so it is clear what to do next. 
 
 Kanban gives focus, finishing one task at a time. 
 Too often when doing data science we have interesting finds on which we jump right away without finishing what we were doing. 
 To prevent that, just add the new find as an hypothesis to the board. 
 This will make sure that the tasks that are currently in *doing* always gets completed first, and that after each completion there is a moment where it can be decided what is the most urgent change to the pipeline or the most promising hypothesis to explore next. 
-As a rule of thumb, never work on more tasks simultaneously than there are data science members on the team. 
+As a rule of thumb, never work on more tasks simultaneously than that there are data sciencists on the team. 
 Tasks are either software or research tasks, which directly indicates requirements there are to the completion of the task. 
-<!--- the previous sentence is a little awkward. Maybe this: 
-", which directly indicate the requirements for the completion of the task --->
 If the research task results in a proposed model update, the update can be captured in a newly formed software task (which can be placed on top of the *to do* list right away).
 
 ## Scoping Tasks
@@ -99,16 +97,16 @@ Scrum uses story points to scope its stories.
 The team itself determines the number of points awarded to each story, it does so in the sprint planning session. 
 The team knows how many story points it typically completes in a sprint, so after scoping the sprint can be planned by selecting stories such that the total of their points does not exceed the team's capacity. 
 Kanban does not scope stories. 
-In fact, the average time of task completion is Kanban's key metric of effectiveness. 
+In fact, the average time of taks completion is Kanban's key metric of effectiveness. 
 When doing data science with Kanban it might still be valuable to scope the tasks ahead, especially for exploring hypotheses. 
-One of the major pitfalls of trying to improve a data science product is endless exploration of an hypothesis. 
-We like to have just one more look from this other angle, or maybe this new fancy algorithm that you have been anxious to test for a while will give a major boost. 
-Data scientists are typically assiduous people, this is what allows them to master a wide range of difficult topics from statistics to programming in the first place. 
-This could lead to stubborness, however, unwilling to give up what was thought to be the way to get a major improvement. 
+One of the major pitfalls of trying to improve a data science products is endless exploration of an hypothesis. 
+We like to have just one more look from this other angle, or maybe this new fancy algorithm that you are anxious to test for a while will give a major boost. 
+Data scientists are typically assiduous people, this is what allows them to master a wide range of dificult topics from statistics to programming in the first place. 
+This could lead to stubbornes, however, unwilling to give up what was thought the way to get a major improvement. 
 Scoping for data science is then not just estimating how long a task will take to complete, it is also time boxing. 
 If used in this way, the scoping should be done in time units, not in a subjective measure such as story points. 
-The data scientist should not take longer for the task than the team agreed upfront, wrapping up even when he does not feel completely finished. 
-If he found an alleyway that is still worthwhile exploring a new task should be put in the backlog, instead of preservering it in the current task. 
+The data scientist should not take longer for the task than the team agreed upfront, wrapping up even when he does not feel completely fihished. 
+If he found an alleyway that is still worthwhile exploring a new task should be put in the backlog, instead preservering in the current task. 
 Scoping also helps with prioritising. 
 If there are several candidate tasks to do next, the one with the least time to complete might be best done first. 
 
@@ -116,12 +114,12 @@ If there are several candidate tasks to do next, the one with the least time to 
 
 When doing software development with Kanban there is typically a product owner involved. 
 She aligns with customers and stakeholders, and adds the feature requests to the *to do* column of the board. 
-For data science engineering it can also be desirable to have someone other than the data scientist doing stakeholder management and communication of the model results. 
+For data science engineering it can also be desirable to have someone else than the data scientist doing stakeholder management and communication of the model results. 
 This will free up time and energy for model development. 
-Gathering the tasks to do cannot be primarily laid at the product owner. 
-The data scientist will probably post most of the tasks on the Kanban board, because both hypotheses to test and maintenance work on the data product typically require an in depth knowledge. 
+Gathering the tasks to do cannot be primarily lay at the product owner. 
+The data scientist will probably post most of the tasks on the Kanban board, because both hypotheses to test and maintenance work on the data product typically require a in depth knowledge. 
 Product owners can add feature requests to the data products, especially when the product has a large software component, such as a Shiny application. 
-You should discuss the tasks you put on the Kanban board with the product owner, even when they're technical. 
+You should discuss the tasks you put on the Kanban board with the product owner, even when their technical. 
 This will demistify the model building and makes sure she can do a better job explaining the work to stakeholders. 
 Especially when you are the sole data scientist on the project she also needs to get involved in prioritizing and scoping. 
 Discussing how much time it will cost to complete the task and what it would bring can lead you to more accurate estimates of the time and value of the task. 
@@ -131,6 +129,6 @@ Also, the product owner might raise concerns from the business side that you did
 
 Reflecting on your workflow is a key element of Agile. 
 Are you still continuously delivering? Are you still aligned with the business? 
-Is there a better way of scoping tasks than you are doing now? 
-You have to find out for yourself as a team how you reflect on this is, but it might make sense to use the biweekly rhythm of Scrum. 
-You might combine it with scoping tasks that were put on the board recently and reprioritizing your work. 
+Is there a better way of scoping tasks then you are doing now? 
+How you reflect on this is also you have to find out for yourself as a team, but it might make sense to use the biweekly rythm of Scrum. 
+You might combine it with scoping tasks that were put on the board the lately and reprioritizing your work. 
