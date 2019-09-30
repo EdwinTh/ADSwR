@@ -15,7 +15,7 @@ In order to do so, the centre of gravity of a Waterfall project is the documenta
 The underlying conviction is that the software is written faster and is of higher quality when all aspects of it are decided upon upfront.
 
 Projects done with the Waterfall method have a major pitfall, however. 
-They can take a very long to be completed. 
+They can take a very long time to be completed. 
 The combination of sequentiality and completeness might cause projects to last many years before software is delivered. 
 Each time an error or incompleteness is found in one of the later stages, the project moves back to the previous stage to fix it.
 Because of the long duration of the entire process of Waterfall it occured often that the end result was no longer a good fit for the ever changing market. 
