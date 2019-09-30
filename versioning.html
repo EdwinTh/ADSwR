@@ -203,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#moving-to-kanban"><i class="fa fa-check"></i><b>12.3</b> Moving to Kanban</a></li>
 <li class="chapter" data-level="12.4" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#building-an-mvm-for-the-mvp"><i class="fa fa-check"></i><b>12.4</b> Building an MVM for the MVP</a></li>
 <li class="chapter" data-level="12.5" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#improving-the-product"><i class="fa fa-check"></i><b>12.5</b> Improving the Product</a><ul>
-<li class="chapter" data-level="12.5.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#interactivety"><i class="fa fa-check"></i><b>12.5.1</b> Interactivety</a></li>
+<li class="chapter" data-level="12.5.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#interactivity"><i class="fa fa-check"></i><b>12.5.1</b> Interactivity</a></li>
 <li class="chapter" data-level="12.5.2" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#changing-the-model"><i class="fa fa-check"></i><b>12.5.2</b> Changing the Model</a></li>
 </ul></li>
 <li class="chapter" data-level="12.6" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#productionising-the-interactive-model"><i class="fa fa-check"></i><b>12.6</b> Productionising the Interactive Model</a></li>
@@ -236,32 +236,32 @@ The former should be treated as software, all best practises of software enginee
 We have looked at automation and testing in the previous chapters, now we turn to versioning and version control.
 A version is a distinct snapshot of the working data product, to which a version number is assigned.
 Versioning makes it easier to trace the evolution of the product.
-In a machine learning model for instance, you can trace a performance measuer as you go along.
-It is more than just assigning numbers, it is a clear indication that the product has been improved and that you close of a line of research.</p>
+In a machine learning model for instance, you can trace a performance measure as you go along.
+It is more than just assigning numbers, it is a clear indication that the product has been improved and that you close off a line of research.</p>
 <div id="old-code" class="section level2">
 <h2><span class="header-section-number">9.1</span> Old Code</h2>
 <p>As you move from one version to the next, a part of the code written earlier becomes obsolete.
-You might be tempted to keep this code around because it might be neede in future times.
+You might be tempted to keep this code around because it might be needed in future times.
 I would advise against this.
 As the project progresses the amount of unused legacy code grows, as well as the amount of used product code, because the product tends to become more sophistecated as you move on.
 It will become harder to figure out what part of the code is actually used, making it more difficult to reason about the product.
 Also, the package namespace starts to become clogged.
 It happened more than once to me that I had created two functions with the same name when there was some old version lingering.
 Happy debugging!</p>
-<p>I think the product should only contain code that is used in the current version.
+<p>I think the product should only contain code what is used in the current version.
 This also implies that we should not do versioning within the code.
-Wether versioned or not, you might be inclined to leave old versions of a product, such as a function to call a model or to create a report, in place.
+Whether versioned or not, you might be inclined to leave old versions of a product, such as a function to call a model or to create a report, in place.
 Rather than versioning in your code, use a version control system.
 Keep your codebase clean and as small as possible.
 If you really want to keep your code around, and don’t want to rely on version control rollbacks to retrieve old results, keep an archive folder outside the <code>/R</code> folder so it is not part of the namespace.</p>
 </div>
 <div id="version-control" class="section level2">
 <h2><span class="header-section-number">9.2</span> Version Control</h2>
-<p>More than software engineers data scientists tend to work in solitude.
-Fully using version control systems, can then be considered as overkill.
+<p>Data scientists more than software engineers tend to work in solitude.
+Fully using version control systems can then be considered as overkill.
 In practice, they might just be used as an external backup of the code.
 Write some code, push it to master, write some more code, push it to master.
-Wether working alone or together, it is a good idea to use version control for, well, version control.
+Whether working alone or together, it is a good idea to use version control for, well, version control.
 (If you are not yet comfortable with using <code>git</code>, Jenny Bryan has your back with <a href="https://happygitwithr.com/">this extensive resource</a>).</p>
 <div id="master-is-production" class="section level3">
 <h3><span class="header-section-number">9.2.1</span> Master is Production</h3>
@@ -272,22 +272,22 @@ Once the feature is finished, tested and approved in a code review, the feature 
 When there is continuous integration in place the merge to <code>master</code> <em>is</em> deployment, the product is automatically updated when <code>master</code> is.</p>
 <p>Remember that the workflow in this text makes a distinction between research tasks and software tasks.
 Research tasks are performed completely outside the <code>/R</code> folder, they do not alter the product.
-Wether the tested hypothesis in the task proved to improve the product or not, you probably want to merge the vignette that explores the hypothesis to master to keep an overview of the work you did.
+Whether the tested hypothesis in the task proved to improve the product or not, you probably want to merge the vignette that explores the hypothesis to master to keep an overview of the work you did.
 This is fine, as long as you indeed did not touch the <code>/R</code> folder.
 This is where the product is defined and where the versioning happens.
 As soon as the research task did indicate the product can be improved, start a software task to adjust the product.
-Merging the software task branch to <code>master</code> is to create a new version of the product, but a merging a research task branch is not.</p>
+Merging the software task branch to <code>master</code> is to create a new version of the product, but merging a research task branch is not.</p>
 <p>As an example, the gitgraph below is a simple example of the start of a new machine learning project.
 (The graph is read top to bottom)
 After initiation there is the first setup of the project.
 A first query to the source database is created and we split into train and test.
-We the create a simple base rate model, this is <code>v1</code> of the product.
+We then create a simple base rate model, this is <code>v1</code> of the product.
 We then start a research story to check if some algorithm can improve our current product.
 We do data prep and training and analyse the results.
 Alas, the algorithm did not improve the simple model too much, and we decide it is not worth the trouble.
-Still the branch of the research task is merged to <code>master</code> so we have and overview of what we did in the past in the vignettes folder.
+Still the branch of the research task is merged to <code>master</code> so we have an overview of what we did in the past in the vignettes folder.
 Next, we try another algorithm.
-This one does a lot better and we decide to use it in the product insterad of the simple model.
+This one does a lot better and we decide to use it in the product instead of the simple model.
 First, the research task branch is merged to <code>master</code>, then we create a new branch for the software task.
 As soon as this work is finished and the branch is merged to <code>master</code> we release a new version.</p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.11.4/gitgraph.min.js"></script>
@@ -336,14 +336,14 @@ master.commit({message : "releasing updated model", tag : "v2"})
 <h3><span class="header-section-number">9.2.2</span> Working Together</h3>
 <p>Because branching is used, several data scientists can work on different aspects of the model simultaneously.
 Creating separate branches to explore different hypotheses.
-It is adviseable, however, to work on separate parts of the project in parallel.
-However, working on two or more software tasks at the same time is not adviseable.
-This might give you headaches when both try to merge to <code>master</code>, because the same files are modified.
-Also from a versioning perspective it is cleaner to make sequantial changes.
+It is advisable, however, to work on separate parts of the project in parallel.
+However, working on two or more software tasks at the same time is not advisable.
+This might give you headaches when you both try to merge to <code>master</code>, because the same files are modified.
+Also from a versioning perspective it is cleaner to make sequential changes.
 You can keep better track of the evolution of your product.</p>
 <p>Software engineers rarely work alone.
-They check eachother’s work by doing code reviews.
-The version control system even be configured such that a branch can only be merged to master when the changes are approved by at least one or two colleagues.
+They check each other’s work by doing code reviews.
+The version control system can even be configured such that a branch can only be merged to master when the changes are approved by at least one or two colleagues.
 Working together with multiple data scientists on the same project can greatly enhance the quality of the product.
 You can challenge each other’s ideas and you can look critically at each other’s work.
 Using version control properly will greatly improve your cooperation.</p>

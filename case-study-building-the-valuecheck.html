@@ -203,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#moving-to-kanban"><i class="fa fa-check"></i><b>12.3</b> Moving to Kanban</a></li>
 <li class="chapter" data-level="12.4" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#building-an-mvm-for-the-mvp"><i class="fa fa-check"></i><b>12.4</b> Building an MVM for the MVP</a></li>
 <li class="chapter" data-level="12.5" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#improving-the-product"><i class="fa fa-check"></i><b>12.5</b> Improving the Product</a><ul>
-<li class="chapter" data-level="12.5.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#interactivety"><i class="fa fa-check"></i><b>12.5.1</b> Interactivety</a></li>
+<li class="chapter" data-level="12.5.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#interactivity"><i class="fa fa-check"></i><b>12.5.1</b> Interactivity</a></li>
 <li class="chapter" data-level="12.5.2" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#changing-the-model"><i class="fa fa-check"></i><b>12.5.2</b> Changing the Model</a></li>
 </ul></li>
 <li class="chapter" data-level="12.6" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#productionising-the-interactive-model"><i class="fa fa-check"></i><b>12.6</b> Productionising the Interactive Model</a></li>
@@ -235,29 +235,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 A long standing company wish was to use the data of recent house sales for predicting the current value of all houses in the Netherlands.
 We knew that home owners used the asking prices of neighboring houses published on <em>funda</em> to keep track of local market trends.
 We wanted to facilitate them to translate the recent sale prices in an official estimate of their specific house.
-They no longer had to look at the houses that are offered, out statistical model had already done that.
-Moreover, they did not make the translation of offered houses to their own house informally, the model determined which characteristics of a house matters and which not.
+They no longer had to look at the houses that are offered, our statistical model had already done that.
+Moreover, they did not make the translation of offered houses to their own house informally, the model determined which characteristics of a house mattered and which did not.
 A final advantage was that we could use of the selling prices instead of the asking prices, these are not shown on the website.
 So the product reflected what their house could be sold for, instead of what the typical asking price of their home was.</p>
-<p>To create what eventually would become the <em>Valuecheck</em>, a colleague data scientist and me joined an existing Scrum team.
-This team comprised of two backend developer, a frontend developer, a UX designer, and a product owner.</p>
+<p>To create what eventually would become the <em>Valuecheck</em>, a colleague data scientist and I joined an existing Scrum team.
+This team comprised of two backend developers, a frontend developer, a UX designer, and a product owner.</p>
 <div id="trying-scrum" class="section level2">
 <h2><span class="header-section-number">12.1</span> Trying Scrum</h2>
-<p>The teams was very experienced with using Scrum and had all the workflows in place, so it made sense to try to fit in our tasks into this framework.
+<p>The team was very experienced with using Scrum and had all the workflows in place, so it made sense to try to fit our tasks into this framework.
 At first this worked out quite well, because the first set of tasks we had to complete were essentially software tasks.
 Setting up a server, build a first query so we had a modelling set, splitting into train and test, and doing some data cleaning.
 These tasks were scopeable, we could estimate the time we needed to complete them quite accurately and they had a clear definition of done.
 Then the model building started and we got more and more trouble fitting the tasks into the tight Scrum methodology.
 We could not tell what the model would like in two weeks time, it depended on the relationships we would find in the data.
-We certainly could not give estimates what the model quality would be then (measured in a an agreed-upon statistic).</p>
+We certainly could not give estimates for what the model quality would be then (measured in an agreed-upon statistic).</p>
 </div>
 <div id="informing-the-business" class="section level2">
 <h2><span class="header-section-number">12.2</span> Informing the Business</h2>
 <p>Our product owner informed management about the progress of both the product and the model.
 In consultation with them he decided how we would roll out the product.
-We had to provide him with the information required to make such decision.
+We had to provide him with the information required to make such a decision.
 A <em>Shiny</em> dashboard appeared to be the way to go.
-In this dashboard who could see the basic model performence, reflected in an agreed upon statistic.
+In this dashboard we could see the basic model performance, reflected in an agreed upon statistic.
 Moreover, the regional performance was shown on a map, making it clear where the model was performing well and where it was doing poorly.
 After a model update, the data frame with cross-validated scores underlying the dashboard was replaced to show the new situation.</p>
 </div>
@@ -265,12 +265,12 @@ After a model update, the data frame with cross-validated scores underlying the 
 <h2><span class="header-section-number">12.3</span> Moving to Kanban</h2>
 <p>Having scopeable tasks is essential for building proper Scrum sprints.
 As a team you have to commit to what you are going to complete in the upcoming two weeks.
-No longer being able to do that, we could not be part of the Scrum rythm anymore.
+No longer being able to do that, we could not be part of the Scrum rhythm anymore.
 We found the alternative in moving the data science tasks to a separate Kanban board, stepping out of the Scrum cycles.
 The circular nature of data science, as discussed in Chapter 5, does not lend itself well for tight planning.
 We started with a Kanban board with six lanes <em>to do</em> - <em>test hypothesis</em> - <em>code review hypothesis</em> - <em>update model</em> - <em>code review update model</em> - <em>done</em>.
 This reflected a full cycle of researching a hypothesis and updating the software.
-It worked quite well, however, a part of the tasks did not reach the finish line, because the hypothesis tested appeared not to improve the model.
+It worked quite well, however, a portion of the tasks did not reach the finish line, because the hypothesis tested appeared not to improve the model.
 This problem does not exist if the research part and the software part are split in separate tasks, the software task is only created if the research indicated the model could be improved.
 We never did this during this project, but this insight improved our workflow in subsequent projects.</p>
 </div>
@@ -278,25 +278,24 @@ We never did this during this project, but this insight improved our workflow in
 <h2><span class="header-section-number">12.4</span> Building an MVM for the MVP</h2>
 <p>Building a predictive model that is part of a dedicated product is both challenging and rewarding.
 Too often data science projects are initiated as a proof of concept, without a clear vision on how to implement if the prediction can be succesfully done.
-Knowing from the start that the model is going to be used, is very motivating.
-On the other hand, this means that you need constant allignment with the team that develops the product around the predictions.
+Knowing from the start that the model is going to be used is very motivating.
+On the other hand, this means that you need constant alignment with the team that develops the product around the predictions.
 The houses offered for sale on <em>funda</em> have many charecteristics filed, giving us a rich feature set to work with.
-However, as an MVP we wanted to present the users with an estimation, without them having to fill in all kinds of characteristics of theirs house.
-Developing a product from static house predictions is far less complex and time consuming than from a dynamic model with adjustable inputs.
-Both from modelling and a software perspective.
+However, as an MVP we wanted to present the users with an estimation, without them having to fill in all kinds of characteristics of their house.
+Developing a product from static house predictions is far less complex and time consuming than from a dynamic model with adjustable inputs, both from modelling and a software perspective.
 This implied that we could only use features that are freely available for every house in the Netherlands.
 Luckily, this was true for the two most important features, location and time.
-Also the surface area of the houses was available in a public database.
+Also the surface area of the houses were available in a public database.
 From this we started to build our initial prediction models.
-First using simple regression model to create a baseline.
+First using a simple regression model to create a baseline.
 We have a strong preference for statistical models over machine learning algorithms, because they not only give us predictions, but also insight.
 However, we needed some decent predictions fast, and it was clear we needed to exploit some nonlinear relationships.
 We therefore used some ensemble models that gave far superior predictions to regular regression.</p>
 <p>Already it was decided, we would only release the MVP in geographical areas in which the MVM performed well enough.
 This is called a <em>soft launch</em>, release the product without giving it too much noise for a selected group.
-Even then we not quite made the minimal performance goals we set ourselves.
+Even then we did not quite make the minimal performance goals we set ourselves.
 However, we could include a categorical feature and simply export the predictions for every level of the feature for every house, as long as there were not too many levels.
-The type of the house (appartment, on of several Duthch types of houses) appeared another crucial predictor.
+The type of the house (apartment, one of several Dutch types of houses) appeared as another crucial predictor.
 Finally, we wanted to show lower and upper bounds to a prediction, not only giving a point estimate.
 After some research we were able to this with random forests, that were trained on the desired quantiles.
 Predictions were exported in csv files, a frontend and backend were built around these.
@@ -309,16 +308,16 @@ Of course you want your work to be liked, but as I quickly learned, in this stag
 You know the product is barely good enough at this point in time, both from a software and a data science perspective.
 Negative feedback indicates people care about the product and it bothers them it does not fully meet their expectations.
 Moreover the feedback can point to directions that gives the biggest improvements in user satisfaction when improved.
-If it appeared that the users did not care about the product in the first place, the project could be killed and little resources were wasted on it.
+If it appeared that the users did not care about the product in the first place, the project could be killed and little resource was wasted on it.
 Fortunately, users did care, so we went ahead and started improving.</p>
-<div id="interactivety" class="section level3">
-<h3><span class="header-section-number">12.5.1</span> Interactivety</h3>
+<div id="interactivity" class="section level3">
+<h3><span class="header-section-number">12.5.1</span> Interactivity</h3>
 <p>Using an interactive model instead of the static MVM would improve the product in several ways.
-It enabled us to use features in the model that were not publicly avaible, the user could enter them.
+It enabled us to use features in the model that were not publicly available, the user could enter them.
 Also, we knew that the data on house surface area was not of consistent quality.
-Comparing them to the “real” data in our data bases for houses that were placed on our website indicated that they could be off in both directions.
+Comparing them to the “real” data in our database for houses that were placed on our website indicated that they could be off in both directions.
 In fact, for the MVM we used a model to predict the “real” surface area based on the public data.
-When the product changed to interactive, the user could correct the prefilled information if necessarry.
+When the product changed to interactive, the user could correct the prefilled information if necessary.
 Finally, it improved transparancy and user experience.
 Having an interactive product meant we had to bring the model to the product, not just the predictions.</p>
 </div>
@@ -328,13 +327,13 @@ Having an interactive product meant we had to bring the model to the product, no
 Price trends are hugely important in the housing market.
 With the <em>prior - posterior</em> structure of the Bayesian framework, we could easily update each month.
 Making time an implicit variable, rather than a feature we use for modelling.
-Secondly, we always wanted to give a lower and upper bound to the predictions, theser are part of the posterior of Bayesian predictions.
+Secondly, we always wanted to give a lower and upper bound to the predictions, these are part of the posterior of Bayesian predictions.
 The only problem was, we did not have hands-on experience with Bayesian modelling, we just knew the theory behind it.
 After extensive discussion if we did not see another way of significantly improving the model, we decided to go for it.
-This was a gamble, because we needed a few weeks to refresh our knowledgen and to get our feet wet with <em>Stan</em>.
+This was a gamble, because we needed a few weeks to refresh our knowledge and to get our feet wet with <em>Stan</em>.
 The modelling was basically placed on hold then.
 Fortunately, it paid off.
-After some experimenting we found a good model structure for our problem, improving the model especially at locations we did not so well before.
+After some experimenting we found a good model structure for our problem, improving the model especially at locations we did not do so well at before.
 Moreover, we could now start to add more features to the model.
 This improved both the accuracy of the predictions, the confidence bounds around our estimates shrunk, and improved user experience significantly.</p>
 </div>
@@ -342,14 +341,14 @@ This improved both the accuracy of the predictions, the confidence bounds around
 <div id="productionising-the-interactive-model" class="section level2">
 <h2><span class="header-section-number">12.6</span> Productionising the Interactive Model</h2>
 <p>Up to this moment in my career, productionising data science products meant building a shiny dashboard to interact with results or exporting plain text files.
-My background is in statistics, not software engineering, I could not tell what it requires to expose a model to the millions of visitors of our website.
+My background is in statistics, not software engineering, I could not tell what was required to expose a model to the millions of visitors to our website.
 Luckily our data engineer could help.
 I (my data science colleague was working on a new project) exported the posteriors of the parameters in csv files.
 He built a python API that took the feature values as inputs and returned the lower and upper bounds and the point estimate for the requested house.
 Instead of me telling him how the model scoring should be done, I built the same functionality in R.
 He then copied that functionality to python and added his caching, load balancing and garbage collecting magic.</p>
-<p>Up until this point I am not sure if it is possible to create an R API that is up to task.
-Sometimes it argued by python evangelicals that you should only use python because you can do everything in one language.
+<p>Up until this point I am not sure if it is possible to create an R API that is up to the task.
+Sometimes it is argued by python evangelicals that you should only use python because you can do everything in one language.
 Doing it in R first and then in python causes double work, which is a waste.
 I beg to differ.
 First of all, the majority of the work did not have to be reimplemented, data prepping, model training and model updating are done on train data only.
@@ -359,7 +358,7 @@ A number of small bugs were caught because the API did not return the exact same
 </div>
 <div id="thank-you" class="section level2">
 <h2><span class="header-section-number">12.7</span> Thank You!</h2>
-<p>Building the <em>Valuecheck</em> was an amazing experience in which I learned so much. Abouth working Agile, about productionising software and about cooperating closely with a software engineering team. It has substantially changed my views on what it means to do data science. A major thanks for goes to Daniar, Oriol, Stephan, Rick, Sander, Riccardo, and Marco. You are awesome!</p>
+<p>Building the <em>Valuecheck</em> was an amazing experience in which I learned so much. About working with Agile, about productionising software and about cooperating closely with a software engineering team. It has substantially changed my views on what it means to do data science. A major thanks for goes to Daniar, Oriol, Stephan, Rick, Sander, Riccardo, and Marco. You are awesome!</p>
 
 </div>
 </div>
