@@ -1,4 +1,4 @@
-# A Methodology for Agile Machine Learning
+# A Methodology for Agile Data Science
 
 Now we have interpreted the Twelve Agile Principles in the data science setting we can explore what an Agile data science workflow might look like. 
 Let us remind ourselves that the workflow is always a means to an end. 
