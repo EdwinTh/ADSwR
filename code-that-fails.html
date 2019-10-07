@@ -234,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Not once, not twice, but hundreds, thousands of times in the course of a large data science project.
 Everybody’s code fails, many times.
 Your code, my code, Hadley Wickham’s code.
-Not because we are bad at what we do, but because it is not possible to foresee all the possible ways the code will be used or all the possible data inputs that the code will be confronted with at the moment we write it.
+Not because we are bad at what we do, but because we cannot foresee all the possible ways the code will be used or all the possible data inputs that the code will be confronted with at the moment we write it.
 Getting better at programming does not mean you will write fault-free code (although you will make fewer errors as you grow more experienced), but writing code that fails fast and informatively.
 Writing such code means that you will spend more time developing than with the <em>random walk</em> method described in the previous chapter.
 This is an investment that will pay off big time as your project grows in complexity.</p>
@@ -246,7 +246,7 @@ As the project advances, the end-to-end product will grow in complexity.
 Sooner rather than later it will reach a point in which you cannot have a full overview of all the aspects of the product anymore.
 When introducing a new feature you want to make sure all the other elements in the code base keep doing what they were designed for.
 If not, you want to be clearly informed of what is going wrong so you can either adjust the newly introduced feature or modify the existing elements so it works with the new feature.
-If everytime you want to make a change the whole thing comes tumbling done without informing you what goes wrong, you cannot achieve the objective of fast, continuous delivery.</p>
+If everytime you want to make a change the whole thing comes tumbling down without informing you what goes wrong, you cannot achieve the objective of fast, continuous delivery.</p>
 <div id="assumptions-to-your-data" class="section level2">
 <h2><span class="header-section-number">8.1</span> Assumptions to your Data</h2>
 <p>Automation means not calling the functions yourself anymore.
@@ -311,8 +311,9 @@ Will it throw an informative error?</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">add_log_target</span>(mtcars)</a></code></pre></div>
 <pre><code>## Error in log(x$target): non-numeric argument to mathematical function</code></pre>
 <p>Uhh, no, not exactly.
-Another of those R error beauties that will leave you clueless for a time.
-It is a good idea to check if all the columns that are required for the operations in the function are present before starting them. I use this little function:</p>
+It gives the impression we tried to call the function on a non-numeric object, while actually the object is completely missing.
+It is a good idea to check if all the columns that are required for the operations in the function are present before starting them.
+I use this little function:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">df_has_cols &lt;-<span class="st"> </span><span class="cf">function</span>(x, cols, func) { </a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="kw">stopifnot</span>(<span class="kw">is.data.frame</span>(x))</a>
 <a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="cf">if</span>(<span class="op">!</span><span class="kw">all</span>(cols <span class="op">%in%</span><span class="st"> </span><span class="kw">colnames</span>(x))) {</a>
@@ -352,7 +353,7 @@ In the above example, since we are taking the log of <code>target</code> and it 
 To data scientists learning about these it usually makes a lot of sense, because most who worked on a larger product without these have been bitten quite a bit.
 Moreover, these measures are quick to implement by just inserting one or two lines of code at the beginning of a function.
 Unit testing your code does not come so naturally to data scientists, unless they have a background in software development.
-Writing tests might seem as a pointless and time consuming exercise at first sight.
+Writing unit tests might seem as a pointless and time consuming exercise at first.
 This is because its benefits are not immediately obvious to someone who never applied or used them.
 Still, you should make it part of your software development routine, even when you are the only one using the software you write.</p>
 <p>If you are unsure what unit tests are or how to do them in R, please read <a href="http://r-pkgs.had.co.nz/tests.html">the chapter in <em>R packages</em></a> carefully.</p>
