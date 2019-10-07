@@ -63,3 +63,12 @@ Chapter 8
 * The short term investments for unit testing pay off in the long run. 
 * Unit tests capture all the assumptions the programmer had at the moment of writing the code. They are an externalised memory of all the cases your code should handle.
 * Because unit testing will slow you down and have you think through all possible situations, it will make you write better code right away.
+
+Chapter 9
+
+* Use versioning for the data product, increment the version number each time the product is meaningfully changed.
+* Delete code that is no longer part of the product, use version control for versioning instead of your code base.
+* Use branches to change the product. Get a "merge to master is pushing to production" mindset.
+* Research branches should not contain changes to the product, so they can be merged to master without creating a new version.
+* Using branches is essential if you work with multiple data scientists on a project at the same time. 
+
