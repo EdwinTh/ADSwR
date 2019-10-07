@@ -76,7 +76,7 @@ The following people contributed to this text, by suggesting improvements or doi
 ```{r, echo=FALSE, results = "asis"}
 contr <- read.csv("contributers.txt")
 contr <- contr[order(contr$Name), ]
-cat(paste(paste(contr$Name, paste0("(@", contr$Githubid, ")")),
+cat(paste(paste(contr$Name, paste0("\(\@", contr$Githubid, "\)")),
           collapse = ", "))
 ```
 
