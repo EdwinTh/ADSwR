@@ -80,7 +80,7 @@ Kanban on the other hand gives us the flexibility to change the next task we are
 Within a two-way model for doing data science there is the data product that has to be good quality software and there is the explorative research in which you can do whatever to come to quick conclusions. 
 You could formulate tasks for the Kanban workflow out of both these tasks.
 Weaving these two types of work together results in a Kanban workflow with at least the columns *to do*, *doing*, and *done*. 
-Both hypotheses to be tested and planned work on the data productare gathered in the *to do* column. 
+Both hypotheses to be tested and planned work on the data product are gathered in the *to do* column. 
 This is the backlog and it is always ordered from most to least urgent, so it is clear what to do next. 
 
 Kanban gives focus, finishing one task at a time. 
