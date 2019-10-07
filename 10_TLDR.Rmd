@@ -56,5 +56,10 @@ Chapter 7
 
 Chapter 8
 
-
-
+* Code should fail fast and informatively if you want to be able to conitinuously deliver.
+* Because R is weakly typed it is a good idea to implement type checking at the start of functions.
+* If your function depends on the presence of certain columns in a data frame, check for it at the start of the function.
+* It is also a good idea to check all the implicit assumptions you have to the possible values of your data.
+* The short term investments for unit testing pay off in the long run. 
+* Unit tests capture all the assumptions the programmer had at the moment of writing the code. They are an externalised memory of all the cases your code should handle.
+* Because unit testing will slow you down and have you think through all possible situations, it will make you write better code right away.
