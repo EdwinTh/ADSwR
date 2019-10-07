@@ -19,3 +19,15 @@ Chapter 3
 * In Kanban tasks are gathered on a backlog, the most important task is done next.
 * Central metric is the *cycle time*, how long does it last on average to complete a task.
 * Scrum is rigid in its commitments and ceremonies, Kanban is flexible.
+
+Chapter 4
+
+* Ineffective workflows are one of the causes that many data science projects are currently failing.
+* Early delivery of a minimal product or model will keep stakeholders excited, will make you fail fast and will get you feedback sooner.
+* You should work closely with business people, if you want to work effectively.
+* Every possible improvement to the product should be deployed right away.
+Improvements only count when they have left your system and others can benefit from it.
+* Adopt the best practices from software engineering to your data project to assure high-quality code.
+* Continuously reflect on the effectiveness of the workflow you are following.
+
+
