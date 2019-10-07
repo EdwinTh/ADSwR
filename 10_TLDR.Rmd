@@ -40,3 +40,21 @@ Chapter 5
 If there is a need for exploring the subject more after it, create a new task for it. 
 * Working Agile is what matters, not adhering to a specific process. If something does not work for your product, change it immediatly.
 
+Chapter 6
+
+* The R package structure is very suitable to organise a two-way workflow with exploration and product.
+* Create low level an higher level functions in the package, apply in a pipeline.
+* Use Rmarkdown in the Vignettes folder to do data explorations.
+
+Chapter 7
+
+* In the data product as much as possible should be automated.
+* Automation saves time and energe in the long run, because the data scientist does not have to rerun the same thing over and over.
+* Automation serves as documentation, because it makes clear how the product pieces play together.
+* Automation assures reproducibility, if it is not reproducible it will not run.
+* R has the fantastic `drake` package for automation.
+
+Chapter 8
+
+
+
