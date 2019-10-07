@@ -284,6 +284,15 @@ If there is a need for exploring the subject more after it, create a new task fo
 <li>R has the fantastic <code>drake</code> package for automation.</li>
 </ul>
 <p>Chapter 8</p>
+<ul>
+<li>Code should fail fast and informatively if you want to be able to conitinuously deliver.</li>
+<li>Because R is weakly typed it is a good idea to implement type checking at the start of functions.</li>
+<li>If your function depends on the presence of certain columns in a data frame, check for it at the start of the function.</li>
+<li>It is also a good idea to check all the implicit assumptions you have to the possible values of your data.</li>
+<li>The short term investments for unit testing pay off in the long run.</li>
+<li>Unit tests capture all the assumptions the programmer had at the moment of writing the code. They are an externalised memory of all the cases your code should handle.</li>
+<li>Because unit testing will slow you down and have you think through all possible situations, it will make you write better code right away.</li>
+</ul>
 
 </div>
             </section>
