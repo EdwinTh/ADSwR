@@ -72,3 +72,8 @@ Chapter 9
 * Research branches should not contain changes to the product, so they can be merged to master without creating a new version.
 * Using branches is essential if you work with multiple data scientists on a project at the same time. 
 
+Chapter 10
+
+* It will take a lot of effort to keep old research results in the vignettes reproducible as the project progresses. It is up to the data scientist and the project specifics if this is considered as a problem or not.
+* You could number your research scripts to the version of the data product at that moment. You can rollback the code if you have to rerun the analysis.
+
