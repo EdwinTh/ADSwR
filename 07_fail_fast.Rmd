@@ -100,12 +100,14 @@ It is a good idea to check if all the columns that are required for the operatio
 I use this little function:
 
 ```{r, error = TRUE}
-df_has_cols <- function(x, cols, func) { 
+data_frame_with_col <- function(x, cols) {
+  parent_frame <- sys.parent()
+  calling_function <- sys.call(parent_frame)[[1]]
   stopifnot(is.data.frame(x))
   if(!all(cols %in% colnames(x))) {
     not_present <- setdiff(cols, colnames(x))
-    stop(paste(not_present, collapse = ", "), " missing from the data frame in function ", func[[1]])
- }
+    stop(paste(not_present, collapse = ", "), " missing from the data frame in function ", calling_function)
+  }
 }
 ```
 which is added to each function that uses a data frame
@@ -118,7 +120,6 @@ add_log_target <- function(x) {
 }
 add_log_target(mtcars)
 ```
-(`match.call()` has to be added so it will return the name of the function that breaks for easy debugging).
 
 ### Data Validation
 
