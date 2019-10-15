@@ -74,10 +74,6 @@ If you think there is still a misfit between your daily data science practice, p
 The following people contributed to this text, by suggesting improvements or doing pull requests. 
 
 ```{r, echo=FALSE, results = "asis"}
-contr <- read.csv("contributers.txt")
-contr <- contr[order(contr$Name), ]
-cat(paste(
-    paste0(contr$Name, "(", contr$Githubid , ")," ),
-  collapse = ", "))
+cat(readLines("contributers.txt"))
 ```
 
