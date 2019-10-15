@@ -73,7 +73,7 @@ If you think there is still a misfit between your daily data science practice, p
 
 The following people contributed to this text, by suggesting improvements or doing pull requests. 
 
-```{r, echo=FALSE, results = "asis"}
+```{r, echo=FALSE}
 cat(readLines("contributers.txt"))
 ```
 
