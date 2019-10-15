@@ -75,11 +75,8 @@ I intend to present a generic workflow that is also applicable to data science p
 You might find machine learning a bit overrepresented in the examples and applications.
 If you think there is still a misfit between your daily data science practice, please let me know.
 
-## Thank You
+## Contributers
 
-The following people contributed to this text, by suggesting improvements or doing pull requests. 
+The following people contributed to this text, by suggesting improvements or doing pull requests. Thank you!
 
-```{r, echo=FALSE}
-cat(readLines("contributers.txt"))
-```
-
+Colin Fay(@ColinFay), Dilsher Singh Dhillon(@dshelldhillon), Jesse Tweedle(@tweed1e), Lorenz Walthert(@lorenzwalthert), Nathan Moore(@nmoorenz)
