@@ -134,9 +134,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Working without a Workflow</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-this-text-is-about"><i class="fa fa-check"></i><b>1.1</b> What this Text is About</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#writing-out-loud"><i class="fa fa-check"></i><b>1.2</b> Writing out Loud</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#limitations"><i class="fa fa-check"></i><b>1.2</b> Limitations</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#intended-audience"><i class="fa fa-check"></i><b>1.3</b> Intended Audience</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#thank-you"><i class="fa fa-check"></i><b>1.4</b> Thank You</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i><b>1.4</b> Contributors</a></li>
 </ul></li>
 <li class="part"><span><b>I Agile Data Science…</b></span></li>
 <li class="chapter" data-level="2" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html"><i class="fa fa-check"></i><b>2</b> Agile in a Nutshell</a><ul>
@@ -209,7 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.5.2" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#changing-the-model"><i class="fa fa-check"></i><b>12.5.2</b> Changing the Model</a></li>
 </ul></li>
 <li class="chapter" data-level="12.6" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#productionising-the-interactive-model"><i class="fa fa-check"></i><b>12.6</b> Productionising the Interactive Model</a></li>
-<li class="chapter" data-level="12.7" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#thank-you-1"><i class="fa fa-check"></i><b>12.7</b> Thank You!</a></li>
+<li class="chapter" data-level="12.7" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#thank-you"><i class="fa fa-check"></i><b>12.7</b> Thank You!</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -269,16 +269,16 @@ R is weakly typed, the data type of the function arguments are not specified.
 When a function is called it just has a go on the objects that are fed to it.
 The function only breaks when somewhere in the body another function gets called with an invalid data type.
 Take the following for instance:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">add_two_numbers &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="kw">print</span>(<span class="st">&quot;Reaching this&quot;</span>)</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="kw">print</span>(<span class="st">&quot;and this&quot;</span>)</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="kw">print</span>(<span class="st">&quot;Doing some random other stuff&quot;</span>)</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">}</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">add_two_numbers &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="kw">print</span>(<span class="st">&quot;Reaching this&quot;</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="kw">print</span>(<span class="st">&quot;and this&quot;</span>)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="kw">print</span>(<span class="st">&quot;Doing some random other stuff&quot;</span>)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  x <span class="op">+</span><span class="st"> </span>y</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">}</a></code></pre></div>
 <p>Now, what will happen if we accidentally call it on a string?
 It will only break when we hit the <code>+</code> operator, all the code before it runs.
 The error message it gives us is not so informative that we immediately figure out what went wrong.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">add_two_numbers</span>(<span class="dv">42</span>, <span class="st">&quot;MacGyver&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">add_two_numbers</span>(<span class="dv">42</span>, <span class="st">&quot;MacGyver&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Reaching this&quot;
 ## [1] &quot;and this&quot;
 ## [1] &quot;Doing some random other stuff&quot;</code></pre>
@@ -286,15 +286,15 @@ The error message it gives us is not so informative that we immediately figure o
 <p>Pfff, what is a binary operator again?
 When this function is part of a framework in which higher order functions call lower order functions you may be up for an hour or two of sifting through your code to locate the bug.
 Fortunately type checking is very easily added to a function by asserting all argument data types in <code>stopifnot</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">add_two_numbers &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="kw">stopifnot</span>(<span class="kw">is.numeric</span>(x), <span class="kw">is.numeric</span>(y))</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="kw">print</span>(<span class="st">&quot;Reaching this&quot;</span>)</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="kw">print</span>(<span class="st">&quot;and this&quot;</span>)</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">  <span class="kw">print</span>(<span class="st">&quot;Doing some random other stuff&quot;</span>)</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">  x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">}</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="kw">add_two_numbers</span>(<span class="dv">42</span>, <span class="st">&quot;MacGyver&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">add_two_numbers &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="kw">stopifnot</span>(<span class="kw">is.numeric</span>(x), <span class="kw">is.numeric</span>(y))</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">  <span class="kw">print</span>(<span class="st">&quot;Reaching this&quot;</span>)</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="kw">print</span>(<span class="st">&quot;and this&quot;</span>)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">  <span class="kw">print</span>(<span class="st">&quot;Doing some random other stuff&quot;</span>)</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">  x <span class="op">+</span><span class="st"> </span>y</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="kw">add_two_numbers</span>(<span class="dv">42</span>, <span class="st">&quot;MacGyver&quot;</span>)</a></code></pre></div>
 <pre><code>## Error in add_two_numbers(42, &quot;MacGyver&quot;): is.numeric(y) is not TRUE</code></pre>
 <p>We are now specifically informed which argument does not meet the assumptions and what the name of the subfunction is.</p>
 </div>
@@ -304,35 +304,35 @@ Fortunately type checking is very easily added to a function by asserting all ar
 Most functions you’ll create are very specific to your project and will be called only once.
 For these cases you want to save yourself the overhead of making each function completely generic by parameterising the column names that are used.
 Say you want to add the log of the target to the data frame and you create the following function:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="kw">stopifnot</span>(<span class="kw">is.data.frame</span>(x))</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">  x<span class="op">$</span>target_log &lt;-<span class="st"> </span><span class="kw">log</span>(x<span class="op">$</span>target)</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">  x</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="kw">stopifnot</span>(<span class="kw">is.data.frame</span>(x))</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">  x<span class="op">$</span>target_log &lt;-<span class="st"> </span><span class="kw">log</span>(x<span class="op">$</span>target)</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">  x</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">}</a></code></pre></div>
 <p>Now what if <code>target</code> was mistakingly removed from <code>x</code> in the step preceding this one in the product?
 Will it throw an informative error?</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">add_log_target</span>(mtcars)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">add_log_target</span>(mtcars)</a></code></pre></div>
 <pre><code>## Error in log(x$target): non-numeric argument to mathematical function</code></pre>
 <p>Uhh, no, not exactly.
 It gives the impression we tried to call the function on a non-numeric object, while actually the object is completely missing.
 It is a good idea to check if all the columns that are required for the operations in the function are present before starting them.
 I use this little function:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">data_frame_with_col &lt;-<span class="st"> </span><span class="cf">function</span>(x, cols) {</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">  parent_frame &lt;-<span class="st"> </span><span class="kw">sys.parent</span>()</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">  calling_function &lt;-<span class="st"> </span><span class="kw">sys.call</span>(parent_frame)[[<span class="dv">1</span>]]</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="kw">stopifnot</span>(<span class="kw">is.data.frame</span>(x))</a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="cf">if</span>(<span class="op">!</span><span class="kw">all</span>(cols <span class="op">%in%</span><span class="st"> </span><span class="kw">colnames</span>(x))) {</a>
-<a class="sourceLine" id="cb11-6" data-line-number="6">    not_present &lt;-<span class="st"> </span><span class="kw">setdiff</span>(cols, <span class="kw">colnames</span>(x))</a>
-<a class="sourceLine" id="cb11-7" data-line-number="7">    <span class="kw">stop</span>(<span class="kw">paste</span>(not_present, <span class="dt">collapse =</span> <span class="st">&quot;, &quot;</span>), <span class="st">&quot; missing from the data frame in function &quot;</span>, calling_function)</a>
-<a class="sourceLine" id="cb11-8" data-line-number="8">  }</a>
-<a class="sourceLine" id="cb11-9" data-line-number="9">}</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">data_frame_with_col &lt;-<span class="st"> </span><span class="cf">function</span>(x, cols) {</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">  parent_frame &lt;-<span class="st"> </span><span class="kw">sys.parent</span>()</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">  calling_function &lt;-<span class="st"> </span><span class="kw">sys.call</span>(parent_frame)[[<span class="dv">1</span>]]</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="kw">stopifnot</span>(<span class="kw">is.data.frame</span>(x))</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">  <span class="cf">if</span>(<span class="op">!</span><span class="kw">all</span>(cols <span class="op">%in%</span><span class="st"> </span><span class="kw">colnames</span>(x))) {</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">    not_present &lt;-<span class="st"> </span><span class="kw">setdiff</span>(cols, <span class="kw">colnames</span>(x))</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">    <span class="kw">stop</span>(<span class="kw">paste</span>(not_present, <span class="dt">collapse =</span> <span class="st">&quot;, &quot;</span>), <span class="st">&quot; missing from the data frame in function &quot;</span>, calling_function)</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">  }</a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">}</a></code></pre></div>
 <p>which is added to each function that uses a data frame</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="kw">df_has_cols</span>(x, <span class="st">&quot;target&quot;</span>, <span class="kw">match.call</span>())</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">  x<span class="op">$</span>target_log &lt;-<span class="st"> </span><span class="kw">log</span>(x<span class="op">$</span>target)</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">  x</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">}</a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="kw">add_log_target</span>(mtcars)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="kw">df_has_cols</span>(x, <span class="st">&quot;target&quot;</span>, <span class="kw">match.call</span>())</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  x<span class="op">$</span>target_log &lt;-<span class="st"> </span><span class="kw">log</span>(x<span class="op">$</span>target)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">  x</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="kw">add_log_target</span>(mtcars)</a></code></pre></div>
 <pre><code>## Error in df_has_cols(x, &quot;target&quot;, match.call()): could not find function &quot;df_has_cols&quot;</code></pre>
 </div>
 <div id="data-validation" class="section level3">
@@ -343,12 +343,12 @@ If you have any such assumptions in your data, you do best to check them before 
 You could use external packages such as <code>validate</code> or <code>recipes</code>, or you can write them yourself.
 The <code>stopifnot</code> function can be used to check any assumption you have, as long as you can create a single logical for it.
 In the above example, since we are taking the log of <code>target</code> and it is the target variable it must be strictly positive and nonmissing.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="kw">df_has_cols</span>(x, <span class="st">&quot;target&quot;</span>, <span class="kw">match.call</span>())</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="kw">stopifnot</span>(<span class="kw">all</span>(<span class="op">!</span><span class="kw">is.na</span>(x<span class="op">$</span>target)), <span class="kw">all</span>(x<span class="op">$</span>target <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>))</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">  x<span class="op">$</span>target_log &lt;-<span class="st"> </span><span class="kw">log</span>(x<span class="op">$</span>target)</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">  x</a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">}</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">  <span class="kw">df_has_cols</span>(x, <span class="st">&quot;target&quot;</span>, <span class="kw">match.call</span>())</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="kw">stopifnot</span>(<span class="kw">all</span>(<span class="op">!</span><span class="kw">is.na</span>(x<span class="op">$</span>target)), <span class="kw">all</span>(x<span class="op">$</span>target <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>))</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">  x<span class="op">$</span>target_log &lt;-<span class="st"> </span><span class="kw">log</span>(x<span class="op">$</span>target)</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">  x</a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">}</a></code></pre></div>
 </div>
 </div>
 <div id="unit-testing" class="section level2">
@@ -390,7 +390,7 @@ When he finally manages to control it the code of the fourth feature gets unstab
 Meanwhile, the unit tester soldiers on.
 Sometimes she needs to make small adjustments to the old features, to make them click with new ones.
 In general however, she can uphold Agile’s promise of continuous, equally paced, delivery.</p>
-<div class="figure"><span id="fig:unnamed-chunk-12"></span>
+<div class="figure"><span id="fig:unnamed-chunk-11"></span>
 <img src="images/unit_testing.png" alt="Time line for developing a product with (top) and without (below) unit tests"  />
 <p class="caption">
 Figure 8.1: Time line for developing a product with (top) and without (below) unit tests
