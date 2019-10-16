@@ -17,37 +17,46 @@ biblio-style: apalike
 
 When I was starting my career as a data scientist, I did not really have a workflow. 
 Freshly out of statistics grad school I entered the arena of Dutch business, employed by a small consulting firm. 
-Between the company, the clients and myself, not one person knew what it meant to implement a statistical model or a machine learning method in the real world. 
+Between the company, the potential clients and myself, no one knew what it meant to implement a statistical model or a machine learning method in the "real" world. 
 But everybody was interested in this "Big Data" thing, so we quickly started to do consulting work without a clear idea what I was going to do. 
-When we finally came to something that looked like a project, I plunged into it. 
+When we came to something that looked like a project, I plunged into it. 
 Eager to deliver results quickly, I loaded data extracts into R and started to apply all kinds of different models and algorithms on it. 
 Findings ended up in the code comments of the R scripts, scripts that often grew to hundreds or even thousands of lines. 
 
-The only system I had was numbering the scripts sequentially. Soon I found myself amidst dozens of scripts and data exports of intermediate results that were no longer reproducible. The R session I was running *ad infinitum* was sometimes mistakenly closed, or it crashed (which was bound to happen as the memory used grew). I spent hours or even days to recreate the results when this happened. Deadlines were a nightmare; everything I had done up to that point had to be loaded, joined and compared at the last moment. More often than not, the model results were different from that noted earlier, with no indication if I was mistaken earlier, I was using the wrong data now, or some other source of error was introduced. Looking back, I had no clue about the importance of a good workflow for doing larger data science projects. Several times I was saved when the plug was pulled from the project for other reasons, saving me from embarrassment.
+The only system I had was numbering the scripts sequentially. 
+Soon I found myself amidst dozens of scripts and data exports of intermediate results that were no longer reproducible. 
+The R session I was running *ad infinitum* was sometimes mistakenly closed, or it crashed (which was bound to happen as the memory used grew). 
+When this happened, I spent hours or even days to recreate the results. 
+Deadlines were a nightmare; everything I had done up to that point had to be loaded, joined and compared at the last moment. 
+More often than not, the model results were different from that noted earlier, with no indication if I was mistaken earlier, I was using the wrong data now, or some other source of error was introduced. 
+Looking back, I had no clue about the importance of a good workflow for doing larger data science projects. 
+Several times I was saved when the plug was pulled from the project for other reasons, saving me from the embarrassment of not being able to deliver.
 
-I have learned a great deal since those days, both from other's insights and from my own experiences. 
+I have learned a great deal since those days, both from the insights by shared by others and from my own experiences. 
 Writing an R package to be shipped to CRAN enforced me to understand the basics of software engineering. 
 Not being able to reproduce crucial results forced me to start thinking about end-to-end research and model building, controlling all the steps along the way. 
 Last year, for the first time, I joined a Scrum team (frontend, backend, ux designer, product owner, second data scientist) to create a machine learning model that we brought to production using the Agile principles. 
 It was an inspiring experience from which I learned a great deal. 
-My colleagues patiently explained the principles of Agile software development and together we discovered what did and did not work for data science.
+My colleagues patiently explained the principles of Agile software development and together we applied them to the data science context.
 
 ## What this Text is About
 
 All these experiences culminated in the workflow that we now adhere to at work and I think it is worthwhile to share it. 
 It is heavily based on the principles of Agile software production, hence the title. 
-We have explored which of the concepts from Agile did and did not work for data science and we got hands-on experience in working from these principles in an R project that actually got to production. 
+We have explored which of the concepts from Agile did and did not work for data science and we got hands-on experience in working from these principles in an R project that actually got to production.
+The story of how we created *Valuecheck* can be found as an Appendix in the final chapter.
 This text is split into two parts. 
 In the first we will look into the Agile philosophy and some of the methodologies that are closely related to it (chapters 2 and 3). 
 Both will be related to the data science context, seeing what we can get from the philosophy (chapter 4) and what an Agile machine learning workflow might look like (chapter 5). 
 The second part is hands on. We will explore how we can leverage the possibilities in the R software system to implement Agile data science.
 
-## Writing out Loud
+## Limitations
 
 Data science projects can greatly differ from each other. 
-There are so many variables that make each project unique, there are many situations I have not experienced and there are necessarily many possible aspects of data science projects I am not aware of. 
+There are so many variables that make projects unique; its goal, its type (deriving insights, machine learning, building as dashboard), the data quality, and the expertise of the data scientist(s). 
+This implies that there are necessarily aspects of data science projects experienced by other that I am not aware of. 
 In this text I am relating my own experiences to the theory and best practises of Agile software development to come up with a general workflow. 
-This means that I am possibly "overfitting" the workflow on the dozen or so large data science projects I have done. 
+This means that I am probably "overfitting" the workflow on the dozen or so large data science projects I have done. 
 If you feel that what I write is not broadly applicable, or if you think there are topics overlooked, please file an [issue](https://github.com/EdwinTh/ADSwR). 
 
 This text is meant to be a living thing with the objective of documenting a workflow that yields optimal reproducibility, quick shipping of results and high quality code. 
@@ -60,7 +69,7 @@ Finally, I am not a native English speaker so fixed typos and style improvements
 The title of this text has four components: *Agile*, *Data Science*, *R*, and *Workflow*. 
 If you are interested in all four, you're obviously in the right place. 
 This text is not for you if you hope to learn about different algorithms and statistical techniques to do data science; more knowledgeable people have written many books and articles on those topics. 
-Also you will not learn anything about R programming. 
+Also it will not learn you anything about R programming.
 The workflow I present is completely separate from the algorithms you choose and the data preparation tools of your preference, as it focuses on code organisation and delivery.
 If you use python rather than R, you will still find this text valuable, especially the first part, which focuses on workflow only and is tool agnostic. 
 
@@ -69,14 +78,8 @@ I intend to present a generic workflow that is also applicable to data science p
 You might find machine learning a bit overrepresented in the examples and applications.
 If you think there is still a misfit between your daily data science practice, please let me know.
 
-## Thank You
+## Contributors
 
-The following people contributed to this text, by suggesting improvements or doing pull requests. 
+The following people contributed to this text, by suggesting improvements or doing pull requests. Thank you!
 
-```{r, echo=FALSE, results = "asis"}
-contr <- read.csv("contributers.txt")
-contr <- contr[order(contr$Name), ]
-cat(paste(paste(contr$Name, paste0("(@", contr$Githubid, ")")),
-          collapse = ", "))
-```
-
+Colin Fay(@ColinFay), Dilsher Singh Dhillon(@dshelldhillon), Jesse Tweedle(@tweed1e), Lorenz Walthert(@lorenzwalthert), Nathan Moore(@nmoorenz)

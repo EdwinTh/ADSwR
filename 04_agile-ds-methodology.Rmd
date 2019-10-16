@@ -13,15 +13,16 @@ The tasks in Agile software development are what I call linear tasks.
 They come from product feature requets by stakeholders or ideas within the team itself, collected by the product owner. 
 The envisioned outcome is captured in a user story. 
 The team translates it into the technical tasks and starts working on it. 
-Both Scrum and Kanban do not prescribe the steps a task should go through, but it typically looks like the following.
+Neither Scrum nor Kanban prescribes the steps a task should go through, but it typically looks like the following.
 
 ```{r, echo=FALSE, fig.cap="Linear flow in software development"}
 knitr::include_graphics("images/software_flow.png")
 ```
 These type of tasks lend themselves well for scoping and committing oneself to what the product will look like in a few weeks time, as is done in Scrum. 
-Building a product upon yet unkown relationships in data results in what I call circular tasks. 
+Building a product upon yet unkown relationships in data results is what I call circular tasks. 
 The starting position is the latest version of the product. 
-If one has not yet a good idea how to further improve it we would typically do an explorative analysis to test a hypothesis. 
+If one has not yet a good idea how to further improve it we would typically do an explorative analysis in which a hypothesis can be formed.
+This hypothesis is then tested.
 We evaluate if we can improve the product based on the hypothesis tested. 
 If not we go on with the next hypothesis right away, if so we improve it and then go on with the next hypothesis.
 
