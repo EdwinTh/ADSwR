@@ -8,30 +8,31 @@ Writing code is something we do to solve problems in our professional field, suc
 The code is typically written interactively with the data. 
 Write a few lines of code, run against the data set at hand, check if the results match expectations, write a few more lines of code. 
 This approach might be fine for a quick explorative data analysis in which you write code to answer a few ad hoc questions. 
-It does not work for large scale projects in which the data prodcut should be reliable and stable, because this way of working results in low reproducibility and inflexibility towards new situations. 
+It does not work for large scale projects in which the data product should be reliable and stable, because this way of working results in low reproducibility and inflexibility towards new situations. 
 
 Reproducibility is low because code is not developed as part of an end-to-end product.
-We could call this the *random walk programming*, the next step is determined only by the current state of the code and data. 
-Code developed this way only keeps working when downstream code and data stay exactly the same. 
-The larger the project becomes the less likely this condtion is met. 
+We could call it *random walk programming*, the next step is determined only by the current state of the code and data. 
+Code developed this way only keeps working when upstream code and data stay exactly the same. 
+The larger the project becomes the less likely this condition is met. 
 You can say that we are *code overfitting* on the data. 
 The code only works in a particular situation, as soon as there is a small change the code breaks. 
 Oftentimes, this way of developing is combined with saving intermediate results, to prevent having to run all the code time and time again.
 Together they can be a reproducibility recipe for disaster. 
 If the code never runs end-to-end, it can quickly become unclear which intermediate results are out of sync. 
-It gets unclear which reported results are obtained on which data set and if this was before or after some modifications to the code. 
+We no longer know which reported results are obtained on which data set and if this was before or after some modifications to the code. 
 Working in this way will create uncertainty, stress and an unreliable product. 
 We cannot build an Agile workflow on such a basis.
 
 ## Using the R Package Structure
 
-To remedy this high stress, low reproducibility workflow we should turn to the best practises of software development. 
+To remedy this high stress, low reproducibility workflow we should turn to the best practices of software development. 
 Rather than an endless exploration, the data product should be an integrated software package that works on all possible input data, is reliable and does not contain redundant code.
-Luckily, software development is not foreign to R, it is provided in the package structure that enables users to store their own function and share them with others. 
+Software development is not foreign to R, fortunately.
+It is provided in the package structure that enables users to store their own function and share them with others. 
 (Although R has ample opportunities for doing object oriented programming, the *ADSwR* approach to code organisation is to build a data product that solely consists of functions.)
 Lower level functions are combined to form more complex operations. 
-These operations are then chained together to create the entire product. 
-If your product has somekind of flow in it, such as the scoring of a machine learning model of turning last month's data into a research report, you can apply the functions in a pipeline.
+These operations are then chained together to create the end product. 
+If your product has some kind of flow in it, such as the scoring of a machine learning model of turning last month's data into a research report, you can apply the functions in a pipeline.
 In the subsequent chapters we will explore several aspects of building a high quality pipeline, that gives reproducible and reliable results. 
 
 In the previous chapters it was concluded that the circular nature of explorative data analysis makes data science projects fundamentally different from 'regular' software design. 
@@ -39,8 +40,10 @@ Whereas the data product should be of high quality, exploration should be done q
 R packages have Vignettes, documents in which the package authors show how to use the package, such as [this one](https://cran.r-project.org/web/packages/padr/vignettes/padr.html). 
 One of the ways of creating such a Vignette is by using Rmarkdown documents. 
 These happen to be ideal for data exploration, combining code in the code blocks with comments and observations in the text around it. 
-The functions from the package are readily available here.
+Because Vignettes are part of a package, all functions developed for the product are readily available for doing research as well.
 
 ## Further Reading
 
-Doing Agile Data Science with R relies on proper use and understanding of the R package structure. Hadley Wickham wrote a comprehensive book on developing software in R packages. It is freely available online, [here](http://r-pkgs.had.co.nz/). You should read it! <!--- soon to be updated to https://r-pkgs.org/ --->
+Doing Agile Data Science with R relies on a good understanding of the R package structure. Hadley Wickham wrote a comprehensive book on developing software in R packages. It is freely available online, [here](http://r-pkgs.had.co.nz/). You should read it! 
+
+(It was brought to my attention that an updated version, co-authored with Jenny Bryan, will be released soon. You find it here https://r-pkgs.org/)
