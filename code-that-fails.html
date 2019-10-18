@@ -234,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="code-that-fails" class="section level1">
 <h1><span class="header-section-number">8</span> Code that Fails</h1>
 <p>Your code will fail.
-Not once, not twice, but hundreds, thousands of times in the course of a large data science project.
+Not once, not twice, but hundreds, thousands of times over the course of a large data science project.
 Everybody’s code fails, many times.
 Your code, my code, Hadley Wickham’s code.
 Not because we are bad at what we do, but because we cannot foresee all the possible ways the code will be used or all the possible data inputs that the code will be confronted with at the moment we write it.
@@ -249,12 +249,12 @@ As the project advances, the end-to-end product will grow in complexity.
 Sooner rather than later it will reach a point in which you cannot have a full overview of all the aspects of the product anymore.
 When introducing a new feature you want to make sure all the other elements in the code base keep doing what they were designed for.
 If not, you want to be clearly informed of what is going wrong so you can either adjust the newly introduced feature or modify the existing elements so it works with the new feature.
-If everytime you want to make a change the whole thing comes tumbling down without informing you what goes wrong, you cannot achieve the objective of fast, continuous delivery.</p>
+If every time you want to make a change the whole thing comes tumbling down without informing you what goes wrong, you cannot achieve the objective of fast, continuous delivery.</p>
 <div id="assumptions-to-your-data" class="section level2">
 <h2><span class="header-section-number">8.1</span> Assumptions to your Data</h2>
-<p>Automation means not calling the functions yourself anymore.
+<p>Automation means not calling functions yourself anymore.
 You just flip the switch and the whole thing is set in motion.
-This means that you no longer get the inmediate feedback you are used to when calling the functions yourself.
+This means that you no longer get the immediate feedback you are used to have when calling the functions yourself.
 When something goes wrong the whole thing just breaks with an error message.
 When you are lucky the error message is informative and you are quick to find the bug.
 When you are not, you may be confronted with <code>object of type 'closure' is not subsettable</code>, and you may have a grumpy afternoon ahead.
@@ -263,7 +263,7 @@ Best to not depend on luck, but make sure you will always get a proper indicatio
 <h3><span class="header-section-number">8.1.1</span> Type Checking</h3>
 <p>Most languages using functional programming are strongly typed.
 This means that for every argument that a function takes, its datatype is specified at function creation, as well as the datatype that the output takes.
-When the function is then called it is first checked if the data on which it is called is of the correct type, or at least can be forced to the specified type.
+When the function is then called it is first checked if the data on which it is called is of the correct type.
 If not, it will break immediately and will tell the user why.
 R is weakly typed, the data type of the function arguments are not specified.
 When a function is called it just has a go on the objects that are fed to it.
@@ -296,20 +296,20 @@ Fortunately type checking is very easily added to a function by asserting all ar
 <a class="sourceLine" id="cb5-8" data-line-number="8"></a>
 <a class="sourceLine" id="cb5-9" data-line-number="9"><span class="kw">add_two_numbers</span>(<span class="dv">42</span>, <span class="st">&quot;MacGyver&quot;</span>)</a></code></pre></div>
 <pre><code>## Error in add_two_numbers(42, &quot;MacGyver&quot;): is.numeric(y) is not TRUE</code></pre>
-<p>We are now specifically informed which argument does not meet the assumptions and what the name of the subfunction is.</p>
+<p>We are now specifically informed which argument does not meet the assumptions and what the name of the sub function is.</p>
 </div>
 <div id="column-validation" class="section level3">
 <h3><span class="header-section-number">8.1.2</span> Column Validation</h3>
 <p>Central to most data products will be the modification of data frames.
 Most functions you’ll create are very specific to your project and will be called only once.
-For these cases you want to save yourself the overhead of making each function completely generic by parameterising the column names that are used.
+For these cases you probably want to save yourself the overhead of making each function completely generic by parameterising the column names that are used.
 Say you want to add the log of the target to the data frame and you create the following function:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
 <a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="kw">stopifnot</span>(<span class="kw">is.data.frame</span>(x))</a>
 <a class="sourceLine" id="cb7-3" data-line-number="3">  x<span class="op">$</span>target_log &lt;-<span class="st"> </span><span class="kw">log</span>(x<span class="op">$</span>target)</a>
 <a class="sourceLine" id="cb7-4" data-line-number="4">  x</a>
 <a class="sourceLine" id="cb7-5" data-line-number="5">}</a></code></pre></div>
-<p>Now what if <code>target</code> was mistakingly removed from <code>x</code> in the step preceding this one in the product?
+<p>Now what if <code>target</code> was mistakenly removed from <code>x</code> in the step preceding this one in the product?
 Will it throw an informative error?</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">add_log_target</span>(mtcars)</a></code></pre></div>
 <pre><code>## Error in log(x$target): non-numeric argument to mathematical function</code></pre>
@@ -337,12 +337,12 @@ I use this little function:</p>
 </div>
 <div id="data-validation" class="section level3">
 <h3><span class="header-section-number">8.1.3</span> Data Validation</h3>
-<p>Where the first two checks are about the structure of the inputs, data validation tests the assumptions of the data itself.
+<p>Where the first two checks are about the type and structure of the inputs, data validation tests the assumptions to the data itself.
 Variables that cannot contain missing values, variables that must be strictly positive, or characters that can only take a limited number of values.
-If you have any such assumptions in your data, you do best to check them before you unleash your functions on it.
+If you have any such assumptions in your data, you do best to check them before you unleash internal functions on it.
 You could use external packages such as <code>validate</code> or <code>recipes</code>, or you can write them yourself.
 The <code>stopifnot</code> function can be used to check any assumption you have, as long as you can create a single logical for it.
-In the above example, since we are taking the log of <code>target</code> and it is the target variable it must be strictly positive and nonmissing.</p>
+In the example below, since we are taking the log of <code>target</code> and it is the target variable it must be strictly positive and non-missing.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
 <a class="sourceLine" id="cb13-2" data-line-number="2">  <span class="kw">df_has_cols</span>(x, <span class="st">&quot;target&quot;</span>, <span class="kw">match.call</span>())</a>
 <a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="kw">stopifnot</span>(<span class="kw">all</span>(<span class="op">!</span><span class="kw">is.na</span>(x<span class="op">$</span>target)), <span class="kw">all</span>(x<span class="op">$</span>target <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>))</a>
@@ -368,7 +368,7 @@ At the moment of writing the programmer is fully submerged in the problem, accom
 Reading her code is tough because you have to recover from it what the problems are it tried to solve.
 After you wrap up a part of the project and move on to work on something else, the wrapped up code quickly becomes as if written by someone else.
 Unit tests capture all the cases the programmer envisioned the unit of code should handle.
-It is a service to the future collaborator, who very well could be the same person, so she doesn’t have to mentally fight her way into the code.
+It is a service to the future collaborator, who very well could be the same person, so she doesn’t have to mentally fight her way (back) into the code.
 As soon as something is changed in the function such that it no longer does everything it was designed to do, the unit test informs us.
 A workflow without unit tests means that changes to code need to be interactively checked against, as was done when the code was written.
 The code fails, but it might be unclear why it fails, leaving the programmer with quite a puzzle.
@@ -383,7 +383,7 @@ At first it might seem that skipping unit tests will get you to delivery faster.
 However, as time progresses and the product grows in complexity, a unit tester will be able to keep the same steady pace in delivering new features, where the system of those who cut corners will start grinding to a halt because they have to keep digging in old code that no longer works because of the newly introduced features.</p>
 <p>In the visual representation of building a data science product below each feature to be added is represented by a color.
 On top is the data scientist who does unit test, below the one who doesn’t.
-The unit tester takes quite some time to implement the frist two features, the non-unit tester delivers them much quicker.
+The unit tester takes quite some time to implement the first two features, the non-unit tester delivers them quicker.
 After implementing the third feature, however, some code that was written for the first feature keeps failing and he doesn’t know why.
 When the fourth is implemented, these problems arise again, in a slightly different form.
 When he finally manages to control it the code of the fourth feature gets unstable, asking for his attention.
@@ -399,7 +399,7 @@ Figure 8.1: Time line for developing a product with (top) and without (below) un
 <p>Of course this example is contrived.
 After adding a new feature it gradually blends into the code base of the product.
 You will probably not say “I am going to revisit feature 2 now”, but rather “I will look into this error that keeps showing up now and then when we run it on new data”.
-Still, I think it is a good idea to keep this picture in your head as a reference, use unit tests and you won’t be solving the same problems over and over again.</p>
+Still, I think it is a good idea to keep this picture in mind, use unit tests and you won’t be solving the same problems over and over again.</p>
 </div>
 <div id="writing-better-code" class="section level3">
 <h3><span class="header-section-number">8.2.2</span> Writing Better Code</h3>
@@ -411,7 +411,7 @@ Like a broken machine that is easier to fix when components can be replaced sepa
 I hope by now you are convinced it is certainly not redundant.
 As you get the hang of it, you will notice that being slowed down does actually make you stop and think.
 What are the edge cases that this function can meet and how do you want it to behave when it does?
-By thinking through the scenarios before you put the function to work you can circumvent many problems up front.</p>
+By thinking through the scenarios before you put the function to work you can circumvent many problems upfront.</p>
 
 </div>
 </div>
