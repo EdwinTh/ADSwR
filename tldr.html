@@ -236,9 +236,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A bullet point overview of this text:</p>
 <p>Chapter 2</p>
 <ul>
-<li>Agile is a reaction to Waterfall, the standard of doing software development up until the nineties.</li>
-<li>Waterfall is heavy, projects can take years to finish.</li>
-<li>Agile wants to deliver software continuously, improving constantly, instead of one big delivery.</li>
+<li>Agile is a reaction to Waterfall, the standard for doing software development up until the nineties.</li>
+<li>Waterfall is often slow, projects can take years to finish.</li>
+<li>Agile wants to deliver software continuously, then improve it constantly, instead of one big delivery.</li>
 <li>The <em>Agile Manifesto</em> is a set of four values and twelve principles.</li>
 </ul>
 <p>Chapter 3</p>
@@ -246,49 +246,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Workflows are serving the Agile philosophy and are not holy, change them if they don’t serve you.</li>
 <li>Scrum works with <em>sprints</em>, in which the team commits to a set of tasks to complete in that time.</li>
 <li>Scrum tasks are formulated in <em>user stories</em>, that make clear how the completion of it adds value.</li>
-<li>The Scrum roles are: <em>scrum master</em>, <em>product owner</em>, and <em>the team</em>.</li>
-<li>The Scrum ceremonies are: <em>sprint planning</em>, <em>stand-up</em>, <em>sprint review</em>, and <em>retrospective</em>.</li>
 <li>In Kanban tasks are gathered on a backlog, the most important task is done next.</li>
 <li>Central metric is the <em>cycle time</em>, how long does it last on average to complete a task.</li>
-<li>Scrum is rigid in its commitments and ceremonies, Kanban is flexible.</li>
+<li>Scrum is strict in its commitments and ceremonies, Kanban is flexible.</li>
 </ul>
 <p>Chapter 4</p>
 <ul>
 <li>Ineffective workflows are one of the causes that many data science projects are currently failing.</li>
 <li>Early delivery of a minimal product or model will keep stakeholders excited, will make you fail fast and will get you feedback sooner.</li>
 <li>You should work closely with business people, if you want to work effectively.</li>
-<li>Every possible improvement to the product should be deployed right away.
-Improvements only count when they have left your system and others can benefit from it.</li>
+<li>Every possible improvement to the product should be deployed right away.</li>
+<li>Improvements only count when they have left your system and others can benefit from it.</li>
 <li>Adopt the best practices from software engineering to your data project to assure high-quality code.</li>
 <li>Continuously reflect on the effectiveness of the workflow you are following.</li>
 </ul>
 <p>Chapter 5</p>
 <ul>
 <li>Data science is different from regular software engineering, because it needs to exploit yet to be discovered relationships in the data.</li>
-<li>This makes it infeasible to give a tight planning about what will change to the product, as is done in Scrum.</li>
+<li>This makes it unfeasible to give a tight planning on what will change to the product, as is done in Scrum.</li>
 <li>A two-way workflow is proposed in which a hard split is made between the <em>product</em> and <em>exploratory research</em>.</li>
 <li>Tasks are added to a Kanban board and are limited on doing exploration or changing the product.</li>
-<li>For exploration it is a good idea to scope tasks as the number of times you can spend on it.
-If there is a need for exploring the subject more after it, create a new task for it.</li>
-<li>Working Agile is what matters, not adhering to a specific process. If something does not work for your product, change it immediatly.</li>
+<li>For exploration it might be a good idea to scope tasks as the amount of time a data scientist can spend on it.</li>
+<li>If there is a need for exploring the subject more after it, create a new task for it.</li>
+<li>Working Agile is what matters, not adhering to a specific process. If something does not work for your product, change it immediately.</li>
 </ul>
 <p>Chapter 6</p>
 <ul>
 <li>The R package structure is very suitable to organise a two-way workflow with exploration and product.</li>
-<li>Create low level an higher level functions in the package, apply in a pipeline.</li>
+<li>Create low level and meta functions in the package, apply in a pipeline.</li>
 <li>Use Rmarkdown in the Vignettes folder to do data explorations.</li>
 </ul>
 <p>Chapter 7</p>
 <ul>
-<li>In the data product as much as possible should be automated.</li>
-<li>Automation saves time and energe in the long run, because the data scientist does not have to rerun the same thing over and over.</li>
+<li>The data product should be automated as much as possible.</li>
+<li>Automation saves time and energy in the long run, because the data scientist does not have to rerun the same thing over and over.</li>
 <li>Automation serves as documentation, because it makes clear how the product pieces play together.</li>
 <li>Automation assures reproducibility, if it is not reproducible it will not run.</li>
 <li>R has the fantastic <code>drake</code> package for automation.</li>
 </ul>
 <p>Chapter 8</p>
 <ul>
-<li>Code should fail fast and informatively if you want to be able to conitinuously deliver.</li>
+<li>Code should fail fast and informatively if you want to be able to continuously deliver.</li>
 <li>Because R is weakly typed it is a good idea to implement type checking at the start of functions.</li>
 <li>If your function depends on the presence of certain columns in a data frame, check for it at the start of the function.</li>
 <li>It is also a good idea to check all the implicit assumptions you have to the possible values of your data.</li>
@@ -300,14 +298,12 @@ If there is a need for exploring the subject more after it, create a new task fo
 <ul>
 <li>Use versioning for the data product, increment the version number each time the product is meaningfully changed.</li>
 <li>Delete code that is no longer part of the product, use version control for versioning instead of your code base.</li>
-<li>Use branches to change the product. Get a “merge to master is pushing to production” mindset.</li>
+<li>Use branches to change the product. Get a “merge into master is pushing to production” mindset.</li>
 <li>Research branches should not contain changes to the product, so they can be merged to master without creating a new version.</li>
-<li>Using branches is essential if you work with multiple data scientists on a project at the same time.</li>
-</ul>
-<p>Chapter 10</p>
-<ul>
+<li><p>Using branches is essential if you work with multiple data scientists on a project at the same time.
+Chapter 10</p></li>
 <li>It will take a lot of effort to keep old research results in the vignettes reproducible as the project progresses. It is up to the data scientist and the project specifics if this is considered as a problem or not.</li>
-<li>You could number your research scripts to the version of the data product at that moment. You can rollback the code if you have to rerun the analysis.</li>
+<li><p>You could number your research scripts to the version of the data product at that moment. You can rollback the code if you have to rerun the analysis.</p></li>
 </ul>
 
 </div>
