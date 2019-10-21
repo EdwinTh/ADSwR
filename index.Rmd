@@ -32,7 +32,7 @@ More often than not, the model results were different from that noted earlier, w
 Looking back, I had no clue about the importance of a good workflow for doing larger data science projects. 
 Several times I was saved when the plug was pulled from the project for other reasons, saving me from the embarrassment of not being able to deliver.
 
-I have learned a great deal since those days, both from the insights by shared by others and from my own experiences. 
+I have learned a great deal since those days, both from the insights shared by others and from my own experiences. 
 Writing an R package to be shipped to CRAN enforced me to understand the basics of software engineering. 
 Not being able to reproduce crucial results forced me to start thinking about end-to-end research and model building, controlling all the steps along the way. 
 Last year, for the first time, I joined a Scrum team (frontend, backend, ux designer, product owner, second data scientist) to create a machine learning model that we brought to production using the Agile principles. 
