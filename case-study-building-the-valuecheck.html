@@ -238,20 +238,20 @@ A long standing company wish was to use the data of recent house sales for predi
 We knew that home owners used the asking prices of neighboring houses published on <em>funda</em> to keep track of local market trends.
 We wanted to facilitate them to translate the recent sale prices in an official estimate of their specific house.
 They no longer had to look at the houses that are offered, our statistical model had already done that.
-Moreover, they did not make the translation of offered houses to their own house informally, the model determined which characteristics of a house mattered and which did not.
+Moreover, they did no longer had to make the translation of offered houses to their own house informally, the model determined which characteristics of a house mattered and which did not.
 A final advantage was that we could use of the selling prices instead of the asking prices, these are not shown on the website.
 So the product reflected what their house could be sold for, instead of what the typical asking price of their home was.</p>
 <p>To create what eventually would become the <em>Valuecheck</em>, a colleague data scientist and I joined an existing Scrum team.
-This team comprised of two backend developers, a frontend developer, a UX designer, and a product owner.</p>
+This team comprised of two back end developers, a front end developer, a UX designer, and a product owner.</p>
 <div id="trying-scrum" class="section level2">
 <h2><span class="header-section-number">12.1</span> Trying Scrum</h2>
-<p>The team was very experienced with using Scrum and had all the workflows in place, so it made sense to try to fit our tasks into this framework.
+<p>The team had a lot of experience with Scrum and had all the workflows in place, so it made sense to try to fit our tasks into this framework.
 At first this worked out quite well, because the first set of tasks we had to complete were essentially software tasks.
 Setting up a server, build a first query so we had a modelling set, splitting into train and test, and doing some data cleaning.
-These tasks were scopeable, we could estimate the time we needed to complete them quite accurately and they had a clear definition of done.
+These tasks were well scopeable, we could estimate the time we needed to complete them quite accurately and they had a clear definition of done.
 Then the model building started and we got more and more trouble fitting the tasks into the tight Scrum methodology.
 We could not tell what the model would like in two weeks time, it depended on the relationships we would find in the data.
-We certainly could not give estimates for what the model quality would be then (measured in an agreed-upon statistic).</p>
+We certainly could not give estimates for what the model quality would be then.</p>
 </div>
 <div id="informing-the-business" class="section level2">
 <h2><span class="header-section-number">12.2</span> Informing the Business</h2>
@@ -259,7 +259,7 @@ We certainly could not give estimates for what the model quality would be then (
 In consultation with them he decided how we would roll out the product.
 We had to provide him with the information required to make such a decision.
 A <em>Shiny</em> dashboard appeared to be the way to go.
-In this dashboard we could see the basic model performance, reflected in an agreed upon statistic.
+In this dashboard we could show the basic model performance, reflected in an agreed-upon statistic.
 Moreover, the regional performance was shown on a map, making it clear where the model was performing well and where it was doing poorly.
 After a model update, the data frame with cross-validated scores underlying the dashboard was replaced to show the new situation.</p>
 </div>
@@ -267,7 +267,7 @@ After a model update, the data frame with cross-validated scores underlying the 
 <h2><span class="header-section-number">12.3</span> Moving to Kanban</h2>
 <p>Having scopeable tasks is essential for building proper Scrum sprints.
 As a team you have to commit to what you are going to complete in the upcoming two weeks.
-No longer being able to do that, we could not be part of the Scrum rhythm anymore.
+No longer being able to do that, we could not really be part of the Scrum rhythm anymore.
 We found the alternative in moving the data science tasks to a separate Kanban board, stepping out of the Scrum cycles.
 The circular nature of data science, as discussed in Chapter 5, does not lend itself well for tight planning.
 We started with a Kanban board with six lanes <em>to do</em> - <em>test hypothesis</em> - <em>code review hypothesis</em> - <em>update model</em> - <em>code review update model</em> - <em>done</em>.
@@ -279,10 +279,10 @@ We never did this during this project, but this insight improved our workflow in
 <div id="building-an-mvm-for-the-mvp" class="section level2">
 <h2><span class="header-section-number">12.4</span> Building an MVM for the MVP</h2>
 <p>Building a predictive model that is part of a dedicated product is both challenging and rewarding.
-Too often data science projects are initiated as a proof of concept, without a clear vision on how to implement if the prediction can be succesfully done.
+Too often data science projects are initiated as a proof of concept, without a clear vision on how to implement if the prediction can be successfully done.
 Knowing from the start that the model is going to be used is very motivating.
 On the other hand, this means that you need constant alignment with the team that develops the product around the predictions.
-The houses offered for sale on <em>funda</em> have many charecteristics filed, giving us a rich feature set to work with.
+The houses offered for sale on <em>funda</em> have many characteristics filed, giving us a rich feature set to work with.
 However, as an MVP we wanted to present the users with an estimation, without them having to fill in all kinds of characteristics of their house.
 Developing a product from static house predictions is far less complex and time consuming than from a dynamic model with adjustable inputs, both from modelling and a software perspective.
 This implied that we could only use features that are freely available for every house in the Netherlands.
@@ -290,18 +290,18 @@ Luckily, this was true for the two most important features, location and time.
 Also the surface area of the houses were available in a public database.
 From this we started to build our initial prediction models.
 First using a simple regression model to create a baseline.
-We have a strong preference for statistical models over machine learning algorithms, because they not only give us predictions, but also insight.
+We have a preference for statistical models over machine learning algorithms, because they not only give us predictions, but also insight.
 However, we needed some decent predictions fast, and it was clear we needed to exploit some nonlinear relationships.
-We therefore used some ensemble models that gave far superior predictions to regular regression.</p>
+We therefore used ensemble methods that gave superior predictions over regression models.</p>
 <p>Already it was decided, we would only release the MVP in geographical areas in which the MVM performed well enough.
 This is called a <em>soft launch</em>, release the product without giving it too much noise for a selected group.
 Even then we did not quite make the minimal performance goals we set ourselves.
 However, we could include a categorical feature and simply export the predictions for every level of the feature for every house, as long as there were not too many levels.
-The type of the house (apartment, one of several Dutch types of houses) appeared as another crucial predictor.
+The type of the house (apartment, one of several Dutch types of houses) appeared another crucial predictor.
 Finally, we wanted to show lower and upper bounds to a prediction, not only giving a point estimate.
 After some research we were able to this with random forests, that were trained on the desired quantiles.
-Predictions were exported in csv files, a frontend and backend were built around these.
-Doing a prediction on the website was just a simple lookup.</p>
+Predictions were exported in csv files, a front end and back end were built around these.
+Doing a prediction on the website was just a simple look-up.</p>
 </div>
 <div id="improving-the-product" class="section level2">
 <h2><span class="header-section-number">12.5</span> Improving the Product</h2>
@@ -309,7 +309,7 @@ Doing a prediction on the website was just a simple lookup.</p>
 Of course you want your work to be liked, but as I quickly learned, in this stage the best feedback is negative feedback.
 You know the product is barely good enough at this point in time, both from a software and a data science perspective.
 Negative feedback indicates people care about the product and it bothers them it does not fully meet their expectations.
-Moreover the feedback can point to directions that gives the biggest improvements in user satisfaction when improved.
+Moreover the feedback can point to directions that gives the biggest satisfaction jump when improved.
 If it appeared that the users did not care about the product in the first place, the project could be killed and little resource was wasted on it.
 Fortunately, users did care, so we went ahead and started improving.</p>
 <div id="interactivity" class="section level3">
@@ -318,9 +318,9 @@ Fortunately, users did care, so we went ahead and started improving.</p>
 It enabled us to use features in the model that were not publicly available, the user could enter them.
 Also, we knew that the data on house surface area was not of consistent quality.
 Comparing them to the “real” data in our database for houses that were placed on our website indicated that they could be off in both directions.
-In fact, for the MVM we used a model to predict the “real” surface area based on the public data.
+In fact, for the MVM we used a correction to predict the “real” surface area based on the public data.
 When the product changed to interactive, the user could correct the prefilled information if necessary.
-Finally, it improved transparancy and user experience.
+Finally, it improved transparency and user experience.
 Having an interactive product meant we had to bring the model to the product, not just the predictions.</p>
 </div>
 <div id="changing-the-model" class="section level3">
@@ -345,7 +345,7 @@ This improved both the accuracy of the predictions, the confidence bounds around
 <p>Up to this moment in my career, productionising data science products meant building a shiny dashboard to interact with results or exporting plain text files.
 My background is in statistics, not software engineering, I could not tell what was required to expose a model to the millions of visitors to our website.
 Luckily our data engineer could help.
-I (my data science colleague was working on a new project) exported the posteriors of the parameters in csv files.
+I (my data science colleague was working on a new project) exported the posteriors of the parameters in flat files.
 He built a python API that took the feature values as inputs and returned the lower and upper bounds and the point estimate for the requested house.
 Instead of me telling him how the model scoring should be done, I built the same functionality in R.
 He then copied that functionality to python and added his caching, load balancing and garbage collecting magic.</p>
@@ -353,10 +353,10 @@ He then copied that functionality to python and added his caching, load balancin
 Sometimes it is argued by python evangelicals that you should only use python because you can do everything in one language.
 Doing it in R first and then in python causes double work, which is a waste.
 I beg to differ.
-First of all, the majority of the work did not have to be reimplemented, data prepping, model training and model updating are done on train data only.
-It is only the scoring module we implemented both in R and python.
-This what not a waste whatsoever, rather it served as double bookkeeping.
-A number of small bugs were caught because the API did not return the exact same results as the R module.</p>
+First of all, the majority of the work did not have to be re-implemented, data prepping, model training and model updating are done on train data only.
+It is only the scoring module we implemented both in R and python, which is just a fraction of the entire R code base.
+Even this is not a waste, rather it served as double bookkeeping.
+A number of small bugs were caught because the python API did not return the exact same results as the R module.</p>
 </div>
 <div id="thank-you" class="section level2">
 <h2><span class="header-section-number">12.7</span> Thank You!</h2>
