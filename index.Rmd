@@ -69,7 +69,7 @@ Finally, I am not a native English speaker so fixed typos and style improvements
 The title of this text has four components: *Agile*, *Data Science*, *R*, and *Workflow*. 
 If you are interested in all four, you're obviously in the right place. 
 This text is not for you if you hope to learn about different algorithms and statistical techniques to do data science; more knowledgeable people have written many books and articles on those topics. 
-Also it will not learn you anything about R programming.
+Also it will not teach you anything about R programming.
 The workflow I present is completely separate from the algorithms you choose and the data preparation tools of your preference, as it focuses on code organisation and delivery.
 If you use python rather than R, you will still find this text valuable, especially the first part, which focuses on workflow only and is tool agnostic. 
 
