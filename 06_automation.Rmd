@@ -14,7 +14,7 @@ The obvious reason data science products should be automated is that it will sav
 It takes extra effort to set up an automated pipeline, but once it is in place only monitoring and maintenance are needed.
 If instead each report or each model update should be created by manually running the code, the data scientist should always schedule time to do so.
 This is not only a waste of time, but also a waste of focus.
-Once you have reached a stage that the product is of satisfactory quality and can run without interference for a time, you should be able to move on to a new project without thinking about the completed one too much.
+Once you have reached a stage where the product is of satisfactory quality and can run without interference for a time, you should be able to move on to a new project without thinking about the completed one too much.
 However, if the product is run manually you have to keep spending a part of your attention to the completed product.
 Continuously switching between projects is cognitively strenuous and not satisfying.
 
