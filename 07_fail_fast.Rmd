@@ -100,7 +100,7 @@ It is a good idea to check if all the columns that are required for the operatio
 I use this little function:
 
 ```{r, error = TRUE}
-data_frame_with_col <- function(x, cols) {
+df_has_cols <- function(x, cols) {
   parent_frame <- sys.parent()
   calling_function <- sys.call(parent_frame)[[1]]
   stopifnot(is.data.frame(x))
@@ -114,7 +114,7 @@ which is added to each function that uses a data frame
 
 ```{r, error = TRUE}
 add_log_target <- function(x) {
-  df_has_cols(x, "target", match.call())
+  df_has_cols(x, "target")
   x$target_log <- log(x$target)
   x
 }
@@ -132,7 +132,7 @@ In the example below, since we are taking the log of `target` and it is the targ
 
 ```{r}
 add_log_target <- function(x) {
-  df_has_cols(x, "target", match.call())
+  df_has_cols(x, "target")
   stopifnot(all(!is.na(x$target)), all(x$target > 0))
   x$target_log <- log(x$target)
   x
