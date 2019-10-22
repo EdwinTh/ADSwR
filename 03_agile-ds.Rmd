@@ -18,7 +18,7 @@ Or there might be unclarities on what to predict or which data sources are in sc
 Whatever the reason, adhering to the principles of Agile can get you more productive and efficient. 
 Here we take the time to interpret the twelve principles in the data science context.
 
-## The Twelve Principle in the Data Science Context
+## The Twelve Principles in the Data Science Context
 
 1) Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.
 
@@ -34,15 +34,15 @@ There is no clear definition of done, instead there is debate on if the software
 The machine learning equivalent to this would be a *Minimal Viable Model*, a model that is just good enough to put into action. 
 Other data science projects, such as reporting, ETL and apps, might have more software elements in them and less data uncertainty. 
 For these an MVP can be defined. 
-Releasing something that is barely good enough might be scary and counter intuitive to the high standards you hold for yourself, but it is preferable over long optimisation before releasing for at least the following reasons:
+Releasing something that is barely good enough might be scary and counterintuitive to the high standards you hold for yourself, but it is preferable over long optimisation before releasing for at least the following reasons:
 
 * *It will keep stakeholders excited*. 
 Managers and users of the model who commissioned the data science project are anxious to see results. 
-As the projects drags on without any output they are likely to lose interest and confidence the project will end well.
+As the project drags on without any output they are likely to lose interest and confidence the project will end well.
 Eventually they might pull the plug or put it on hold before anything meaningful has come out. 
 If they can interact with the results soon, even if they are from perfect, their enthusiasm and confidence will remain high.
 * *You will fail fast*. 
-There is a wide array of reasons a data science project might fail; the business problem appears not be translatable into data science problem, data quality it low, there is not enough historical data, or the necessary relationships simply don't exist. 
+There is a wide array of reasons a data science project might fail; the business problem appears not be translatable into data science problem, data quality is low, there is not enough historical data, or the necessary relationships simply don't exist. 
 If there are such problems, you will not be able to create a MVM.
 This is a clear sign the project is probably not going to be successful, and you can consider stopping it early.
 * *You will get feedback sooner.* 
@@ -60,7 +60,7 @@ For both an MVM and an MVP a possibility is only releasing the product for a sub
 
 2) Welcome changing requirements, even late in development. Agile processes harness change for the customer's competitive advantage.
 
-This principle comes naturally to data science, since the success of a project typically dependent on the data relationships discovered during the project. 
+This principle comes naturally to data science, since the success of a project typically depends on the data relationships discovered during the project. 
 The Waterfall approach in which every step of the project is planned would be hideous to even the biggest lover of process in the data science context. 
 Keep in mind that flexibility should not only be exercised towards assumptions of your data or the models and algorithms you use. 
 Requirements can also be in the framing of the business problem or the way the results are exposed. 
@@ -91,11 +91,11 @@ Finally, you might need to involve a person with technical knowledge of the data
 5) Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done.
 
 This principle is the antithesis of Waterfall in optima forma. 
-Instead of meticulously describing how the job should be done, just set the goals of the projects and leave it up to the team how these goal are attained. 
+Instead of meticulously describing how the job should be done, just set the goals of the projects and leave it up to the team how these goals are attained. 
 Data scientists typically already enjoy this type of freedom for the sheer reason that stakeholders don't really understand how the products are built. 
 It can happen that business people get overly involved in the process, they can have a strong opinion on which predictors should be used or how the target should be defined or what the best way is to visualise something in a dashboard. 
 Take their advice at heart but also trust your instincts. 
-If you feel a different approach will yield better results than rely on your expertise. 
+If you feel a different approach will yield better results then rely on your expertise. 
 You know about overfitting, multicollinearity, non-converging algorithms, theory behind data visualisation and many other topics the business has no intuition for. 
 If you think your approach is better, take the time to explain why you think a different approach is better (in lay men terms of course). 
 
@@ -104,7 +104,7 @@ If you think your approach is better, take the time to explain why you think a d
 A data science project is rarely done end-to-end by one single person. 
 Data might be made available by a DBA, a back-ender might expose the product on the website, the front-ender builds the interface for interacting with predictions, etc. 
 If possible working with these people directly will speed up decision making and improve alignment. 
-Communication by email or chat programs are often slow. 
+Communication by email or chat programs is often slow. 
 Make an effort to be in the same room with your direct colleagues, for at least a part of the project time.
 
 7) Working software is the primary measure of progress.
@@ -170,7 +170,7 @@ Be critical before doing so, is there really no way to obtain similar results wi
 
 This is another principle that is a clear antidote to Waterfall. 
 Instead of meticulously planning every aspect of the project upfront, let the developers come up with the most important project designs as they go. 
-It is impossible to foresee all the aspects of the software project before implementing it, so trying to come up them with before writing code is a guarantee for going back and forth between the planning and implementation stages. 
+It is impossible to foresee all the aspects of the software project before implementing it, so trying to come up with them before writing code is a guarantee for going back and forth between the planning and implementation stages. 
 Due to the iterative nature of building data science products and the uncertainty we have upfront, this principle seems quite natural in our context. 
 
 12) At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.
