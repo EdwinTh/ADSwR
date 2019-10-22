@@ -1,6 +1,6 @@
 # A Methodology for Agile Data Science
 
-Now we have interpreted the Twelve Agile Principles in the data science setting, we explore what an Agile data science workflow might look like. 
+Now that we have interpreted the Twelve Agile Principles in the data science setting, we explore what an Agile data science workflow might look like. 
 Let us remind ourselves that an Agile workflow is always a means to an end. 
 The Agile values and principles are the guidelines and the workflow should serve following the values and principles the best you can. 
 If at any moment in a project the team feels the workflow is no longer the optimal way to make decisions in an Agile way, it should change it.
@@ -19,9 +19,9 @@ Neither Scrum nor Kanban prescribes the steps a task should go through, but it t
 knitr::include_graphics("images/software_flow.png")
 ```
 
-These type of tasks lend themselves well for scoping and committing oneself to what the product will look like in a few weeks time, as is done in Scrum. 
+These types of tasks lend themselves well for scoping and committing oneself to what the product will look like in a few weeks time, as is done in Scrum. 
 (Note that it is the tasks that are typically linear, the entire process of building a product is iterative by nature).
-In contrast are data science tasks are circular, at the start of a task it is uncertain what the outcome will be. 
+In contrast data science tasks are circular, at the start of a task it is uncertain what the outcome will be. 
 The starting position is the latest version of the product. 
 If one has not yet a good idea how to further improve it we would typically do an explorative analysis in which a hypothesis can be formed.
 This hypothesis is then tested.
@@ -32,7 +32,7 @@ If not we go on with the next hypothesis right away, if so we improve it and the
 knitr::include_graphics("images/ml_flow.png")
 ```
 Data science projects also encompass linear tasks, such as setting up a pipeline to import the data and do basic data wrangling, creating apps or exposing the model results in an API. 
-However, the circular nature of leveraging relationships between variable makes the highly structured Scrum method unfit for most data science projects. 
+However, the circular nature of leveraging relationships between variables makes the highly structured Scrum method unfit for most data science projects. 
 We simply cannot guarantee that a statistical model or a machine learning algorithm will be improved in two weeks time, because we don't know if the hypotheses we are going to test will lead to anything. 
 If we had committed to a set of tasks for a fixed time period from which we cannot deviate, we are slowed down because we cannot directly act on newly gained insights. 
 
@@ -80,8 +80,8 @@ This is the backlog and it is always ordered from most to least promising, so it
 
 Kanban gives focus, finishing one task at a time. 
 Too often when doing data science we have interesting finds on which we jump right away without finishing what we were doing. 
-To prevent that, just add the new find as an hypothesis to the board. 
-This will make sure that the tasks that are currently in *doing* gets completed first, and that after each completion there is a moment where it can be decided what is the most urgent change to the pipeline or the most promising hypothesis to explore next. 
+To prevent that, just add the new find as a hypothesis to the board. 
+This will make sure that the tasks that are currently in *doing* get completed first, and that after each completion there is a moment where it can be decided what is the most urgent change to the pipeline or the most promising hypothesis to explore next. 
 As a rule of thumb, never work on more tasks simultaneously than that there are data scientists on the team. 
 As mentioned, tasks are either software or research tasks.
 If the research task results in a proposed model update, the update can be captured in a newly formed software task (which can be placed on top of the *to do* list right away).
@@ -92,9 +92,9 @@ Scrum uses story points to scope its stories.
 The team determines the number of points awarded to each story.
 The team knows how many story points it typically completes in a sprint, so after scoping the sprint can be planned by selecting stories such that the total of their points does not exceed the team's capacity. 
 Kanban does not scope stories. 
-In fact, the average time of a tasks completion is Kanban's key metric of effectiveness. 
+In fact, the average time of a task's completion is Kanban's key metric of effectiveness. 
 When doing data science with Kanban it might still be valuable to scope the tasks ahead, especially for exploring hypotheses. 
-One of the major pitfalls of trying to improve a data science product is endless exploration of an hypothesis. 
+One of the major pitfalls of trying to improve a data science product is endless exploration of a hypothesis. 
 We like to have just one more look from this other angle, or maybe this new fancy algorithm that you are anxious to test for a while will give a major boost. 
 Data scientists are typically assiduous people, this is what allows them to master a wide range of difficult topics from statistics to programming in the first place. 
 However, this could lead to stubbornness, unwilling to give up what was thought the way to get a major improvement. 
