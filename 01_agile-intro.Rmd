@@ -11,7 +11,7 @@ In Waterfall large software projects are divided into specific stages, each stag
 Subsequently these stages are *problem analysis*, *designing the project*, *writing the software*, *testing it* and finally *implementation and maintenance*. 
 [Here](https://www.youtube.com/watch?v=LxEmGNgqYJA) you can find a clear and neutral introduction into the Waterfall approach. 
 The goal of Waterfall is delivering complete and faultless software. 
-The  of gravity of a Waterfall project is the documentation, in which every requirement and aspect of the software is written down meticulously. 
+The gravity of a Waterfall project is the documentation, in which every requirement and aspect of the software is written down meticulously. 
 The underlying conviction is that the software is written faster and is of higher quality when all aspects of it are decided upon upfront.
 
 Projects done with the Waterfall method have a major pitfall, however. 
