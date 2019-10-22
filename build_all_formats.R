@@ -1,0 +1,6 @@
+library(bookdown)
+render_book()
+render_book("index.Rmd", epub_book())
+render_book("index.Rmd", pdf_book())
+system("cp _book/_main.pdf _main.pdf")
+system("cp _book/_main.epub _main.epub")
