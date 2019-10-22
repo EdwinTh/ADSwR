@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Agile Data Science | Agile Data Science with R</title>
+  <meta name="description" content="A workflow for doing data science in the R language, using Agile principles." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Agile Data Science | Agile Data Science with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A workflow for doing data science in the R language, using Agile principles." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Agile Data Science | Agile Data Science with R" />
+  
+  <meta name="twitter:description" content="A workflow for doing data science in the R language, using Agile principles." />
+  
+
+<meta name="author" content="Edwin Thoen" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="agile-methods.html">
+<link rel="next" href="a-methodology-for-agile-data-science.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Working without a Workflow</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-this-text-is-about"><i class="fa fa-check"></i><b>1.1</b> What this Text is About</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#limitations"><i class="fa fa-check"></i><b>1.2</b> Limitations</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#intended-audience"><i class="fa fa-check"></i><b>1.3</b> Intended Audience</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i><b>1.4</b> Contributors</a></li>
+</ul></li>
+<li class="part"><span><b>I Agile Data Science…</b></span></li>
+<li class="chapter" data-level="2" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html"><i class="fa fa-check"></i><b>2</b> Agile in a Nutshell</a><ul>
+<li class="chapter" data-level="2.1" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html#the-origins-of-agile"><i class="fa fa-check"></i><b>2.1</b> The Origins of Agile</a></li>
+<li class="chapter" data-level="2.2" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html#the-manifesto"><i class="fa fa-check"></i><b>2.2</b> The Manifesto</a></li>
+<li class="chapter" data-level="2.3" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html#the-twelve-principles"><i class="fa fa-check"></i><b>2.3</b> The Twelve Principles</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="agile-methods.html"><a href="agile-methods.html"><i class="fa fa-check"></i><b>3</b> Agile Methods</a><ul>
+<li class="chapter" data-level="3.1" data-path="agile-methods.html"><a href="agile-methods.html#scrum"><i class="fa fa-check"></i><b>3.1</b> Scrum</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="agile-methods.html"><a href="agile-methods.html#scrum-roles"><i class="fa fa-check"></i><b>3.1.1</b> Scrum Roles</a></li>
+<li class="chapter" data-level="3.1.2" data-path="agile-methods.html"><a href="agile-methods.html#ceremonies"><i class="fa fa-check"></i><b>3.1.2</b> Ceremonies</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="agile-methods.html"><a href="agile-methods.html#kanban"><i class="fa fa-check"></i><b>3.2</b> Kanban</a></li>
+<li class="chapter" data-level="3.3" data-path="agile-methods.html"><a href="agile-methods.html#scrum-vs-kanban"><i class="fa fa-check"></i><b>3.3</b> Scrum vs Kanban</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="agile-data-science.html"><a href="agile-data-science.html"><i class="fa fa-check"></i><b>4</b> Agile Data Science</a><ul>
+<li class="chapter" data-level="4.1" data-path="agile-data-science.html"><a href="agile-data-science.html#data-science-waterfall"><i class="fa fa-check"></i><b>4.1</b> Data Science <em>Waterfall</em></a></li>
+<li class="chapter" data-level="4.2" data-path="agile-data-science.html"><a href="agile-data-science.html#the-twelve-principle-in-the-data-science-context"><i class="fa fa-check"></i><b>4.2</b> The Twelve Principle in the Data Science Context</a></li>
+<li class="chapter" data-level="4.3" data-path="agile-data-science.html"><a href="agile-data-science.html#in-summary"><i class="fa fa-check"></i><b>4.3</b> In Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html"><i class="fa fa-check"></i><b>5</b> A Methodology for Agile Data Science</a><ul>
+<li class="chapter" data-level="5.1" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#linear-and-circular-tasks"><i class="fa fa-check"></i><b>5.1</b> Linear and Circular Tasks</a></li>
+<li class="chapter" data-level="5.2" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#a-two-way-workflow-for-development"><i class="fa fa-check"></i><b>5.2</b> A Two-Way Workflow for Development</a></li>
+<li class="chapter" data-level="5.3" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#formulating-tasks"><i class="fa fa-check"></i><b>5.3</b> Formulating Tasks</a></li>
+<li class="chapter" data-level="5.4" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#using-kanban-for-data-science"><i class="fa fa-check"></i><b>5.4</b> Using Kanban for Data Science</a></li>
+<li class="chapter" data-level="5.5" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#scoping-tasks"><i class="fa fa-check"></i><b>5.5</b> Scoping Tasks</a></li>
+<li class="chapter" data-level="5.6" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#the-product-owner-role"><i class="fa fa-check"></i><b>5.6</b> The Product Owner Role</a></li>
+</ul></li>
+<li class="part"><span><b>II …with R</b></span></li>
+<li class="chapter" data-level="6" data-path="code-organsation.html"><a href="code-organsation.html"><i class="fa fa-check"></i><b>6</b> Code Organsation</a><ul>
+<li class="chapter" data-level="6.1" data-path="code-organsation.html"><a href="code-organsation.html#using-the-r-package-structure"><i class="fa fa-check"></i><b>6.1</b> Using the R Package Structure</a></li>
+<li class="chapter" data-level="6.2" data-path="code-organsation.html"><a href="code-organsation.html#further-reading"><i class="fa fa-check"></i><b>6.2</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="automation.html"><a href="automation.html"><i class="fa fa-check"></i><b>7</b> Automation</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="automation.html"><a href="automation.html#efficiency"><i class="fa fa-check"></i><b>7.0.1</b> Efficiency</a></li>
+<li class="chapter" data-level="7.0.2" data-path="automation.html"><a href="automation.html#automation-is-documentation"><i class="fa fa-check"></i><b>7.0.2</b> Automation is Documentation</a></li>
+<li class="chapter" data-level="7.0.3" data-path="automation.html"><a href="automation.html#reproducibility"><i class="fa fa-check"></i><b>7.0.3</b> Reproducibility</a></li>
+<li class="chapter" data-level="7.1" data-path="automation.html"><a href="automation.html#how-to-automate"><i class="fa fa-check"></i><b>7.1</b> How to Automate</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="code-that-fails.html"><a href="code-that-fails.html"><i class="fa fa-check"></i><b>8</b> Code that Fails</a><ul>
+<li class="chapter" data-level="8.1" data-path="code-that-fails.html"><a href="code-that-fails.html#assumptions-to-your-data"><i class="fa fa-check"></i><b>8.1</b> Assumptions to your Data</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="code-that-fails.html"><a href="code-that-fails.html#type-checking"><i class="fa fa-check"></i><b>8.1.1</b> Type Checking</a></li>
+<li class="chapter" data-level="8.1.2" data-path="code-that-fails.html"><a href="code-that-fails.html#column-validation"><i class="fa fa-check"></i><b>8.1.2</b> Column Validation</a></li>
+<li class="chapter" data-level="8.1.3" data-path="code-that-fails.html"><a href="code-that-fails.html#data-validation"><i class="fa fa-check"></i><b>8.1.3</b> Data Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="code-that-fails.html"><a href="code-that-fails.html#unit-testing"><i class="fa fa-check"></i><b>8.2</b> Unit Testing</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="code-that-fails.html"><a href="code-that-fails.html#externalising-assumptions"><i class="fa fa-check"></i><b>8.2.1</b> Externalising Assumptions</a></li>
+<li class="chapter" data-level="8.2.2" data-path="code-that-fails.html"><a href="code-that-fails.html#writing-better-code"><i class="fa fa-check"></i><b>8.2.2</b> Writing Better Code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="versioning.html"><a href="versioning.html"><i class="fa fa-check"></i><b>9</b> Versioning</a><ul>
+<li class="chapter" data-level="9.1" data-path="versioning.html"><a href="versioning.html#old-code"><i class="fa fa-check"></i><b>9.1</b> Old Code</a></li>
+<li class="chapter" data-level="9.2" data-path="versioning.html"><a href="versioning.html#version-control"><i class="fa fa-check"></i><b>9.2</b> Version Control</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="versioning.html"><a href="versioning.html#master-is-production"><i class="fa fa-check"></i><b>9.2.1</b> Master is Production</a></li>
+<li class="chapter" data-level="9.2.2" data-path="versioning.html"><a href="versioning.html#working-together"><i class="fa fa-check"></i><b>9.2.2</b> Working Together</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="exploratory-tasks.html"><a href="exploratory-tasks.html"><i class="fa fa-check"></i><b>10</b> Exploratory Tasks</a><ul>
+<li class="chapter" data-level="10.1" data-path="exploratory-tasks.html"><a href="exploratory-tasks.html#unreproducible-research"><i class="fa fa-check"></i><b>10.1</b> (Un)Reproducible Research</a></li>
+</ul></li>
+<li class="part"><span><b>III Miscellaneous</b></span></li>
+<li class="chapter" data-level="11" data-path="tldr.html"><a href="tldr.html"><i class="fa fa-check"></i><b>11</b> TL;DR</a></li>
+<li class="chapter" data-level="12" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html"><i class="fa fa-check"></i><b>12</b> Case Study: Building the <em>Valuecheck</em></a><ul>
+<li class="chapter" data-level="12.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#trying-scrum"><i class="fa fa-check"></i><b>12.1</b> Trying Scrum</a></li>
+<li class="chapter" data-level="12.2" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#informing-the-business"><i class="fa fa-check"></i><b>12.2</b> Informing the Business</a></li>
+<li class="chapter" data-level="12.3" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#moving-to-kanban"><i class="fa fa-check"></i><b>12.3</b> Moving to Kanban</a></li>
+<li class="chapter" data-level="12.4" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#building-an-mvm-for-the-mvp"><i class="fa fa-check"></i><b>12.4</b> Building an MVM for the MVP</a></li>
+<li class="chapter" data-level="12.5" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#improving-the-product"><i class="fa fa-check"></i><b>12.5</b> Improving the Product</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#interactivity"><i class="fa fa-check"></i><b>12.5.1</b> Interactivity</a></li>
+<li class="chapter" data-level="12.5.2" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#changing-the-model"><i class="fa fa-check"></i><b>12.5.2</b> Changing the Model</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#productionising-the-interactive-model"><i class="fa fa-check"></i><b>12.6</b> Productionising the Interactive Model</a></li>
+<li class="chapter" data-level="12.7" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#thank-you"><i class="fa fa-check"></i><b>12.7</b> Thank You!</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Agile Data Science with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="agile-data-science" class="section level1">
+<h1><span class="header-section-number">4</span> Agile Data Science</h1>
+<div id="data-science-waterfall" class="section level2">
+<h2><span class="header-section-number">4.1</span> Data Science <em>Waterfall</em></h2>
+<p>As discussed in the previous chapter, Agile is a response to Waterfall methodology that was widely adopted in the eighties and nineties.
+Many projects using Waterfall did not deliver, because of their long duration.
+In data science, as far as I am aware of, there are no such formal methodologies that are followed by many practitioners.
+However, there are <a href="https://venturebeat.com/2019/07/19/why-do-87-of-data-science-projects-never-make-it-into-production/">many data science projects that do not deliver</a>.
+Ineffective workflow is by no means the only cause of this, but I am convinced it is one of the main culprits.
+Just like software development in Waterfall, data science projects can take many months or even years before the results are productionised.
+Apparently, more often then not the plug is pulled before this stage is reached.
+Data science is especially susceptible of what I call <em>local optimisation</em>.
+The data scientist might optimise endlessly to give the best predictions possible or have all the envisioned dashboard functionalities in place, before sharing the results.
+As a result, stakeholders might loose interest and confidence in the successful completion of the project.
+Moreover, if will cause defects in the project setup to remain hidden for a long time.
+The code might be poorly organised, making the product unfit to be applied in the “real world”.
+Or there might be unclarities on what to predict or which data sources are in scope, due to lack of communication between stakeholders, business people and data scientists.
+Whatever the reason, adhering to the principles of Agile can get you more productive and efficient.
+Here we take the time to interpret the twelve principles in the data science context.</p>
+</div>
+<div id="the-twelve-principle-in-the-data-science-context" class="section level2">
+<h2><span class="header-section-number">4.2</span> The Twelve Principle in the Data Science Context</h2>
+<ol style="list-style-type: decimal">
+<li>Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.</li>
+</ol>
+<p>Just as Waterfall prescribes a complete and fault-free product delivered at once, data scientists might be inclined to only release a machine learning model to production once they are confident its predictions are spot on.
+This principle was a revolutionary break from Waterfall, you should not wait with releasing software until it’s perfect.
+Instead get it out in the open when it is just good enough.
+It is called the MVP (<em>Minimal Viable Product</em>).
+After the MVP is released it is closely monitored for how users interact with it and where the biggest room for improvement is.
+The team tackles the biggest problem in the MVP to create a slightly better version of the product, which is again released right away.
+This cycle of release, monitor, improve, release is repeated many times, such that the product gets better and better.
+There is no clear definition of done, instead there is debate on if the software can be further improved and if the required investments are worth the effort.</p>
+<p>The machine learning equivalent to this would be a <em>Minimal Viable Model</em>, a model that is just good enough to put into action.
+Other data science projects, such as reporting, ETL and apps, might have more software elements in them and less data uncertainty.
+For these an MVP can be defined.
+Releasing something that is barely good enough might be scary and counter intuitive to the high standards you hold for yourself, but it is preferable over long optimisation before releasing for at least the following reasons:</p>
+<ul>
+<li><em>It will keep stakeholders excited</em>.
+Managers and users of the model who commissioned the data science project are anxious to see results.
+As the projects drags on without any output they are likely to lose interest and confidence the project will end well.
+Eventually they might pull the plug or put it on hold before anything meaningful has come out.
+If they can interact with the results soon, even if they are from perfect, their enthusiasm and confidence will remain high.</li>
+<li><em>You will fail fast</em>.
+There is a wide array of reasons a data science project might fail; the business problem appears not be translatable into data science problem, data quality it low, there is not enough historical data, or the necessary relationships simply don’t exist.
+If there are such problems, you will not be able to create a MVM.
+This is a clear sign the project is probably not going to be successful, and you can consider stopping it early.</li>
+<li><em>You will get feedback sooner.</em>
+Lets say you build a churn model which the sales department uses for customer retention.
+You agree with stakeholders what the model should look like and start to build an MVM.
+As soon as they start using the MVM they find out that the prediction interval is too short, some customers already have a contract with a competing party at the moment of interference.
+Instead of further optimising this model, you first change the model structure so it predicts a longer time ahead.
+Or the user of Shiny app realities that the ratio you agreed on is not what she wanted as soon as she sees the app with the first variable implemented.
+Before including the twelve other variables you first fix the ratio such that it is as she wants it.</li>
+</ul>
+<p>What the MVM looks like is project-dependent of course, but it might make sense to define it in terms of regular model quality statistics, such as recall or mean absolute error.
+In some situations there might be a natural baseline that the MVM should outperform, such as a business rule that the model needs to replace.
+Data science products that are not model based might be captured with an MVP, instead of an MVM.
+For both an MVM and an MVP a possibility is only releasing the product for a subset of your target audience, such as a geographical area or users of a certain age.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Welcome changing requirements, even late in development. Agile processes harness change for the customer’s competitive advantage.</li>
+</ol>
+<p>This principle comes naturally to data science, since the success of a project typically dependent on the data relationships discovered during the project.
+The Waterfall approach in which every step of the project is planned would be hideous to even the biggest lover of process in the data science context.
+Keep in mind that flexibility should not only be exercised towards assumptions of your data or the models and algorithms you use.
+Requirements can also be in the framing of the business problem or the way the results are exposed.
+The very reason we are releasing early is that customers can put it to the test and through interaction they discover what they really want.
+Developing the product is a discovery for them as much it is for you.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.</li>
+</ol>
+<p>Whereas the first principle is about the philosophy of early deployment and iteration, this one is about the frequency of deploying updates.
+The Scrum framework is really strict in the amount of time that can be spent until the next release.
+The team commits itself to making certain changes to the product in typically a two-week period.
+At the end of this period the improvements, small as they might be, are deployed.
+The Scrum mindset is not totally applicable for data science, especially when there is a lot of data uncertainty, as we will explore in the next chapter.
+However, it is good to keep in mind that every improvement to the model should be deployed as soon as it is ready.
+This creates momentum and excitement by customers, stakeholders, your teammates and yourself.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Business people and developers must work together daily throughout the project.</li>
+</ol>
+<p>Too often data scientists are operating in isolation.
+Certainly when projects are of a more explorative nature.
+Having no connection to the business makes it unlikely your work will ever affect anything outside your computer.
+Stakeholder management can be done by a representative of the technical team, such as a product owner.
+If there is no such role on the team, the stakeholder management is the responsibility of the data scientist.
+A second way the business should be involved is for getting information about underlying processes.
+Unless the data scientist has extensive knowledge of the business, she needs somebody to validate the found results and answer questions about surprising finds.
+Finally, you might need to involve a person with technical knowledge of the data, typically a DBA, who can explain the structure and peculiarities of the data you work with.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done.</li>
+</ol>
+<p>This principle is the antithesis of Waterfall in optima forma.
+Instead of meticulously describing how the job should be done, just set the goals of the projects and leave it up to the team how these goal are attained.
+Data scientists typically already enjoy this type of freedom for the sheer reason that stakeholders don’t really understand how the products are built.
+It can happen that business people get overly involved in the process, they can have a strong opinion on which predictors should be used or how the target should be defined or what the best way is to visualise something in a dashboard.
+Take their advice at heart but also trust your instincts.
+If you feel a different approach will yield better results than rely on your expertise.
+You know about overfitting, multicollinearity, non-converging algorithms, theory behind data visualisation and many other topics the business has no intuition for.
+If you think your approach is better, take the time to explain why you think a different approach is better (in lay men terms of course).</p>
+<ol start="6" style="list-style-type: decimal">
+<li>The most efficient and effective method of conveying information to and within a development team is face-to-face conversation.</li>
+</ol>
+<p>A data science project is rarely done end-to-end by one single person.
+Data might be made available by a DBA, a back-ender might expose the product on the website, the front-ender builds the interface for interacting with predictions, etc.
+If possible working with these people directly will speed up decision making and improve alignment.
+Communication by email or chat programs are often slow.
+Make an effort to be in the same room with your direct colleagues, for at least a part of the project time.</p>
+<ol start="7" style="list-style-type: decimal">
+<li>Working software is the primary measure of progress.</li>
+</ol>
+<p>If your product did not leave your system you have not attained any results yet.
+As long as your Shiny app only runs on your laptop, it does not exist.
+As long as the machine learning model predictions are not reaching someone, it does not exist.
+You have not added any value as long as your product is not “out there”.
+Only when the update to the predictions is fully implemented and the predictions are ready to be consumed by the business, has there been true improvement.
+Only when you have shipped your MVM app to the company server and Sales is basing decisions on it, you have delivered something.
+Sometimes reported model improvement discovered in research scripts does not hold when it is implemented in the full model pipeline.
+It has been done on just a subset of the data that was conveniently available, or the new feature was tested in isolation and there is not yet a sense of multicollinearity.
+There is only one true measure of how well we are currently doing, and it is what is currently exposed to others as the product.</p>
+<ol start="8" style="list-style-type: decimal">
+<li>Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely.</li>
+</ol>
+<p>The deadline way of doing data science; the stakeholders and the data scientist meet, they agree to have a first version of the project ready at some future moment.
+The sponsors forget about the project until right before the deadline, busy with attending meetings and writing memos.
+The data scientist goes to work, having ample time before the deadline there are many things that can be explored.
+The result is an array of research scripts and intermediate results.
+Suddenly, as the deadline comes near, all this separate research has somehow come together.
+Pulling an all-nighter he is able to deliver a result, which is presented to the sponsors.
+The project is then continued, a new deadline is set, and the cycle starts over.</p>
+<p>Don’t do deadlines!</p>
+<p>They are a recipe for hastily created, non-reproducible results.
+They promote a workflow of taking it easy at first, stressing out when the deadline comes near and exhaustion after it.
+Instead set small goals that are quickly attainable, update the product if the results are favorable and set a new small goal.
+This will result in better quality code, reproducibility and a happier team.
+Moreover, it will result in a product that is constantly improved, which excites sponsors and users.</p>
+<ol start="9" style="list-style-type: decimal">
+<li>Continuous attention to technical excellence and good design enhances agility.</li>
+</ol>
+<p>Most data scientists have much to learn from software engineers as it comes to standards and rigor.
+What makes data science unique is that a part of the code is written for personal use.
+It is not meant to ship in the final product, it will never leave the data scientist’s system.
+Still it is very much part of the project.
+Data cleaning, splitting into train and validation sets, running algorithms that produce the models, doing research on relationships in the data and many more steps are often for the data scientist’s eyes only.
+It is tempting to cut corners when you are the sole user of your own code.
+Why go to the trouble of writing unit tests and documentation for your functions?</p>
+<p>Continuously improving your product in short-cycled deliveries is only feasible if the entire product is of high quality.
+If you want to expand a poorly designed product, it is much more likely the whole thing comes tumbling down as soon as you start to make adjustments to it.
+There will be a lot of attention to this topic in the second part of this text, because you simply cannot be Agile if your code is of poor quality.</p>
+<ol start="10" style="list-style-type: decimal">
+<li>Simplicity–the art of maximizing the amount of work not done–is essential.</li>
+</ol>
+<p>A machine learning project’s goal is often straightforward, predict <em>y</em> as best you can such that some business goals can be achieved.
+Unlike software development there is not much choice in which features should and should not be included in the final product (features as in characteristics, not as in predictors).
+The options how to arrive at predicting <em>y</em>, however, are abundant.
+The biggest challenge is often “what should I explore next?”.
+Should we explore another database in which we might find new predictors or should we try a different model on the current predictors which involves some additional preprocessing of the data?</p>
+<p>We can roughly estimate what the amount of work would be to explore both options. It is, however, very hard to predict what the amount of value is the new part will add.
+A good rule of thumb is that when in doubt choose the option with the least unknown components.
+Choose an algorithm you know well over one you have never used in practice.
+Only tap into an unknown data source if you are convinced that the options on the well-known database are exhausted.
+Data science is a field with rapid developments, it is often tempting to seize the opportunity to dive into a new technique or algorithm.
+Be critical before doing so, is there really no way to obtain similar results with something already familiar to you?</p>
+<ol start="11" style="list-style-type: decimal">
+<li>The best architectures, requirements, and designs emerge from self-organizing teams.</li>
+</ol>
+<p>This is another principle that is a clear antidote to Waterfall.
+Instead of meticulously planning every aspect of the project upfront, let the developers come up with the most important project designs as they go.
+It is impossible to foresee all the aspects of the software project before implementing it, so trying to come up them with before writing code is a guarantee for going back and forth between the planning and implementation stages.
+Due to the iterative nature of building data science products and the uncertainty we have upfront, this principle seems quite natural in our context.</p>
+<ol start="12" style="list-style-type: decimal">
+<li>At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.</li>
+</ol>
+<p>Every development process has its inefficiencies, whether they are unclear goals, poor communication or not having the right priorities.
+Reflecting on the process forces you to look critically at all aspects of the project.
+Inefficiencies can quickly become project features when they exist for a while, the sooner they are tackled the better.</p>
+<p>Even when you are not in a team following an official methodology such as Scrum or Kanban, you do best in planning regular reflection meetings.
+Even when you are the only data scientist or even the only developer on the team, you should also address your technical issues here.
+Maybe you are wanting to refactor a certain part of the project for a while but are unsure if it is worth the time.
+Business colleagues might not understand the technical aspect of the problem, but they can still challenge you on your choices.</p>
+</div>
+<div id="in-summary" class="section level2">
+<h2><span class="header-section-number">4.3</span> In Summary</h2>
+<p>After this lengthy point-by-point exploration let me wrap-up to what I think is the essence of Agile Data Science:</p>
+<p>Deploy products as early as possible, don’t loose yourself in endless explorations.
+Update the product continuously, instead of saving everything until some deadline is near.
+Hold high standards for all the code used by the product, also if it doesn’t get shipped with the product.
+Have stakeholders, colleagues and customers closely involved the whole way, don’t retreat.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="agile-methods.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="a-methodology-for-agile-data-science.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

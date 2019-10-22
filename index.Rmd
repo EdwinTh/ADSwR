@@ -82,4 +82,4 @@ If you think there is still a misfit between your daily data science practice, p
 
 The following people contributed to this text, by suggesting improvements or doing pull requests. Thank you!
 
-Colin Fay(`@ColinFay`), Dilsher Singh Dhillon(`@dshelldhillon`), Jesse Tweedle(`@tweed1e`), Lorenz Walthert(`@lorenzwalthert`), Nathan Moore(`@nmoorenz`), Nic Fox(`@foxnic`)
+Arttu Kosonen(`@datarttu`), Colin Fay(`@ColinFay`), Dilsher Singh Dhillon(`@dshelldhillon`), Jesse Tweedle(`@tweed1e`), Lorenz Walthert(`@lorenzwalthert`), Nathan Moore(`@nmoorenz`), Nic Fox(`@foxnic`)

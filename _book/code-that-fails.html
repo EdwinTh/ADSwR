@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Code that Fails | Agile Data Science with R</title>
+  <meta name="description" content="A workflow for doing data science in the R language, using Agile principles." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Code that Fails | Agile Data Science with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A workflow for doing data science in the R language, using Agile principles." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Code that Fails | Agile Data Science with R" />
+  
+  <meta name="twitter:description" content="A workflow for doing data science in the R language, using Agile principles." />
+  
+
+<meta name="author" content="Edwin Thoen" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="automation.html">
+<link rel="next" href="versioning.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Working without a Workflow</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-this-text-is-about"><i class="fa fa-check"></i><b>1.1</b> What this Text is About</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#limitations"><i class="fa fa-check"></i><b>1.2</b> Limitations</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#intended-audience"><i class="fa fa-check"></i><b>1.3</b> Intended Audience</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i><b>1.4</b> Contributors</a></li>
+</ul></li>
+<li class="part"><span><b>I Agile Data Science…</b></span></li>
+<li class="chapter" data-level="2" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html"><i class="fa fa-check"></i><b>2</b> Agile in a Nutshell</a><ul>
+<li class="chapter" data-level="2.1" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html#the-origins-of-agile"><i class="fa fa-check"></i><b>2.1</b> The Origins of Agile</a></li>
+<li class="chapter" data-level="2.2" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html#the-manifesto"><i class="fa fa-check"></i><b>2.2</b> The Manifesto</a></li>
+<li class="chapter" data-level="2.3" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html#the-twelve-principles"><i class="fa fa-check"></i><b>2.3</b> The Twelve Principles</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="agile-methods.html"><a href="agile-methods.html"><i class="fa fa-check"></i><b>3</b> Agile Methods</a><ul>
+<li class="chapter" data-level="3.1" data-path="agile-methods.html"><a href="agile-methods.html#scrum"><i class="fa fa-check"></i><b>3.1</b> Scrum</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="agile-methods.html"><a href="agile-methods.html#scrum-roles"><i class="fa fa-check"></i><b>3.1.1</b> Scrum Roles</a></li>
+<li class="chapter" data-level="3.1.2" data-path="agile-methods.html"><a href="agile-methods.html#ceremonies"><i class="fa fa-check"></i><b>3.1.2</b> Ceremonies</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="agile-methods.html"><a href="agile-methods.html#kanban"><i class="fa fa-check"></i><b>3.2</b> Kanban</a></li>
+<li class="chapter" data-level="3.3" data-path="agile-methods.html"><a href="agile-methods.html#scrum-vs-kanban"><i class="fa fa-check"></i><b>3.3</b> Scrum vs Kanban</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="agile-data-science.html"><a href="agile-data-science.html"><i class="fa fa-check"></i><b>4</b> Agile Data Science</a><ul>
+<li class="chapter" data-level="4.1" data-path="agile-data-science.html"><a href="agile-data-science.html#data-science-waterfall"><i class="fa fa-check"></i><b>4.1</b> Data Science <em>Waterfall</em></a></li>
+<li class="chapter" data-level="4.2" data-path="agile-data-science.html"><a href="agile-data-science.html#the-twelve-principle-in-the-data-science-context"><i class="fa fa-check"></i><b>4.2</b> The Twelve Principle in the Data Science Context</a></li>
+<li class="chapter" data-level="4.3" data-path="agile-data-science.html"><a href="agile-data-science.html#in-summary"><i class="fa fa-check"></i><b>4.3</b> In Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html"><i class="fa fa-check"></i><b>5</b> A Methodology for Agile Data Science</a><ul>
+<li class="chapter" data-level="5.1" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#linear-and-circular-tasks"><i class="fa fa-check"></i><b>5.1</b> Linear and Circular Tasks</a></li>
+<li class="chapter" data-level="5.2" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#a-two-way-workflow-for-development"><i class="fa fa-check"></i><b>5.2</b> A Two-Way Workflow for Development</a></li>
+<li class="chapter" data-level="5.3" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#formulating-tasks"><i class="fa fa-check"></i><b>5.3</b> Formulating Tasks</a></li>
+<li class="chapter" data-level="5.4" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#using-kanban-for-data-science"><i class="fa fa-check"></i><b>5.4</b> Using Kanban for Data Science</a></li>
+<li class="chapter" data-level="5.5" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#scoping-tasks"><i class="fa fa-check"></i><b>5.5</b> Scoping Tasks</a></li>
+<li class="chapter" data-level="5.6" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#the-product-owner-role"><i class="fa fa-check"></i><b>5.6</b> The Product Owner Role</a></li>
+</ul></li>
+<li class="part"><span><b>II …with R</b></span></li>
+<li class="chapter" data-level="6" data-path="code-organsation.html"><a href="code-organsation.html"><i class="fa fa-check"></i><b>6</b> Code Organsation</a><ul>
+<li class="chapter" data-level="6.1" data-path="code-organsation.html"><a href="code-organsation.html#using-the-r-package-structure"><i class="fa fa-check"></i><b>6.1</b> Using the R Package Structure</a></li>
+<li class="chapter" data-level="6.2" data-path="code-organsation.html"><a href="code-organsation.html#further-reading"><i class="fa fa-check"></i><b>6.2</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="automation.html"><a href="automation.html"><i class="fa fa-check"></i><b>7</b> Automation</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="automation.html"><a href="automation.html#efficiency"><i class="fa fa-check"></i><b>7.0.1</b> Efficiency</a></li>
+<li class="chapter" data-level="7.0.2" data-path="automation.html"><a href="automation.html#automation-is-documentation"><i class="fa fa-check"></i><b>7.0.2</b> Automation is Documentation</a></li>
+<li class="chapter" data-level="7.0.3" data-path="automation.html"><a href="automation.html#reproducibility"><i class="fa fa-check"></i><b>7.0.3</b> Reproducibility</a></li>
+<li class="chapter" data-level="7.1" data-path="automation.html"><a href="automation.html#how-to-automate"><i class="fa fa-check"></i><b>7.1</b> How to Automate</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="code-that-fails.html"><a href="code-that-fails.html"><i class="fa fa-check"></i><b>8</b> Code that Fails</a><ul>
+<li class="chapter" data-level="8.1" data-path="code-that-fails.html"><a href="code-that-fails.html#assumptions-to-your-data"><i class="fa fa-check"></i><b>8.1</b> Assumptions to your Data</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="code-that-fails.html"><a href="code-that-fails.html#type-checking"><i class="fa fa-check"></i><b>8.1.1</b> Type Checking</a></li>
+<li class="chapter" data-level="8.1.2" data-path="code-that-fails.html"><a href="code-that-fails.html#column-validation"><i class="fa fa-check"></i><b>8.1.2</b> Column Validation</a></li>
+<li class="chapter" data-level="8.1.3" data-path="code-that-fails.html"><a href="code-that-fails.html#data-validation"><i class="fa fa-check"></i><b>8.1.3</b> Data Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="code-that-fails.html"><a href="code-that-fails.html#unit-testing"><i class="fa fa-check"></i><b>8.2</b> Unit Testing</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="code-that-fails.html"><a href="code-that-fails.html#externalising-assumptions"><i class="fa fa-check"></i><b>8.2.1</b> Externalising Assumptions</a></li>
+<li class="chapter" data-level="8.2.2" data-path="code-that-fails.html"><a href="code-that-fails.html#writing-better-code"><i class="fa fa-check"></i><b>8.2.2</b> Writing Better Code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="versioning.html"><a href="versioning.html"><i class="fa fa-check"></i><b>9</b> Versioning</a><ul>
+<li class="chapter" data-level="9.1" data-path="versioning.html"><a href="versioning.html#old-code"><i class="fa fa-check"></i><b>9.1</b> Old Code</a></li>
+<li class="chapter" data-level="9.2" data-path="versioning.html"><a href="versioning.html#version-control"><i class="fa fa-check"></i><b>9.2</b> Version Control</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="versioning.html"><a href="versioning.html#master-is-production"><i class="fa fa-check"></i><b>9.2.1</b> Master is Production</a></li>
+<li class="chapter" data-level="9.2.2" data-path="versioning.html"><a href="versioning.html#working-together"><i class="fa fa-check"></i><b>9.2.2</b> Working Together</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="exploratory-tasks.html"><a href="exploratory-tasks.html"><i class="fa fa-check"></i><b>10</b> Exploratory Tasks</a><ul>
+<li class="chapter" data-level="10.1" data-path="exploratory-tasks.html"><a href="exploratory-tasks.html#unreproducible-research"><i class="fa fa-check"></i><b>10.1</b> (Un)Reproducible Research</a></li>
+</ul></li>
+<li class="part"><span><b>III Miscellaneous</b></span></li>
+<li class="chapter" data-level="11" data-path="tldr.html"><a href="tldr.html"><i class="fa fa-check"></i><b>11</b> TL;DR</a></li>
+<li class="chapter" data-level="12" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html"><i class="fa fa-check"></i><b>12</b> Case Study: Building the <em>Valuecheck</em></a><ul>
+<li class="chapter" data-level="12.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#trying-scrum"><i class="fa fa-check"></i><b>12.1</b> Trying Scrum</a></li>
+<li class="chapter" data-level="12.2" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#informing-the-business"><i class="fa fa-check"></i><b>12.2</b> Informing the Business</a></li>
+<li class="chapter" data-level="12.3" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#moving-to-kanban"><i class="fa fa-check"></i><b>12.3</b> Moving to Kanban</a></li>
+<li class="chapter" data-level="12.4" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#building-an-mvm-for-the-mvp"><i class="fa fa-check"></i><b>12.4</b> Building an MVM for the MVP</a></li>
+<li class="chapter" data-level="12.5" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#improving-the-product"><i class="fa fa-check"></i><b>12.5</b> Improving the Product</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#interactivity"><i class="fa fa-check"></i><b>12.5.1</b> Interactivity</a></li>
+<li class="chapter" data-level="12.5.2" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#changing-the-model"><i class="fa fa-check"></i><b>12.5.2</b> Changing the Model</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#productionising-the-interactive-model"><i class="fa fa-check"></i><b>12.6</b> Productionising the Interactive Model</a></li>
+<li class="chapter" data-level="12.7" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#thank-you"><i class="fa fa-check"></i><b>12.7</b> Thank You!</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Agile Data Science with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="code-that-fails" class="section level1">
+<h1><span class="header-section-number">8</span> Code that Fails</h1>
+<p>Your code will fail.
+Not once, not twice, but hundreds, thousands of times over the course of a large data science project.
+Everybody’s code fails, many times.
+Your code, my code, Hadley Wickham’s code.
+Not because we are bad at what we do, but because we cannot foresee all the possible ways the code will be used or all the possible data inputs that the code will be confronted with at the moment we write it.
+Getting better at programming does not mean you will write fault-free code (although you will make fewer errors as you grow more experienced), but writing code that fails fast and informatively.
+Writing such code means that you will spend more time developing than with the <em>random walk</em> method described in the previous chapter.
+This is an investment that will pay off big time as your project grows in complexity.</p>
+<p>But before we look into how to write code that fails fast and informatively, why is this important for Agile Data Science?
+High quality code is part of the twelve principles, but this is a means to an end.
+The essence of Agile is continuous delivery.
+Updating and shipping your product every time you make progress can only be done when your code is adjustable.
+As the project advances, the end-to-end product will grow in complexity.
+Sooner rather than later it will reach a point in which you cannot have a full overview of all the aspects of the product anymore.
+When introducing a new feature you want to make sure all the other elements in the code base keep doing what they were designed for.
+If not, you want to be clearly informed of what is going wrong so you can either adjust the newly introduced feature or modify the existing elements so it works with the new feature.
+If every time you want to make a change the whole thing comes tumbling down without informing you what goes wrong, you cannot achieve the objective of fast, continuous delivery.</p>
+<div id="assumptions-to-your-data" class="section level2">
+<h2><span class="header-section-number">8.1</span> Assumptions to your Data</h2>
+<p>Automation means not calling functions yourself anymore.
+You just flip the switch and the whole thing is set in motion.
+This means that you no longer get the immediate feedback you are used to have when calling the functions yourself.
+When something goes wrong the whole thing just breaks with an error message.
+When you are lucky the error message is informative and you are quick to find the bug.
+When you are not, you may be confronted with <code>object of type 'closure' is not subsettable</code>, and you may have a grumpy afternoon ahead.
+Best to not depend on luck, but make sure you will always get a proper indication of what went wrong.</p>
+<div id="type-checking" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Type Checking</h3>
+<p>Most languages using functional programming are strongly typed.
+This means that for every argument that a function takes, its datatype is specified at function creation, as well as the datatype that the output takes.
+When the function is then called it is first checked if the data on which it is called is of the correct type.
+If not, it will break immediately and will tell the user why.
+R is weakly typed, the data type of the function arguments are not specified.
+When a function is called it just has a go on the objects that are fed to it.
+The function only breaks when somewhere in the body another function gets called with an invalid data type.
+Take the following for instance:</p>
+<pre class="sourceCode r"><code class="sourceCode r">add_two_numbers &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
+  <span class="kw">print</span>(<span class="st">&quot;Reaching this&quot;</span>)
+  <span class="kw">print</span>(<span class="st">&quot;and this&quot;</span>)
+  <span class="kw">print</span>(<span class="st">&quot;Doing some random other stuff&quot;</span>)
+  x <span class="op">+</span><span class="st"> </span>y
+}</code></pre>
+<p>Now, what will happen if we accidentally call it on a string?
+It will only break when we hit the <code>+</code> operator, all the code before it runs.
+The error message it gives us is not so informative that we immediately figure out what went wrong.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">add_two_numbers</span>(<span class="dv">42</span>, <span class="st">&quot;MacGyver&quot;</span>)</code></pre>
+<pre><code>## [1] &quot;Reaching this&quot;
+## [1] &quot;and this&quot;
+## [1] &quot;Doing some random other stuff&quot;</code></pre>
+<pre><code>## Error in x + y: non-numeric argument to binary operator</code></pre>
+<p>Pfff, what is a binary operator again?
+When this function is part of a framework in which higher order functions call lower order functions you may be up for an hour or two of sifting through your code to locate the bug.
+Fortunately type checking is very easily added to a function by asserting all argument data types in <code>stopifnot</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">add_two_numbers &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
+  <span class="kw">stopifnot</span>(<span class="kw">is.numeric</span>(x), <span class="kw">is.numeric</span>(y))
+  <span class="kw">print</span>(<span class="st">&quot;Reaching this&quot;</span>)
+  <span class="kw">print</span>(<span class="st">&quot;and this&quot;</span>)
+  <span class="kw">print</span>(<span class="st">&quot;Doing some random other stuff&quot;</span>)
+  x <span class="op">+</span><span class="st"> </span>y
+}
+
+<span class="kw">add_two_numbers</span>(<span class="dv">42</span>, <span class="st">&quot;MacGyver&quot;</span>)</code></pre>
+<pre><code>## Error in add_two_numbers(42, &quot;MacGyver&quot;): is.numeric(y) is not TRUE</code></pre>
+<p>We are now specifically informed which argument does not meet the assumptions and what the name of the sub function is.</p>
+</div>
+<div id="column-validation" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> Column Validation</h3>
+<p>Central to most data products will be the modification of data frames.
+Most functions you’ll create are very specific to your project and will be called only once.
+For these cases you probably want to save yourself the overhead of making each function completely generic by parameterising the column names that are used.
+Say you want to add the log of the target to the data frame and you create the following function:</p>
+<pre class="sourceCode r"><code class="sourceCode r">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="kw">stopifnot</span>(<span class="kw">is.data.frame</span>(x))
+  x<span class="op">$</span>target_log &lt;-<span class="st"> </span><span class="kw">log</span>(x<span class="op">$</span>target)
+  x
+}</code></pre>
+<p>Now what if <code>target</code> was mistakenly removed from <code>x</code> in the step preceding this one in the product?
+Will it throw an informative error?</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">add_log_target</span>(mtcars)</code></pre>
+<pre><code>## Error in log(x$target): non-numeric argument to mathematical function</code></pre>
+<p>Uhh, no, not exactly.
+It gives the impression we tried to call the function on a non-numeric object, while actually the object is completely missing.
+It is a good idea to check if all the columns that are required for the operations in the function are present before starting them.
+I use this little function:</p>
+<pre class="sourceCode r"><code class="sourceCode r">data_frame_with_col &lt;-<span class="st"> </span><span class="cf">function</span>(x, cols) {
+  parent_frame &lt;-<span class="st"> </span><span class="kw">sys.parent</span>()
+  calling_function &lt;-<span class="st"> </span><span class="kw">sys.call</span>(parent_frame)[[<span class="dv">1</span>]]
+  <span class="kw">stopifnot</span>(<span class="kw">is.data.frame</span>(x))
+  <span class="cf">if</span>(<span class="op">!</span><span class="kw">all</span>(cols <span class="op">%in%</span><span class="st"> </span><span class="kw">colnames</span>(x))) {
+    not_present &lt;-<span class="st"> </span><span class="kw">setdiff</span>(cols, <span class="kw">colnames</span>(x))
+    <span class="kw">stop</span>(<span class="kw">paste</span>(not_present, <span class="dt">collapse =</span> <span class="st">&quot;, &quot;</span>), <span class="st">&quot; missing from the data frame in function &quot;</span>, calling_function)
+  }
+}</code></pre>
+<p>which is added to each function that uses a data frame</p>
+<pre class="sourceCode r"><code class="sourceCode r">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="kw">df_has_cols</span>(x, <span class="st">&quot;target&quot;</span>, <span class="kw">match.call</span>())
+  x<span class="op">$</span>target_log &lt;-<span class="st"> </span><span class="kw">log</span>(x<span class="op">$</span>target)
+  x
+}
+<span class="kw">add_log_target</span>(mtcars)</code></pre>
+<pre><code>## Error in df_has_cols(x, &quot;target&quot;, match.call()): could not find function &quot;df_has_cols&quot;</code></pre>
+</div>
+<div id="data-validation" class="section level3">
+<h3><span class="header-section-number">8.1.3</span> Data Validation</h3>
+<p>Where the first two checks are about the type and structure of the inputs, data validation tests the assumptions to the data itself.
+Variables that cannot contain missing values, variables that must be strictly positive, or characters that can only take a limited number of values.
+If you have any such assumptions in your data, you do best to check them before you unleash internal functions on it.
+You could use external packages such as <code>validate</code> or <code>recipes</code>, or you can write them yourself.
+The <code>stopifnot</code> function can be used to check any assumption you have, as long as you can create a single logical for it.
+In the example below, since we are taking the log of <code>target</code> and it is the target variable it must be strictly positive and non-missing.</p>
+<pre class="sourceCode r"><code class="sourceCode r">add_log_target &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="kw">df_has_cols</span>(x, <span class="st">&quot;target&quot;</span>, <span class="kw">match.call</span>())
+  <span class="kw">stopifnot</span>(<span class="kw">all</span>(<span class="op">!</span><span class="kw">is.na</span>(x<span class="op">$</span>target)), <span class="kw">all</span>(x<span class="op">$</span>target <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>))
+  x<span class="op">$</span>target_log &lt;-<span class="st"> </span><span class="kw">log</span>(x<span class="op">$</span>target)
+  x
+}</code></pre>
+</div>
+</div>
+<div id="unit-testing" class="section level2">
+<h2><span class="header-section-number">8.2</span> Unit Testing</h2>
+<p>The above type checking, column validation, and data validation, test assumptions to the data going into the functions.
+To data scientists learning about these it usually makes a lot of sense, because most who worked on a larger product without these have been bitten quite a bit.
+Moreover, these measures are quick to implement by just inserting one or two lines of code at the beginning of a function.
+Unit testing your code does not come so naturally to data scientists, unless they have a background in software development.
+Writing unit tests might seem as a pointless and time consuming exercise at first.
+This is because its benefits are not immediately obvious to someone who never applied or used them.
+Still, you should make it part of your software development routine, even when you are the only one using the software you write.</p>
+<p>If you are unsure what unit tests are or how to do them in R, please read <a href="http://r-pkgs.had.co.nz/tests.html">the chapter in <em>R packages</em></a> carefully.</p>
+<div id="externalising-assumptions" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> Externalising Assumptions</h3>
+<p>Reading someone else’s code is demanding, even when written by an excellent programmer.
+At the moment of writing the programmer is fully submerged in the problem, accommodating for all the inputs she foresees the code can be confronted with.
+Reading her code is tough because you have to recover from it what the problems are it tried to solve.
+After you wrap up a part of the project and move on to work on something else, the wrapped up code quickly becomes as if written by someone else.
+Unit tests capture all the cases the programmer envisioned the unit of code should handle.
+It is a service to the future collaborator, who very well could be the same person, so she doesn’t have to mentally fight her way (back) into the code.
+As soon as something is changed in the function such that it no longer does everything it was designed to do, the unit test informs us.
+A workflow without unit tests means that changes to code need to be interactively checked against, as was done when the code was written.
+The code fails, but it might be unclear why it fails, leaving the programmer with quite a puzzle.
+An even worse scenario would be if the code does not fail, for now.
+The exception that should be handled happens not to be in the data that is used to interactively check the modification.
+All seems fine and the code is adjusted.
+Then when the edge case does appear again in the data the product breaks mysteriously.</p>
+<p>From the above it should be clear that to work in an Agile way automated code testing should be in place.
+Agile’s core objective, continuous delivery, can only be obtained if modifications to the product can be made quickly.
+Omitting testing will result in <em>fingers crossed programming</em>, which is neither effective nor fun.
+At first it might seem that skipping unit tests will get you to delivery faster.
+However, as time progresses and the product grows in complexity, a unit tester will be able to keep the same steady pace in delivering new features, where the system of those who cut corners will start grinding to a halt because they have to keep digging in old code that no longer works because of the newly introduced features.</p>
+<p>In the visual representation of building a data science product below each feature to be added is represented by a color.
+On top is the data scientist who does unit test, below the one who doesn’t.
+The unit tester takes quite some time to implement the first two features, the non-unit tester delivers them quicker.
+After implementing the third feature, however, some code that was written for the first feature keeps failing and he doesn’t know why.
+When the fourth is implemented, these problems arise again, in a slightly different form.
+When he finally manages to control it the code of the fourth feature gets unstable, asking for his attention.
+Meanwhile, the unit tester soldiers on.
+Sometimes she needs to make small adjustments to the old features, to make them click with new ones.
+In general however, she can uphold Agile’s promise of continuous, equally paced, delivery.</p>
+<div class="figure"><span id="fig:unnamed-chunk-11"></span>
+<img src="images/unit_testing.png" alt="Time line for developing a product with (top) and without (below) unit tests"  />
+<p class="caption">
+Figure 8.1: Time line for developing a product with (top) and without (below) unit tests
+</p>
+</div>
+<p>Of course this example is contrived.
+After adding a new feature it gradually blends into the code base of the product.
+You will probably not say “I am going to revisit feature 2 now”, but rather “I will look into this error that keeps showing up now and then when we run it on new data”.
+Still, I think it is a good idea to keep this picture in mind, use unit tests and you won’t be solving the same problems over and over again.</p>
+</div>
+<div id="writing-better-code" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> Writing Better Code</h3>
+<p>An additional benefit of unit testing is that it will improve the code quality directly.
+A point also made by Hadley Wickham in the first section of <a href="http://r-pkgs.had.co.nz/tests.html">the chapter on unit testing</a>.
+In order to be unit testable the code should comprised of many small parts, instead of big chunks.
+Like a broken machine that is easier to fix when components can be replaced separately, code comprised of many small components is easier to debug, optimise and maintain.</p>
+<p>The main reason people are not eager to write unit tests, because at first sight it seems redundant and time consuming work.
+I hope by now you are convinced it is certainly not redundant.
+As you get the hang of it, you will notice that being slowed down does actually make you stop and think.
+What are the edge cases that this function can meet and how do you want it to behave when it does?
+By thinking through the scenarios before you put the function to work you can circumvent many problems upfront.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="automation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="versioning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

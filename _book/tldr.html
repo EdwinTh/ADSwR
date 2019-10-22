@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 TL;DR | Agile Data Science with R</title>
+  <meta name="description" content="A workflow for doing data science in the R language, using Agile principles." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 TL;DR | Agile Data Science with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A workflow for doing data science in the R language, using Agile principles." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 TL;DR | Agile Data Science with R" />
+  
+  <meta name="twitter:description" content="A workflow for doing data science in the R language, using Agile principles." />
+  
+
+<meta name="author" content="Edwin Thoen" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="exploratory-tasks.html">
+<link rel="next" href="case-study-building-the-valuecheck.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Working without a Workflow</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-this-text-is-about"><i class="fa fa-check"></i><b>1.1</b> What this Text is About</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#limitations"><i class="fa fa-check"></i><b>1.2</b> Limitations</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#intended-audience"><i class="fa fa-check"></i><b>1.3</b> Intended Audience</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i><b>1.4</b> Contributors</a></li>
+</ul></li>
+<li class="part"><span><b>I Agile Data Science…</b></span></li>
+<li class="chapter" data-level="2" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html"><i class="fa fa-check"></i><b>2</b> Agile in a Nutshell</a><ul>
+<li class="chapter" data-level="2.1" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html#the-origins-of-agile"><i class="fa fa-check"></i><b>2.1</b> The Origins of Agile</a></li>
+<li class="chapter" data-level="2.2" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html#the-manifesto"><i class="fa fa-check"></i><b>2.2</b> The Manifesto</a></li>
+<li class="chapter" data-level="2.3" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html#the-twelve-principles"><i class="fa fa-check"></i><b>2.3</b> The Twelve Principles</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="agile-methods.html"><a href="agile-methods.html"><i class="fa fa-check"></i><b>3</b> Agile Methods</a><ul>
+<li class="chapter" data-level="3.1" data-path="agile-methods.html"><a href="agile-methods.html#scrum"><i class="fa fa-check"></i><b>3.1</b> Scrum</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="agile-methods.html"><a href="agile-methods.html#scrum-roles"><i class="fa fa-check"></i><b>3.1.1</b> Scrum Roles</a></li>
+<li class="chapter" data-level="3.1.2" data-path="agile-methods.html"><a href="agile-methods.html#ceremonies"><i class="fa fa-check"></i><b>3.1.2</b> Ceremonies</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="agile-methods.html"><a href="agile-methods.html#kanban"><i class="fa fa-check"></i><b>3.2</b> Kanban</a></li>
+<li class="chapter" data-level="3.3" data-path="agile-methods.html"><a href="agile-methods.html#scrum-vs-kanban"><i class="fa fa-check"></i><b>3.3</b> Scrum vs Kanban</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="agile-data-science.html"><a href="agile-data-science.html"><i class="fa fa-check"></i><b>4</b> Agile Data Science</a><ul>
+<li class="chapter" data-level="4.1" data-path="agile-data-science.html"><a href="agile-data-science.html#data-science-waterfall"><i class="fa fa-check"></i><b>4.1</b> Data Science <em>Waterfall</em></a></li>
+<li class="chapter" data-level="4.2" data-path="agile-data-science.html"><a href="agile-data-science.html#the-twelve-principle-in-the-data-science-context"><i class="fa fa-check"></i><b>4.2</b> The Twelve Principle in the Data Science Context</a></li>
+<li class="chapter" data-level="4.3" data-path="agile-data-science.html"><a href="agile-data-science.html#in-summary"><i class="fa fa-check"></i><b>4.3</b> In Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html"><i class="fa fa-check"></i><b>5</b> A Methodology for Agile Data Science</a><ul>
+<li class="chapter" data-level="5.1" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#linear-and-circular-tasks"><i class="fa fa-check"></i><b>5.1</b> Linear and Circular Tasks</a></li>
+<li class="chapter" data-level="5.2" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#a-two-way-workflow-for-development"><i class="fa fa-check"></i><b>5.2</b> A Two-Way Workflow for Development</a></li>
+<li class="chapter" data-level="5.3" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#formulating-tasks"><i class="fa fa-check"></i><b>5.3</b> Formulating Tasks</a></li>
+<li class="chapter" data-level="5.4" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#using-kanban-for-data-science"><i class="fa fa-check"></i><b>5.4</b> Using Kanban for Data Science</a></li>
+<li class="chapter" data-level="5.5" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#scoping-tasks"><i class="fa fa-check"></i><b>5.5</b> Scoping Tasks</a></li>
+<li class="chapter" data-level="5.6" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#the-product-owner-role"><i class="fa fa-check"></i><b>5.6</b> The Product Owner Role</a></li>
+</ul></li>
+<li class="part"><span><b>II …with R</b></span></li>
+<li class="chapter" data-level="6" data-path="code-organsation.html"><a href="code-organsation.html"><i class="fa fa-check"></i><b>6</b> Code Organsation</a><ul>
+<li class="chapter" data-level="6.1" data-path="code-organsation.html"><a href="code-organsation.html#using-the-r-package-structure"><i class="fa fa-check"></i><b>6.1</b> Using the R Package Structure</a></li>
+<li class="chapter" data-level="6.2" data-path="code-organsation.html"><a href="code-organsation.html#further-reading"><i class="fa fa-check"></i><b>6.2</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="automation.html"><a href="automation.html"><i class="fa fa-check"></i><b>7</b> Automation</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="automation.html"><a href="automation.html#efficiency"><i class="fa fa-check"></i><b>7.0.1</b> Efficiency</a></li>
+<li class="chapter" data-level="7.0.2" data-path="automation.html"><a href="automation.html#automation-is-documentation"><i class="fa fa-check"></i><b>7.0.2</b> Automation is Documentation</a></li>
+<li class="chapter" data-level="7.0.3" data-path="automation.html"><a href="automation.html#reproducibility"><i class="fa fa-check"></i><b>7.0.3</b> Reproducibility</a></li>
+<li class="chapter" data-level="7.1" data-path="automation.html"><a href="automation.html#how-to-automate"><i class="fa fa-check"></i><b>7.1</b> How to Automate</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="code-that-fails.html"><a href="code-that-fails.html"><i class="fa fa-check"></i><b>8</b> Code that Fails</a><ul>
+<li class="chapter" data-level="8.1" data-path="code-that-fails.html"><a href="code-that-fails.html#assumptions-to-your-data"><i class="fa fa-check"></i><b>8.1</b> Assumptions to your Data</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="code-that-fails.html"><a href="code-that-fails.html#type-checking"><i class="fa fa-check"></i><b>8.1.1</b> Type Checking</a></li>
+<li class="chapter" data-level="8.1.2" data-path="code-that-fails.html"><a href="code-that-fails.html#column-validation"><i class="fa fa-check"></i><b>8.1.2</b> Column Validation</a></li>
+<li class="chapter" data-level="8.1.3" data-path="code-that-fails.html"><a href="code-that-fails.html#data-validation"><i class="fa fa-check"></i><b>8.1.3</b> Data Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="code-that-fails.html"><a href="code-that-fails.html#unit-testing"><i class="fa fa-check"></i><b>8.2</b> Unit Testing</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="code-that-fails.html"><a href="code-that-fails.html#externalising-assumptions"><i class="fa fa-check"></i><b>8.2.1</b> Externalising Assumptions</a></li>
+<li class="chapter" data-level="8.2.2" data-path="code-that-fails.html"><a href="code-that-fails.html#writing-better-code"><i class="fa fa-check"></i><b>8.2.2</b> Writing Better Code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="versioning.html"><a href="versioning.html"><i class="fa fa-check"></i><b>9</b> Versioning</a><ul>
+<li class="chapter" data-level="9.1" data-path="versioning.html"><a href="versioning.html#old-code"><i class="fa fa-check"></i><b>9.1</b> Old Code</a></li>
+<li class="chapter" data-level="9.2" data-path="versioning.html"><a href="versioning.html#version-control"><i class="fa fa-check"></i><b>9.2</b> Version Control</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="versioning.html"><a href="versioning.html#master-is-production"><i class="fa fa-check"></i><b>9.2.1</b> Master is Production</a></li>
+<li class="chapter" data-level="9.2.2" data-path="versioning.html"><a href="versioning.html#working-together"><i class="fa fa-check"></i><b>9.2.2</b> Working Together</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="exploratory-tasks.html"><a href="exploratory-tasks.html"><i class="fa fa-check"></i><b>10</b> Exploratory Tasks</a><ul>
+<li class="chapter" data-level="10.1" data-path="exploratory-tasks.html"><a href="exploratory-tasks.html#unreproducible-research"><i class="fa fa-check"></i><b>10.1</b> (Un)Reproducible Research</a></li>
+</ul></li>
+<li class="part"><span><b>III Miscellaneous</b></span></li>
+<li class="chapter" data-level="11" data-path="tldr.html"><a href="tldr.html"><i class="fa fa-check"></i><b>11</b> TL;DR</a></li>
+<li class="chapter" data-level="12" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html"><i class="fa fa-check"></i><b>12</b> Case Study: Building the <em>Valuecheck</em></a><ul>
+<li class="chapter" data-level="12.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#trying-scrum"><i class="fa fa-check"></i><b>12.1</b> Trying Scrum</a></li>
+<li class="chapter" data-level="12.2" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#informing-the-business"><i class="fa fa-check"></i><b>12.2</b> Informing the Business</a></li>
+<li class="chapter" data-level="12.3" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#moving-to-kanban"><i class="fa fa-check"></i><b>12.3</b> Moving to Kanban</a></li>
+<li class="chapter" data-level="12.4" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#building-an-mvm-for-the-mvp"><i class="fa fa-check"></i><b>12.4</b> Building an MVM for the MVP</a></li>
+<li class="chapter" data-level="12.5" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#improving-the-product"><i class="fa fa-check"></i><b>12.5</b> Improving the Product</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#interactivity"><i class="fa fa-check"></i><b>12.5.1</b> Interactivity</a></li>
+<li class="chapter" data-level="12.5.2" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#changing-the-model"><i class="fa fa-check"></i><b>12.5.2</b> Changing the Model</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#productionising-the-interactive-model"><i class="fa fa-check"></i><b>12.6</b> Productionising the Interactive Model</a></li>
+<li class="chapter" data-level="12.7" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#thank-you"><i class="fa fa-check"></i><b>12.7</b> Thank You!</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Agile Data Science with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tldr" class="section level1">
+<h1><span class="header-section-number">11</span> TL;DR</h1>
+<p>A bullet point overview of this text:</p>
+<p>Chapter 2</p>
+<ul>
+<li>Agile is a reaction to Waterfall, the standard for doing software development up until the nineties.</li>
+<li>Waterfall is often slow, projects can take years to finish.</li>
+<li>Agile wants to deliver software continuously, then improve it constantly, instead of one big delivery.</li>
+<li>The <em>Agile Manifesto</em> is a set of four values and twelve principles.</li>
+</ul>
+<p>Chapter 3</p>
+<ul>
+<li>Workflows are serving the Agile philosophy and are not holy, change them if they don’t serve you.</li>
+<li>Scrum works with <em>sprints</em>, in which the team commits to a set of tasks to complete in that time.</li>
+<li>Scrum tasks are formulated in <em>user stories</em>, that make clear how the completion of it adds value.</li>
+<li>In Kanban tasks are gathered on a backlog, the most important task is done next.</li>
+<li>Central metric is the <em>cycle time</em>, how long does it last on average to complete a task.</li>
+<li>Scrum is strict in its commitments and ceremonies, Kanban is flexible.</li>
+</ul>
+<p>Chapter 4</p>
+<ul>
+<li>Ineffective workflows are one of the causes that many data science projects are currently failing.</li>
+<li>Early delivery of a minimal product or model will keep stakeholders excited, will make you fail fast and will get you feedback sooner.</li>
+<li>You should work closely with business people, if you want to work effectively.</li>
+<li>Every possible improvement to the product should be deployed right away.</li>
+<li>Improvements only count when they have left your system and others can benefit from it.</li>
+<li>Adopt the best practices from software engineering to your data project to assure high-quality code.</li>
+<li>Continuously reflect on the effectiveness of the workflow you are following.</li>
+</ul>
+<p>Chapter 5</p>
+<ul>
+<li>Data science is different from regular software engineering, because it needs to exploit yet to be discovered relationships in the data.</li>
+<li>This makes it unfeasible to give a tight planning on what will change to the product, as is done in Scrum.</li>
+<li>A two-way workflow is proposed in which a hard split is made between the <em>product</em> and <em>exploratory research</em>.</li>
+<li>Tasks are added to a Kanban board and are limited on doing exploration or changing the product.</li>
+<li>For exploration it might be a good idea to scope tasks as the amount of time a data scientist can spend on it.</li>
+<li>If there is a need for exploring the subject more after it, create a new task for it.</li>
+<li>Working Agile is what matters, not adhering to a specific process. If something does not work for your product, change it immediately.</li>
+</ul>
+<p>Chapter 6</p>
+<ul>
+<li>The R package structure is very suitable to organise a two-way workflow with exploration and product.</li>
+<li>Create low level and meta functions in the package, apply in a pipeline.</li>
+<li>Use Rmarkdown in the Vignettes folder to do data explorations.</li>
+</ul>
+<p>Chapter 7</p>
+<ul>
+<li>The data product should be automated as much as possible.</li>
+<li>Automation saves time and energy in the long run, because the data scientist does not have to rerun the same thing over and over.</li>
+<li>Automation serves as documentation, because it makes clear how the product pieces play together.</li>
+<li>Automation assures reproducibility, if it is not reproducible it will not run.</li>
+<li>R has the fantastic <code>drake</code> package for automation.</li>
+</ul>
+<p>Chapter 8</p>
+<ul>
+<li>Code should fail fast and informatively if you want to be able to continuously deliver.</li>
+<li>Because R is weakly typed it is a good idea to implement type checking at the start of functions.</li>
+<li>If your function depends on the presence of certain columns in a data frame, check for it at the start of the function.</li>
+<li>It is also a good idea to check all the implicit assumptions you have to the possible values of your data.</li>
+<li>The short term investments for unit testing pay off in the long run.</li>
+<li>Unit tests capture all the assumptions the programmer had at the moment of writing the code. They are an externalised memory of all the cases your code should handle.</li>
+<li>Because unit testing will slow you down and have you think through all possible situations, it will make you write better code right away.</li>
+</ul>
+<p>Chapter 9</p>
+<ul>
+<li>Use versioning for the data product, increment the version number each time the product is meaningfully changed.</li>
+<li>Delete code that is no longer part of the product, use version control for versioning instead of your code base.</li>
+<li>Use branches to change the product. Get a “merge into master is pushing to production” mindset.</li>
+<li>Research branches should not contain changes to the product, so they can be merged to master without creating a new version.</li>
+<li><p>Using branches is essential if you work with multiple data scientists on a project at the same time.
+Chapter 10</p></li>
+<li>It will take a lot of effort to keep old research results in the vignettes reproducible as the project progresses. It is up to the data scientist and the project specifics if this is considered as a problem or not.</li>
+<li><p>You could number your research scripts to the version of the data product at that moment. You can rollback the code if you have to rerun the analysis.</p></li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="exploratory-tasks.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="case-study-building-the-valuecheck.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

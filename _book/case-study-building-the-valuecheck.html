@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>12 Case Study: Building the Valuecheck | Agile Data Science with R</title>
+  <meta name="description" content="A workflow for doing data science in the R language, using Agile principles." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="12 Case Study: Building the Valuecheck | Agile Data Science with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A workflow for doing data science in the R language, using Agile principles." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="12 Case Study: Building the Valuecheck | Agile Data Science with R" />
+  
+  <meta name="twitter:description" content="A workflow for doing data science in the R language, using Agile principles." />
+  
+
+<meta name="author" content="Edwin Thoen" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tldr.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Working without a Workflow</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-this-text-is-about"><i class="fa fa-check"></i><b>1.1</b> What this Text is About</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#limitations"><i class="fa fa-check"></i><b>1.2</b> Limitations</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#intended-audience"><i class="fa fa-check"></i><b>1.3</b> Intended Audience</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i><b>1.4</b> Contributors</a></li>
+</ul></li>
+<li class="part"><span><b>I Agile Data Science…</b></span></li>
+<li class="chapter" data-level="2" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html"><i class="fa fa-check"></i><b>2</b> Agile in a Nutshell</a><ul>
+<li class="chapter" data-level="2.1" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html#the-origins-of-agile"><i class="fa fa-check"></i><b>2.1</b> The Origins of Agile</a></li>
+<li class="chapter" data-level="2.2" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html#the-manifesto"><i class="fa fa-check"></i><b>2.2</b> The Manifesto</a></li>
+<li class="chapter" data-level="2.3" data-path="agile-in-a-nutshell.html"><a href="agile-in-a-nutshell.html#the-twelve-principles"><i class="fa fa-check"></i><b>2.3</b> The Twelve Principles</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="agile-methods.html"><a href="agile-methods.html"><i class="fa fa-check"></i><b>3</b> Agile Methods</a><ul>
+<li class="chapter" data-level="3.1" data-path="agile-methods.html"><a href="agile-methods.html#scrum"><i class="fa fa-check"></i><b>3.1</b> Scrum</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="agile-methods.html"><a href="agile-methods.html#scrum-roles"><i class="fa fa-check"></i><b>3.1.1</b> Scrum Roles</a></li>
+<li class="chapter" data-level="3.1.2" data-path="agile-methods.html"><a href="agile-methods.html#ceremonies"><i class="fa fa-check"></i><b>3.1.2</b> Ceremonies</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="agile-methods.html"><a href="agile-methods.html#kanban"><i class="fa fa-check"></i><b>3.2</b> Kanban</a></li>
+<li class="chapter" data-level="3.3" data-path="agile-methods.html"><a href="agile-methods.html#scrum-vs-kanban"><i class="fa fa-check"></i><b>3.3</b> Scrum vs Kanban</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="agile-data-science.html"><a href="agile-data-science.html"><i class="fa fa-check"></i><b>4</b> Agile Data Science</a><ul>
+<li class="chapter" data-level="4.1" data-path="agile-data-science.html"><a href="agile-data-science.html#data-science-waterfall"><i class="fa fa-check"></i><b>4.1</b> Data Science <em>Waterfall</em></a></li>
+<li class="chapter" data-level="4.2" data-path="agile-data-science.html"><a href="agile-data-science.html#the-twelve-principle-in-the-data-science-context"><i class="fa fa-check"></i><b>4.2</b> The Twelve Principle in the Data Science Context</a></li>
+<li class="chapter" data-level="4.3" data-path="agile-data-science.html"><a href="agile-data-science.html#in-summary"><i class="fa fa-check"></i><b>4.3</b> In Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html"><i class="fa fa-check"></i><b>5</b> A Methodology for Agile Data Science</a><ul>
+<li class="chapter" data-level="5.1" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#linear-and-circular-tasks"><i class="fa fa-check"></i><b>5.1</b> Linear and Circular Tasks</a></li>
+<li class="chapter" data-level="5.2" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#a-two-way-workflow-for-development"><i class="fa fa-check"></i><b>5.2</b> A Two-Way Workflow for Development</a></li>
+<li class="chapter" data-level="5.3" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#formulating-tasks"><i class="fa fa-check"></i><b>5.3</b> Formulating Tasks</a></li>
+<li class="chapter" data-level="5.4" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#using-kanban-for-data-science"><i class="fa fa-check"></i><b>5.4</b> Using Kanban for Data Science</a></li>
+<li class="chapter" data-level="5.5" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#scoping-tasks"><i class="fa fa-check"></i><b>5.5</b> Scoping Tasks</a></li>
+<li class="chapter" data-level="5.6" data-path="a-methodology-for-agile-data-science.html"><a href="a-methodology-for-agile-data-science.html#the-product-owner-role"><i class="fa fa-check"></i><b>5.6</b> The Product Owner Role</a></li>
+</ul></li>
+<li class="part"><span><b>II …with R</b></span></li>
+<li class="chapter" data-level="6" data-path="code-organsation.html"><a href="code-organsation.html"><i class="fa fa-check"></i><b>6</b> Code Organsation</a><ul>
+<li class="chapter" data-level="6.1" data-path="code-organsation.html"><a href="code-organsation.html#using-the-r-package-structure"><i class="fa fa-check"></i><b>6.1</b> Using the R Package Structure</a></li>
+<li class="chapter" data-level="6.2" data-path="code-organsation.html"><a href="code-organsation.html#further-reading"><i class="fa fa-check"></i><b>6.2</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="automation.html"><a href="automation.html"><i class="fa fa-check"></i><b>7</b> Automation</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="automation.html"><a href="automation.html#efficiency"><i class="fa fa-check"></i><b>7.0.1</b> Efficiency</a></li>
+<li class="chapter" data-level="7.0.2" data-path="automation.html"><a href="automation.html#automation-is-documentation"><i class="fa fa-check"></i><b>7.0.2</b> Automation is Documentation</a></li>
+<li class="chapter" data-level="7.0.3" data-path="automation.html"><a href="automation.html#reproducibility"><i class="fa fa-check"></i><b>7.0.3</b> Reproducibility</a></li>
+<li class="chapter" data-level="7.1" data-path="automation.html"><a href="automation.html#how-to-automate"><i class="fa fa-check"></i><b>7.1</b> How to Automate</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="code-that-fails.html"><a href="code-that-fails.html"><i class="fa fa-check"></i><b>8</b> Code that Fails</a><ul>
+<li class="chapter" data-level="8.1" data-path="code-that-fails.html"><a href="code-that-fails.html#assumptions-to-your-data"><i class="fa fa-check"></i><b>8.1</b> Assumptions to your Data</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="code-that-fails.html"><a href="code-that-fails.html#type-checking"><i class="fa fa-check"></i><b>8.1.1</b> Type Checking</a></li>
+<li class="chapter" data-level="8.1.2" data-path="code-that-fails.html"><a href="code-that-fails.html#column-validation"><i class="fa fa-check"></i><b>8.1.2</b> Column Validation</a></li>
+<li class="chapter" data-level="8.1.3" data-path="code-that-fails.html"><a href="code-that-fails.html#data-validation"><i class="fa fa-check"></i><b>8.1.3</b> Data Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="code-that-fails.html"><a href="code-that-fails.html#unit-testing"><i class="fa fa-check"></i><b>8.2</b> Unit Testing</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="code-that-fails.html"><a href="code-that-fails.html#externalising-assumptions"><i class="fa fa-check"></i><b>8.2.1</b> Externalising Assumptions</a></li>
+<li class="chapter" data-level="8.2.2" data-path="code-that-fails.html"><a href="code-that-fails.html#writing-better-code"><i class="fa fa-check"></i><b>8.2.2</b> Writing Better Code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="versioning.html"><a href="versioning.html"><i class="fa fa-check"></i><b>9</b> Versioning</a><ul>
+<li class="chapter" data-level="9.1" data-path="versioning.html"><a href="versioning.html#old-code"><i class="fa fa-check"></i><b>9.1</b> Old Code</a></li>
+<li class="chapter" data-level="9.2" data-path="versioning.html"><a href="versioning.html#version-control"><i class="fa fa-check"></i><b>9.2</b> Version Control</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="versioning.html"><a href="versioning.html#master-is-production"><i class="fa fa-check"></i><b>9.2.1</b> Master is Production</a></li>
+<li class="chapter" data-level="9.2.2" data-path="versioning.html"><a href="versioning.html#working-together"><i class="fa fa-check"></i><b>9.2.2</b> Working Together</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="exploratory-tasks.html"><a href="exploratory-tasks.html"><i class="fa fa-check"></i><b>10</b> Exploratory Tasks</a><ul>
+<li class="chapter" data-level="10.1" data-path="exploratory-tasks.html"><a href="exploratory-tasks.html#unreproducible-research"><i class="fa fa-check"></i><b>10.1</b> (Un)Reproducible Research</a></li>
+</ul></li>
+<li class="part"><span><b>III Miscellaneous</b></span></li>
+<li class="chapter" data-level="11" data-path="tldr.html"><a href="tldr.html"><i class="fa fa-check"></i><b>11</b> TL;DR</a></li>
+<li class="chapter" data-level="12" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html"><i class="fa fa-check"></i><b>12</b> Case Study: Building the <em>Valuecheck</em></a><ul>
+<li class="chapter" data-level="12.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#trying-scrum"><i class="fa fa-check"></i><b>12.1</b> Trying Scrum</a></li>
+<li class="chapter" data-level="12.2" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#informing-the-business"><i class="fa fa-check"></i><b>12.2</b> Informing the Business</a></li>
+<li class="chapter" data-level="12.3" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#moving-to-kanban"><i class="fa fa-check"></i><b>12.3</b> Moving to Kanban</a></li>
+<li class="chapter" data-level="12.4" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#building-an-mvm-for-the-mvp"><i class="fa fa-check"></i><b>12.4</b> Building an MVM for the MVP</a></li>
+<li class="chapter" data-level="12.5" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#improving-the-product"><i class="fa fa-check"></i><b>12.5</b> Improving the Product</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#interactivity"><i class="fa fa-check"></i><b>12.5.1</b> Interactivity</a></li>
+<li class="chapter" data-level="12.5.2" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#changing-the-model"><i class="fa fa-check"></i><b>12.5.2</b> Changing the Model</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#productionising-the-interactive-model"><i class="fa fa-check"></i><b>12.6</b> Productionising the Interactive Model</a></li>
+<li class="chapter" data-level="12.7" data-path="case-study-building-the-valuecheck.html"><a href="case-study-building-the-valuecheck.html#thank-you"><i class="fa fa-check"></i><b>12.7</b> Thank You!</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Agile Data Science with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="case-study-building-the-valuecheck" class="section level1">
+<h1><span class="header-section-number">12</span> Case Study: Building the <em>Valuecheck</em></h1>
+<p>My current employer <a href="https://www.funda.nl/">funda</a> is the market place for selling and buying homes in the Netherlands.
+A long standing company wish was to use the data of recent house sales for predicting the current value of all houses in the Netherlands.
+We knew that home owners used the asking prices of neighboring houses published on <em>funda</em> to keep track of local market trends.
+We wanted to facilitate them to translate the recent sale prices in an official estimate of their specific house.
+They no longer had to look at the houses that are offered, our statistical model had already done that.
+Moreover, they did no longer had to make the translation of offered houses to their own house informally, the model determined which characteristics of a house mattered and which did not.
+A final advantage was that we could use of the selling prices instead of the asking prices, these are not shown on the website.
+So the product reflected what their house could be sold for, instead of what the typical asking price of their home was.</p>
+<p>To create what eventually would become the <em>Valuecheck</em>, a colleague data scientist and I joined an existing Scrum team.
+This team comprised of two back end developers, a front end developer, a UX designer, and a product owner.</p>
+<div id="trying-scrum" class="section level2">
+<h2><span class="header-section-number">12.1</span> Trying Scrum</h2>
+<p>The team had a lot of experience with Scrum and had all the workflows in place, so it made sense to try to fit our tasks into this framework.
+At first this worked out quite well, because the first set of tasks we had to complete were essentially software tasks.
+Setting up a server, build a first query so we had a modelling set, splitting into train and test, and doing some data cleaning.
+These tasks were well scopeable, we could estimate the time we needed to complete them quite accurately and they had a clear definition of done.
+Then the model building started and we got more and more trouble fitting the tasks into the tight Scrum methodology.
+We could not tell what the model would like in two weeks time, it depended on the relationships we would find in the data.
+We certainly could not give estimates for what the model quality would be then.</p>
+</div>
+<div id="informing-the-business" class="section level2">
+<h2><span class="header-section-number">12.2</span> Informing the Business</h2>
+<p>Our product owner informed management about the progress of both the product and the model.
+In consultation with them he decided how we would roll out the product.
+We had to provide him with the information required to make such a decision.
+A <em>Shiny</em> dashboard appeared to be the way to go.
+In this dashboard we could show the basic model performance, reflected in an agreed-upon statistic.
+Moreover, the regional performance was shown on a map, making it clear where the model was performing well and where it was doing poorly.
+After a model update, the data frame with cross-validated scores underlying the dashboard was replaced to show the new situation.</p>
+</div>
+<div id="moving-to-kanban" class="section level2">
+<h2><span class="header-section-number">12.3</span> Moving to Kanban</h2>
+<p>Having scopeable tasks is essential for building proper Scrum sprints.
+As a team you have to commit to what you are going to complete in the upcoming two weeks.
+No longer being able to do that, we could not really be part of the Scrum rhythm anymore.
+We found the alternative in moving the data science tasks to a separate Kanban board, stepping out of the Scrum cycles.
+The circular nature of data science, as discussed in Chapter 5, does not lend itself well for tight planning.
+We started with a Kanban board with six lanes <em>to do</em> - <em>test hypothesis</em> - <em>code review hypothesis</em> - <em>update model</em> - <em>code review update model</em> - <em>done</em>.
+This reflected a full cycle of researching a hypothesis and updating the software.
+It worked quite well, however, a portion of the tasks did not reach the finish line, because the hypothesis tested appeared not to improve the model.
+This problem does not exist if the research part and the software part are split in separate tasks, the software task is only created if the research indicated the model could be improved.
+We never did this during this project, but this insight improved our workflow in subsequent projects.</p>
+</div>
+<div id="building-an-mvm-for-the-mvp" class="section level2">
+<h2><span class="header-section-number">12.4</span> Building an MVM for the MVP</h2>
+<p>Building a predictive model that is part of a dedicated product is both challenging and rewarding.
+Too often data science projects are initiated as a proof of concept, without a clear vision on how to implement if the prediction can be successfully done.
+Knowing from the start that the model is going to be used is very motivating.
+On the other hand, this means that you need constant alignment with the team that develops the product around the predictions.
+The houses offered for sale on <em>funda</em> have many characteristics filed, giving us a rich feature set to work with.
+However, as an MVP we wanted to present the users with an estimation, without them having to fill in all kinds of characteristics of their house.
+Developing a product from static house predictions is far less complex and time consuming than from a dynamic model with adjustable inputs, both from modelling and a software perspective.
+This implied that we could only use features that are freely available for every house in the Netherlands.
+Luckily, this was true for the two most important features, location and time.
+Also the surface area of the houses were available in a public database.
+From this we started to build our initial prediction models.
+First using a simple regression model to create a baseline.
+We have a preference for statistical models over machine learning algorithms, because they not only give us predictions, but also insight.
+However, we needed some decent predictions fast, and it was clear we needed to exploit some nonlinear relationships.
+We therefore used ensemble methods that gave superior predictions over regression models.</p>
+<p>Already it was decided, we would only release the MVP in geographical areas in which the MVM performed well enough.
+This is called a <em>soft launch</em>, release the product without giving it too much noise for a selected group.
+Even then we did not quite make the minimal performance goals we set ourselves.
+However, we could include a categorical feature and simply export the predictions for every level of the feature for every house, as long as there were not too many levels.
+The type of the house (apartment, one of several Dutch types of houses) appeared another crucial predictor.
+Finally, we wanted to show lower and upper bounds to a prediction, not only giving a point estimate.
+After some research we were able to this with random forests, that were trained on the desired quantiles.
+Predictions were exported in csv files, a front end and back end were built around these.
+Doing a prediction on the website was just a simple look-up.</p>
+</div>
+<div id="improving-the-product" class="section level2">
+<h2><span class="header-section-number">12.5</span> Improving the Product</h2>
+<p>From the start users could provide us with feedback, using a simple <em>thumbs up, thumbs down</em> and if they wished subsequent comments.
+Of course you want your work to be liked, but as I quickly learned, in this stage the best feedback is negative feedback.
+You know the product is barely good enough at this point in time, both from a software and a data science perspective.
+Negative feedback indicates people care about the product and it bothers them it does not fully meet their expectations.
+Moreover the feedback can point to directions that gives the biggest satisfaction jump when improved.
+If it appeared that the users did not care about the product in the first place, the project could be killed and little resource was wasted on it.
+Fortunately, users did care, so we went ahead and started improving.</p>
+<div id="interactivity" class="section level3">
+<h3><span class="header-section-number">12.5.1</span> Interactivity</h3>
+<p>Using an interactive model instead of the static MVM would improve the product in several ways.
+It enabled us to use features in the model that were not publicly available, the user could enter them.
+Also, we knew that the data on house surface area was not of consistent quality.
+Comparing them to the “real” data in our database for houses that were placed on our website indicated that they could be off in both directions.
+In fact, for the MVM we used a correction to predict the “real” surface area based on the public data.
+When the product changed to interactive, the user could correct the prefilled information if necessary.
+Finally, it improved transparency and user experience.
+Having an interactive product meant we had to bring the model to the product, not just the predictions.</p>
+</div>
+<div id="changing-the-model" class="section level3">
+<h3><span class="header-section-number">12.5.2</span> Changing the Model</h3>
+<p>From the start we saw the problem we were trying to solve would have a natural fit with Bayesian regression models.
+Price trends are hugely important in the housing market.
+With the <em>prior - posterior</em> structure of the Bayesian framework, we could easily update each month.
+Making time an implicit variable, rather than a feature we use for modelling.
+Secondly, we always wanted to give a lower and upper bound to the predictions, these are part of the posterior of Bayesian predictions.
+The only problem was, we did not have hands-on experience with Bayesian modelling, we just knew the theory behind it.
+After extensive discussion if we did not see another way of significantly improving the model, we decided to go for it.
+This was a gamble, because we needed a few weeks to refresh our knowledge and to get our feet wet with <em>Stan</em>.
+The modelling was basically placed on hold then.
+Fortunately, it paid off.
+After some experimenting we found a good model structure for our problem, improving the model especially at locations we did not do so well at before.
+Moreover, we could now start to add more features to the model.
+This improved both the accuracy of the predictions, the confidence bounds around our estimates shrunk, and improved user experience significantly.</p>
+</div>
+</div>
+<div id="productionising-the-interactive-model" class="section level2">
+<h2><span class="header-section-number">12.6</span> Productionising the Interactive Model</h2>
+<p>Up to this moment in my career, productionising data science products meant building a shiny dashboard to interact with results or exporting plain text files.
+My background is in statistics, not software engineering, I could not tell what was required to expose a model to the millions of visitors to our website.
+Luckily our data engineer could help.
+I (my data science colleague was working on a new project) exported the posteriors of the parameters in flat files.
+He built a python API that took the feature values as inputs and returned the lower and upper bounds and the point estimate for the requested house.
+Instead of me telling him how the model scoring should be done, I built the same functionality in R.
+He then copied that functionality to python and added his caching, load balancing and garbage collecting magic.</p>
+<p>Up until this point I am not sure if it is possible to create an R API that is up to the task.
+Sometimes it is argued by python evangelicals that you should only use python because you can do everything in one language.
+Doing it in R first and then in python causes double work, which is a waste.
+I beg to differ.
+First of all, the majority of the work did not have to be re-implemented, data prepping, model training and model updating are done on train data only.
+It is only the scoring module we implemented both in R and python, which is just a fraction of the entire R code base.
+Even this is not a waste, rather it served as double bookkeeping.
+A number of small bugs were caught because the python API did not return the exact same results as the R module.</p>
+</div>
+<div id="thank-you" class="section level2">
+<h2><span class="header-section-number">12.7</span> Thank You!</h2>
+<p>Building the <em>Valuecheck</em> was an amazing experience in which I learned so much. About working with Agile, about productionising software and about cooperating closely with a software engineering team. It has substantially changed my views on what it means to do data science. A major thanks for goes to Daniar, Oriol, Stephan, Rick, Sander, Riccardo, and Marco. You are awesome!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tldr.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
