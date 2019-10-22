@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Agile Methods | Agile Data Science with R</title>
+  <title>6 Code Organisation | Agile Data Science with R</title>
   <meta name="description" content="A workflow for doing data science in the R language, using Agile principles." />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Agile Methods | Agile Data Science with R" />
+  <meta property="og:title" content="6 Code Organisation | Agile Data Science with R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Agile Methods | Agile Data Science with R" />
+  <meta name="twitter:title" content="6 Code Organisation | Agile Data Science with R" />
   
   <meta name="twitter:description" content="A workflow for doing data science in the R language, using Agile principles." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="agile-in-a-nutshell.html"/>
-<link rel="next" href="agile-data-science.html"/>
+<link rel="prev" href="a-methodology-for-agile-data-science.html"/>
+<link rel="next" href="automation.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -231,88 +231,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="agile-methods" class="section level1">
-<h1><span class="header-section-number">3</span> Agile Methods</h1>
-<p>We learned that Agile is not so much a workflow or a method, but a philosophy that guides us when choices have to be made.
-Agile promotes being critical to strictly following a workflow, we should continuously monitor if the way we work is optimal for following the Agile values and principles.
-If this is not the case, the workflow should be adjusted.
-This does not mean there are no workflows related to Agile.
-In fact, a number of workflows were developed by the men (yes, no women were there) who drew up the Agile Manifesto.
-Following these workflows should make it more likely the team works in an Agile way.
-Here we look into the two best known workflows; Scrum and Kanban.</p>
-<div id="scrum" class="section level2">
-<h2><span class="header-section-number">3.1</span> Scrum</h2>
-<p>The most well-known and most-applied workflow is Scrum.
-Developed in the late eighties and early nineties it is a tried and tested methodology.
-Scrum works with sprints, set time units after which a shippable product should be ready.
-Most teams use two-week sprints, but they can also be shorter or longer.
-Teams are completely self-organising, they decide what they will do in the next sprint and how they will do it.
-Tasks to do are gathered on the product log, they are all formulated such that it is clear how they will add value to the product.
-These <strong>user stories</strong> take the form “As <em>role user</em> I would like to <em>action/functionality</em> such that I <em>benefit</em>”.
-Say that you run a website that sends out a newsletter to all its customers, but there is no option for opting out yet.
-The user story for creating such a functionality could then be “As a subscribed user I would like to be able to opt out for the newsletter such that I only receive information when I want to”.</p>
-<div id="scrum-roles" class="section level3">
-<h3><span class="header-section-number">3.1.1</span> Scrum Roles</h3>
-<p>The responsibility of the <strong>scrum master</strong> is making sure the team will make the sprint goals.
-To do so, she must have a watchful eye.
-If the sales manager wants something done and tries to persuade one of the developers at the coffee machine, he is kindly redirected to the product owner to get it on the back log.
-If some of the team members lack some necessary skills, she will make a plan with them how to acquire them.
-Also, she will be the organiser and facilitator of the different Scrum ceremonies.</p>
-<p>The <strong>product owner</strong> is responsible for what the product looks like.
-He monitors the needs and desires of the customer, so one of its key responsibilities is stakeholder management.
-He translates feature requests and improvement plans into user stories.
-Thereby he maintains the product log, ordering the stories in how important they are.</p>
-<p>Where the product owner decides what should be done, the <strong>team</strong> of developers decides how to do it.
-It is completely self-organising.
-At the beginning of each sprint it makes an assessment on which stories can be done in the upcoming sprint.
-Team members usually have different expertise, but the completion of the stories is the responsibility of the entire team.</p>
+<div id="code-organisation" class="section level1">
+<h1><span class="header-section-number">6</span> Code Organisation</h1>
+<p>Continuously delivering an updated product can only be achieved when the code is of high quality.
+Many data scientists, especially those who are drawn to R, have a background other than software development.
+Writing code is something we do to solve problems in our professional field, such as statistics, ecology, or actuary.
+The code is typically written interactively with the data.
+Write a few lines of code, run against the data set at hand, check if the results match expectations, write a few more lines of code.
+This approach might be fine for a quick explorative data analysis in which you write code to answer a few ad hoc questions.
+It does not work for large scale projects in which the data product should be reliable and stable, because this way of working results in low reproducibility and inflexibility towards new situations.</p>
+<p>Reproducibility is low because code is not developed as part of an end-to-end product.
+We could call it <em>random walk programming</em>, the next step is determined only by the current state of the code and data.
+Code developed this way only keeps working when upstream code and data stay exactly the same.
+The larger the project becomes the less likely this condition is met.
+You can say that we are <em>code overfitting</em> on the data.
+The code only works in a particular situation, as soon as there is a small change the code breaks.
+Oftentimes, this way of developing is combined with saving intermediate results, to prevent having to run all the code time and time again.
+Together they can be a reproducibility recipe for disaster.
+If the code never runs end-to-end, it can quickly become unclear which intermediate results are out of sync.
+We no longer know which reported results are obtained on which data set and if this was before or after some modifications to the code.
+Working in this way will create uncertainty, stress and an unreliable product.
+We cannot build an Agile workflow on such a basis.</p>
+<div id="using-the-r-package-structure" class="section level2">
+<h2><span class="header-section-number">6.1</span> Using the R Package Structure</h2>
+<p>To remedy this high stress, low reproducibility workflow we should turn to the best practices of software development.
+Rather than an endless exploration, the data product should be an integrated software package that works on all possible input data, is reliable and does not contain redundant code.
+Software development is not foreign to R, fortunately.
+It is provided in the package structure that enables users to store their own function and share them with others.
+(Although R has ample opportunities for doing object oriented programming, the <em>ADSwR</em> approach to code organisation is to build a data product that solely consists of functions.)
+Lower level functions are combined to form more complex operations.
+These operations are then chained together to create the end product.
+If your product has some kind of flow in it, such as the scoring of a machine learning model of turning last month’s data into a research report, you can apply the functions in a pipeline.
+In the subsequent chapters we will explore several aspects of building a high quality pipeline, that gives reproducible and reliable results.</p>
+<p>In the previous chapters it was concluded that the circular nature of explorative data analysis makes data science projects fundamentally different from ‘regular’ software design.
+Whereas the data product should be of high quality, exploration should be done quickly to indicate if we can advance the project by incorporating the results of the analysis.
+R packages have Vignettes, documents in which the package authors show how to use the package, such as <a href="https://cran.r-project.org/web/packages/padr/vignettes/padr.html">this one</a>.
+One of the ways of creating such a Vignette is by using Rmarkdown documents.
+These happen to be ideal for data exploration, combining code in the code blocks with comments and observations in the text around it.
+Because Vignettes are part of a package, all functions developed for the product are readily available for doing research as well.</p>
 </div>
-<div id="ceremonies" class="section level3">
-<h3><span class="header-section-number">3.1.2</span> Ceremonies</h3>
-<p>Four ceremonies (meetings) are part of the Scrum cycle.
-At the beginning of the sprint there is the <strong>sprint planning</strong>, in which the stories are scoped and the definition of done is determined.
-During the sprint there is at least one <strong>stand-up</strong> per day, in which team members quickly share what they are working on and what they need from each other.
-When the sprint is done the team organises a <strong>sprint review</strong> in which it presents to people who are not on the team what work was completed.
-Finally, there is the <strong>retrospective</strong>, in which the team discusses what went well during the last sprint and what can be improved.</p>
-</div>
-</div>
-<div id="kanban" class="section level2">
-<h2><span class="header-section-number">3.2</span> Kanban</h2>
-<p>Kanban is much lighter and less process heavy than Scrum.
-It does not work with fixed time units, such as the Scrum sprints, but it also aims to achieve a continuous flow.
-Just as with Scrum the tasks to do are formulated in user stories, but the commitment is just to one story at a time.
-Stories are gathered on a back log and are continuously ordered in importance.
-Each time a story is completed the most relevant or pressing story is started next.</p>
-<p>Central is the Kanban board, which can be physical or virtual, that at least has the columns <em>to do</em>, <em>doing</em>, and <em>done</em>, but can be tailored to the wishes of the team.
-Unlike Scrum there is no official role of Product Owner, still it can be useful to have someone handling the incoming requests.
-This can be a designated person or a team member who is also doing development work.
-The team should not focus on too many tasks at once, everything that is pulled from <em>to do</em> should be finished as quickly as possible.
-This assures that the focus is always at the most important task ahead and there is minimal multitasking.<br />
-A team can set a cap on the number of stories that can be in each column.</p>
-<p>The central metric is the amount of time it typically takes to complete a task, the <em>cycle time</em>.
-Effective Kanban teams have short cycle times, they are able to complete the tasks quickly.
-They can give estimates when work will be done with confidence.
-Just as with Scrum the entire team is responsible for completing a story, not just the “designated” person for the job.
-In order to have the tasks completed as quickly as possible team members might fulfill tasks now and then that are a little bit out of their comfort zone.</p>
-</div>
-<div id="scrum-vs-kanban" class="section level2">
-<h2><span class="header-section-number">3.3</span> Scrum vs Kanban</h2>
-<p>The highly structured Scrum and the lightweight Kanban are two workflows that could make a team work more according to the Agile principles.
-They both aim for continuous shipping of working software instead of working towards one major release.
-They also both give focus on the part you are working on right now, Scrum by fixing the stories that are done in the sprint, while Kanban limits the number of stories that the team is working on.
-But there are also some remarkable differences.
-In Scrum the team commits to the stories it selected to do this sprint and the building has to be on fire before it will take on work that is not in the sprint. Kanban only prescribes to limit the number of stories that are in work in progress, finish what you start first then start something new.
-However, for the story to be done next everything can change at any moment.
-Scrum is quite heavy on the ceremonies, while Kanban does not prescribe recurrent meetings.</p>
-<p>Both methodologies are applied with great success and it’s important to keep in mind that they are a means to an end, not religions.
-The Agile values and principles should be the primary guideline and when selecting one of the workflows you do so because it is the best way to work in an Agile way in the team’s situation.
-The team should decide for itself what is the best way of working and should monitor if the choice is still the best as the situation changes.
-In general, however, it makes more sense to use Scrum when a team is working on the completion of a project, whereas the flexibility of Kanban is best suited for a service team that is dealing with a lot of incoming requests.</p>
-<p>Sources:</p>
-<p><a href="https://www.youtube.com/watch?v=2Vt7Ik8Ublw" class="uri">https://www.youtube.com/watch?v=2Vt7Ik8Ublw</a>
-<a href="https://agilescrumgroup.nl/product-owner-rol-taken/" class="uri">https://agilescrumgroup.nl/product-owner-rol-taken/</a>
-<a href="https://www.atlassian.com/agile/kanban/" class="uri">https://www.atlassian.com/agile/kanban/</a>
-<a href="https://agileknowhow.com/2018/03/01/do-we-need-a-product-owner-with-kanban/" class="uri">https://agileknowhow.com/2018/03/01/do-we-need-a-product-owner-with-kanban/</a></p>
+<div id="further-reading" class="section level2">
+<h2><span class="header-section-number">6.2</span> Further Reading</h2>
+<p>Doing Agile Data Science with R relies on a good understanding of the R package structure. Hadley Wickham wrote a comprehensive book on developing software in R packages. It is freely available online, <a href="http://r-pkgs.had.co.nz/">here</a>. You should read it!</p>
+<p>(It was brought to my attention that an updated version, co-authored with Jenny Bryan, will be released soon. You find it here <a href="https://r-pkgs.org/" class="uri">https://r-pkgs.org/</a>)</p>
 
 </div>
 </div>
@@ -321,8 +282,8 @@ In general, however, it makes more sense to use Scrum when a team is working on 
           </div>
         </div>
       </div>
-<a href="agile-in-a-nutshell.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="agile-data-science.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="a-methodology-for-agile-data-science.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="automation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
