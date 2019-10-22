@@ -1,6 +1,6 @@
 # (PART) ...with R {-}
 
-# Code Organsation
+# Code Organisation
 
 Continuously delivering an updated product can only be achieved when the code is of high quality. 
 Many data scientists, especially those who are drawn to R, have a background other than software development. 
