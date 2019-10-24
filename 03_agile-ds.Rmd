@@ -8,7 +8,7 @@ In data science, as far as I am aware of, there are no such formal methodologies
 However, there are [many data science projects that do not deliver](https://venturebeat.com/2019/07/19/why-do-87-of-data-science-projects-never-make-it-into-production/).
 Ineffective workflow is by no means the only cause of this, but I am convinced it is one of the main culprits.
 Just like software development in Waterfall, data science projects can take many months or even years before the results are productionised.
-Apparently, more often then not the plug is pulled before this stage is reached. 
+Apparently, more often than not the plug is pulled before this stage is reached. 
 Data science is especially susceptible of what I call *local optimisation*.
 The data scientist might optimise endlessly to give the best predictions possible or have all the envisioned dashboard functionalities in place, before sharing the results.
 As a result, stakeholders might lose interest and confidence in the successful completion of the project.
