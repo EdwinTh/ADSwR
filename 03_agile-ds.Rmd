@@ -93,7 +93,8 @@ Finally, you might need to involve a person with technical knowledge of the data
 This principle is the antithesis of Waterfall in optima forma. 
 Instead of meticulously describing how the job should be done, just set the goals of the projects and leave it up to the team how these goals are attained. 
 Data scientists typically already enjoy this type of freedom for the sheer reason that stakeholders don't really understand how the products are built. 
-It can happen that business people get overly involved in the process, they can have a strong opinion on which predictors should be used or how the target should be defined or what the best way is to visualise something in a dashboard. 
+Business people can get overly involved. 
+They might have strong opinions on which predictors should be used, how the target should be defined, or what the best way is to visualise something in a dashboard.
 Take their advice at heart but also trust your instincts. 
 If you feel a different approach will yield better results then rely on your expertise. 
 You know about overfitting, multicollinearity, non-converging algorithms, theory behind data visualisation and many other topics the business has no intuition for. 
