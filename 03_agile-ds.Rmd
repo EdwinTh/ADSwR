@@ -191,5 +191,5 @@ After this lengthy point-by-point exploration let me wrap-up to what I think is 
 
 Deploy products as early as possible, don't lose yourself in endless explorations.
 Update the product continuously, instead of saving everything until some deadline is near.
-Hold high standards for all the code used by the product, also if it doesn't get shipped with the product.
+Hold high standards for all the code used by the product, even if it doesn't get shipped with the product.
 Have stakeholders, colleagues and customers closely involved the whole way, don't retreat.
