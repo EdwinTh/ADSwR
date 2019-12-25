@@ -52,15 +52,15 @@ The second part is hands on. We will explore how we can leverage the possibiliti
 
 ## Limitations
 
-Data science projects can greatly differ from each other. 
-There are so many variables that make projects unique; its goal, its type (deriving insights, machine learning, building as dashboard), the data quality, and the expertise of the data scientist(s). 
-This implies that there are necessarily aspects of data science projects experienced by others that I am not aware of. 
-In this text I am relating my own experiences to the theory and best practises of Agile software development to come up with a general workflow. 
+Data science projects can differ greatly from one another. 
+There are so many variables that make projects unique; their goals, their type (deriving insights, machine learning, building as dashboard), the data quality, and the expertise of the data scientist(s). 
+This implies that by necessity aspects of data science projects experienced by others that I am not familiar with. 
+In this text I am relating my own experiences to the theory and best practices of Agile software development to come up with a general workflow. 
 This means that I am probably "overfitting" the workflow on the dozen or so large data science projects I have done. 
 If you feel that what I write is not broadly applicable, or if you think there are topics overlooked, please file an [issue](https://github.com/EdwinTh/ADSwR). 
 
 This text is meant to be a living thing with the objective of documenting a workflow that yields optimal reproducibility, quick shipping of results and high quality code. 
-The more people share their best practises, the closer we get to this objective. 
+The more people share their best practices, the closer we get to this objective. 
 Please follow along on this journey and get involved! 
 Finally, I am not a native English speaker so fixed typos and style improvements are greatly appreciated.
 
