@@ -21,7 +21,7 @@ Happy debugging!
 
 I think the product should only contain code what is used in the current version. 
 This also implies that we should not do versioning within the code.
-Something I have done a lot in the passed and also seen with other data scientists.
+This is something I have done a lot in the past and also seen with other data scientists.
 Whether versioned or not, you might be inclined to leave old versions of a product, such as a meta-function to call a model or to create a report, in place.
 Rather than versioning in your code, use the version control system.
 Keep your code base clean and as small as possible.

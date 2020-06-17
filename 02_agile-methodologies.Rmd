@@ -11,14 +11,14 @@ Here we look into the two best known workflows; Scrum and Kanban.
 ## Scrum
 
 The most well-known and most-applied workflow is Scrum. 
-Developed in the late eighties and early nineties it is a tried and tested methodology. 
+Developed in the late eighties and early nineties, it is a tried and tested methodology. 
 Scrum works with sprints, set time units after which a shippable product should be ready. 
 Most teams use two-week sprints, but they can also be shorter or longer. 
 Teams are completely self-organising, they decide what they will do in the next sprint and how they will do it. 
-Tasks to do are gathered on the product log, they are all formulated such that it is clear how they will add value to the product. 
-These **user stories** take the form "As *role user* I would like to *action/functionality* such that I *benefit*". 
+Tasks to do are gathered on the product log, they are all formulated in a way that it is clear how they will add value to the product. 
+These **user stories** take the form "As *role user*, I would like to *action/functionality*, such that I *benefit*". 
 Say that you run a website that sends out a newsletter to all its customers, but there is no option for opting out yet. 
-The user story for creating such a functionality could then be "As a subscribed user I would like to be able to opt out for the newsletter such that I only receive information when I want to". 
+The user story for creating such a functionality could then be "As a subscribed user, I would like to be able to opt out from the newsletter, such that I only receive information when I want to". 
 
 ### Scrum Roles
 
@@ -26,61 +26,63 @@ The responsibility of the **scrum master** is making sure the team will make the
 To do so, she must have a watchful eye. 
 If the sales manager wants something done and tries to persuade one of the developers at the coffee machine, he is kindly redirected to the product owner to get it on the back log. 
 If some of the team members lack some necessary skills, she will make a plan with them how to acquire them. 
-Also, she will be the organiser and facilitator of the different Scrum ceremonies. 
+Also, she will be the organiser and facilitator of the different Scrum meetings (called ceremonies). 
 
 The **product owner** is responsible for what the product looks like. 
-He monitors the needs and desires of the customer, so one of its key responsibilities is stakeholder management. 
+He monitors the needs and desires of the customer, so one of his key responsibilities is stakeholder management. 
 He translates feature requests and improvement plans into user stories. 
-Thereby he maintains the product log, ordering the stories in how important they are.
+Thereby he maintains the product log, ordering the stories by importance.
 
-Where the product owner decides what should be done, the **team** of developers decides how to do it. 
+Where the product owner decides what should be done, the **team** of developers (and possibly other specialists) decides how to do it. 
 It is completely self-organising. 
-At the beginning of each sprint it makes an assessment on which stories can be done in the upcoming sprint. 
-Team members usually have different expertise, but the completion of the stories is the responsibility of the entire team. 
+At the beginning of each sprint the team makes an assessment of which stories can be done in the upcoming sprint. 
+Team members usually have different specialties, but the completion of the stories is the responsibility of the entire team. 
 
 ### Ceremonies
 
 Four ceremonies (meetings) are part of the Scrum cycle. 
 At the beginning of the sprint there is the **sprint planning**, in which the stories are scoped and the definition of done is determined. 
 During the sprint there is at least one **stand-up** per day, in which team members quickly share what they are working on and what they need from each other. 
-When the sprint is done the team organises a **sprint review** in which it presents to people who are not on the team what work was completed. 
+When the sprint is done, the team organises a **sprint review** in which it presents to people who are not on the team what work has been completed. 
 Finally, there is the **retrospective**, in which the team discusses what went well during the last sprint and what can be improved. 
 
 ## Kanban
 
-Kanban is much lighter and less process heavy than Scrum. 
-It does not work with fixed time units, such as the Scrum sprints, but it also aims to achieve a continuous flow. 
-Just as with Scrum the tasks to do are formulated in user stories, but the commitment is just to one story at a time. 
+Kanban is much lighter and less process-heavy than Scrum. 
+It does not work with fixed time units, but like Scrum, it aims to achieve a continuous flow. 
+Just as in Scrum the tasks to do are formulated in user stories, but the commitment is just to one story at a time. 
 Stories are gathered on a back log and are continuously ordered in importance. 
 Each time a story is completed the most relevant or pressing story is started next. 
 
-Central is the Kanban board, which can be physical or virtual, that at least has the columns *to do*, *doing*, and *done*, but can be tailored to the wishes of the team. 
-Unlike Scrum there is no official role of Product Owner, still it can be useful to have someone handling the incoming requests. 
+Central is the Kanban board, which can be physical or virtual, and has at least has the following columns: *to do*, *doing*, and *done*.
+This can be tailored to the wishes and needs of the team. 
+Unlike Scrum, there is no official role of Product Owner, although it can still be useful to have someone handling the incoming requests. 
 This can be a designated person or a team member who is also doing development work. 
-The team should not focus on too many tasks at once, everything that is pulled from *to do* should be finished as quickly as possible. 
-This assures that the focus is always at the most important task ahead and there is minimal multitasking.  
+The team should not focus on too many tasks at once; everything that is pulled from *to do* should be finished as quickly as possible. 
+This ensures that the focus is always at the most important task ahead and there is minimal multitasking.  
 A team can set a cap on the number of stories that can be in each column.
 
 The central metric is the amount of time it typically takes to complete a task, the *cycle time*. 
-Effective Kanban teams have short cycle times, they are able to complete the tasks quickly. 
-They can give estimates when work will be done with confidence. 
-Just as with Scrum the entire team is responsible for completing a story, not just the "designated" person for the job. 
-In order to have the tasks completed as quickly as possible team members might fulfill tasks now and then that are a little bit out of their comfort zone.
+Effective Kanban teams have short cycle times, they are able to complete tasks quickly. 
+Short cycle time enables the team to give time estimates for when work will be completed with confidence.
+Just as in Scrum, the entire team is responsible for completing a story, not just the "designated" person for the job. 
+In order to have the tasks completed as quickly as possible, team members might fulfill tasks now and then that are a little bit out of their comfort zone.
 
 ## Scrum vs Kanban
 
-The highly structured Scrum and the lightweight Kanban are two workflows that could make a team work more according to the Agile principles. 
+The highly structured Scrum and the lightweight Kanban are two workflows that make it more likely a team follows the Agile principles.
 They both aim for continuous shipping of working software instead of working towards one major release. 
-They also both give focus on the part you are working on right now, Scrum by fixing the stories that are done in the sprint, while Kanban limits the number of stories that the team is working on. 
+They also focus on the part you are working on right now, Scrum by fixing the stories that are done in the sprint, while Kanban limits the number of stories that the team is working on. 
 But there are also some remarkable differences. 
-In Scrum the team commits to the stories it selected to do this sprint and the building has to be on fire before it will take on work that is not in the sprint. Kanban only prescribes to limit the number of stories that are in work in progress, finish what you start first then start something new. 
+In Scrum the team commits to the stories it selected to complete in this sprint and the building has to be on fire before it will take on work that is not in the sprint.
+Kanban only prescribes a limit to the number of stories that are in progress, finish what you start first then start something new. 
 However, for the story to be done next everything can change at any moment. 
-Scrum is quite heavy on the ceremonies, while Kanban does not prescribe recurrent meetings.
+Scrum is quite heavy on the ceremonies, while Kanban does not enforce recurrent meetings.
 
 Both methodologies are applied with great success and it's important to keep in mind that they are a means to an end, not religions. 
-The Agile values and principles should be the primary guideline and when selecting one of the workflows you do so because it is the best way to work in an Agile way in the team's situation. 
-The team should decide for itself what is the best way of working and should monitor if the choice is still the best as the situation changes. 
-In general, however, it makes more sense to use Scrum when a team is working on the completion of a project, whereas the flexibility of Kanban is best suited for a service team that is dealing with a lot of incoming requests.
+The Agile values and principles should be the primary guideline and when selecting one of the workflows you do so because it is the best way to work in an Agile way because its the best fit for the given situation. 
+The team should decide for itself what is the best way of working and should monitor if the choice is still the best as the situation develops. 
+However, in general it makes more sense to use Scrum when a team is working on the completion of a project, whereas the flexibility of Kanban is best suited for a service team that is dealing with a lot of incoming requests.
 
 Sources: 
 
